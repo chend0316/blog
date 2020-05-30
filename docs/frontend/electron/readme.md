@@ -25,3 +25,29 @@
 - 搞清哪些代码运行在主进程、哪些运行在渲染进程
 - 对进程间icp通信有个基本认识
 
+## Electron进程间通信
+见`labs/ipc`，该实验包括：
+- 创建2个BrowserWindow，这会对应2个渲染进程，可以打开任务管理器检查
+- 主进程中通过global变量存储`webContents.id`
+- 渲染进程中通过`remote.getGlobal()`接口获取global变量中的属性
+- 渲染进程之间通过`ipcRenderer.sendTo()`接口进行通信
+
+在Chromium架构中，我们使用`RenderProcess`和`RenderProcessHost`进行通信。
+
+而在Electron中，我们也有对应的`ipcRenderer`和`ipcMain`。它们本质都是`EventEmitter`实例。
+
+渲染进程向主进程通信：
+- `ipcRenderer.send()`和`ipcMain.on()`配合使用
+- `ipcRenderer.invoke()`和`ipcMain.handle()`配合使用
+
+主进程向渲染进程通信：
+- 在`ipcMain.on(event, ...)`中，可以通过`event.reply()`
+- 在`ipcMain.handle()`中，通过返回一个`Promise`对象
+
+注意主进程向渲染进程发送消息的时候，Electron需要通过`webContents`对象区分发给哪一个渲染进程，在`ipcMain.on(event, ...)`中可以通过`event.sender`拿到对应的`webContents`。通过`webContents.send()`向渲染进程发消息，为了简化Electron还提供了`event.reply()`实现同样的功能（敲更少的代码）。
+
+页面间通信（渲染进程之间通信）：
+- Electron 5之前，通过主进程转发
+- Electron 5之后，可以通过`ipcRenderer.sendTo()`
+- localStorage、sessionStorage
+- remote

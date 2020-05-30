@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "start": "electron ./index.js"
+  },
+  "devDependencies": {
+    "electron": "^9.0.0"
+  }
+}

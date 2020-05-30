@@ -1,0 +1,16 @@
+<html>
+<doby>
+  <h1>window 1</h1>
+  <input />
+  <button>给window2发送消息</button>
+  <script>
+    const { remote, ipcRenderer } = require('electron')
+    document.querySelector('button').onclick = () => {
+      const msg = document.querySelector('input').value
+      const id = remote.getGlobal('win2Id')
+      ipcRenderer.sendTo(id, 'msg', msg)
+    }
+  </script>
+</doby>
+
+</html>
