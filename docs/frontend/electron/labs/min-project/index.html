@@ -1,0 +1,33 @@
+<html>
+
+<body>
+  <input type="text" id="msg1">
+  <button id="btn1">通过ipcRenderer.invoke发送</button>
+  <p>接收到的消息：</p>
+  <p id="receivedMsg1"></p>
+
+  <input type="text" id="msg2">
+  <button id="btn2">通过ipcRenderer.send发送</button>
+  <p>接收到的消息：</p>
+  <p id="receivedMsg2"></p>
+</body>
+<script>
+  const { ipcRenderer } = require('electron')
+
+  let msgElm1 = document.querySelector('#msg1')
+  document.querySelector('#btn1').addEventListener('click', () => {
+    ipcRenderer.invoke('msg-by-invoke', msgElm1.value).then((msg) => {
+      document.querySelector('#receivedMsg1').innerText = msg
+    })
+  })
+
+  let msgElm2 = document.querySelector('#msg2')
+  document.querySelector('#btn2').addEventListener('click', () => {
+    ipcRenderer.send('msg-to-main', msgElm2.value)
+    ipcRenderer.once('msg-to-renderer', (event, msg) => {
+      document.querySelector('#receivedMsg2').innerText = msg
+    })
+  })
+</script>
+
+</html>

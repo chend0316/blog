@@ -19,3 +19,9 @@
 
 ![](./img/chromium-electron.png)
 
+## Electron最小工程
+实验代码见`labs/min-project`，目的是：
+- 了解Electron应用基本结构
+- 搞清哪些代码运行在主进程、哪些运行在渲染进程
+- 对进程间icp通信有个基本认识
+
