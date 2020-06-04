@@ -120,7 +120,7 @@ hello email
 ```
 
 其中main.cc关键代码如下：
-``` cxx
+``` cpp
 // 将我们的编译器关联到cli
 // 参考谷歌官方文档：
 // https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.compiler.command_line_interface
@@ -140,7 +140,7 @@ int main(int argc, char* argv[]) {
 ```
 
 hi_generator.cc关键代码如下，读者只需要关注`FileDescriptor`参数和`io::Printer`变量：
-``` cxx
+``` cpp
 // FileDescriptor就是语法树，参考：
 // https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.descriptor
 bool HiGenerator::Generate(const FileDescriptor* file,
