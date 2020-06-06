@@ -82,3 +82,16 @@ function add(a: any, b: any): any {
 let n: number
 n = add('a', 'b')  // 这里不会报错
 ```
+
+## 面向对象：类
+
+ES6已经引入了面向对象的语法，TS的类总体上是ES6的超集。
+
+在ES6/TS中，类属性是实例属性而不是原型属性，类方法是实例方法而不是原型方法。
+
+TS增加的特性：
+
+- 成员修饰符：private、protected、public、static
+- 可以给构造函数使用成员修饰符，使用protected实现虚基类
+- 可以直接对构造函数的参数使用成员修饰符，省去了在类中的定义
+- 支持抽象类
