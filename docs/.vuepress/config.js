@@ -55,6 +55,12 @@ module.exports = {
             collapsable: false,
             children: [
             ]
+          },
+          {
+            title: '工具',
+            children: [
+              { title: 'NPM', path: '/frontend/tool/npm' },
+            ]
           }
         ]
       },

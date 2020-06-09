@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <div v-if="!controlRemote">
+      <h1>你的控制码是: {{localCode}}</h1>
+      <input v-model="remoteCode"></input>
+      <button @click="handleButtonClick">控制</button>
+    </div>
+    <div v-else>
+      <h1>你正在控制{{remoteCode}}</h1>
+    </div>
+  </div>
+  <script src="./home.js"></script>
+</body>
+</html>
