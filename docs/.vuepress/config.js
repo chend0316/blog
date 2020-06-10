@@ -1,6 +1,7 @@
 module.exports = {
   title: '陈东的技术博客',
   description: '',
+  base: '/',
   themeConfig: {
     nav: [],
     sidebarDepth: 4,
@@ -20,6 +21,7 @@ module.exports = {
         title: '力扣算法刷题',
         collapsable: false,
         children: [
+          { title: '刷题路线', path: '/algorithm/roadmap' },
           {
             title: '算法专题',
             children: [
@@ -42,12 +44,6 @@ module.exports = {
             // path: '/frontend/vue/',
             children: [
               { title: '从零开始搭建Vue环境', path: '/frontend/vue/vue-setup/' },
-              {
-                title: 'Vue代码测试',
-                children: [
-                  { title: '对Vue组件进行单元测试', path: '/frontend/vue/unit-test/' },
-                ]
-              },
             ]
           },
           {
