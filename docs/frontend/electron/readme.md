@@ -13,11 +13,13 @@
 
 在渲染进程中libuv实现message bump比较简单。但是在主进程内，由于各个操作系统的GUI都不一样，Mac是NSRunLoop、Linux是glib，所以工程量很大而且各种边界情况都处理不好。
 
-后来作者（todo: 此处作者指谁？）尝试用一个小间隔定时器轮询GUI事件，但是这样界面响应特别慢、CPU特别高。
-
 后来libuv引入了backend_fd的概念，相当于是libuv轮询事件的文件描述符。通过轮询backend_fd可以知道libuv的一个新事件。这样就可以实现将Node.js集成到Chromium。
 
 ![](./img/chromium-electron.png)
+
+其它方案：
+- 用一个小间隔定时器轮询GUI事件，但是这样界面响应特别慢、CPU特别高
+- 让Node运行在单独的进程，通过IPC和Chromium通信，这就需要将函数参数、返回值序列化成字符串才能通过IPC传输，问题是指针/引用的地址难以序列化
 
 ## Electron最小工程
 实验代码见`labs/min-project`，目的是：
