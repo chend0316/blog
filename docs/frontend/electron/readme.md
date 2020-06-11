@@ -7,11 +7,9 @@
 
 ![](./img/electron-arch.png)
 
-技术难点：Node.js事件循环基于libuv，但Chromium基于message bump，而一个线程在同一时间只能运行一个事件循环。有两种思路来实现二者整合：
-- 将Chromium集成到Node.js，即用libuv实现message bump，Node Webkit就是基于这个方案的
-- 将Node.js集成到Chromium，这是Electron的做法
+技术难点：Node.js事件循环基于libuv，但Chromium基于message bump，而一个线程在同一时间只能运行一个事件循环。
 
-在渲染进程中libuv实现message bump比较简单。但是在主进程内，由于各个操作系统的GUI都不一样，Mac是NSRunLoop、Linux是glib，所以工程量很大而且各种边界情况都处理不好。
+一开始，Electron是用libuv来实现message bump，在渲染进程中libuv实现message bump比较简单。但是在主进程内，由于各个操作系统的GUI都不一样，Mac是NSRunLoop、Linux是glib，所以工程量很大而且各种边界情况都处理不好。
 
 后来libuv引入了backend_fd的概念，相当于是libuv轮询事件的文件描述符。通过轮询backend_fd可以知道libuv的一个新事件。这样就可以实现将Node.js集成到Chromium。
 
@@ -84,3 +82,15 @@ Electron在主进程中通过`BrowserWindow.loadFile`或`BrowserWindow.loadURL`�
 首先通过执行内层package.json的命令启动Vue项目。等待Vue启动成功后，新开一个控制台，执行外层package.json的命令启动Electron。
 
 这样就需要打开2个控制台，敲2个命令，而且还有顺序要求。如果你嫌每次这样做很麻烦，那么可以借助[wait-on](https://www.npmjs.com/package/wait-on)和[concurrently](https://www.npmjs.com/package/concurrently)，让命令自动化程度更高一些。
+
+## 额外阅读材料
+
+架构实现：
+
+- [【译】探索NW.js和Electron的内部(一)](https://zhuanlan.zhihu.com/p/34276309)
+- [【译】探索NW.js和Electron的内部(二)](https://zhuanlan.zhihu.com/p/34336363)
+
+- [【译】探索NW.js和Electron的内部(三)](https://zhuanlan.zhihu.com/p/34404999)
+
+- [【译+源码分析】Electron内部：整合 Message Loop](https://zhuanlan.zhihu.com/p/34544004)
+

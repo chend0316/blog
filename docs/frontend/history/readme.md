@@ -17,6 +17,19 @@
 
 2009年，Ryan Dahl基于V8引擎，将非阻塞式IO和JS整合，发明了Node.js。
 
+## 浏览器内核的发展
+1998年11月，KDE社区开发了KHTML，它是从khtmlw的基础上fork出来的，做了一些小重构、支持Unicode、支持Qt。
+
+1999年5月~10月，Mozilla的开源让KHTML不得不进行改进。8月16日，KHTML实现了W3C DOM规范，这改变了内部的文档表示方式，KHTML几乎整个被重写。10月，KHTML整合了KJS（KDE开发的JavaScript引擎）。
+
+2000年3月，KHTML基本完成了对CSS的支持。
+
+2001年6月，苹果公司开始开发Webkit，fork自KHTML项目和KJS项目，并分别改名为WebCore和JavaScriptCore。由于两个项目的开发目的不同（Webkit是为苹果的产品服务的），二者代码相互合并的工作越来越困难，而且两边开发人员的关系也闹过矛盾，最终两个项目独立了。
+
+2005年，苹果开源Webkit。除了苹果自己的Safari在用Webkit，谷歌的Chrome也使用了Webkit。但谷歌只用到了其中的WebCore部分，谷歌有自己的V8引擎和多进程系统。
+
+2013年4月，谷歌宣布从Webkit的WebCore组件fork出了一个项目，叫做Blink。
+
 ## Electron的发展历史
 2008年Chrome和Chromium诞生，2009年Node.js诞生。
 
