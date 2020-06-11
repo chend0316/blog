@@ -57,7 +57,7 @@ module.exports = {
             children: [
               { title: 'NPM', path: '/frontend/tool/npm' },
             ]
-          }
+          },
         ]
       },
       {
@@ -81,6 +81,10 @@ module.exports = {
           },
           { title: '编译原理', path: '/cs/compile/' },
         ]
+      },
+      {
+        title: '经典书籍',
+        path: '/book',
       }
     ]
   }
