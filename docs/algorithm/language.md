@@ -17,3 +17,31 @@
 在Java中没有无符号数的概念，所以一律采用算术右移。如果想用逻辑右移，则需要通过3个大于号来实现：`a >>> 1`。
 
 Python没有逻辑右移的运算，遇到位运算的题目要注意。
+
+## 数据结构
+
+### 字典
+
+字典有两种实现：Hash Map、Tree Map。
+
+前者是用Hash表实现的，优点是O(1)时间复杂度。后者是用二叉搜索树实现的，优点是有序。
+
+Python中只有hashmap：`m = {key: value}`
+
+Java有`HashMap`和`TreeMap`两个类。
+
+C++中有`std::unordered_map`和`std::map`两个类。
+
+C#中有`Dictionary<TKey, TValue>`、`HashTable`、`StringDictionary`、`SortedDictionary`
+
+### 集合
+
+集合有两种实现：Hash Set、Tree Set。同字典。
+
+Python中只有hashset：`m = {1, 2, 3}`
+
+Java有`HashSet和`TreeSet`两个类。
+
+C++中有`std::unordered_set`和`std::set`两个类。
+
+C#中有`HashSet`和`SortedSet`两个类。
