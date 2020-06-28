@@ -44,44 +44,6 @@
 
 ## 参考代码
 
-### 50
-
-```python
-def myPow(self, x: float, n: int) -> float:
-    if n == 0: return 1
-    if n == 1: return x
-    if n < 0: return 1 / myPow(x, -n)
-    return myPow(x*x, n//2) * myPow(x, n%2)
-
-# 迭代
-def myPow(self, x: float, n: int) -> float:
-    if n < 0:
-        x = 1 / x
-        n = -n
-    res = 1
-    while n > 0:
-        if n & 1:
-            res *= x
-            n -= 1
-        else:
-            x *= x
-            n <<= 1
-    return res
-
-# 迭代
-def myPow(self, x: float, n: int) -> float:
-    if n < 0:
-        x = 1 / x
-        n = -n
-    res = 1
-    while n > 0:
-        if n & 1:
-            res *= x
-        x *= x
-        n >>= 1
-    return res
-```
-
 ### 98
 
 ```java
@@ -91,23 +53,6 @@ public boolean isValid(TreeNode root, Integer min, Integer max) {
     if (max != null && root.val >= max) return false;
     return isValid(root.left, min, root.val) && isValid(root.right, root.val, max);
 }
-```
-
-```python
-def isValidBST(self, root):
-    self.pre = None
-    return self.helper(root)
-
-def helper(self, root):
-    if root is None: return True
-    if not self.helper(root.left):
-        return False
-    if self.pre is not None and root.val <= self.pre.val:
-        return False
-    self.pre = root.val
-    if not self.helper(root.right):
-        return False
-    return True
 ```
 
 ### 102

@@ -37,7 +37,7 @@ module.exports = {
         title: '前端',
         collapsable: false,
         children: [
-          { title: '发展史', path: '/frontend/history/' },
+          { title: '发展史', path: '/frontend/history' },
           {
             title: 'Vue',
             collapsable: false,
