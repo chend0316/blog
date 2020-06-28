@@ -21,16 +21,16 @@ module.exports = {
         title: '力扣算法刷题',
         collapsable: false,
         children: [
-          { title: '刷题路线', path: '/algorithm/roadmap' },
+          { title: '刷题路线', path: '/leetcode/roadmap' },
           {
             title: '算法专题',
             children: [
-              { title: '最优连续子串', path: '/algorithm/substr' },
-              { title: '二分法查找', path: '/algorithm/binsearch' },
-              { title: '滑动窗口法', path: '/algorithm/sliding-window' },
+              { title: '最优连续子串', path: '/leetcode/substr' },
+              { title: '二分法查找', path: '/leetcode/binsearch' },
+              { title: '滑动窗口法', path: '/leetcode/sliding-window' },
             ]
           },
-          { title: '语言差异', path: '/algorithm/language' }
+          { title: '语言差异', path: '/leetcode/language' }
         ]
       },
       {
@@ -52,10 +52,13 @@ module.exports = {
             children: [
             ]
           },
+          { title: 'CSS', path: '/frontend/css/' },
           {
             title: '工具',
             children: [
               { title: 'NPM', path: '/frontend/tool/npm' },
+              { title: 'Babel', path: '/frontend/tool/babel' },
+              { title: '单元测试', path: '/frontend/tool/unittest' },
             ]
           },
         ]
@@ -71,7 +74,7 @@ module.exports = {
       {
         title: '专业基础四大件',
         children: [
-          { title: '数据结构与算法', path: '/cs/dsc/' },
+          { title: '数据结构与算法', path: '/cs/dsa/' },
           { title: '操作系统', path: '/cs/os/' },
           {
             title: '计算机网络', path: '/cs/network/',

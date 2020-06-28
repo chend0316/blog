@@ -89,8 +89,6 @@ Electron在主进程中通过`BrowserWindow.loadFile`或`BrowserWindow.loadURL`�
 
 - [【译】探索NW.js和Electron的内部(一)](https://zhuanlan.zhihu.com/p/34276309)
 - [【译】探索NW.js和Electron的内部(二)](https://zhuanlan.zhihu.com/p/34336363)
-
 - [【译】探索NW.js和Electron的内部(三)](https://zhuanlan.zhihu.com/p/34404999)
-
 - [【译+源码分析】Electron内部：整合 Message Loop](https://zhuanlan.zhihu.com/p/34544004)
 
