@@ -33,6 +33,17 @@
 - [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)，经典面试题，除了用BFS竟然还能用DFS做
 - [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
 - [111. 二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/)
+- [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/)，看起来不像，但其实是DFS+剪枝
+
+### 剪枝
+
+剪枝分为两种：
+- 根据局部状态能确定答案就在某个分支，而剪去其它分支
+- 根据局部状态只能确定答案最有可能在某个分支，优先遍历这个分支
+
+题目：
+- [51. N皇后](https://leetcode-cn.com/problems/n-queens/)，判断是否要剪枝的逻辑可以遍历棋盘判断，或通过行列的和/差判断
+- [52. N皇后 II](https://leetcode-cn.com/problems/n-queens-ii/)
 
 ### 其它
 
