@@ -44,6 +44,8 @@
 题目：
 - [51. N皇后](https://leetcode-cn.com/problems/n-queens/)，判断是否要剪枝的逻辑可以遍历棋盘判断，或通过行列的和/差判断
 - [52. N皇后 II](https://leetcode-cn.com/problems/n-queens-ii/)
+- [36. 有效的数独](https://leetcode-cn.com/problems/valid-sudoku/)
+- [37. 解数独](https://leetcode-cn.com/problems/sudoku-solver/)
 
 ### 其它
 
