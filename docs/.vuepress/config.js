@@ -30,7 +30,7 @@ module.exports = {
               { title: '滑动窗口法', path: '/leetcode/sliding-window' },
             ]
           },
-          { title: '语言差异', path: '/leetcode/language' }
+          { title: '语言差异', path: '/leetcode/lang-diff' }
         ]
       },
       {
