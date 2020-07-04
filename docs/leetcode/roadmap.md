@@ -1,5 +1,21 @@
+# 知识点和刷题路线
+
+## 算法知识点介绍
+
+搜索分为DFS、BFS，这两个算法都是有模板的，一定要把模板背下来。DFS最自然的是用递归实现，DFS改为迭代实现的意义并不大，BFS天生就是迭代实现的。在实现上，DFS会借助递归实现，BFS会借助队列实现。
+
+DFS需要开辟一个集合`visited = set()`记录访问过的节点，也可以将节点修改为特殊值表示访问过，BFS天生就没有重复访问的问题。
+
+DFS每轮遍历都可以知道节点的层次信息，只需要将`level`作为递归参数传入。BFS算法经过改造也可以知道层次信息，见[力扣102](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)。
+
+对于搜索问题，使用DFS是一种暴力算法，而剪枝是一种暴力优化。剪枝概念和代码模板都很简单，但剪枝的方法需要具体问题具体设计，深蓝下国际象棋就是将剪枝发挥到了极致。例如「N皇后问题」中，不同的剪枝策略在效率、代码优雅方面差别极大，好的剪枝策略很难被想出来。再比如「单词搜索」就需要借助Trie数据结构进行剪枝。剪枝算法的时间复杂度通常难以分析。
+
+DP算法虽然入门较难，但代码模板固定，一旦熟练掌握就没什么大问题。DP算法的模板一定要背下来。
+
+二分查找法看似简单，但正确写出二分查找法是很不容易的。往往结合在各种问题中，如果基础不扎实，很容易写出死循环并阻碍解题思路。二分法虽然有模板，但不是很好用，因为二分法的模板不止一个，需要具体问题具体套用。有的题目要找具体的值，有的要[找模糊值](https://leetcode-cn.com/problems/sqrtx/)，有的要找2个值（求中位数），有的要找[命中的最左边的元素](https://leetcode-cn.com/problems/first-bad-version/)，也有[很难的综合题](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)。
 
 ## 面试通关40讲
+
 ### 链表
 - [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/)
 - [24. 两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
@@ -34,8 +50,10 @@
 - [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
 - [111. 二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/)
 - [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/)，看起来不像，但其实是DFS+剪枝
+- [36. 有效的数独](https://leetcode-cn.com/problems/valid-sudoku/)
+- [37. 解数独](https://leetcode-cn.com/problems/sudoku-solver/)
 
-### 剪枝
+### 剪枝、回溯
 
 剪枝分为两种：
 - 根据局部状态能确定答案就在某个分支，而剪去其它分支
@@ -46,6 +64,13 @@
 - [52. N皇后 II](https://leetcode-cn.com/problems/n-queens-ii/)
 - [36. 有效的数独](https://leetcode-cn.com/problems/valid-sudoku/)
 - [37. 解数独](https://leetcode-cn.com/problems/sudoku-solver/)
+- [79. 单词搜索](https://leetcode-cn.com/problems/word-search/)
+- [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/)，利用Trie高效剪枝
+
+### Trie
+
+- [79. 单词搜索](https://leetcode-cn.com/problems/word-search/)
+- [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/)，官方题解中有基于Python字典迭代构造Trie的算法，然后用`$`字符表示单词末尾
 
 ### 其它
 
@@ -56,3 +81,8 @@
 ## 经典综合题
 
 [15. 三数之和](https://leetcode-cn.com/problems/3sum/submissions/)，这题考虑到最优复杂度比较大，所以可以先排序，然后是一道双指针的题目。
+
+## 手写数据结构
+
+### BST、BBST
+
