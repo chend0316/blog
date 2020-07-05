@@ -72,6 +72,21 @@ DP算法虽然入门较难，但代码模板固定，一旦熟练掌握就没什
 - [79. 单词搜索](https://leetcode-cn.com/problems/word-search/)
 - [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/)，官方题解中有基于Python字典迭代构造Trie的算法，然后用`$`字符表示单词末尾
 
+## DP
+
+- [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)
+- [120. 三角形最小路径和](https://leetcode-cn.com/problems/triangle/)
+- [152. 乘积最大子数组](https://leetcode-cn.com/problems/maximum-product-subarray/)
+- [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/)
+- [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)
+- [123. 买卖股票的最佳时机 III](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/)
+- [188. 买卖股票的最佳时机 IV](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/)
+- [309. 最佳买卖股票时机含冷冻期](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)
+- [714. 买卖股票的最佳时机含手续费](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)
+- [300. 最长上升子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)
+- [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/)
+- [72. 编辑距离](https://leetcode-cn.com/problems/edit-distance/)
+
 ### 其它
 
 - [242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/)，
