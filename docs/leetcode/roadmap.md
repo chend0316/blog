@@ -87,6 +87,11 @@ DP算法的代码模板固定，模板一定要背下来。解题分两步：定
 - [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/)
 - [72. 编辑距离](https://leetcode-cn.com/problems/edit-distance/)
 
+## 并查集
+
+- [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/)
+- [547. 朋友圈](https://leetcode-cn.com/problems/friend-circles/)
+
 ### 其它
 
 - [242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/)，

@@ -8,10 +8,19 @@ module.exports = {
     sidebar: [
       {
         title: '编程语言',
-        path: '/language',
         sidebarDepth: 2,
         collapsable: false,
         children: [
+          { title: '语言理论', path: '/language/theory' },
+          { title: '语言发展史', path: '/language/history' },
+          {
+            title: 'C',
+            children: [
+              { title: '小实验：编译、链接', path: '/language/c/lab-compile-link' }
+            ]
+          },
+          { title: 'Golang', path: '/language/golang/' },
+          { title: 'C++', path: '/language/cpp/' },
           { title: 'TypeScript', path: '/language/typescript/' },
           { title: 'JavaScript(ES5)', path: '/language/javascript/' },
           { title: 'JavaScript(ES6)', path: '/language/es6/' },
