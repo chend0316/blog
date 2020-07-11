@@ -1,4 +1,11 @@
-# 知识点和刷题路线
+# 刷题路线和指南
+注意算法学习光看、光听是远远不够的。一定要花大量时间动手去练，练完之后还需要：
+- 能够用笔在纸上手写
+- 能够跟别人讲清楚自己的思路
+
+许多人认为面试要求手写代码都是在耍流氓，这是一个非常大的误区。
+
+这里列出的题目全是经典题，每一道都要反复刷。
 
 ## 算法知识点介绍
 
@@ -15,8 +22,9 @@ DP算法的代码模板固定，模板一定要背下来。解题分两步：定
 二分查找法看似简单，但正确写出二分查找法是很不容易的。往往结合在各种问题中，如果基础不扎实，很容易写出死循环并阻碍解题思路。二分法虽然有模板，但不是很好用，因为二分法的模板不止一个，需要具体问题具体套用。有的题目要找具体的值，有的要[找模糊值](https://leetcode-cn.com/problems/sqrtx/)，有的要找2个值（求中位数），有的要找[命中的最左边的元素](https://leetcode-cn.com/problems/first-bad-version/)，也有[很难的综合题](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)。
 
 ## 经典题
-
 ### 链表
+链表的题算法思路都比较简单，但代码实现上细节很容易出错，对代码功力的要求比较高。如果不能顺利写出来，一定要刻意练习，直到自己能在白板上手写。
+
 - [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/)
 - [24. 两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
 - [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
@@ -24,12 +32,15 @@ DP算法的代码模板固定，模板一定要背下来。解题分两步：定
 - [25. K 个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/)
 
 ### 栈、队列
+栈和队列的题都很简单，只要掌握各个语言内置的栈、队列即可。
+
 - [844. 比较含退格的字符串](https://leetcode-cn.com/problems/backspace-string-compare/)
-- [225. 用队列实现栈](https://leetcode-cn.com/problems/implement-stack-using-queues)
+- [225. 用队列实现栈](https://leetcode-cn.com/problems/implement-stack-using-queues/)
 - [232. 用栈实现队列](https://leetcode-cn.com/problems/implement-queue-using-stacks/)
 - [20. 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/)
 
 ### 堆（优先级队列）
+堆分为大顶堆、小顶堆，需要掌握各编程语言内置的堆。此外要小心Python只支持小顶堆不支持大顶堆。
 
 - [703. 数据流中的第K大元素](https://leetcode-cn.com/problems/kth-largest-element-in-a-stream/)，
 - [239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/)，这题除了用大顶堆，还有一个线性时间的算法；
@@ -41,12 +52,13 @@ DP算法的代码模板固定，模板一定要背下来。解题分两步：定
 - [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/)
 
 ### 贪心法
+对于局部最优解能推导出全局最优解的问题，可以用贪心法。但这是一个非常强的条件，能用贪心法的题目非常少。
 
 - [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)，力扣上股票问题是一系列问题，这题的特殊性刚好能用贪心，否则通解是用DP
 
 ### DFS、BFS
 
-- [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)，经典面试题，除了用BFS竟然还能用DFS做
+- [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)，非常经典的面试题，除了用BFS竟然还能用DFS做
 - [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
 - [111. 二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/)
 - [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/)，看起来不像，但其实是DFS+剪枝
@@ -68,6 +80,11 @@ DP算法的代码模板固定，模板一定要背下来。解题分两步：定
 - [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/)，利用Trie高效剪枝
 
 ### Trie
+Trie是一种新型数据结构：
+- 多数教材中都没有提到
+- 各个编程语言中也没有内置Trie
+
+由于Trie非常实用而且实现并不难，所以必须熟练到能在白板上手写这个数据结构。
 
 - [79. 单词搜索](https://leetcode-cn.com/problems/word-search/)
 - [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/)，官方题解中有基于Python字典迭代构造Trie的算法，然后用`$`字符表示单词末尾
@@ -89,6 +106,9 @@ DP算法的代码模板固定，模板一定要背下来。解题分两步：定
 
 ### 并查集
 
+经典并查集的实现不难，需要熟练到能在白板上手写。
+同二叉树很像，并查集的深度决定其优劣，所以并查集有2种优化办法：rank优化、路径压缩。
+
 - [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/)
 - [547. 朋友圈](https://leetcode-cn.com/problems/friend-circles/)
 
@@ -97,12 +117,4 @@ DP算法的代码模板固定，模板一定要背下来。解题分两步：定
 - [242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/)，
 - [50. Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)
 - [169. 多数元素](https://leetcode-cn.com/problems/majority-element/)
-
-### 综合题
-
-[15. 三数之和](https://leetcode-cn.com/problems/3sum/submissions/)，这题考虑到最优复杂度比较大，所以可以先排序，然后是一道双指针的题目。
-
-## 手写数据结构
-
-### BST、BBST
-
+- [15. 三数之和](https://leetcode-cn.com/problems/3sum/submissions/)，这题考虑到最优复杂度比较大，所以可以先排序，然后是一道双指针的题目。
