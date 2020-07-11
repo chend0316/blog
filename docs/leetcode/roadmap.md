@@ -14,7 +14,7 @@ DP算法的代码模板固定，模板一定要背下来。解题分两步：定
 
 二分查找法看似简单，但正确写出二分查找法是很不容易的。往往结合在各种问题中，如果基础不扎实，很容易写出死循环并阻碍解题思路。二分法虽然有模板，但不是很好用，因为二分法的模板不止一个，需要具体问题具体套用。有的题目要找具体的值，有的要[找模糊值](https://leetcode-cn.com/problems/sqrtx/)，有的要找2个值（求中位数），有的要找[命中的最左边的元素](https://leetcode-cn.com/problems/first-bad-version/)，也有[很难的综合题](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)。
 
-## 面试通关40讲
+## 经典题
 
 ### 链表
 - [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/)
@@ -72,7 +72,7 @@ DP算法的代码模板固定，模板一定要背下来。解题分两步：定
 - [79. 单词搜索](https://leetcode-cn.com/problems/word-search/)
 - [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/)，官方题解中有基于Python字典迭代构造Trie的算法，然后用`$`字符表示单词末尾
 
-## DP
+### DP
 
 - [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)
 - [120. 三角形最小路径和](https://leetcode-cn.com/problems/triangle/)
@@ -87,7 +87,7 @@ DP算法的代码模板固定，模板一定要背下来。解题分两步：定
 - [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/)
 - [72. 编辑距离](https://leetcode-cn.com/problems/edit-distance/)
 
-## 并查集
+### 并查集
 
 - [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/)
 - [547. 朋友圈](https://leetcode-cn.com/problems/friend-circles/)
@@ -98,7 +98,7 @@ DP算法的代码模板固定，模板一定要背下来。解题分两步：定
 - [50. Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)
 - [169. 多数元素](https://leetcode-cn.com/problems/majority-element/)
 
-## 经典综合题
+### 综合题
 
 [15. 三数之和](https://leetcode-cn.com/problems/3sum/submissions/)，这题考虑到最优复杂度比较大，所以可以先排序，然后是一道双指针的题目。
 

@@ -70,15 +70,7 @@ module.exports = {
             children: [
             ]
           },
-          { title: 'CSS', path: '/frontend/css/' },
-          {
-            title: '工具',
-            children: [
-              { title: 'NPM', path: '/frontend/tool/npm' },
-              { title: 'Babel', path: '/frontend/tool/babel' },
-              { title: '单元测试', path: '/frontend/tool/unittest' },
-            ]
-          },
+          // { title: 'CSS', path: '/frontend/css/' },
         ]
       },
       {
