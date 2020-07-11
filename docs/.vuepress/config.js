@@ -19,11 +19,15 @@ module.exports = {
               { title: '小实验：编译、链接', path: '/language/c/lab-compile-link' }
             ]
           },
-          { title: 'Golang', path: '/language/golang/' },
-          { title: 'C++', path: '/language/cpp/' },
+          {
+            title: 'C++',
+            path: '/language/cpp/',
+            children: [
+              { title: 'RAII', path: '/language/cpp/raii' }
+            ]
+          },
           { title: 'TypeScript', path: '/language/typescript/' },
-          { title: 'JavaScript(ES5)', path: '/language/javascript/' },
-          { title: 'JavaScript(ES6)', path: '/language/es6/' },
+          { title: 'JavaScript', path: '/language/javascript/' },
         ]
       },
       {
