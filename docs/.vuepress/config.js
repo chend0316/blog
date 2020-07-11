@@ -26,7 +26,12 @@ module.exports = {
               { title: 'RAII', path: '/language/cpp/raii' }
             ]
           },
-          { title: 'TypeScript', path: '/language/typescript/' },
+          {
+            title: 'TypeScript',
+            children: [
+              { title: 'TS类型检查机制', path: '/language/typescript/type-check' }
+            ]
+          },
           { title: 'JavaScript', path: '/language/javascript/' },
         ]
       },
