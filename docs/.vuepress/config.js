@@ -7,35 +7,6 @@ module.exports = {
     sidebarDepth: 4,
     sidebar: [
       {
-        title: '编程语言',
-        sidebarDepth: 2,
-        collapsable: false,
-        children: [
-          { title: '语言理论', path: '/language/theory' },
-          { title: '语言发展史', path: '/language/history' },
-          {
-            title: 'C',
-            children: [
-              { title: '小实验：编译、链接', path: '/language/c/lab-compile-link' }
-            ]
-          },
-          {
-            title: 'C++',
-            path: '/language/cpp/',
-            children: [
-              { title: 'RAII', path: '/language/cpp/raii' }
-            ]
-          },
-          {
-            title: 'TypeScript',
-            children: [
-              { title: 'TS类型检查机制', path: '/language/typescript/type-check' }
-            ]
-          },
-          { title: 'JavaScript', path: '/language/javascript/' },
-        ]
-      },
-      {
         title: '力扣算法刷题',
         collapsable: false,
         children: [
@@ -79,6 +50,35 @@ module.exports = {
         children: [
           { title: 'Cython入门教程', path: '/backend/cython/' },
           { title: 'Protobuf第三方扩展开发指南', path: '/backend/protobuf/' },
+        ]
+      },
+      {
+        title: '编程语言',
+        sidebarDepth: 2,
+        collapsable: false,
+        children: [
+          { title: '语言理论', path: '/language/theory' },
+          { title: '语言发展史', path: '/language/history' },
+          {
+            title: 'C',
+            children: [
+              { title: '小实验：编译、链接', path: '/language/c/lab-compile-link' }
+            ]
+          },
+          {
+            title: 'C++',
+            path: '/language/cpp/',
+            children: [
+              { title: 'RAII', path: '/language/cpp/raii' }
+            ]
+          },
+          {
+            title: 'TypeScript',
+            children: [
+              { title: 'TS类型检查机制', path: '/language/typescript/type-check' }
+            ]
+          },
+          { title: 'JavaScript', path: '/language/javascript/' },
         ]
       },
       {

@@ -21,7 +21,7 @@ DP算法的代码模板固定，模板一定要背下来。解题分两步：定
 
 二分查找法看似简单，但正确写出二分查找法是很不容易的。往往结合在各种问题中，如果基础不扎实，很容易写出死循环并阻碍解题思路。二分法虽然有模板，但不是很好用，因为二分法的模板不止一个，需要具体问题具体套用。有的题目要找具体的值，有的要[找模糊值](https://leetcode-cn.com/problems/sqrtx/)，有的要找2个值（求中位数），有的要找[命中的最左边的元素](https://leetcode-cn.com/problems/first-bad-version/)，也有[很难的综合题](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)。
 
-## 经典题
+## 基础入门
 ### 链表
 链表的题算法思路都比较简单，但代码实现上细节很容易出错，对代码功力的要求比较高。如果不能顺利写出来，一定要刻意练习，直到自己能在白板上手写。
 
@@ -31,6 +31,13 @@ DP算法的代码模板固定，模板一定要背下来。解题分两步：定
 - [142. 环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
 - [25. K 个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/)
 
+## 数据结构
+### 堆（优先级队列）
+堆分为大顶堆、小顶堆，需要掌握各编程语言内置的堆。此外要小心Python只支持小顶堆不支持大顶堆。
+
+- [703. 数据流中的第K大元素](https://leetcode-cn.com/problems/kth-largest-element-in-a-stream/)，
+- [239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/)，这题除了用大顶堆，还有一个线性时间的算法；
+
 ### 栈、队列
 栈和队列的题都很简单，只要掌握各个语言内置的栈、队列即可。
 
@@ -39,18 +46,31 @@ DP算法的代码模板固定，模板一定要背下来。解题分两步：定
 - [232. 用栈实现队列](https://leetcode-cn.com/problems/implement-queue-using-stacks/)
 - [20. 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/)
 
-### 堆（优先级队列）
-堆分为大顶堆、小顶堆，需要掌握各编程语言内置的堆。此外要小心Python只支持小顶堆不支持大顶堆。
-
-- [703. 数据流中的第K大元素](https://leetcode-cn.com/problems/kth-largest-element-in-a-stream/)，
-- [239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/)，这题除了用大顶堆，还有一个线性时间的算法；
-
 ### 树
 
 - [98. 验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/)
 - [235. 二叉搜索树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
 - [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/)
 
+### Trie
+Trie是一种新型数据结构：
+- 多数教材中都没有提到
+- 各个编程语言中也没有内置Trie
+
+由于Trie非常实用而且实现并不难，所以必须熟练到能在白板上手写这个数据结构。
+
+- [79. 单词搜索](https://leetcode-cn.com/problems/word-search/)
+- [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/)，官方题解中有基于Python字典迭代构造Trie的算法，然后用`$`字符表示单词末尾
+
+### 并查集
+
+经典并查集的实现不难，需要熟练到能在白板上手写。
+同二叉树很像，并查集的深度决定其优劣，所以并查集有2种优化办法：rank优化、路径压缩。
+
+- [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/)
+- [547. 朋友圈](https://leetcode-cn.com/problems/friend-circles/)
+
+## 算法
 ### 贪心法
 对于局部最优解能推导出全局最优解的问题，可以用贪心法。但这是一个非常强的条件，能用贪心法的题目非常少。
 
@@ -79,16 +99,6 @@ DP算法的代码模板固定，模板一定要背下来。解题分两步：定
 - [79. 单词搜索](https://leetcode-cn.com/problems/word-search/)
 - [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/)，利用Trie高效剪枝
 
-### Trie
-Trie是一种新型数据结构：
-- 多数教材中都没有提到
-- 各个编程语言中也没有内置Trie
-
-由于Trie非常实用而且实现并不难，所以必须熟练到能在白板上手写这个数据结构。
-
-- [79. 单词搜索](https://leetcode-cn.com/problems/word-search/)
-- [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/)，官方题解中有基于Python字典迭代构造Trie的算法，然后用`$`字符表示单词末尾
-
 ### DP
 
 - [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)
@@ -104,15 +114,7 @@ Trie是一种新型数据结构：
 - [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/)
 - [72. 编辑距离](https://leetcode-cn.com/problems/edit-distance/)
 
-### 并查集
-
-经典并查集的实现不难，需要熟练到能在白板上手写。
-同二叉树很像，并查集的深度决定其优劣，所以并查集有2种优化办法：rank优化、路径压缩。
-
-- [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/)
-- [547. 朋友圈](https://leetcode-cn.com/problems/friend-circles/)
-
-### 其它
+## 其它
 
 - [242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/)，
 - [50. Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)
