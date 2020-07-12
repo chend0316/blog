@@ -27,7 +27,7 @@ module.exports = {
         collapsable: false,
         children: [
           { title: '发展史', path: '/frontend/history' },
-          { title: '前端框架核心原理', patch: '/frontend/core' },
+          { title: '前端框架核心原理', path: '/frontend/core' },
           {
             title: 'Vue',
             collapsable: false,

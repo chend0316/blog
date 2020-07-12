@@ -23,10 +23,90 @@ React 将这个算法叫做 Diffing，Vue 将这个算法叫做 path。但这两
 - 删除节点
 - 移动节点
 
-一般人可能就会遍历一遍旧节点用哈希表存起来，再遍历一遍新节点判断是否已经存在哈希表中。这样做的时间复杂度是没问题的，但是空间复杂度也达到了 O(N)。
+一般人可能就会遍历一遍旧节点用哈希表存起来，再遍历一遍新节点判断是否已经存在哈希表中。这样做的时间复杂度是没问题的，但是空间复杂度达到了 O(N)。
 
-在 Vue 中实现的算法可以达到 O(1) 的空间复杂度。（PS：因为笔者只读过 Vue 源码，所以这里没有介绍 React 的实现，以后补上）
-
-如果感兴趣可以阅读：
+Vue 中实现的算法虽然最坏情况下也达到了 O(N) 的空间复杂度，但 Vue 针对 DOM 场景做了一些优化，让算法在大多情况下都能达到 O(1) 的空间复杂度。如果感兴趣可以阅读以下材料：
 - [剖析 Vue.js 内部运行机制](https://juejin.im/book/5a36661851882538e2259c0f)
-- Vue 源码中 `patch.js` 文件下的 `updateChildren()` 函数
+- Vue 源码中 `patch.js` 文件的 `updateChildren()` 函数
+
+## 状态管理框架
+
+### 前端开发所面临的挑战
+随着 JavaScript 单页应用开发日趋复杂，JavaScript 需要管理越来越多的 state。这些 state 可能包括服务器响应、缓存数据、本地生成尚未持久化到服务器的数据，也包括 UI 组件的状态（如routes, tabs, spinners, pagination等等）。
+
+这些 state 的关系越来越错综复杂，管理它们越来越困难。直至你搞不清楚 **state 在什么时候，由于什么原因，如何变化，想重现问题或者添加新功能就会变得举步维艰**。前端开发者正在面临前所未有的复杂性。
+
+Flux, CQRS, Event Sourcing, Redux, Vuex 这些状态管理框架做的事情就是让状态改变（state mutations）变得**可预测**。
+
+参考阅读：https://redux.js.org/introduction/motivation
+
+同时这些框架对 state 的操作做了限制，有些限制很严格而且反常识，但遵循这些限制会带来一些开发体验的改进：
+- 时间旅行（time travel）：可以回到过去的某个状态进行调试
+- 状态快照导入导出
+- 状态回放
+- 等等
+
+### Redux
+Redux 借鉴了 Flux，2015年由 [Dan Abramov](https://github.com/gaearon) 提出。二者很像，但在具体细节上有很大区别。后来 Dan 加入了 Facebook，Redux 也就成了 Facebook 官方提供的状态管理框架。
+
+Redux 的三大原则：
+- 单一数据源（Single source of truth）
+- 状态只可读不可写（State is read-only），state 是只读的不能直接修改，必须通过 dispatch 一个 action 进行修改
+- 只能通过纯函数修改状态（Changes are made with pure functions），action 会被发送给 reducer 处理，reducer 必须是纯函数
+
+所谓纯函数就是其返回值只依赖入参，不依赖全局变量/资源的函数。
+
+参考阅读：https://redux.js.org/introduction/three-principles
+
+![](./img/redux-arch.png)
+
+#### Action
+Action 是个普通的对象，如下 `dispatch` 中的参数就是 Action：
+```js
+store.dispatch({
+  type: 'COMPLETE_TODO',
+  index: 1
+})
+
+store.dispatch({
+  type: 'SET_VISIBILITY_FILTER',
+  filter: 'SHOW_COMPLETED'
+})
+```
+
+action 是一个普通 JS 对象，这其实比较反常识，但这样带来的好处是可以打印在 log 上、可以被序列化、储存，甚至可以在后期调试或测试时回放出来。
+
+#### Reducer
+Reducer 是纯函数，入参是 state 和 action，它需要返回一个新的 state。注意它不能直接修改 state 本身，哪怕只修改一个小字段也要构造并返回一个新的 state。一个简单的例子如下：
+```js
+function todos(state = [], action) {
+  switch (action.type) {
+    case 'ADD_TODO':
+      // 注意不能就地修改state
+      // 不能通过 state.push({ text: action.text, completed: false }) 来实现
+      return [
+        ...state,  // 必须拷贝一份新的
+        {
+          text: action.text,
+          completed: false
+        }
+      ]
+    case 'COMPLETE_TODO':
+      return state.map((todo, index) => {
+        if (index === action.index) {
+          return Object.assign({}, todo, {
+            completed: true
+          })
+        }
+        return todo
+      })
+    default:
+      return state
+  }
+}
+```
+
+我们规定 Reducer 不能就地修改 state，这点非常反人类，稍微有点编程经验的人都会知道这样会使用更多的内存，加重垃圾回收器的负担。针对这点 [Dan 做出了回应](https://github.com/reduxjs/redux/issues/328)。
+
+### Vuex
+
