@@ -27,6 +27,7 @@ module.exports = {
         collapsable: false,
         children: [
           { title: '发展史', path: '/frontend/history' },
+          { title: '前端框架核心原理', patch: '/frontend/core' },
           {
             title: 'Vue',
             collapsable: false,
@@ -41,6 +42,12 @@ module.exports = {
             children: [
             ]
           },
+          // {
+          //   title: 'Webpack', path: '/frontend/webpack/',
+          //   collapsable: false,
+          //   children: [
+          //   ]
+          // },
           // { title: 'CSS', path: '/frontend/css/' },
         ]
       },
@@ -67,7 +74,6 @@ module.exports = {
           },
           {
             title: 'C++',
-            path: '/language/cpp/',
             children: [
               { title: 'RAII', path: '/language/cpp/raii' }
             ]

@@ -29,11 +29,11 @@ void foo() {
 ```
 
 ## C++ 栈展开（stack unwinding）
-C++ 里有一个 POD 类型（Plain Old Data），表示的是简单的类型，如：int、float等。
+C++ 里有一个 POD 类型（Plain Old Data）的概念，表示的是简单的类型，如：int、float等。
 
 对于 POD 类型，栈帧弹出后栈空间会自动被销毁，这样的机制决定了栈天生就没有内存泄漏的问题。
 
-然而对于有构造和析构函数的非 POD 类型，并不是只需要释放了栈内存就够了，还需要调用构造函数。对此，C++ 编译器会在代码的合适位置，调用构造和析构函数。确保所有函数出口（函数return、函数抛出异常）都会调用析构函数，我们把这叫栈展开。
+然而对于有构造和析构函数的非 POD 类型，并不是只需要释放了栈内存就够了，还需要调用析构函数。对此，C++ 编译器会在代码的合适位置，调用构造和析构函数。确保所有函数出口（函数return、函数抛出异常）都会调用析构函数，我们把这叫栈展开。
 
 下面是一段简短的代码，可以演示栈展开：
 
@@ -85,11 +85,9 @@ RAII (Resource Acquisition Is Initialization) 是 C++ 所特有的资源管理�
 RAII 依托栈和析构函数，来管理所有的资源（甚至包括堆内存）。因为 RAII 的存在，所以在 C++ 中垃圾收集并不流行。
 
 C++ 支持将对象存储在栈上面。但是，在很多情况下，对象不能，或不应该，存储在栈上。比如：
-
 - 对象很大；
 - 对象的大小在编译时不能确定；
 - 对象是函数的返回值，但由于特殊的原因，不应使用对象的值返回。
-
 
 常见情况之一是，在工厂方法或其他面向对象编程的情况下，返回值类型是基类。下面的例子，是对工厂方法的简单演示：
 
@@ -174,25 +172,4 @@ void some_func() {
 }
 ```
 
-顺便说一句，上面的 shape_wrapper 差不多就是个最简单的智能指针了。至于完整的智能指针，我们留到下一讲继续学习。
-
-## 内容小结
-
-本讲我们讨论了 C++ 里内存管理的一些基本概念，强调栈是 C++ 里最“自然”的内存使用方式，并且，使用基于栈和析构函数的 RAII，可以有效地对包括堆内存在内的系统资源进行统一管理。
-
-## 参考资料
-
-[1] Wikipedia, “Memory management”. https://en.wikipedia.org/wiki/Memory_management
-
-[2] Wikipedia, “Stack-based memory allocation”. https://en.wikipedia.org/wiki/Stack-based_memory_allocation
-
-[3] Wikipedia, “Resource acquisition is initialization”. https://en.wikipedia.org/wiki/RAII
-
-[3a] 维基百科, “RAII”. https://zh.wikipedia.org/zh-cn/RAII
-
-[4] Wikipedia, “Call stack”. https://en.wikipedia.org/wiki/Call_stack
-
-[5] Wikipedia, “Object slicing”. https://en.wikipedia.org/wiki/Object_slicing
-
-[6] Stack Overflow, “Why does the stack address grow towards decreasing memory addresses?” https://stackoverflow.com/questions/4560720/why-does-the-stack-address-grow-towards-decreasing-memory-addresses
-
+顺便说一句，上面的 shape_wrapper 差不多就是个最简单的智能指针了。

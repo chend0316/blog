@@ -63,9 +63,9 @@ Trie是一种新型数据结构：
 - [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/)，官方题解中有基于Python字典迭代构造Trie的算法，然后用`$`字符表示单词末尾
 
 ### 并查集
+并查集也是一种新型数据结构，教材中很少提，各语言也没有内置。
 
-经典并查集的实现不难，需要熟练到能在白板上手写。
-同二叉树很像，并查集的深度决定其优劣，所以并查集有2种优化办法：rank优化、路径压缩。
+经典并查集的实现不难，需要熟练到能在白板上手写。并查集的深度决定其优劣，所以并查集有2种优化办法：rank优化、路径压缩。
 
 - [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/)
 - [547. 朋友圈](https://leetcode-cn.com/problems/friend-circles/)
@@ -119,4 +119,4 @@ Trie是一种新型数据结构：
 - [242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/)，
 - [50. Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)
 - [169. 多数元素](https://leetcode-cn.com/problems/majority-element/)
-- [15. 三数之和](https://leetcode-cn.com/problems/3sum/submissions/)，这题考虑到最优复杂度比较大，所以可以先排序，然后是一道双指针的题目。
+- [15. 三数之和](https://leetcode-cn.com/problems/3sum/submissions/)，这题考虑到最优复杂度比较大，所以可以先排序，然后是一道双指针的题目。这题虽然没用到高深的算法，但很难写，对算法基本功要求很高。因为这题有许多变种，所以务必认真理解本题的编程技巧，不要死背答案。
