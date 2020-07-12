@@ -30,6 +30,7 @@ Vue 中实现的算法虽然最坏情况下也达到了 O(N) 的空间复杂度�
 - Vue 源码中 `patch.js` 文件的 `updateChildren()` 函数
 
 ## 状态管理框架
+![](./img/store.png)
 
 ### 前端开发所面临的挑战
 随着 JavaScript 单页应用开发日趋复杂，JavaScript 需要管理越来越多的 state。这些 state 可能包括服务器响应、缓存数据、本地生成尚未持久化到服务器的数据，也包括 UI 组件的状态（如routes, tabs, spinners, pagination等等）。
@@ -109,4 +110,4 @@ function todos(state = [], action) {
 我们规定 Reducer 不能就地修改 state，这点非常反人类，稍微有点编程经验的人都会知道这样会使用更多的内存，加重垃圾回收器的负担。针对这点 [Dan 做出了回应](https://github.com/reduxjs/redux/issues/328)。
 
 ### Vuex
-
+TODO
