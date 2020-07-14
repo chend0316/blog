@@ -172,7 +172,7 @@ bool HiGenerator::Generate(const FileDescriptor* file,
 运行后可以看到生成了这个文件**./test/test/person.txt**，打开来看看效果。
 
 #### 2.1.5 proto语法树对应的C++接口
-![proto语法树（C++）](https://upload-images.jianshu.io/upload_images/14066340-bfb87389bd445695.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![proto语法树（C++）](./img/2-0.png)
 
 #### 2.1.6 参考资料
 
