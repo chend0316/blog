@@ -3,8 +3,10 @@ module.exports = {
   description: '',
   base: '/',
   themeConfig: {
-    // repo: 'chend0316/blog',
-    // editLinks: true,
+    repo: 'chend0316/blog',
+    editLinks: true,
+    docsDir: 'docs',
+    editLinkText: '编辑此页面',
     lastUpdated: '最后编辑',
     nextLinks: false,
     prevLinks: false,
