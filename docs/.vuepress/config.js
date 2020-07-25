@@ -42,7 +42,7 @@ module.exports = {
         'ds-lib',
       ],
       '/frontend/vue/': [
-        'vue-setup'
+        'vue-setup/'
       ],
       '/frontend/': [
         'history',
@@ -64,10 +64,10 @@ module.exports = {
         // 'javascript/',
       ],
       '/cs/': [
-        'dsa',
-        'os',
-        'network',
-        'compile',
+        'dsa/',
+        'os/',
+        'network/',
+        'compile/',
       ],
       '/': [
         '',
