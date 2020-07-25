@@ -9,7 +9,12 @@ module.exports = {
     nav: [
       {
         text: '力扣刷题',
-        link: '/leetcode/roadmap',
+        items: [
+          { text: '基础入门', link: '/leetcode/roadmap' },
+          { text: '专题总结', link: '/leetcode/topic' },
+          { text: '语言差异', link: '/leetcode/lang-diff' },
+          { text: '语言内置数据结构', link: '/leetcode/ds-lib' },
+        ]
       },
       {
         text: '前端',
