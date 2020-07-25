@@ -3,6 +3,8 @@ module.exports = {
   description: '',
   base: '/',
   themeConfig: {
+    // repo: 'chend0316/blog',
+    // editLinks: true,
     lastUpdated: '最后编辑',
     nextLinks: false,
     prevLinks: false,
@@ -13,12 +15,18 @@ module.exports = {
           { text: '基础入门', link: '/leetcode/roadmap' },
           { text: '专题总结', link: '/leetcode/topic' },
           { text: '语言差异', link: '/leetcode/lang-diff' },
-          { text: '语言内置数据结构', link: '/leetcode/ds-lib' },
+          { text: '内置数据结构', link: '/leetcode/ds-lib' },
         ]
       },
       {
         text: '前端',
         link: '/frontend/history/',
+        items: [
+          { text: '发展史', link: '/frontend/history' },
+          { text: '框架核心原理', link: '/frontend/core' },
+          { text: 'Vue', link: '/frontend/vue/vue-setup' },
+          { text: 'Electron', link: '/frontend/electron/' },
+        ]
       },
       {
         text: '后端',
@@ -46,13 +54,16 @@ module.exports = {
         'lang-diff',
         'ds-lib',
       ],
-      '/frontend/vue/': [
-        'vue-setup/'
-      ],
       '/frontend/': [
         'history',
         'core',
-        'vue/',
+        {
+          title: 'Vue',
+          collapsable: false,
+          children: [
+            '/frontend/vue/vue-setup',
+          ]
+        },
         'electron/',
       ],
       '/backend/': [

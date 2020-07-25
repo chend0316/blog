@@ -10,7 +10,7 @@
 
 1995年，布兰登·艾克加入网景，他只用10天时间就创造了JavaScript的原型。他本来只是想做一个带有prototype的schema语言，但老板要求蹭Java的热度，所以JS强行加入了`new`、`this`的语法。这让JS变得很怪异，因此今天看来JavaScript有不少缺陷。
 
-1998年，Netscape被微软的IE击败，公司决定将代码开源，命名为Mozilla，见纪录片[《代码奔腾》](https://www.bilibili.com/video/av15989846/)。
+1998年，Netscape被微软的IE击败，公司决定将代码开源，命名为Mozilla，见纪录片[代码奔腾](https://www.bilibili.com/video/av15989846/)。
 
 2002年，在Netscape源码的基础上派生了火狐，火狐在安全、插件、开发调试方面都有巨大的贡献。
 
