@@ -1,14 +1,14 @@
 # 发展史
 ## 浏览器的发展
-1989年，Berners-Lee发明了万维网（World Wide Web）；在1990年，他写出了第一个浏览器（Nexus），但是这个浏览器不能显示图片。
+1989年，Berners-Lee发明了万维网 (World Wide Web) ；在1990年，他写出了第一个浏览器 (Nexus)，但是这个浏览器不能显示图片。
 
-1993年，NSCA研发了第一个能看图的浏览器（Mosaic）。
+1993年，NSCA研发了第一个能看图的浏览器 (Mosaic)。
 
 1994年，[吉姆·克拉克](https://en.wikipedia.org/wiki/James_H._Clark)和[马克·安德森](https://en.wikipedia.org/wiki/Marc_Andreessen)一起创建了网景公司，后者正是Mosaic的核心成员。
 
 网景公司一开始叫做Mozilla，直至今天它的`UserAgent`使用的仍然是Mozilla而不是Netscape。Mozilla浏览器迅速占领市场，以至于各个服务器都会去判断`User-Agent: Mozilla`，有趣的是其它厂商也把UA设置为Mozilla，以便能被服务器识别。
 
-1995年，布兰登·艾克加入网景，他只用10天时间就创造了JavaScript的原型。他本来只是想做一个带有prototype的schema语言，但老板要求蹭Java的热度，所以JS强行加入了`new`、`this`的语法。这让JS变得很怪异，因此今天看来JavaScript有不少缺陷。
+1995年，布兰登·艾克 (Brendan Eich) 加入网景，他只用10天时间就创造了JavaScript的原型。他本来只是想做一个带有prototype的schema语言，但老板要求蹭Java的热度，所以JS强行加入了`new`、`this`的语法。这让JS变得很怪异，因此今天看来JavaScript有不少缺陷。
 
 1998年，Netscape被微软的IE击败，公司决定将代码开源，命名为Mozilla，见纪录片[代码奔腾](https://www.bilibili.com/video/av15989846/)。
 

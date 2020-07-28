@@ -11,3 +11,5 @@ function add(a: number, b = 2, c: number, d = 4) {
 
 console.log(add(1, undefined, 3))  // 使用undefined来填充默认参数，而不是用null
 ```
+
+## 宏任务和微任务
