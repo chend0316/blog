@@ -1,20 +1,53 @@
 # 专题总结
-## 二叉树遍历
+## 遍历
+### 二叉树遍历
 [先序遍历](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/)由于是尾递归，所以很容易改成迭代。
 [中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)改迭代比较难，主要方法有颜色标记法、左臂下探法。
-[后序遍历](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/)改迭代更难。
+[后序遍历](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/)改迭代更难，我没研究。
 
 二叉树遍历改迭代感觉没啥意义，有精力还不如先练其它题目。
 
-## 层次遍历
+### 层次遍历
 
 传统的层次遍历不能将不同层的节点“分隔”开来，代码上可以用一个小技巧“分隔”。
 
 层次遍历分隔不同层的小技巧见[102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)，这个技巧掌握后是非常实用的。
 
-## 丑数
+### 暴力DFS
+[543. 二叉树的直径](https://leetcode-cn.com/problems/diameter-of-binary-tree/)除了暴力DFS还有更好的解法。
 
-这题练习的重点在于：用堆解法后如何分析出时空复杂度？
+[面试题 04.12. 求和路径](https://leetcode-cn.com/problems/paths-with-sum-lcci/)除了暴力DFS还有更好的解法，和[437. 路径总和 III](https://leetcode-cn.com/problems/path-sum-iii/)是同一题，代码如下：
+
+```java
+public class Solution {
+    public int pathSum(TreeNode root, int sum) {
+        if (root == null) return 0;
+        return pathSumFrom(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
+    }
+
+    private int pathSumFrom(TreeNode node, int sum) {
+        if (node == null) return 0;
+        int ret = 0;
+        if (node.val == sum) ret++;
+        return ret + pathSumFrom(node.left, sum - node.val) + pathSumFrom(node.right, sum - node.val);
+    }
+}
+```
+
+[1367. 二叉树中的列表](https://leetcode-cn.com/problems/linked-list-in-binary-tree/)的DP解法见[国际站](https://leetcode.com/problems/linked-list-in-binary-tree/discuss/524881/Python-Recursive-Solution-O(N)-Time)，下面给出暴力DFS的代码：
+
+```python
+def isSubPath(self, head, root):
+    def dfs(head, root):
+        if not head: return True
+        if not root: return False
+        if root.val != head.val: return False
+        return dfs(head.next, root.left) or dfs(head.next, root.right)
+    if not head: return True
+    if not root: return False
+    # 重点学习下面这行
+    return dfs(head, root) or self.isSubPath(head, root.left) or self.isSubPath(head, root.right)
+```
 
 ## TopK问题
 
@@ -28,10 +61,9 @@ K是什么？
 
 - K可以是整数，这最简单了，见[剑指 Offer 40. 最小的k个数](https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/)
 - K可以是出现的频率，见[347. 前 K 个高频元素](https://leetcode-cn.com/problems/top-k-frequent-elements/)、[692. 前K个高频单词](https://leetcode-cn.com/problems/top-k-frequent-words/)，可以构造`(freq, num)`的复合结构进行堆排序，这就需要内置的堆支持传入比较器了（各个语言有各自的办法）
-
 - K可以是其它东西，见[658. 找到 K 个最接近的元素](https://leetcode-cn.com/problems/find-k-closest-elements/)、[973. 最接近原点的 K 个点](https://leetcode-cn.com/problems/k-closest-points-to-origin/)
 
-### K是整数
+### 如果K是整数
 
 又分为大顶堆、小顶堆来解决，可以直接用内置的堆/优先级队列。
 
@@ -43,7 +75,7 @@ K是什么？
 
 方法三：谷歌搜「Python max heap」，其实Python也有办法支持大顶堆的
 
-### K是自定义结构
+### 如果K是自定义结构
 
 对于系统不认识的类型，还想要调用系统自带的函数，API风格有：
 
@@ -63,17 +95,17 @@ Java代码示例：略。
 
 对比来说，Python这种风格看起来很优雅，但适用面不广，比如[658. 找到 K 个最接近的元素](https://leetcode-cn.com/problems/find-k-closest-elements/)这题Python用堆来做就很难提取出key。
 
-## 二叉树最近公共祖先
+## 二叉树
 
-注意[这题](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/)节点只有left、right指针，没有parent指针。
+### 最近公共祖先
+
+注意[236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/)节点只有left、right指针，没有parent指针。
 
 题目特性：
 
 - 根节点一定是解，但不是最优解
 - 最优解存在且唯一
 - 必须掌握左右孩子信息后才能对当前节点做出决策，因此要用后序遍历
-
-### 后序遍历
 
 采用后序遍历会先遇到最优解，后遇到次优解，所以找到第一个解就可以停下来了。递归（不像迭代）是停不下来的，因此我们要避免次优解覆盖最优解的可能。
 
@@ -98,11 +130,39 @@ class Solution:
             return root
 ```
 
-### 存储父节点信息
+类似题目：
+- [235. 二叉搜索树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
+- 有没有多叉树中一组节点的公共祖先问题啊？
 
-对于动态类型语言（如Python），可以直接在原来的结构上增加parent字段。对于静态类型语言（如C++、Java）可以单独开一个Map记录节点和其父节点的映射。
+## 二分法查找
 
-代码，略。
+千万不要小瞧二分查找，一定要多练多背，面试前重点准备，二分查找和链表都很容易丢分。千万不要小瞧二分查找！
+
+在分类上，我个人分为：精确查找、模糊查找、开区间、闭区间、其它变种。
+
+传统的二分查找题目就是开区间+精确查找，是最容易的一类题，例如：
+- [367. 有效的完全平方数](https://leetcode-cn.com/problems/valid-perfect-square/)
+
+[278. 第一个错误的版本](https://leetcode-cn.com/problems/first-bad-version/)可以用左开右闭的二分查找来做：
+```python
+class Solution:
+    def firstBadVersion(self, n):
+        left, right = 1, n
+        while left < right:
+            m = (left + right) // 2
+            if isBadVersion(m):
+                right = m  # 右边是闭区间，因为 m 有可能是答案
+            else:
+                left = m + 1  # 左边是开区间，因为 m 不可能是答案
+        return left
+```
+
+[33. 搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/)是一个二分查找的变种，
+
+## 其它
+### 丑数
+
+这题练习的重点在于：用堆解法后如何分析出时空复杂度？
 
 ## 最优连续子串
 
@@ -128,16 +188,6 @@ class Solution:
 ### 力扣32. 最长有效括号
 这题的“先验知识”是数组，而且每次遍历都需要对“先验知识”进行“统筹优化”，因此比较难。
 
-## 二分法查找
-
-二分法看似很简单，但实现上是有很多坑的，而且常集成在其它算法中，必须当作喝水一样熟练掌握。
-在分类上，分为：精确查找、模糊查找、左开右闭、左闭右开。
-
-### 力扣278. 第一个错误的版本
-
-非常典型，同时涵盖了左闭右闭、左开右闭、左闭右开这3种情况。
-
-### 力扣367. 有效的完全平方数
 
 ## 滑动窗口
 滑动窗口和双指针一样，都是对暴力算法的优化，少枚举了很多区间。它在迭代的过程中维护L、R两个指针，每次迭代只会移动L或者R。
@@ -158,7 +208,3 @@ class Solution:
 ### LeetCode 424. 替换后的最长重复字符
 ### LeetCode 438. 找到字符串中所有字母异位词
 ### LeetCode 567. 字符串的排列
-
-## 分治法
-### 84. 柱状图中最大的矩形
-这题可以用分治法，但有更好的O(N)算法

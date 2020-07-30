@@ -22,7 +22,6 @@ module.exports = {
       },
       {
         text: '前端',
-        link: '/frontend/history/',
         items: [
           { text: '发展史', link: '/frontend/history' },
           { text: '框架核心原理', link: '/frontend/core' },
@@ -32,7 +31,7 @@ module.exports = {
       },
       {
         text: '后端',
-        link: '/backend/',
+        link: '/backend/cython/',
       },
       // {
       //   text: '编程语言',
