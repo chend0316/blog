@@ -2,7 +2,7 @@
 
 ## 浏览器的发展
 
-1989年，Berners-Lee发明了万维网 (World Wide Web) ；在1990年，他写出了第一个浏览器 (Nexus)，但是这个浏览器不能显示图片。
+1989年，Berners-Lee发明了万维网 (World Wide Web) ; 在1990年，他写出了第一个浏览器 (Nexus)，但是这个浏览器不能显示图片。
 
 1993年，NSCA研发了第一个能看图的浏览器 (Mosaic)。
 
@@ -24,11 +24,11 @@
 
 1998年11月，KDE社区开发了KHTML，它是从khtmlw的基础上fork出来的，做了一些小重构、支持Unicode、支持Qt。
 
-1999年5月~10月，Mozilla的开源给了KHTML很大的压力，KHTML不得不进行改进。8月16日，KHTML实现了W3C DOM规范，这改变了内部的document表示方式，KHTML几乎整个被重写。10月，KHTML整合了KJS（KDE开发的JavaScript引擎）。
+1999年5月~10月，Mozilla的开源给了KHTML很大的压力，KHTML不得不进行改进。8月16日，KHTML实现了W3C DOM规范，这改变了内部的document表示方式，KHTML几乎整个被重写。10月，KHTML整合了KJS(KDE开发的JavaScript引擎)。
 
 2000年3月，KHTML基本完成了对CSS的支持。
 
-2001年6月，苹果公司开始开发Webkit，它fork自KHTML项目和KJS项目，并分别改名为WebCore和JavaScriptCore。由于两个项目的开发目的不同（Webkit是为苹果的产品服务的），二者代码相互合并的工作越来越困难，而且两边开发人员的关系也闹过矛盾，最终两个项目独立了。
+2001年6月，苹果公司开始开发Webkit，它fork自KHTML项目和KJS项目，并分别改名为WebCore和JavaScriptCore。由于两个项目的开发目的不同(Webkit是为苹果的产品服务的)，二者代码相互合并的工作越来越困难，而且两边开发人员的关系也闹过矛盾，最终两个项目独立了。
 
 2005年，苹果开源Webkit。除了苹果自己的Safari在用Webkit，谷歌的Chrome也使用了Webkit。但谷歌只用到了其中的WebCore部分，JS部分是用谷歌自己的V8引擎，此外谷歌还有自己的多进程系统。
 
