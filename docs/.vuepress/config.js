@@ -14,8 +14,8 @@ module.exports = {
       {
         text: '力扣刷题',
         items: [
-          { text: '基础入门', link: '/leetcode/roadmap' },
-          { text: '专题总结', link: '/leetcode/topic' },
+          { text: '系统总结', link: '/leetcode/summary' },
+          { text: '零散知识', link: '/leetcode/topic' },
           { text: '语言差异', link: '/leetcode/lang-diff' },
           { text: '内置数据结构', link: '/leetcode/ds-lib' },
         ]
@@ -47,10 +47,10 @@ module.exports = {
       //   ]
       // }
     ],
-    sidebarDepth: 4,
+    sidebarDepth: 5,
     sidebar: {
       '/leetcode/': [
-        'roadmap',
+        'summary',
         'topic',
         'lang-diff',
         'ds-lib',
