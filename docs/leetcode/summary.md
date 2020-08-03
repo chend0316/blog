@@ -87,6 +87,14 @@ Trie是一种新型数据结构：
 
 ### 树和图的遍历
 #### DFS、BFS
+DFS 和 BFS 的区别：
+
+|            | DFS深度优先                      | BFS广度优先                    |
+| ---------- | -------------------------------- | ------------------------------ |
+| 时间复杂度 |                                  | 在最短路问题中有极大的优势     |
+| 空间复杂度 | 取决于树的高度、图的最长环路长度 | 取决于树的“宽度”、图里面不好说 |
+| 实现方式   | 一般是递归，很少用迭代，实现容易 | 迭代，实现难一点点             |
+
 - [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)，除了用BFS竟然还能用DFS做
 - [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
 - [111. 二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/)
@@ -95,7 +103,7 @@ Trie是一种新型数据结构：
 - [37. 解数独](https://leetcode-cn.com/problems/sudoku-solver/)
 
 #### 层次遍历 vs BFS
-在网上搜了一下，BFS 和层次遍历好像就是同一个东西？但在我的笔记中，把他们视为不同的算法。
+在网上搜了一下，BFS 和层次遍历好像是同一个东西？但在我的笔记中，把他们视为不同的算法。
 
 BFS 不能将不同层的节点“分隔”开来，层次遍历在 BFS 代码的基础上增加了一些小技巧，使得我们可以“分隔”不同层的节点。
 
@@ -110,9 +118,9 @@ class Solution:
         if root: queue.append(root)
         while queue:
             res.append([])
-            n = len(queue)
-            while n:
-                n -= 1
+            n = len(queue)  # 技巧
+            while n:  # 技巧
+                n -= 1  # 技巧
                 node = queue.popleft()
                 res[-1].append(node.val)
                 if node.left: queue.append(node.left)
@@ -129,16 +137,19 @@ class Solution:
         if root: queue.append(root)
         while queue:
             res.append([])
-            newQueue = []
+            newQueue = []  # 技巧
             for node in queue:
                 res[-1].append(node.val)
-                if node.left: newQueue.append(node.left)
-                if node.right: newQueue.append(node.right)
-            queue = newQueue
+                if node.left: newQueue.append(node.left)  # 技巧
+                if node.right: newQueue.append(node.right)  # 技巧
+            queue = newQueue  # 技巧
         return res
 ```
 
-层次遍历是一个代码技巧，熟悉其思想可以写出其它变种，例如[126. 单词接龙 II](https://leetcode-cn.com/problems/word-ladder-ii/)在国际站上有[一个绝妙的解法](https://leetcode.com/problems/word-ladder-ii/discuss/40482/Python-simple-BFS-layer-by-layer)，就是将「新旧队列法」运用到了炉火纯青的地步，代码如下：
+层次遍历是一个代码技巧，熟悉其思想可以写出其它变种。例如双向 BFS 就将层次遍历运用到了出神入化的地步，它是在「新旧队列法」的基础上使用哈希表来代替队列。
+
+#### 双向 BFS
+[126. 单词接龙 II](https://leetcode-cn.com/problems/word-ladder-ii/)在国际站上有[一个绝妙的双向 BFS 解法](https://leetcode.com/problems/word-ladder-ii/discuss/40482/Python-simple-BFS-layer-by-layer)，代码如下：
 
 ```python
 class Solution(object):
@@ -161,9 +172,45 @@ class Solution(object):
                                 newlayer[neww]+=[j+[neww] for j in layer[w]]
 
             wordList -= set(newlayer.keys())
-            layer = newlayer  # 这也是用「新旧队列」法实现的层次遍历，当然这里是哈希表不是队列
+            layer = newlayer  # 这是用「新旧队列」法实现的层次遍历，不过这里用哈希表取代队列
 
         return res
+```
+
+#### 暴力DFS
+[543. 二叉树的直径](https://leetcode-cn.com/problems/diameter-of-binary-tree/)除了暴力 DFS 还有更好的解法。
+
+[437. 路径总和 III](https://leetcode-cn.com/problems/path-sum-iii/)有更好的解法，这里我们给出的是暴力 DFS 的代码：
+
+```java
+public class Solution {
+    public int pathSum(TreeNode root, int sum) {
+        if (root == null) return 0;
+        return pathSumFrom(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
+    }
+
+    private int pathSumFrom(TreeNode node, int sum) {
+        if (node == null) return 0;
+        int ret = 0;
+        if (node.val == sum) ret++;
+        return ret + pathSumFrom(node.left, sum - node.val) + pathSumFrom(node.right, sum - node.val);
+    }
+}
+```
+
+[1367. 二叉树中的列表](https://leetcode-cn.com/problems/linked-list-in-binary-tree/)也能用[DP来解](https://leetcode.com/problems/linked-list-in-binary-tree/discuss/524881/Python-Recursive-Solution-O(N)-Time)，这里我们给出的是暴力 DFS 的代码：
+
+```python
+def isSubPath(self, head, root):
+    def dfs(head, root):
+        if not head: return True
+        if not root: return False
+        if root.val != head.val: return False
+        return dfs(head.next, root.left) or dfs(head.next, root.right)
+    if not head: return True
+    if not root: return False
+    # 重点学习下面这行
+    return dfs(head, root) or self.isSubPath(head, root.left) or self.isSubPath(head, root.right)
 ```
 
 ### 剪枝、回溯
@@ -381,6 +428,35 @@ class Solution:
 二分查找变种：搜索二维矩阵。这题可以不用二分，把矩阵当成搜索树从右上角开始搜，代码会超级简单。但出于练习目的，建议用二分来刷。
 - [74. 搜索二维矩阵](https://leetcode-cn.com/problems/search-a-2d-matrix/)，
 - [240. 搜索二维矩阵 II](https://leetcode-cn.com/problems/search-a-2d-matrix-ii/)，二分不是这题的最优解
+
+#### 更多二分习题
+
+[34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)这题在二分的过程中不断更新答案：
+```python
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        lo, hi = 0, len(nums) - 1
+        first = -1
+        while lo <= hi:
+            mid = (lo + hi) // 2
+            if target > nums[mid]: lo = mid + 1
+            elif target < nums[mid]: hi = mid - 1
+            else:
+                first = mid  #
+                hi = mid - 1  #
+        
+        lo, hi = 0, len(nums) - 1
+        last = -1
+        while lo <= hi:
+            mid = (lo + hi + 1) // 2
+            if target > nums[mid]: lo = mid + 1
+            elif target < nums[mid]: hi = mid - 1
+            else:
+                last = mid  #
+                lo = mid + 1  #
+
+        return [first, last]
+```
 
 ## 其它
 
