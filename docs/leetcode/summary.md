@@ -245,7 +245,7 @@ Java代码示例：略。
 
 千万不要小瞧二分查找，面试前重点准备，二分查找和链表都很容易丢分。二分查找有各种变形，以至于没有统一的二分模板。
 
-为了后续讲解的统一，这里规定一些背景知识，高亮的部分都可能是二分算法的“变形点”：
+为了后续介绍的统一，这里规定一些背景知识，高亮的部分都可能是二分算法的“变形点”：
 - 代码变量命名为：lo、hi、mid，三个变量都是代表数组下标
 - 在 \[lo, ..., hi\] 闭区间内搜索，这个区间统一叫做搜索区间
 - 根据 `mid 信息`将搜索区间缩小为`左子区间`或`右子区间`
@@ -265,21 +265,21 @@ def binSearch(nums, target):
 ```
 
 #### 变形1：左右区间是否包含 mid 呢？
-「不包含mid (传统)」如果左右子区间都不包含 mid，代码为：
-- `mid = (lo + hi) // 2` 可以
-- `mid = (lo + hi + 1) // 2` 也可以
+「不包含mid (经典)」如果左右子区间都不包含 mid，代码为：
+- `mid = (lo + hi) // 2` 可以用下取整
+- `mid = (lo + hi + 1) // 2` 也可以用上取整
 - `lo = mid + 1`
 - `hi = mid - 1`
 
 「右包含mid (变种)」如果右子区间包含 mid，代码为：
-- `mid = (lo + hi) // 2` 不可以，会死循环
-- `mid = (lo + hi + 1) // 2` 可以
+- `mid = (lo + hi) // 2` 不可以用下取整，会死循环
+- `mid = (lo + hi + 1) // 2` 可以用上取整
 - `lo = mid`
 - `hi = mid - 1`
 
 「左包含mid (变种)」如果左子区间包含 mid，代码为：
-- `mid = (lo + hi) // 2` 可以
-- `mid = (lo + hi + 1) // 2` 不可以，会死循环
+- `mid = (lo + hi) // 2` 可以用下取整
+- `mid = (lo + hi + 1) // 2` 不可以用上取整，会死循环
 - `lo = mid + 1`
 - `hi = mid`
 
@@ -288,6 +288,19 @@ def binSearch(nums, target):
 - `mid = (lo + hi + 1) // 2` 不可以，会死循环
 - `lo = mid + 1`
 - `hi = mid - 1`
+
+为什么会死循环呢？下面代码演示的是「右包含mid」的一个错误例子，对应题目是[69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/)。如果 mid 采用下取整则可能和 lo 重合，反之采用上取整可能和 hi 重合。
+```python
+class Solution:
+    def mySqrt(self, x: int) -> int:
+        lo, hi = 0, x
+        while lo < hi:  # 当 lo == 2 而且 hi == 3 的时候
+            mid = (lo + hi) // 2  # mid 向下取整，mid == 2
+            if mid * mid < x: lo = mid  # 这时候 lo 又回到 2！死循环！
+            elif mid * mid > x: hi = mid - 1
+            else: return mid
+        return lo
+```
 
 「不包含mid」的题目有：[367. 有效的完全平方数](https://leetcode-cn.com/problems/valid-perfect-square/)等等。
 367题的代码如下。
@@ -298,8 +311,8 @@ class Solution:
         lo, hi = 1, num
         while lo <= hi:
             mid = (lo + hi) // 2
-            if mid * mid < num: lo = mid + 1
-            elif mid * mid > num: hi = mid - 1
+            if mid * mid < num: lo = mid + 1  # mid 打入冷宫
+            elif mid * mid > num: hi = mid - 1  # mid 打入冷宫
             else: return True
         return False
 ```
@@ -312,7 +325,7 @@ class Solution:
         lo, hi = 0, x
         while lo < hi:
             mid = (lo + hi + 1) // 2
-            if mid * mid < x: lo = mid
+            if mid * mid < x: lo = mid  # 再给 mid 一个机会吧！
             elif mid * mid > x: hi = mid - 1
             else: return mid
         return lo
@@ -324,11 +337,9 @@ class Solution:
 class Solution:
     def firstBadVersion(self, n):
         lo, hi = 1, n
-        # 我们要保证区间内含有第一个错误版本
-        # 如果 mid 是错误版本，那么排除右区间，范围缩小到左区间，左区间包含 mid 本身
         while lo < hi:
             mid = (lo + hi) // 2
-            if isBadVersion(mid): hi = mid
+            if isBadVersion(mid): hi = mid  # 再给 mid 一个机会吧！
             else: lo = mid + 1
         return lo
 ```
@@ -339,7 +350,7 @@ class Solution:
 - `while lo < hi`，区间「长度为1」的时候退出
 - `while lo < hi - 1`，区间「长度为2」的时候退出
 
-区间「长度为0」的代码，用于可能无解的题型，循环退出后就返回无解。
+区间「长度为0」的代码，用于可能无解的题型，循环退出后就返回无解。这是最经典最简单的题型。todo：也找个例题吧？
 
 区间「长度为1」的代码用于一定有解的题型，当区间长度为1的时候，解已经明确了，就可以停止循环了。
 如果你不退出循环，轻则逻辑混乱，重则死循环，请看[278. 第一个错误的版本](https://leetcode-cn.com/problems/first-bad-version/)的一个反面教材：
@@ -356,10 +367,10 @@ class Solution:
         return lo
 ```
 
-区间「长度为2」的代码用于保证区间长度不小于3，避免「全包含mid」出现死循环。
+区间「长度为2」的代码用于保证区间长度不小于3，避免「全包含mid」出现死循环。有没有这种题目呢？todo: 应该是有的，我找到了会贴在这边。
 
-#### 变种3：如何根据 mid 信息缩小搜索区间呢？
-这种变种就很灵活了，需要具体题目具体分析，没有一个通用的模板。
+#### 变形3：如何根据 mid 信息缩小搜索区间呢？
+这种变形就很灵活了，需要具体题目具体分析，没有一个通用的模板。
 
 二分查找变种：旋转排序数组。如果有重复元素，那么会难很多。
 - [33. 搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/)
