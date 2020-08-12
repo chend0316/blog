@@ -78,8 +78,31 @@ def bfs(root):
     for node in queue:
       process(node)
       for next_node in gen_related_nodes(node):
+        visited.add(next_node)
         new_queue.append(next_node)
     queue = new_queue
+```
+:::
+
+::: details Python BFS 队列计数法
+```py
+def bfs(root):
+  queue = collections.deque()
+  visited = set()
+  level = 0
+  if root:
+    queue.append(root)
+    visited.add(root)
+  while queue:
+    level += 1
+    n = len(queue)
+    while n:
+      n -= 1
+      node = queue.popleft()
+      process(node)
+      for next_node in gen_related_nodes(node):
+        visited.add(next_node)
+        new_queue.append(next_node)
 ```
 :::
 
@@ -87,6 +110,11 @@ def bfs(root):
 这几个代码模板我还没整理：
 - 二叉树的三种遍历 (迭代版)，因为比较少用
 - 递归代码模板，因为比较简单，就略过了
+- 分治代码模板
+- 二分查找
+- 动态规划
+- 字典树
+- 并查集
 
 ## 语言内置数据结构
 [https://www.bigocheatsheet.com/](https://www.bigocheatsheet.com/) 有一张各种数据结构的复杂度对比。
