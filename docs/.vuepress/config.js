@@ -51,7 +51,7 @@ module.exports = {
     sidebar: {
       '/leetcode/': [
         'summary',
-        'topic',
+        'draft',
         'lang-diff',
         'ds-lib',
       ],
