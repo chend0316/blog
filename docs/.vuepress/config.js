@@ -14,10 +14,12 @@ module.exports = {
       {
         text: '力扣刷题',
         items: [
-          { text: '系统总结', link: '/leetcode/summary' },
-          { text: '零散知识', link: '/leetcode/topic' },
-          { text: '语言差异', link: '/leetcode/lang-diff' },
-          { text: '内置数据结构', link: '/leetcode/ds-lib' },
+          { text: '数据结构 (刷)', link: '/leetcode/data-struct' },
+          { text: '正统算法 (刷)', link: '/leetcode/algorithm' },
+          { text: '技巧性算法 (刷)', link: '/leetcode/art' },
+          { text: '代码模板 (背)', link: '/leetcode/code-template' },
+          { text: '语言差异 (坑)', link: '/leetcode/lang-diff' },
+          { text: '零散知识 (草稿)', link: '/leetcode/draft' },
         ]
       },
       {
@@ -50,10 +52,12 @@ module.exports = {
     sidebarDepth: 5,
     sidebar: {
       '/leetcode/': [
-        'summary',
-        'draft',
+        'data-struct',
+        'algorithm',
+        'art',
+        'code-template',
         'lang-diff',
-        'ds-lib',
+        'draft',
       ],
       '/frontend/': [
         'history',

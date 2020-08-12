@@ -1,9 +1,100 @@
-# 各语言内置的数据结构
+# 代码模板 (背)
+这里是面向工程/竞赛的代码模板，因此只会给出最好用的模板。具体会体现在下面这几个地方。
 
-## Dequeue（双端队列）
+例如 DFS/BFS 中，我们会用 `visited` 标记访问过的节点，而不会介绍颜色标记法，因为前者更加通用。
+
+再如层次遍历 (BFS) 中，我们更推荐背诵「新旧队列法」的模板，而不是「队列计数法」，因为前者可以改造成为「双向BFS」。
+
+再如层次遍历 (BFS) 中，我们选择在节点入队列时标记 visited，而不是在节点出队列时标记 visited，因为在「双向BFS」中前者不容易出错。
+
+## 算法模板
+### 约定
+算法离不开数据结构，所以我们先约定一下数据结构的基本实现，这些实现兼容 leetcode 。对于语言内置的数据结构这里假定大家都知道，就不介绍了。
+
+::: details Python 二叉树实现
+```python
+class TreeNode:
+  def __init__(self, val):
+    self.val = val
+    self.left = self.right = None
+```
+:::
+
+### 二叉树的三种遍历（递归版）
+::: details Python 前中后序遍历
+```python
+def preorder(self, root):
+  if root:
+    self.traverse_path.append(root.val)
+    self.preorder(root.left)
+    self.preorder(root.right)
+
+def inorder(self, root):
+  if root:
+    self.inorder(root.left)
+    self.traverse_path.append(root.val)
+    self.inorder(root.right)
+
+def postorder(self, root):
+  if root:
+    self.postorder(root.left)
+    self.postorder(root.right)
+    self.traverse_path.append(root.val)
+```
+:::
+
+### DFS、BFS
+BFS 也叫层次遍历。
+
+DFS 是递归实现，BFS 是迭代实现。
+
+图需要标记 visited，树不需要标记 (因为没有环路)。
+
+「新旧队列法」和「队列计数法」是我自己起的名字，大家不要死记这两个名词。
+
+::: details Python DFS
+```py
+def dfs(node, level = 0, visited = set()):
+  visited.add(node)
+  process(node)
+  for next_node in gen_related_nodes(node):
+    if next_node not in visited:
+      dfs(next_node, level + 1, visited)
+```
+:::
+
+::: details Python BFS 新旧队列法
+```py
+def bfs(root):
+  queue = []
+  visited = set()
+  level = 0
+  if root:
+    queue.append(root)
+    visited.add(root)
+  while queue:
+    level += 1
+    new_queue = []
+    for node in queue:
+      process(node)
+      for next_node in gen_related_nodes(node):
+        new_queue.append(next_node)
+    queue = new_queue
+```
+:::
+
+### TODO
+这几个代码模板我还没整理：
+- 二叉树的三种遍历 (迭代版)，因为比较少用
+- 递归代码模板，因为比较简单，就略过了
+
+## 语言内置数据结构
+[https://www.bigocheatsheet.com/](https://www.bigocheatsheet.com/) 有一张各种数据结构的复杂度对比。
+
+### Dequeue（双端队列）
 双端队列可以理解为栈、队列的组合，所以在实际应用中可以直接使用双端队列取代栈和队列。
 
-[Python 3 双端队列](https://docs.python.org/3/library/collections.html#collections.deque)的基本用法如下：
+[Python 3 双端队列](https://docs.python.org/3/library/collections.html#collections.deque) 的基本用法如下：
 
 ```python
 from collections import deque
@@ -34,7 +125,7 @@ Notes：
 - Python可以插入一组 Value：`deq.extendleft([1,2])`，Java 不行
 - Python可以指定 Capacity 队列最大容量，Java 不行
 
-## 优先级队列（Priority Queue）
+### 优先级队列（Priority Queue）
 
 优先级队列只是一个应用场景，不是具体的某个数据结构，可以用 Heap、BST、Treap 来实现，一般是用 Heap。
 
