@@ -1,9 +1,4 @@
 # 正统算法 (练)
-## 贪心法
-对于局部最优解能推导出全局最优解的问题，可以用贪心法。但这是一个非常强的条件，能用贪心法的题目非常少。
-
-- [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)，力扣上股票问题是一系列问题，这题的特殊性刚好能用贪心，否则通解是用DP
-
 ## 树和图的遍历
 ### DFS、BFS
 DFS 和 BFS 的区别：
@@ -21,14 +16,11 @@ DFS 和 BFS 的区别：
 - [36. 有效的数独](https://leetcode-cn.com/problems/valid-sudoku/)
 - [37. 解数独](https://leetcode-cn.com/problems/sudoku-solver/)
 
-### 层次遍历 vs BFS
-在网上搜了一下，BFS 和层次遍历好像是同一个东西？但在我的笔记中，把他们视为不同的算法。
-
-BFS 不能将不同层的节点“分隔”开来，层次遍历在 BFS 代码的基础上增加了一些小技巧，使得我们可以“分隔”不同层的节点。
+###  BFS (层次遍历)
 
 层次遍历的基础题见[102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)，有多种实现技巧。我了解的有两种，我给他们起名字为：队列计数法、新旧队列法。
 
-102题使用「队列计数法」的代码如下：
+::: details 102题「队列计数法」代码
 ```python
 class Solution:
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
@@ -46,8 +38,9 @@ class Solution:
                 if node.right: queue.append(node.right)
         return res
 ```
+:::
 
-102题使用「新旧队列法」的代码如下：
+::: details 102题「新旧队列法」代码
 ```python
 class Solution:
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
@@ -64,12 +57,14 @@ class Solution:
             queue = newQueue  # 技巧
         return res
 ```
+:::
 
 层次遍历是一个代码技巧，熟悉其思想可以写出其它变种。例如双向 BFS 就将层次遍历运用到了出神入化的地步，它是在「新旧队列法」的基础上使用哈希表来代替队列。
 
 ### 双向 BFS
-[126. 单词接龙 II](https://leetcode-cn.com/problems/word-ladder-ii/)在国际站上有[一个绝妙的双向 BFS 解法](https://leetcode.com/problems/word-ladder-ii/discuss/40482/Python-simple-BFS-layer-by-layer)，代码如下：
+[126. 单词接龙 II](https://leetcode-cn.com/problems/word-ladder-ii/)在国际站上有[一个绝妙的双向 BFS 解法](https://leetcode.com/problems/word-ladder-ii/discuss/40482/Python-simple-BFS-layer-by-layer)，代码如下。
 
+::: details 126题双向DFS代码
 ```python
 class Solution(object):
     def findLadders(self, beginWord, endWord, wordList):
@@ -95,12 +90,13 @@ class Solution(object):
 
         return res
 ```
+:::
 
 ### 暴力DFS
 [543. 二叉树的直径](https://leetcode-cn.com/problems/diameter-of-binary-tree/)除了暴力 DFS 还有更好的解法。
 
 [437. 路径总和 III](https://leetcode-cn.com/problems/path-sum-iii/)有更好的解法，这里我们给出的是暴力 DFS 的代码：
-
+::: details 437题暴力DFS代码
 ```java
 public class Solution {
     public int pathSum(TreeNode root, int sum) {
@@ -116,9 +112,11 @@ public class Solution {
     }
 }
 ```
+:::
 
 [1367. 二叉树中的列表](https://leetcode-cn.com/problems/linked-list-in-binary-tree/)也能用[DP来解](https://leetcode.com/problems/linked-list-in-binary-tree/discuss/524881/Python-Recursive-Solution-O(N)-Time)，这里我们给出的是暴力 DFS 的代码：
 
+::: details 1367题暴力DFS代码
 ```python
 def isSubPath(self, head, root):
     def dfs(head, root):
@@ -131,8 +129,9 @@ def isSubPath(self, head, root):
     # 重点学习下面这行
     return dfs(head, root) or self.isSubPath(head, root.left) or self.isSubPath(head, root.right)
 ```
+:::
 
-### 剪枝、回溯
+## 剪枝、回溯
 
 剪枝分为两种：
 - 根据局部状态能确定答案就在某个分支，而剪去其它分支
@@ -146,7 +145,7 @@ def isSubPath(self, head, root):
 - [79. 单词搜索](https://leetcode-cn.com/problems/word-search/)
 - [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/)，利用Trie高效剪枝
 
-### DP
+## DP
 
 - [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)
 - [120. 三角形最小路径和](https://leetcode-cn.com/problems/triangle/)
@@ -376,3 +375,9 @@ class Solution:
 
         return [first, last]
 ```
+
+## 贪心法
+对于局部最优解能推导出全局最优解的问题，可以用贪心法。但这是一个非常强的条件，能用贪心法的题目非常少。
+
+- [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)，力扣上股票问题是一系列问题，这题的特殊性刚好能用贪心，否则通解是用DP
+- [860. 柠檬水找零](https://leetcode-cn.com/problems/lemonade-change/)
