@@ -160,6 +160,41 @@ def isSubPath(self, head, root):
 - [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/)
 - [72. 编辑距离](https://leetcode-cn.com/problems/edit-distance/)
 
+DP 状态空间的初始状态一般有两种做法：数组空间多开一个、循环内单独判断。不同场合下代码简洁度不一样，例如[1143. 最长公共子序列](https://leetcode-cn.com/problems/longest-common-subsequence/)在循环内单独判断就很挫。
+
+::: details 1143 循环内单独判断
+```py
+class Solution:
+    def longestCommonSubsequence(self, a: str, b: str) -> int:
+        if not a or not b: return 0
+        N, M = len(a), len(b)
+        dp = [[0]*M for _ in range(N)]
+        for i in range(N):
+            for j in range(M):
+                if i == 0 and j == 0: dp[i][j] = 1 if a[i] == b[j] else 0
+                elif i == 0: dp[i][j] = 1 if a[i] == b[j] else dp[i][j-1]
+                elif j == 0: dp[i][j] = 1 if a[i] == b[j] else dp[i-1][j]
+                elif a[i] == b[j]: dp[i][j] = dp[i-1][j-1] + 1
+                else: dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+        return dp[N-1][M-1]
+```
+:::
+
+::: details 1143 数组空间多开一个
+```py
+class Solution:
+    def longestCommonSubsequence(self, a: str, b: str) -> int:
+        if not a or not b: return 0
+        n, m = len(a), len(b)
+        dp = [[0]*(m+1) for _ in range(n+1)]
+        for i in range(0, n):
+            for j in range(0, m):
+                if a[i] == b[j]: dp[i + 1][j + 1] = dp[i][j] + 1
+                else: dp[i + 1][j + 1] = max(dp[i + 1][j], dp[i][j + 1])
+        return dp[n][m]
+```
+:::
+
 ## TopK问题
 
 找TopK的方法如下。
@@ -381,3 +416,96 @@ class Solution:
 
 - [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)，力扣上股票问题是一系列问题，这题的特殊性刚好能用贪心，否则通解是用DP
 - [860. 柠檬水找零](https://leetcode-cn.com/problems/lemonade-change/)
+
+## 剪枝
+[22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/)。
+::: 22题 Python 预剪枝
+```py
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        self.ans = []
+        if n: self.backtrack(n, n, '')
+        return self.ans
+    
+    def backtrack(self, left, right, path):
+        if left + right == 0: self.ans.append(path)
+        if left > 0: self.backtrack(left - 1, right, path + '(')
+        if right > left: self.backtrack(left, right - 1, path + ')')
+```
+:::
+
+::: 22题 Python 后剪枝
+```py
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        self.ans = []
+        self.backtrack(n, n, '')
+        return self.ans
+
+    def backtrack(self, left, right, path):
+        if right < left or left < 0 or right < 0: return
+        if left + right == 0:
+            self.ans.append(path)
+            return
+        self.backtrack(left - 1, right, path + '(')
+        self.backtrack(left, right - 1, path + ')')
+```
+:::
+
+[37. 解数独](https://leetcode-cn.com/problems/sudoku-solver/)，这题可以用预剪枝、后剪枝来解，可以看到后剪枝的信息比预剪枝要少，所以一般效率更低。这题还有 A* 搜索，但不在这里介绍。
+
+::: 37题 Python 后剪枝 超时
+```py
+class Solution:
+    def solveSudoku(self, board: List[List[str]]) -> None:
+        self.backtrack(board, 0)
+    
+    def backtrack(self, board, x):
+        if x == 81: return True
+        i, j = x // 9, x % 9
+        if board[i][j] != '.': return self.backtrack(board, x + 1)
+        if not self.valid(board): return False
+        for c in '123456789':
+            board[i][j] = c
+            if self.backtrack(board, x + 1): return True
+            board[i][j] = '.'
+
+    def valid(self, board):
+        rows = [set() for _ in range(9)]
+        cols = [set() for _ in range(9)]
+        blocks = [set() for _ in range(9)]
+        for i in range(9):
+            for j in range(9):
+                num = board[i][j]
+                if num == '.': continue
+                if num in rows[i] | cols[j] | blocks[i//3*3 + j//3]: return False
+                rows[i].add(num); cols[j].add(num); blocks[i//3*3 + j//3].add(num)
+        return True
+```
+:::
+
+::: 37题 Python 预剪枝
+```py
+class Solution:
+    def solveSudoku(self, board: List[List[str]]) -> None:
+        self.backtrack(board, 0)
+    
+    def backtrack(self, board, x):
+        if x == 81: return True
+        i, j = x // 9, x % 9
+        if board[i][j] != '.': return self.backtrack(board, x + 1)
+        for c in '123456789':
+            if self.canPlace(board, i, j, c):
+                board[i][j] = c
+                if self.backtrack(board, x + 1): return True
+                board[i][j] = '.'
+        return False
+
+    def canPlace(self, board, i, j, c):
+        for x in range(9):
+            if board[i][x] != '.' and board[i][x] == c: return False
+            if board[x][j] != '.' and board[x][j] == c: return False
+            if board[i//3*3 + x//3][j//3*3 + x%3] != '.' and board[i//3*3 + x//3][j//3*3 + x%3] == c: return False
+        return True
+```
+:::

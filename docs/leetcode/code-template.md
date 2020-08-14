@@ -1,11 +1,17 @@
 # 代码模板 (背)
+代码模板是需要背诵的，虽然很反常识。我们并不是说代码不需要理解，我们只是强调绝大多数人都忽视了背诵的重要性。举个例子吧，勾股定理大家都背的滚瓜烂熟 `a^2 + b^2 = c^2` 那么你用的时候会去关心它如何推导的吗？
+
+所以你要明白：
+- 99%的时候编程并不是发挥创造性的工作
+- 创造性工作是建立在对基础知识背诵的滚瓜烂熟的基础上进行的
+
 这里是面向工程/竞赛的代码模板，因此只会给出最好用的模板。具体会体现在下面这几个地方。
 
 例如 DFS/BFS 中，我们会用 `visited` 标记访问过的节点，而不会介绍颜色标记法，因为前者更加通用。
 
 再如层次遍历 (BFS) 中，我们更推荐背诵「新旧队列法」的模板，而不是「队列计数法」，因为前者可以改造成为「双向BFS」。
 
-再如层次遍历 (BFS) 中，我们选择在节点入队列时标记 visited，而不是在节点出队列时标记 visited，因为在「双向BFS」中前者不容易出错。
+再如层次遍历 (BFS) 中，我们选择在节点入队列时标记 visited，而不是在节点出队列时标记 visited，因为前者更不容易出错。
 
 ## 算法模板
 ### 约定
@@ -106,6 +112,80 @@ def bfs(root):
 ```
 :::
 
+::: details Python 双向 BFS 最短level
+```py
+def debfs(start, end):
+  if start == end:  # 必须判断
+    return
+  s1, s2, visited = {start}, {end}, {start, end}
+  level = 2  # 根据题目语义 1 or 2
+  while s1:
+    tmp = set()
+    for cur in s1:
+      for next in gen_relative_nodes(node):
+        if next in s2: return level  # found
+        if next not in visited:
+          tmp.add(next)
+          visited.add(next)
+    s1 = tmp
+    if len(s1) > len(s2): s1, s2 = s2, s1
+  return 0  # not found
+```
+:::
+
+::: details Python 双向 BFS 最短level的路径信息
+有这种模板吗？
+:::
+
+### 字典树 (Trie)
+::: details Python Trie 实现
+```py
+class Trie:
+  def __init__(self):
+    self.root = {}
+  
+  def insert(self, word):
+    node = self.root
+    for c in word:
+      node = node.setdefault(c, {})
+    node['#'] = '#'  
+
+  def search(self, word):
+    node = self.root
+    for c in word:
+      if c not in node: return False
+      node = node[c]
+    return '#' in node
+  
+  def startsWith(self, prefix):
+    node = self.root
+    for c in word:
+      if c not in node: return False
+      node = node[c]
+    return True
+```
+:::
+
+### 并查集
+
+::: details Python 并查集 路径压缩
+```python
+class UnionFind:
+  def __init__(self, n):
+    self.uf = [i for i in range(n)]
+  
+  def union(self, i, j):
+    self.uf[self.find(i)] = self.uf[self.find(j)]
+
+  def find(self, i):
+    root = i
+    while self.uf[root] != root: root = self.uf[root]
+    # 路径压缩
+    while self.uf[i] != root: self.uf[i], i = root, self.uf[i]
+    return root
+```
+:::
+
 ### TODO
 这几个代码模板我还没整理：
 - 二叉树的三种遍历 (迭代版)，因为比较少用
@@ -113,8 +193,18 @@ def bfs(root):
 - 分治代码模板
 - 二分查找
 - 动态规划
-- 字典树
-- 并查集
+- 剪枝模板，分为预剪枝和后剪枝
+
+## 位运算
+基础概念
+- +1: 0011 -> 0100
+- -1: 0100 -> 0011
+- -a: 取反加一
+
+实用操作
+- 取最低位的1: `bits & -bits`
+- 最低位的1改为0: `bits & (bits - 1)`
+- 生成 00111 掩模: `(1 << 3) - 1`
 
 ## 语言内置数据结构
 [https://www.bigocheatsheet.com/](https://www.bigocheatsheet.com/) 有一张各种数据结构的复杂度对比。
