@@ -42,14 +42,10 @@
 二叉树遍历改迭代感觉没啥意义，有精力还不如先练其它题目。
 
 ### Trie
-Trie是一种新型数据结构：
-- 多数教材中都没有提到
-- 各个编程语言中也没有内置Trie
 
-由于Trie非常实用而且实现并不难，所以必须熟练到能在白板上手写这个数据结构。
-
-- [79. 单词搜索](https://leetcode-cn.com/problems/word-search/)
-- [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/)，官方题解中有基于Python字典迭代构造Trie的算法，然后用`$`字符表示单词末尾
+- [208. 实现 Trie (前缀树)](https://leetcode-cn.com/problems/implement-trie-prefix-tree/)，用来背代码模板
+- [79. 单词搜索](https://leetcode-cn.com/problems/word-search/)，Trie、矩阵搜索有机结合，虽然这题可以不用 Trie
+- [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/)，Trie + 剪枝
 
 ### 并查集
 并查集也是一种新型数据结构，教材中很少提，各语言也没有内置。

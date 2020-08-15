@@ -236,6 +236,11 @@ class Solution:
 ```
 :::
 
+## 高级搜索: A* 启发式搜索
+启发的英文是 heuristic，启发式搜索用估价函数 `h(n)` 来决定哪个邻居优先访问。业务需要设计具体的估价函数，估价函数的好坏直接决定了性能。
+
+只要在 BFS 的基础上，将队列改为优先级队列就可以变为 A* 搜索。
+
 ## 例题
 ### [433. 最小基因变化](https://leetcode-cn.com/problems/minimum-genetic-mutation/)
 

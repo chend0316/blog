@@ -20,9 +20,9 @@
 ::: details Python 二叉树实现
 ```python
 class TreeNode:
-  def __init__(self, val):
-    self.val = val
-    self.left = self.right = None
+    def __init__(self, val):
+        self.val = val
+        self.left = self.right = None
 ```
 :::
 
@@ -30,22 +30,22 @@ class TreeNode:
 ::: details Python 前中后序遍历
 ```python
 def preorder(self, root):
-  if root:
-    self.traverse_path.append(root.val)
-    self.preorder(root.left)
-    self.preorder(root.right)
+    if root:
+        self.traverse_path.append(root.val)
+        self.preorder(root.left)
+        self.preorder(root.right)
 
 def inorder(self, root):
-  if root:
-    self.inorder(root.left)
-    self.traverse_path.append(root.val)
-    self.inorder(root.right)
+    if root:
+        self.inorder(root.left)
+        self.traverse_path.append(root.val)
+        self.inorder(root.right)
 
 def postorder(self, root):
-  if root:
-    self.postorder(root.left)
-    self.postorder(root.right)
-    self.traverse_path.append(root.val)
+    if root:
+        self.postorder(root.left)
+        self.postorder(root.right)
+        self.traverse_path.append(root.val)
 ```
 :::
 
@@ -61,79 +61,91 @@ DFS 是递归实现，BFS 是迭代实现。
 ::: details Python DFS
 ```python
 def dfs(node, level = 0, visited = set()):
-  visited.add(node)
-  process(node)
-  for next_node in gen_related_nodes(node):
-    if next_node not in visited:
-      dfs(next_node, level + 1, visited)
+    visited.add(node)
+    process(node)
+    for next_node in gen_related_nodes(node):
+        if next_node not in visited:
+        dfs(next_node, level + 1, visited)
 ```
 :::
 
-::: details Python BFS 新旧队列法
+介绍 BFS 之前，我们要引入几个概念。以入队列、出队列为时间点，visited 和 process 的时机也分2种情况。
+- 预访问: 入队列的时候加入 visited
+- 后访问: 出队列的时候加入 visited
+- 预处理: 入队列的时候计算/提取 path 信息
+- 后处理: 出队列的时候计算/提取 path 信息
+
+边的完整信息是 `(from, to, level)` 而后处理的时候会把 from 信息丢失变成 `(???, to, level)`，导致一些要求无法用后处理实现。
+
+[127. 单词接龙](https://leetcode-cn.com/problems/word-ladder/)只需要输出最短路的 level，所以随便用个 DFS 都行。但是[126. 单词接龙 II](https://leetcode-cn.com/problems/word-ladder-ii/)需要输出所有最短的路径，就必须用「预处理的DFS」了。
+
+::: details Python BFS 新旧队列法 + 预访问 + 预处理
 ```python
 def bfs(root):
-  queue = []
-  visited = set()
-  level = 0
-  if root:
-    queue.append(root)
-    visited.add(root)
-  while queue:
-    level += 1
-    new_queue = []
-    for node in queue:
-      process(node)
-      for next_node in gen_related_nodes(node):
-        visited.add(next_node)
-        new_queue.append(next_node)
-    queue = new_queue
+    queue = []
+    visited = set()
+    level = 0
+    if root:
+        queue.append(root)
+        visited.add(root)  # 预访问
+        process(root)  # 预处理
+    while queue:
+        level += 1
+        tmp = []
+        for node in queue:
+            # process(node)  # 后处理
+            # visited.add(node)  # 后访问
+            for next_node in gen_related_nodes(node):
+                visited.add(next_node)
+                tmp.append(next_node)
+        queue = tmp 
 ```
 :::
 
-::: details Python BFS 队列计数法
+::: details Python BFS 队列计数法 + 预访问 + 后处理
 ```python
 def bfs(root):
-  queue = collections.deque()
-  visited = set()
-  level = 0
-  if root:
-    queue.append(root)
-    visited.add(root)
-  while queue:
-    level += 1
-    n = len(queue)
-    while n:
-      n -= 1
-      node = queue.popleft()
-      process(node)
-      for next_node in gen_related_nodes(node):
-        visited.add(next_node)
-        new_queue.append(next_node)
+    queue = collections.deque()
+    visited = set()
+    level = 0
+    if root:
+        queue.append(root)
+        visited.add(root)  # 预访问
+    while queue:
+        level += 1
+        n = len(queue)
+        while n:
+            n -= 1
+            node = queue.popleft()
+            process(node)  # 后处理
+            for next_node in gen_related_nodes(node):
+                visited.add(next_node)
+                new_queue.append(next_node)
 ```
 :::
 
 ::: details Python 双向 BFS 最短level
 ```python
 def debfs(start, end):
-  if start == end:  # 必须判断
-    return
-  s1, s2, visited = {start}, {end}, {start, end}
-  level = 2  # 根据题目语义 1 or 2
-  while s1:
-    tmp = set()
-    for cur in s1:
-      for next in gen_relative_nodes(node):
-        if next in s2: return level  # found
-        if next not in visited:
-          tmp.add(next)
-          visited.add(next)
-    s1 = tmp
-    if len(s1) > len(s2): s1, s2 = s2, s1
-  return 0  # 根据题目语义 0 or -1
+    if start == end:  # 必须判断
+        return 0  # 根据题意 0 or -1
+    s1, s2, visited = {start}, {end}, {start, end}
+    level = 2  # 根据题义 1 or 2
+    while s1:
+        tmp = set()
+        for cur in s1:
+        for next in gen_relative_nodes(node):
+            if next in s2: return level  # found
+            if next not in visited:
+            tmp.add(next)
+            visited.add(next)
+        s1 = tmp
+        if len(s1) > len(s2): s1, s2 = s2, s1
+    return 0  # 根据题义 0 or -1
 ```
 :::
 
-::: details Python 双向 BFS 最短level的路径信息
+::: details Python 双向 BFS 所有最短路
 有这种模板吗？
 :::
 
@@ -141,28 +153,24 @@ def debfs(start, end):
 ::: details Python Trie 实现
 ```python
 class Trie:
-  def __init__(self):
-    self.root = {}
-  
-  def insert(self, word):
-    node = self.root
-    for c in word:
-      node = node.setdefault(c, {})
-    node['#'] = '#'  
+    def __init__(self):
+        self.root = {}
+    
+    def insert(self, word):
+        node = self.root
+        for c in word:
+            node = node.setdefault(c, {})
+        node['#'] = None
 
-  def search(self, word):
-    node = self.root
-    for c in word:
-      if c not in node: return False
-      node = node[c]
-    return '#' in node
-  
-  def startsWith(self, prefix):
-    node = self.root
-    for c in word:
-      if c not in node: return False
-      node = node[c]
-    return True
+    def search(self, word):
+        return self.startsWith(word + '#')
+    
+    def startsWith(self, prefix):
+        node = self.root
+        for c in prefix:
+            if c not in node: return False
+            node = node[c]
+        return True
 ```
 :::
 
@@ -171,18 +179,18 @@ class Trie:
 ::: details Python 并查集 路径压缩
 ```python
 class UnionFind:
-  def __init__(self, n):
-    self.uf = [i for i in range(n)]
-  
-  def union(self, i, j):
-    self.uf[self.find(i)] = self.uf[self.find(j)]
+    def __init__(self, n):
+        self.uf = [i for i in range(n)]
+    
+    def union(self, i, j):
+        self.uf[self.find(i)] = self.uf[self.find(j)]
 
-  def find(self, i):
-    root = i
-    while self.uf[root] != root: root = self.uf[root]
-    # 路径压缩
-    while self.uf[i] != root: self.uf[i], i = root, self.uf[i]
-    return root
+    def find(self, i):
+        root = i
+        while self.uf[root] != root: root = self.uf[root]
+        # 路径压缩
+        while self.uf[i] != root: self.uf[i], i = root, self.uf[i]
+        return root
 ```
 :::
 
