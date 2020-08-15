@@ -28,7 +28,7 @@
 
 [696. 计数二进制子串](https://leetcode-cn.com/problems/count-binary-substrings/)
 ::: details 连续值计数技巧
-```py
+```python
 class Solution:
     def countBinarySubstrings(self, s: str) -> int:
         res = 0

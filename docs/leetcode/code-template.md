@@ -59,7 +59,7 @@ DFS 是递归实现，BFS 是迭代实现。
 「新旧队列法」和「队列计数法」是我自己起的名字，大家不要死记这两个名词。
 
 ::: details Python DFS
-```py
+```python
 def dfs(node, level = 0, visited = set()):
   visited.add(node)
   process(node)
@@ -70,7 +70,7 @@ def dfs(node, level = 0, visited = set()):
 :::
 
 ::: details Python BFS 新旧队列法
-```py
+```python
 def bfs(root):
   queue = []
   visited = set()
@@ -91,7 +91,7 @@ def bfs(root):
 :::
 
 ::: details Python BFS 队列计数法
-```py
+```python
 def bfs(root):
   queue = collections.deque()
   visited = set()
@@ -113,7 +113,7 @@ def bfs(root):
 :::
 
 ::: details Python 双向 BFS 最短level
-```py
+```python
 def debfs(start, end):
   if start == end:  # 必须判断
     return
@@ -129,7 +129,7 @@ def debfs(start, end):
           visited.add(next)
     s1 = tmp
     if len(s1) > len(s2): s1, s2 = s2, s1
-  return 0  # not found
+  return 0  # 根据题目语义 0 or -1
 ```
 :::
 
@@ -139,7 +139,7 @@ def debfs(start, end):
 
 ### 字典树 (Trie)
 ::: details Python Trie 实现
-```py
+```python
 class Trie:
   def __init__(self):
     self.root = {}

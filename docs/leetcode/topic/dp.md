@@ -3,7 +3,7 @@
 DP 初始状态有两种做法：数组空间多开一个、循环内单独判断。不同场合下代码简洁度不一样，例如[1143. 最长公共子序列](https://leetcode-cn.com/problems/longest-common-subsequence/)在循环内单独判断就很挫。
 
 ::: details 1143 循环内单独判断
-```py
+```python
 class Solution:
     def longestCommonSubsequence(self, a: str, b: str) -> int:
         if not a or not b: return 0
@@ -21,7 +21,7 @@ class Solution:
 :::
 
 ::: details 1143 数组空间多开一个
-```py
+```python
 class Solution:
     def longestCommonSubsequence(self, a: str, b: str) -> int:
         if not a or not b: return 0
