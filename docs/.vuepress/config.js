@@ -14,12 +14,19 @@ module.exports = {
       {
         text: '力扣刷题',
         items: [
-          { text: '数据结构 (刷)', link: '/leetcode/data-struct' },
-          { text: '正统算法 (刷)', link: '/leetcode/algorithm' },
-          { text: '技巧性算法 (刷)', link: '/leetcode/art' },
+          { text: '练习册 (刷)', link: '/leetcode/exercise-book' },
           { text: '代码模板 (背)', link: '/leetcode/code-template' },
           { text: '语言差异 (坑)', link: '/leetcode/lang-diff' },
-          { text: '零散知识 (草稿)', link: '/leetcode/draft' },
+          {
+            text: '专题讲解',
+            items: [
+              { text: '搜索', link: '/leetcode/topic/search' },
+              { text: 'DP', link: '/leetcode/topic/DP' },
+              { text: '二分查找', link: '/leetcode/topic/bin-search' },
+              { text: 'TopK', link: '/leetcode/topic/topk' },
+              { text: '其它', link: '/leetcode/topic/others' },
+            ]
+          },
         ]
       },
       {
@@ -52,12 +59,20 @@ module.exports = {
     sidebarDepth: 5,
     sidebar: {
       '/leetcode/': [
-        'data-struct',
-        'algorithm',
-        'art',
+        'exercise-book',
         'code-template',
         'lang-diff',
-        'draft',
+        {
+          title: '专题讲解',
+          collapsable: false,
+          children: [
+            'topic/search',
+            'topic/dp',
+            'topic/bin-search',
+            'topic/topk',
+            'topic/others',
+          ]
+        }
       ],
       '/frontend/': [
         'history',
