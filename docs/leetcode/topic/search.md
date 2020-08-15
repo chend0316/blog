@@ -143,7 +143,8 @@ class Solution(object):
 ## 高级搜索: 剪枝
 
 [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/)。
-::: 22题 Python 预剪枝
+
+::: details 22题 Python 预剪枝
 ```py
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
@@ -158,7 +159,7 @@ class Solution:
 ```
 :::
 
-::: 22题 Python 后剪枝
+::: details 22题 Python 后剪枝
 ```py
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
@@ -179,7 +180,7 @@ class Solution:
 ### 预剪枝 vs 后剪枝
 [37. 解数独](https://leetcode-cn.com/problems/sudoku-solver/)，这题可以用预剪枝、后剪枝来解，可以看到后剪枝的信息比预剪枝要少，所以一般效率更低。这题还有 A* 解法，但这里不介绍。
 
-::: 37题 Python 后剪枝 超时
+::: details 37题 Python 后剪枝 超时
 ```py
 class Solution:
     def solveSudoku(self, board: List[List[str]]) -> None:
@@ -209,7 +210,7 @@ class Solution:
 ```
 :::
 
-::: 37题 Python 预剪枝
+::: details 37题 Python 预剪枝
 ```py
 class Solution:
     def solveSudoku(self, board: List[List[str]]) -> None:
