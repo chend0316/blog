@@ -1,13 +1,10 @@
 # 搜索专题
 
-- DFS、BFS、Force DFS
-- 剪枝，分为预剪枝和后剪枝
-- 双向 BFS
-- A*
+- 树搜索: DFS、BFS、Force DFS
+- 图搜索: DFS、BFS、双向 BFS
+- 高级搜索: 剪枝，分为预剪枝和后剪枝
+- 高级搜索: A*
 
-我个人把 visited 也看做是一种剪枝，因此入队列的时候加入 visited 视为预剪枝，出队列的时候加入 visited 视为后剪枝。
-
-## 基础搜索: DFS、BFS、暴力 DFS
 DFS 和 BFS 的区别：
 
 |            | DFS深度优先                      | BFS广度优先                    |
@@ -16,9 +13,11 @@ DFS 和 BFS 的区别：
 | 空间复杂度 | 取决于树的高度、图的最长环路长度 | 取决于树的“宽度”、图里面不好说 |
 | 实现方式   | 一般是递归，很少用迭代，实现容易 | 迭代，实现难一点点             |
 
+## 树搜索: DFS、BFS、暴力 DFS
 ### BFS (层次遍历)
-
 层次遍历的基础题见[102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)，有多种实现技巧。我了解的有两种，我给他们起名字为：队列计数法、新旧队列法。
+
+这两种方法的效果是一样的，大家可能有各自的喜好。但我建议大家重点掌握「新旧队列法」，因为它在图 BFS 遍历中更加适用 (特别是 set 队列和 dict 队列的情况)。
 
 ::: details 102题「队列计数法」代码
 ```python
@@ -59,8 +58,6 @@ class Solution:
 ```
 :::
 
-层次遍历是一个代码技巧，熟悉其思想可以写出其它变种。例如双向 BFS 就将层次遍历运用到了出神入化的地步，它是在「新旧队列法」的基础上使用哈希表来代替队列。
-
 ### Force DFS
 [543. 二叉树的直径](https://leetcode-cn.com/problems/diameter-of-binary-tree/)除了暴力 DFS 还有更好的解法。
 
@@ -100,43 +97,215 @@ def isSubPath(self, head, root):
 ```
 :::
 
-### 更多习题
+## 图搜索: DFS、BFS、双向 BFS
+如果你还没被下面这几题虐过，那你可能看不懂本节内容。
+- [127. 单词接龙](https://leetcode-cn.com/problems/word-ladder/)
+- [126. 单词接龙 II](https://leetcode-cn.com/problems/word-ladder-ii/)
 
-- [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)，除了用BFS竟然还能用DFS做
-- [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
-- [111. 二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/)
-- [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/)，看起来不像，但其实是DFS+剪枝
-- [36. 有效的数独](https://leetcode-cn.com/problems/valid-sudoku/)
-- [37. 解数独](https://leetcode-cn.com/problems/sudoku-solver/)
+### BFS
+图可能有回路，需要用 visited 集合避免走回路。
 
-## 高级搜索: 双向 BFS
-[126. 单词接龙 II](https://leetcode-cn.com/problems/word-ladder-ii/)在国际站上有[一个绝妙的 BFS 解法](https://leetcode.com/problems/word-ladder-ii/discuss/40482/Python-simple-BFS-layer-by-layer)，代码如下。
+BFS 算法有很多流派：
+- 单循环BFS / 双循环BFS
+- 队列节点携带信息 / 全局变量记录信息
+- 队列 / set去重队列 / dict去重队列
+- 入队列visited / 出队列visited / 批量visited
 
-::: details 126题双向DFS代码
+去重队列分为 set、dict 两种，二者怎么选呢？
+- 如果用全局变量记录信息，那么用 set 充当队列
+- 如果用队列节点附带信息，那么就需要用 dict 充当队列
+
+去重队列用的是哈希表，因为有的语言自带的不是有序哈希表，所以用「队列计数法」容易翻车，所以我们在图中统一用「新旧队列法」。
+
+127题只需要输出最短路径的长度，不管用「入队列visited」、「出队列visited」还是「批量visited」都是可以的。126题需要输出所有最短路径，只能用「批量visited」，不能用「入队列visited」，否则会漏解。
+
+::: details 127题 入队列visited、出队列visited、批量visited
 ```python
-class Solution(object):
-    def findLadders(self, beginWord, endWord, wordList):
+# 入队列visited
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
         wordList = set(wordList)
-        res = []
-        layer = {}
-        layer[beginWord] = [[beginWord]]
+        if endWord not in wordList: return 0
+        queue = { beginWord }
+        visited = { beginWord }
+        depth = 1
+        while queue:
+            newQueue = set()
+            for word in queue:
+                if word == endWord: return depth
+                for i in range(len(word)):
+                    for c in 'abcdefghijklmnopqrstuvwxyz':
+                        nextWord = word[:i] + c + word[i+1:]
+                        if nextWord not in visited and nextWord in wordList:
+                            newQueue.add(nextWord)
+                            visited.add(nextWord)  # 入队列visited，能通过
+            depth += 1
+            queue = newQueue
+        return 0
+```
 
-        while layer:
-            newlayer = collections.defaultdict(list)  # 用哈希表而不是队列
-            for w in layer:
-                if w == endWord: 
-                    res.extend(k for k in layer[w])
+```python
+# 出队列visited
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        wordList = set(wordList)
+        if endWord not in wordList: return 0
+        queue = { beginWord }
+        visited = set()
+        depth = 1
+        while queue:
+            newQueue = set()
+            for word in queue:
+                if word == endWord: return depth
+                visited.add(word)  # 出队列visited，能通过
+                for i in range(len(word)):
+                    for c in 'abcdefghijklmnopqrstuvwxyz':
+                        nextWord = word[:i] + c + word[i+1:]
+                        if nextWord not in visited and nextWord in wordList:
+                            newQueue.add(nextWord)
+            depth += 1
+            queue = newQueue
+        return 0
+```
+
+```python
+# 批量visited
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        wordList = set(wordList)
+        if endWord not in wordList: return 0
+        queue = { beginWord }
+        visited = { beginWord }
+        depth = 1
+        while queue:
+            newQueue = set()
+            for word in queue:
+                if word == endWord: return depth
+                for i in range(len(word)):
+                    for c in 'abcdefghijklmnopqrstuvwxyz':
+                        nextWord = word[:i] + c + word[i+1:]
+                        if nextWord not in visited and nextWord in wordList:
+                            newQueue.add(nextWord)
+            visited = visited.union(newQueue)  # 批量visited，能通过
+            depth += 1
+            queue = newQueue
+        return 0
+```
+:::
+
+下面我们分析一下图 BFS 中，「入队列visited」、「出队列visited」和「批量visited」的区别。先说结论，「批量visited」才是图 BFS 的正确写法。我在本子上画了图来分析三者区别的，暂时没有写在博客里面，以后贴上来。
+
+::: details 126题 双循环BFS + (set队列 = 去重队列 + 全局变量记录信息) + 批量visited
+```python
+class Solution:
+    def findLadders(self, beginWord: str, endWord: str, wordList: List[str]) -> List[List[str]]:
+        wordList = set(wordList)
+        queue = { beginWord }  # 采用 set 实现去重队列
+        visited = { beginWord }
+        paths = { beginWord: [[beginWord]] }  # 记录 path 信息
+
+        while queue:
+            newQueue = set()
+            for w in queue:  # 出队列，在这里添加 visited 会导致解冗余
+                if w == endWord: return paths[endWord]
+                for i in range(len(w)):
+                    for c in 'abcdefghijklmnopqrstuvwxyz':
+                        neww = w[:i] + c + w[i+1:]
+                        if neww in wordList and neww not in visited:
+                            newQueue.add(neww)  # 入队列，在这里添加 visited 会导致漏解
+                            paths.setdefault(neww, [])
+                            paths[neww] += [path + [neww] for path in paths[w]]
+            queue = newQueue
+            visited = visited.union(queue)  # 批量添加 visited 才是 BFS 的正解，因为 BFS 是一种“并发”扩散
+            # 估计很多人最短路长度的题做多了，被宠坏了，习惯在入队列的时候更新 visited
+        return []
+```
+:::
+
+::: details 126题 BFS + (dict队列 = 去重队列 + 队列节点附带信息) + 批量visited
+```python
+class Solution:
+    def findLadders(self, beginWord: str, endWord: str, wordList: List[str]) -> List[List[str]]:
+        wordList = set(wordList)
+        queue = collections.defaultdict(list)  # 采用 dict 实现去重队列
+        queue[beginWord] = [[beginWord]]
+        visited = { beginWord }
+
+        while queue:
+            newVisited = set()
+            newQueue = collections.defaultdict(list)
+            for w in queue:
+                paths = queue[w]
+                if w == endWord: return paths
                 else:
                     for i in range(len(w)):
                         for c in 'abcdefghijklmnopqrstuvwxyz':
-                            neww = w[:i]+c+w[i+1:]
-                            if neww in wordList:
-                                newlayer[neww]+=[j+[neww] for j in layer[w]]
+                            neww = w[:i] + c + w[i+1:]
+                            if neww in wordList and neww not in visited:
+                                newQueue[neww] += [path + [neww] for path in paths]  # 队列节点附带信息
+                                newVisited.add(neww)
+            visited = visited.union(newVisited)  # 批量visited
+            queue = newQueue
 
-            wordList -= set(newlayer.keys())
-            layer = newlayer  # 这是用「新旧队列」法实现的层次遍历，不过这里用哈希表取代队列
+        return []
+```
+:::
 
+::: details 126题 BFS + 队列节点附带信息 + 批量访问邻居
+```python
+class Solution:
+    def findLadders(self, beginWord: str, endWord: str, wordList: List[str]) -> List[List[str]]:
+        wordList = set(wordList)
+        res = []
+        queue = collections.deque()
+        queue.append([beginWord])
+        visited = { beginWord }
+        while queue:
+            newVisited = set()
+            newQueue = collections.deque()
+            while queue:
+                path = queue.popleft()
+                word = path[-1]
+                if word == endWord: return res
+                for i in range(len(word)):
+                    for c in 'abcdefghijklmnopqrstuvwxyz':
+                        newWord = word[:i] + c + word[i+1:]
+                        if newWord in visited or newWord not in wordList: continue
+                        newVisited.add(newWord)
+                        if newWord == endWord: res.append(path + [endWord])
+                        else: newQueue.append(path + [newWord])
+            visited = visited.union(newVisited)
+            queue = newQueue
         return res
+```
+:::
+
+### 双向 BFS
+[127. 单词接龙](https://leetcode-cn.com/problems/word-ladder/)。
+::: details 127题 双向BFS
+```python
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        if endWord not in wordList: return 0
+        wordList = set(wordList)
+        start, end, visited = {beginWord}, {endWord}, {beginWord, endWord}
+        res = 2
+
+        while start:
+            tmp = set()
+            for word in start:
+                for c in 'abcdefghijklmnopqrstuvwxyz':
+                    for i in range(len(word)):
+                        newWord = word[:i] + c + word[i+1:]
+                        if newWord in end: return res
+                        if newWord in wordList and newWord not in visited:
+                            visited.add(newWord)
+                            tmp.add(newWord)
+            res += 1
+            start = tmp
+            if len(start) > len(end): start, end = end, start
+
+        return 0
 ```
 :::
 
@@ -241,10 +410,66 @@ class Solution:
 
 只要在 BFS 的基础上，将队列改为优先级队列就可以变为 A* 搜索。
 
-## 例题
-### [433. 最小基因变化](https://leetcode-cn.com/problems/minimum-genetic-mutation/)
+[1091. 二进制矩阵中的最短路径](https://leetcode-cn.com/problems/shortest-path-in-binary-matrix/)题不知道为啥入队列时候 visited 答案会错误，不知道为啥用曼哈顿距离答案会错。
 
-::: details Java BFS 预剪枝
+::: details 1091题 Python
+```python
+# 启发式搜索，出队列visited，答案正确
+from heapq import heappush, heappop
+class Solution:
+    def shortestPathBinaryMatrix(self, grid: List[List[int]]) -> int:
+        N, M = len(grid), len(grid[0])
+        h = lambda i, j: max(N - 1 - i, M - 1 - j)
+        queue = []
+        if grid[0][0] == 0:
+            heappush(queue, (h(0, 0) + 1, 1, (0, 0)))
+            visited = set()
+        while queue:
+            _, depth, cur = heappop(queue)
+            if cur in visited: continue  #
+            visited.add(cur)  # 出队列visited，答案正确
+            curx, cury = cur
+            if curx == N - 1 and cury == M - 1: return depth 
+            for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0), (1, 1), (-1, -1), (1, -1), (-1, 1)]:
+                nextx, nexty = curx + dx, cury + dy
+                nex = nextx, nexty
+                if 0 <= nextx < N and 0 <= nexty < M and grid[nextx][nexty] == 0:
+                    heappush(queue, (h(nex[0], nex[1]) + depth + 1, depth + 1, nex))
+        return -1
+```
+
+```python
+# 启发式搜索，入队列visited，答案错误 
+# [[0,0,0,0,1,1,1,1,0],[0,1,1,0,0,0,0,1,0],[0,0,1,0,0,0,0,0,0],[1,1,0,0,1,0,0,1,1],[0,0,1,1,1,0,1,0,1],[0,1,0,1,0,0,0,0,0],[0,0,0,1,0,1,0,0,0],[0,1,0,1,1,0,0,0,0],[0,0,0,0,0,1,0,1,0]]
+# 期望的是11，但输出的是12
+from heapq import heappush, heappop
+class Solution:
+    def shortestPathBinaryMatrix(self, grid: List[List[int]]) -> int:
+        N, M = len(grid), len(grid[0])
+        h = lambda i, j: max(N - 1 - i, M - 1 - j)
+        queue = []
+        if grid[0][0] == 0:
+            heappush(queue, (h(0, 0) + 1, 1, (0, 0)))
+            visited = {(0, 0)}
+        while queue:
+            _, depth, cur = heappop(queue)
+            curx, cury = cur
+            if curx == N - 1 and cury == M - 1: return depth 
+            for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0), (1, 1), (-1, -1), (1, -1), (-1, 1)]:
+                nextx, nexty = curx + dx, cury + dy
+                nex = nextx, nexty
+                if 0 <= nextx < N and 0 <= nexty < M and nex not in visited and grid[nextx][nexty] == 0:  #
+                    heappush(queue, (h(nex[0], nex[1]) + depth + 1, depth + 1, nex))
+                    visited.add(nex)  # 入队列visited，答案错误
+        return -1
+```
+:::
+
+## 例题
+
+[433. 最小基因变化](https://leetcode-cn.com/problems/minimum-genetic-mutation/)
+
+::: details 433题 Java BFS 预剪枝
 ```java
 // https://leetcode.com/problems/minimum-genetic-mutation/discuss/91484/Java-Solution-using-BFS
 public class Solution {
@@ -290,7 +515,7 @@ public class Solution {
 ```
 :::
 
-::: details Java DFS
+::: details 433题 Java DFS
 ```java
 public int minMutation(String start, String end, String[] bank) {
     recurse(start, end, bank, 0, new HashSet<String>());  // 小问题，哈希表应该把 start 加入
@@ -321,6 +546,13 @@ private void recurse(String start, String end, String[] bank, int soFar, Set<Str
 :::
 
 ## 更多习题
+
+- [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)，除了用BFS竟然还能用DFS做
+- [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
+- [111. 二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/)
+- [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/)，看起来不像，但其实是DFS+剪枝
+- [36. 有效的数独](https://leetcode-cn.com/problems/valid-sudoku/)
+- [37. 解数独](https://leetcode-cn.com/problems/sudoku-solver/)
 
 - [51. N皇后](https://leetcode-cn.com/problems/n-queens/)，判断是否要剪枝的逻辑可以遍历棋盘判断，或通过行列的和/差判断
 - [52. N皇后 II](https://leetcode-cn.com/problems/n-queens-ii/)

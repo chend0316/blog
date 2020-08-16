@@ -69,15 +69,18 @@ def dfs(node, level = 0, visited = set()):
 ```
 :::
 
-介绍 BFS 之前，我们要引入几个概念。以入队列、出队列为时间点，visited 和 process 的时机也分2种情况。
-- 预访问: 入队列的时候加入 visited
-- 后访问: 出队列的时候加入 visited
-- 预处理: 入队列的时候计算/提取 path 信息
-- 后处理: 出队列的时候计算/提取 path 信息
-
-边的完整信息是 `(from, to, level)` 而后处理的时候会把 from 信息丢失变成 `(???, to, level)`，导致一些要求无法用后处理实现。
-
-[127. 单词接龙](https://leetcode-cn.com/problems/word-ladder/)只需要输出最短路的 level，所以随便用个 DFS 都行。但是[126. 单词接龙 II](https://leetcode-cn.com/problems/word-ladder-ii/)需要输出所有最短的路径，就必须用「预处理的DFS」了。
+::: details Python 朴素 BFS
+```python
+def bfs(root):
+    queue = []
+    if root: queue += [(1, root)]  # 根据题意，初始深度 1
+    for depth, cur in queue:
+        if cur == target: return depth
+        for nei in gen_neighbors(cur):
+            queue.append((depth + 1, nei))
+    return -1  # 根据题意
+```
+:::
 
 ::: details Python BFS 新旧队列法 + 预访问 + 预处理
 ```python
@@ -99,28 +102,6 @@ def bfs(root):
                 visited.add(next_node)
                 tmp.append(next_node)
         queue = tmp 
-```
-:::
-
-::: details Python BFS 队列计数法 + 预访问 + 后处理
-```python
-def bfs(root):
-    queue = collections.deque()
-    visited = set()
-    level = 0
-    if root:
-        queue.append(root)
-        visited.add(root)  # 预访问
-    while queue:
-        level += 1
-        n = len(queue)
-        while n:
-            n -= 1
-            node = queue.popleft()
-            process(node)  # 后处理
-            for next_node in gen_related_nodes(node):
-                visited.add(next_node)
-                new_queue.append(next_node)
 ```
 :::
 
