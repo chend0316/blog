@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        canvas { width: 256px; height: 256px; border: gray solid 1px; }
+    </style>
+</head>
+<body>
+    <canvas width="512" height="512"></canvas>
+    <script>
+        const canvas = document.querySelector('canvas');
+        const context = canvas.getContext('2d');
+        const rectSize = [100, 100];
+
+        context.fillStyle = 'red';
+        context.save();  // 保存平移前的画布状态
+        context.translate(-0.5 * rectSize[0], -0.5 * rectSize[1]);  // 绘制前平移整个画布
+        context.beginPath();
+        context.rect(canvas.width * 0.5, canvas.height * 0.5, ...rectSize);
+        context.fill();
+        context.restore();  // 恢复画布状态
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        canvas { width: 256px; height: 256px; }
+    </style>
+</head>
+<body>
+    <canvas width="512" height="512"></canvas>
+    <script>
+        const canvas = document.querySelector('canvas');
+        const context = canvas.getContext('2d');
+        context.fillStyle = 'red';
+        context.beginPath();
+        context.rect(canvas.scrollwidth);
+        context.fill();
+    </script>
+</body>
+</html>

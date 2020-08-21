@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        canvas {
+            width: 256px;
+            height: 256px;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="512" height="512"></canvas>
+    <script>
+        const canvas = document.querySelector('canvas');
+        const context2D = canvas.getContext('2d');  // 获取 Canvas 2D 上下文
+        const contextWebGL = canvas.getContext('webgl');  // 获取 WebGL 上下文
+    </script>
+</body>
+</html>

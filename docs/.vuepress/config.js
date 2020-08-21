@@ -36,6 +36,7 @@ module.exports = {
           { text: '框架核心原理', link: '/frontend/core' },
           { text: 'Vue', link: '/frontend/vue/vue-setup' },
           { text: 'Electron', link: '/frontend/electron/' },
+          { text: '可视化', link: '/frontend/visualization/' },
         ]
       },
       {
@@ -46,15 +47,15 @@ module.exports = {
       //   text: '编程语言',
       //   link: '/language/',
       // },
-      // {
-      //   text: '计算机',
-      //   items: [
-      //     { text: '数据结构&算法', link: '/cs/dsa/' },
-      //     { text: '编译原理', link: '/cs/compile/' },
-      //     { text: '操作系统', link: '/cs/os/' },
-      //     { text: '计算机网络', link: '/cs/network/' },
-      //   ]
-      // }
+      {
+        text: '计算机基础',
+        items: [
+          { text: '数据结构&算法', link: '/cs/dsa/' },
+          { text: '编译原理', link: '/cs/compile/' },
+          { text: '操作系统', link: '/cs/os/' },
+          { text: '计算机网络', link: '/cs/network/' },
+        ]
+      }
     ],
     sidebarDepth: 5,
     sidebar: {
@@ -85,6 +86,7 @@ module.exports = {
           ]
         },
         'electron/',
+        'visualization/',
       ],
       '/backend/': [
         'cython/',
