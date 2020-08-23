@@ -2,6 +2,9 @@ module.exports = {
   title: '陈东的技术博客',
   description: '',
   base: '/',
+  markdown: {
+    lineNumbers: true
+  },
   themeConfig: {
     repo: 'chend0316/blog',
     editLinks: true,

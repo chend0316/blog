@@ -1,3 +1,4 @@
+// 参考资料: https://nodejs.org/dist/latest-v12.x/docs/api/http.html
 const http = require('http');
 
 const options = {
@@ -7,12 +8,11 @@ const options = {
 };
 
 const req = http.request(options, function (res) {
-    console.log(res.statusCode);
     console.log(`STATUS: ${res.statusCode}`);
     console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
     res.setEncoding('utf8');
 
-    let buf = ''
+    let buf = '';
     res.on('data', (chunk) => {
         buf += chunk;
     });
