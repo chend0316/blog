@@ -22,14 +22,13 @@ K是什么？
 
 方法二：建立小顶堆后弹出N - K个元素，剩下K个就是了（妙啊！开拓思维）
 
-方法三：谷歌搜「Python max heap」，其实Python也有办法支持大顶堆的
-
 ## 如果K是自定义结构
 
 对于系统不认识的类型，还想要调用系统自带的函数，API风格有：
 
 - Python要传入key函数用于提取出可比较的key
 - Java要传入Comparator用于比较两个元素的大小
+- Python 的 Tuple 可以排序，所以还可以用 Tuple 包裹自定结构，把 Rank 值放在 Tuple 的第一个元素
 
 Python代码示例：
 
