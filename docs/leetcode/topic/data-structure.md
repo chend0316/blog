@@ -1,12 +1,13 @@
-# 习题册
-如果只是想刷题，可以看这个习题册，有如下特点：
-- 把每一题各种解法都列出来了
-- 没有给答案
-- 每一题都有超链接，可以直接点过去做题
+# 数据结构
 
-## 数据结构
+链表题本身不难，但在代码实现上细节很容易出错，一定要刻意练习。
+
+栈、队列、堆都是非常常用的数据结构，要熟练使用各语言内置的库。堆还分为大顶堆、小顶堆、自定义元素类型堆。
+
+Trie 和并查集都是新型数据结构，各语言没有内置，需要自己实现。并查集有 rank、路径压缩两种优化办法，一般路径压缩比较常用。
+
+## 习题
 ### 链表
-链表的题算法思路都比较简单，但代码实现上细节很容易出错，对代码功力的要求比较高。如果不能顺利写出来，一定要刻意练习，直到自己能在白板上手写。
 
 - [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/)
 - [24. 两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
@@ -15,13 +16,11 @@
 - [25. K 个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/)
 
 ### 堆（优先级队列）
-堆分为大顶堆、小顶堆，需要掌握各编程语言内置的堆。此外要小心Python只支持小顶堆不支持大顶堆。
 
 - [703. 数据流中的第K大元素](https://leetcode-cn.com/problems/kth-largest-element-in-a-stream/)，
 - [239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/)，这题除了用大顶堆，还有一个线性时间的算法；
 
 ### 栈、队列
-栈和队列的题都很简单，只要掌握各个语言内置的栈、队列即可。
 
 - [844. 比较含退格的字符串](https://leetcode-cn.com/problems/backspace-string-compare/)
 - [225. 用队列实现栈](https://leetcode-cn.com/problems/implement-stack-using-queues/)
@@ -35,6 +34,7 @@
 - [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/)
 
 #### 二叉树遍历
+
 [先序遍历](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/)由于是尾递归，所以很容易改成迭代。
 [中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)改迭代比较难，主要方法有颜色标记法、左臂下探法。
 [后序遍历](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/)改迭代更难，我没研究。
@@ -48,9 +48,6 @@
 - [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/)，Trie + 剪枝
 
 ### 并查集
-并查集也是一种新型数据结构，教材中很少提，各语言也没有内置。
-
-经典并查集的实现不难，需要熟练到能在白板上手写。并查集的深度决定其优劣，所以并查集有2种优化办法：rank优化、路径压缩。
 
 - [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/)
 - [547. 朋友圈](https://leetcode-cn.com/problems/friend-circles/)
