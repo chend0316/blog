@@ -44,7 +44,11 @@ module.exports = {
       },
       {
         text: '后端',
-        link: '/backend/cython/',
+        items: [
+          { text: 'SQL', link: '/backend/sql/' },
+          { text: 'Cython', link: '/backend/cython/' },
+          { text: 'Protobuf', link: '/backend/protobuf/' },
+        ]
       },
       // {
       //   text: '编程语言',
@@ -92,6 +96,7 @@ module.exports = {
         'visualization/',
       ],
       '/backend/': [
+        'sql/',
         'cython/',
         'protobuf/',
         'micro-service',
