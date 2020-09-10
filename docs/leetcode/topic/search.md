@@ -347,7 +347,11 @@ class Solution:
 :::
 
 ### 预剪枝 vs 后剪枝
-[37. 解数独](https://leetcode-cn.com/problems/sudoku-solver/)，这题可以用预剪枝、后剪枝来解，可以看到后剪枝的信息比预剪枝要少，所以一般效率更低。这题还有 A* 解法，但这里不介绍。
+后剪枝虽然代码写起来少几行，但有2个缺点：
+- 效率低
+- 会导致重复解
+
+[37. 解数独](https://leetcode-cn.com/problems/sudoku-solver/)，这题可以用预剪枝、后剪枝来解，可以看到后剪枝所能依赖的决策信息比预剪枝要少，所以一般效率更低。这题还有 A* 解法，但这里不介绍。
 
 ::: details 37题 Python 后剪枝 超时
 ```python

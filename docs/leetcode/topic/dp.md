@@ -161,7 +161,7 @@ class Solution:
 - [152. 乘积最大子数组](https://leetcode-cn.com/problems/maximum-product-subarray/)
 - [300. 最长上升子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)
 
-爬楼梯系列：
+爬楼梯、硬币兑换系列：
 - [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)，最简单的 DP 问题
 - [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/)
 - [面试题 08.01. 三步问题](https://leetcode-cn.com/problems/three-steps-problem-lcci/)
