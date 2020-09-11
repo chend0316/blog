@@ -33,15 +33,13 @@ Vue 中实现的算法虽然最坏情况下也达到了 O(N) 的空间复杂度�
 ![](./img/store.png)
 
 ### 前端开发所面临的挑战
-随着 JavaScript 单页应用开发日趋复杂，JavaScript 需要管理越来越多的 state。这些 state 可能包括服务器响应、缓存数据、本地生成尚未持久化到服务器的数据，也包括 UI 组件的状态（如routes, tabs, spinners, pagination等等）。
-
-这些 state 的关系越来越错综复杂，管理它们越来越困难。直至你搞不清楚 **state 在什么时候，由于什么原因，如何变化，想重现问题或者添加新功能就会变得举步维艰**。前端开发者正在面临前所未有的复杂性。
+随着 JavaScript 单页应用开发日趋复杂，组件的状态变得越来越复杂。
 
 Flux, CQRS, Event Sourcing, Redux, Vuex 这些状态管理框架做的事情就是让状态改变（state mutations）变得**可预测**。
 
 参考阅读：https://redux.js.org/introduction/motivation
 
-同时这些框架对 state 的操作做了限制，有些限制很严格而且反常识，但遵循这些限制会带来一些开发体验的改进：
+同时这些框架对 state 的操作做了限制，有些限制很严格而且反常识，但遵循这些限制会带来如下开发体验的改进：
 - 时间旅行（time travel）：可以回到过去的某个状态进行调试
 - 状态快照导入导出
 - 状态回放
