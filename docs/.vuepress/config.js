@@ -45,7 +45,7 @@ module.exports = {
       {
         text: '后端',
         items: [
-          { text: 'SQL', link: '/backend/sql/' },
+          // { text: 'SQL', link: '/backend/sql/' },
           { text: 'Cython', link: '/backend/cython/' },
           { text: 'Protobuf', link: '/backend/protobuf/' },
         ]
@@ -57,9 +57,9 @@ module.exports = {
       {
         text: '计算机基础',
         items: [
-          { text: '数据结构&算法', link: '/cs/dsa/' },
-          { text: '编译原理', link: '/cs/compile/' },
-          { text: '操作系统', link: '/cs/os/' },
+          // { text: '数据结构&算法', link: '/cs/dsa/' },
+          // { text: '编译原理', link: '/cs/compile/' },
+          // { text: '操作系统', link: '/cs/os/' },
           { text: '计算机网络', link: '/cs/network/' },
         ]
       }
@@ -96,10 +96,10 @@ module.exports = {
         'visualization/',
       ],
       '/backend/': [
-        'sql/',
+        // 'sql/',
         'cython/',
         'protobuf/',
-        'micro-service',
+        // 'micro-service',
       ],
       '/language/': [
         'theory',
@@ -110,10 +110,10 @@ module.exports = {
         // 'javascript/',
       ],
       '/cs/': [
-        'dsa/',
-        'os/',
+        // 'dsa/',
+        // 'os/',
         'network/',
-        'compile/',
+        // 'compile/',
       ],
       '/': [
         '',
