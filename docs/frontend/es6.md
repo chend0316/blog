@@ -1,4 +1,4 @@
-# ECMAScript 6 学习小 Demo
+# ECMAScript 6
 
 ## Promise
 一个最基本的 Promise 用法如下。
