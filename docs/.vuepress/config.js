@@ -35,6 +35,7 @@ module.exports = {
       {
         text: '前端',
         items: [
+          { text: 'ECMAScript 6', link: '/frontend/es6' },
           { text: '发展史', link: '/frontend/history' },
           { text: '框架核心原理', link: '/frontend/core' },
           { text: 'Vue', link: '/frontend/vue/vue-setup' },
@@ -83,6 +84,7 @@ module.exports = {
         }
       ],
       '/frontend/': [
+        'es6',
         'history',
         'core',
         {
