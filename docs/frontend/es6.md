@@ -32,3 +32,16 @@ Promise 基础用法：
 ::: details resolve 另一个 Promise
 <<< @/src/es6/promise-resolve.js
 :::
+
+## Generator
+Generator 的基本用法如下。
+
+::: details 使用 Generator 封装 Flat 操作
+<<< @/src/es6/generator-flat.js
+:::
+
+也可以用 Generator 生成 Iterator。
+
+::: details Generator 和 Iterator 的关系
+<<< @/src/es6/generator-iterator.js
+:::

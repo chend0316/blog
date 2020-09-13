@@ -3,7 +3,6 @@ const p1 = new Promise((resolve, reject) => {
 })
 
 const p2 = new Promise((resolve, reject) => {
-  // 等同于 throw new Error('错误');
   reject(new Error('错误'));
 }).catch(e => {
   // 因为 p2 catch 了错误，并返回了 'world'
