@@ -36,11 +36,11 @@ module.exports = {
         text: '前端',
         items: [
           { text: 'JavaScript', link: '/frontend/javascript' },
-          { text: '发展史', link: '/frontend/history' },
-          { text: '框架核心原理', link: '/frontend/core' },
           { text: 'Vue', link: '/frontend/vue/vue-setup' },
-          { text: 'Electron', link: '/frontend/electron/' },
+          { text: '框架核心原理', link: '/frontend/core' },
           { text: '可视化', link: '/frontend/visualization/' },
+          { text: '发展史', link: '/frontend/history' },
+          { text: 'Electron', link: '/frontend/electron/' },
         ]
       },
       {
@@ -85,8 +85,6 @@ module.exports = {
       ],
       '/frontend/': [
         'javascript',
-        'history',
-        'core',
         {
           title: 'Vue',
           collapsable: false,
@@ -95,8 +93,10 @@ module.exports = {
             '/frontend/vue/vue-setup',
           ]
         },
-        'electron/',
+        'core',
         'visualization/',
+        'history',
+        'electron/',
       ],
       '/backend/': [
         // 'sql/',
