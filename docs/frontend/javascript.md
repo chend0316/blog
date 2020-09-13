@@ -1,6 +1,7 @@
-# ECMAScript 6
+# JavaScript
 
-## Promise
+## ES6
+### Promise
 一个最基本的 Promise 用法如下。
 
 ::: details Promise 封装 Ajax 请求
@@ -33,7 +34,7 @@ Promise 基础用法：
 <<< @/src/es6/promise-resolve.js
 :::
 
-## Generator
+### Generator
 Generator 的基本用法如下。
 
 ::: details 使用 Generator 封装 Flat 操作
@@ -45,3 +46,5 @@ Generator 的基本用法如下。
 ::: details Generator 和 Iterator 的关系
 <<< @/src/es6/generator-iterator.js
 :::
+
+### Iterator

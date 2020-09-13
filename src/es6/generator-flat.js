@@ -15,8 +15,8 @@ function* flat(arr) {
 let input = [1, [[2, 3], 4], [5, 6]];
 
 for (var a of flat(input)) {
-  console.log(a);
+  console.log(a); // 1 2 3 4 5 6
 }
 
 let output = Array.from(flat(input));
-console.log(output);
+console.log(output); // 1 2 3 4 5 6
