@@ -21,8 +21,8 @@
 - 使用 JSX
 
 为什么说 Vue 对 TypeScript 的支持不友好？
-- SFC + TypeScript 的组合，需要先编译 SFC 后编译 TS，这让 tsconfig 文件变得怪异
-- Vue 的 API 风格对人类友好，但对 TS 类型推断 (Type Inference) 不友好
+- SFC + TypeScript 的组合，需要先编译 SFC 提取出`<script>`代码块，然后编译 TS，这让 tsconfig 文件变得怪异
+- Vue 的 Options API 风格对人类友好，但对 TS 类型推断 (Type Inference) 不友好
 - Vue HTML 模板中的插值表达式 (Interpolations) 难以启用 TS 类型检查
 
 ## Webpack
@@ -49,7 +49,7 @@ module.exports = {
 
 安装：`npm install -D vue-loader vue-template-compiler`。
 
-编译时，需要将 SFC 拆分为 HTML、JS、CSS 这三个不同部分，然后对于不同部分采用各自的 Loader 处理。对 Webpack 熟悉的同学应该知道，对文件一分三的操作无法通过 Loader 实现，需要用 Plugin。这也就是为什么在 Webpack 配置文件中，我们还需要引入 Vue 的 Plugin，如下。
+编译时，需要将 SFC 拆分为 HTML、JS、CSS 这三个不同部分，然后对于不同部分采用各自的 Webpack Loader 处理。对文件一分三的操作只能用 Webpack Plugin 实现。所以 Webpack 配置文件中，我们即要引入 `vue-loader` 也要引入 `VueLoaderPlugin`，代码如下。
 ``` js
 // webpack.config.js
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
