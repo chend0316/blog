@@ -117,7 +117,7 @@ console.log((3).add(2).add(1)) // 6
 ```
 :::
 
-::: 实现 cnt()(2)(1)() === 3
+::: details 实现 cnt()(2)(1)() === 3
 ```javascript
 function cnt() {
   let _cnt = 0;
