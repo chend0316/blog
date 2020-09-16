@@ -37,7 +37,7 @@ module.exports = {
         items: [
           { text: 'JavaScript', link: '/frontend/javascript' },
           { text: 'Vue', link: '/frontend/vue/vue-setup' },
-          { text: '框架核心原理', link: '/frontend/core' },
+          { text: '框架核心原理', link: '/frontend/framework-core' },
           { text: '可视化', link: '/frontend/visualization/' },
           { text: '发展史', link: '/frontend/history' },
           { text: 'Electron', link: '/frontend/electron/' },
@@ -93,7 +93,7 @@ module.exports = {
             '/frontend/vue/vue-setup',
           ]
         },
-        'core',
+        'framework-core',
         'visualization/',
         'history',
         'electron/',
