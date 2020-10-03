@@ -2,8 +2,10 @@ language: node_js
 node_js:
   - lts/*
 install:
+  - cd build_docs
   - npm ci
 script:
+  - cd build_docs
   - npm run build
 deploy:
   provider: pages
