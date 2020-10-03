@@ -15,14 +15,14 @@ HTMLCanvasElement:
 下面这个例子中演示了如何获取绘图上下文。
 
 ::: details 通过getContext获取绘图上下文
-<<< @/src/visualization/canvas-get-context.html
+<<< @/../src/visualization/canvas-get-context.html
 :::
 
 ## 熟悉一下 Canvas 指令式风格
 ::: details 熟悉指令式API风格
-<<< @/src/visualization/canvas-helloworld.html
+<<< @/../src/visualization/canvas-helloworld.html
 :::
 
 ::: details 在画布中央绘制红色正方形
-<<< @/src/visualization/canvas-rect-center.html
+<<< @/../src/visualization/canvas-rect-center.html
 :::

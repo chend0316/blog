@@ -62,7 +62,7 @@ function throttle(fn, wait) {
 一个最基本的 Promise 用法如下。
 
 ::: details Promise 封装 Ajax 请求
-<<< @/src/es6/promise-ajax.js
+<<< @/../src/es6/promise-ajax.js
 :::
 
 Promise 基础用法：
@@ -71,7 +71,7 @@ Promise 基础用法：
 - `Promise.prototype.finally()`
 
 ::: details .then() 的用法
-<<< @/src/es6/promise-then.js
+<<< @/../src/es6/promise-then.js
 :::
 
 ::: details .catch() 的用法
@@ -84,11 +84,11 @@ Promise 基础用法：
 - `Promise.any()`
 
 ::: details Promise.all()
-<<< @/src/es6/promise-all.js
+<<< @/../src/es6/promise-all.js
 :::
 
 ::: details resolve 另一个 Promise
-<<< @/src/es6/promise-resolve.js
+<<< @/../src/es6/promise-resolve.js
 :::
 
 ::: details Promise + setTimeout 面试题
@@ -115,13 +115,13 @@ console.log('5');
 Generator 的基本用法如下。
 
 ::: details 使用 Generator 封装 Flat 操作
-<<< @/src/es6/generator-flat.js
+<<< @/../src/es6/generator-flat.js
 :::
 
 也可以用 Generator 生成 Iterator。
 
 ::: details Generator 和 Iterator 的关系
-<<< @/src/es6/generator-iterator.js
+<<< @/../src/es6/generator-iterator.js
 :::
 
 ### Iterator
