@@ -151,6 +151,36 @@ class Trie:
 ```
 :::
 
+::: details JavaScript Trie 实现
+```javascript
+var Trie = function() {
+    this.root = {};
+};
+
+Trie.prototype.insert = function(word) {
+    let node = this.root;
+    for (let c of word) {
+        if (!node[c]) node[c] = {};
+        node = node[c];
+    }
+    node['#'] = '#';
+};
+
+Trie.prototype.search = function(word) {
+    return this.startsWith(word + '#');
+};
+
+Trie.prototype.startsWith = function(prefix) {
+    let node = this.root;
+    for (let c of prefix) {
+        node = node[c];
+        if (!node) return false;
+    }
+    return true;
+};
+```
+:::
+
 ### 并查集
 
 ::: details Python 并查集 路径压缩

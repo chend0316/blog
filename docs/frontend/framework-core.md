@@ -3,7 +3,7 @@
 ## VirtualDOM
 VirtualDOM 是由 React 发扬光大的，后来 Vue 2.x 也引入了并获得非常大的性能提升。
 
-## VDOM Diff 算法
+### VDOM Diff 算法
 因为 DOM 操作是比较耗时的，所以VDOM 发生变化后，需要根据两棵 VDOM 树之间的差异来计算：如何用**最少的步骤**更新 DOM 节点。
 
 React 将这个算法叫做 Diffing，Vue 将这个算法叫做 path。但这两个算法其实是一样的。
@@ -107,5 +107,10 @@ function todos(state = [], action) {
 
 我们规定 Reducer 不能就地修改 state，这点非常反人类，稍微有点编程经验的人都会知道这样会使用更多的内存，加重垃圾回收器的负担。针对这点 [Dan 做出了回应](https://github.com/reduxjs/redux/issues/328)。
 
-### Vuex
-TODO
+## 前后端交互
+技术演进：
+1. 在业务组件内通过 Axios 这样的库裸跑 HTTP 协议
+2. 在前端代码中为 API 通信单独封装一层，通常放在 `service/` 或 `api/` 文件夹下
+3. 前端人员使用 Node.js 编写 BFF 层，封装成前端想要的 API 形式
+4. GraphQL
+

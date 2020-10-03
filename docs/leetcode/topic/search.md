@@ -97,6 +97,22 @@ def isSubPath(self, head, root):
 ```
 :::
 
+[124. 二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/)使用暴力 DFS 虽然会超时，但挺适合用作练习的。
+
+::: details 124题 暴力DFS
+```python
+class Solution:
+    def maxPathSum(self, root: TreeNode) -> int:
+        if not root: return -math.inf
+        res = root.val + self.dfs(root.left) + self.dfs(root.right)
+        return max(res, self.maxPathSum(root.left), self.maxPathSum(root.right))
+    
+    def dfs(self, root):
+        if not root: return 0
+        return max(0, root.val + self.dfs(root.left), root.val + self.dfs(root.right))
+```
+:::
+
 ## 图搜索: DFS、BFS、双向 BFS
 如果你还没被下面这几题虐过，那你可能看不懂本节内容。
 - [127. 单词接龙](https://leetcode-cn.com/problems/word-ladder/)

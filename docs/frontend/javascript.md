@@ -91,6 +91,26 @@ Promise 基础用法：
 <<< @/src/es6/promise-resolve.js
 :::
 
+::: details Promise + setTimeout 面试题
+```javascript
+console.log('1');
+
+setTimeout(() => {
+  console.log('2');
+}, 0);
+
+Promise.resolve()
+  .then(() => {
+    console.log('3');
+  })
+  .then(() => {
+    console.log('4');
+  });
+
+console.log('5');
+```
+:::
+
 ### Generator
 Generator 的基本用法如下。
 
@@ -130,3 +150,11 @@ function cnt() {
 cnt()(2)(1)(); // 3
 ```
 :::
+
+## JS 语言原理
+### 实现 new 操作
+
+### instanceof 的原理
+`a instanceof A` 就会遍历 `a.__proto__`，判断是否等于 `A.prototype`。
+
+### Promise 的原理
