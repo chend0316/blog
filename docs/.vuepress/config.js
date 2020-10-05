@@ -41,6 +41,7 @@ module.exports = {
           { text: '可视化', link: '/frontend/visualization/' },
           { text: '发展史', link: '/frontend/history' },
           { text: 'Electron', link: '/frontend/electron/' },
+          { text: 'RxJS', link: '/frontend/rxjs' },
         ]
       },
       {
@@ -97,6 +98,7 @@ module.exports = {
         'visualization/',
         'history',
         'electron/',
+        'rxjs',
       ],
       '/backend/': [
         // 'sql/',
