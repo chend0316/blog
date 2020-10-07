@@ -23,7 +23,7 @@ module.exports = {
             text: '专题讲解',
             items: [
               { text: '搜索', link: '/leetcode/topic/search' },
-              { text: 'DP', link: '/leetcode/topic/DP' },
+              { text: 'DP', link: '/leetcode/topic/dp' },
               { text: '二分查找', link: '/leetcode/topic/bin-search' },
               { text: '数据结构', link: '/leetcode/topic/data-structure' },
               { text: 'TopK', link: '/leetcode/topic/topk' },
@@ -35,13 +35,32 @@ module.exports = {
       {
         text: '前端',
         items: [
-          { text: 'JavaScript', link: '/frontend/javascript' },
-          { text: 'Vue', link: '/frontend/vue/vue-setup' },
-          { text: '框架核心原理', link: '/frontend/framework-core' },
-          { text: '可视化', link: '/frontend/visualization/' },
-          { text: '发展史', link: '/frontend/history' },
-          { text: 'Electron', link: '/frontend/electron/' },
-          { text: 'RxJS', link: '/frontend/rxjs' },
+          {
+            text: '基本功',
+            items: [
+              { text: 'JavaScript', link: '/frontend/javascript/overview' },
+              // { text: 'CSS', link: '/frontend/css/overview' },
+              // { text: 'DOM', link: '/frontend/dom' },
+              // { text: '浏览器', link: '/frontend/browser' },
+            ]
+          },
+          {
+            text: '框架',
+            items: [
+              // { text: 'React', link: '/frontend/react/overview' },
+              { text: 'Vue', link: '/frontend/vue/overview' },
+              { text: '原理和思想', link: '/frontend/framework/overview' },
+            ]
+          },
+          {
+            text: '其它',
+            items: [
+              { text: 'RxJS', link: '/frontend/rxjs' },
+              { text: '可视化', link: '/frontend/visualization/' },
+              { text: '发展史', link: '/frontend/history' },
+              { text: 'Electron', link: '/frontend/electron/' },
+            ]
+          }
         ]
       },
       {
@@ -66,7 +85,7 @@ module.exports = {
         ]
       }
     ],
-    sidebarDepth: 5,
+    sidebarDepth: 4,
     sidebar: {
       '/leetcode/': [
         'code-template',
@@ -84,21 +103,34 @@ module.exports = {
           ]
         }
       ],
+      '/frontend/javascript/': [
+        '/frontend/javascript/overview',
+        '/frontend/javascript/es6',
+        '/frontend/javascript/code',
+      ],
+      '/frontend/css/': [
+        '/frontend/css/overview'
+      ],
+      '/frontend/react/': [
+        '/frontend/react/overview',
+      ],
+      '/frontend/vue/': [
+        '/frontend/vue/overview',
+        '/frontend/vue/vue3-migration',
+        '/frontend/vue/vue-setup',
+      ],
+      '/frontend/framework/': [
+        '/frontend/framework/overview',
+        '/frontend/framework/vdom',
+        '/frontend/framework/state',
+        '/frontend/framework/hooks',
+        '/frontend/framework/backend-interaction',
+      ],
       '/frontend/': [
-        'javascript',
-        {
-          title: 'Vue',
-          collapsable: false,
-          children: [
-            '/frontend/vue/vue3-migration',
-            '/frontend/vue/vue-setup',
-          ]
-        },
-        'framework-core',
+        'rxjs',
         'visualization/',
         'history',
         'electron/',
-        'rxjs',
       ],
       '/backend/': [
         // 'sql/',

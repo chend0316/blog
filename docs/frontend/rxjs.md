@@ -55,3 +55,13 @@ observable.subscribe((value) => {
 });
 console.log('444');
 ```
+
+## 概念和名词解释
+- Observable 是数据的生产者
+- Observer 是数据的消费者: `observable.subscribe(observer);`
+- Operators 就是函数，分为 Pipeable Operators、Creation Operators 两种
+- Pipeable Operations `observableInstance.pipe(operator())`
+
+Pipeable Operation 是纯 (Pure) 的，会创建新的 Observable，不会修改原来的 Observable。 
+
+Creation Operator 用于创建 Observable。

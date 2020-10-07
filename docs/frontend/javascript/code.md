@@ -1,4 +1,4 @@
-# JavaScript
+# JavaScript 常用代码片段
 ## 常用操作
 ### 节流 (throttle)、防抖 (debounce)
 节流就是避免单位时间内触发太多次，防抖就是等事件最终稳定下来之后才触发。在实现上节流比防抖更加复杂。
@@ -56,75 +56,6 @@ function throttle(fn, wait) {
 ::: details 定时器 + 时间戳实现头尾触发的节流
 代码 TODO
 :::
-
-## ES6
-### Promise
-一个最基本的 Promise 用法如下。
-
-::: details Promise 封装 Ajax 请求
-<<< @/../src/es6/promise-ajax.js
-:::
-
-Promise 基础用法：
-- `Promise.prototype.then()`
-- `Promise.prototype.catch()`
-- `Promise.prototype.finally()`
-
-::: details .then() 的用法
-<<< @/../src/es6/promise-then.js
-:::
-
-::: details .catch() 的用法
-`.catch(foo)` 相当于 `.then(null, foo)` 或 `.then(undefined, foo)`
-:::
-
-多个 Promise 之间的关系：
-- `Promise.all()`
-- `Promise.race()`
-- `Promise.any()`
-
-::: details Promise.all()
-<<< @/../src/es6/promise-all.js
-:::
-
-::: details resolve 另一个 Promise
-<<< @/../src/es6/promise-resolve.js
-:::
-
-::: details Promise + setTimeout 面试题
-```javascript
-console.log('1');
-
-setTimeout(() => {
-  console.log('2');
-}, 0);
-
-Promise.resolve()
-  .then(() => {
-    console.log('3');
-  })
-  .then(() => {
-    console.log('4');
-  });
-
-console.log('5');
-```
-:::
-
-### Generator
-Generator 的基本用法如下。
-
-::: details 使用 Generator 封装 Flat 操作
-<<< @/../src/es6/generator-flat.js
-:::
-
-也可以用 Generator 生成 Iterator。
-
-::: details Generator 和 Iterator 的关系
-<<< @/../src/es6/generator-iterator.js
-:::
-
-### Iterator
 
 ## 鬼才操作
 
