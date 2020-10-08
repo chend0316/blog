@@ -38,18 +38,18 @@ module.exports = {
           {
             text: '基本功',
             items: [
-              { text: 'JavaScript', link: '/frontend/javascript/overview' },
-              // { text: 'CSS', link: '/frontend/css/overview' },
+              { text: 'JavaScript', link: '/frontend/javascript/' },
+              // { text: 'CSS', link: '/frontend/css/' },
               // { text: 'DOM', link: '/frontend/dom' },
-              // { text: '浏览器', link: '/frontend/browser' },
+              { text: '浏览器和网络', link: '/frontend/browser/' },
             ]
           },
           {
             text: '框架',
             items: [
-              // { text: 'React', link: '/frontend/react/overview' },
-              { text: 'Vue', link: '/frontend/vue/overview' },
-              { text: '原理和思想', link: '/frontend/framework/overview' },
+              // { text: 'React', link: '/frontend/react/' },
+              { text: 'Vue', link: '/frontend/vue/' },
+              { text: '原理和思想', link: '/frontend/framework/' },
             ]
           },
           {
@@ -104,23 +104,28 @@ module.exports = {
         }
       ],
       '/frontend/javascript/': [
-        '/frontend/javascript/overview',
+        '/frontend/javascript/',
         '/frontend/javascript/es6',
         '/frontend/javascript/code',
       ],
       '/frontend/css/': [
-        '/frontend/css/overview'
+        '/frontend/css/'
+      ],
+      '/frontend/browser/': [
+        '/frontend/browser/',
+        '/frontend/browser/js-engine',
+        '/frontend/browser/http',
       ],
       '/frontend/react/': [
-        '/frontend/react/overview',
+        '/frontend/react/',
       ],
       '/frontend/vue/': [
-        '/frontend/vue/overview',
+        '/frontend/vue/',
         '/frontend/vue/vue3-migration',
         '/frontend/vue/vue-setup',
       ],
       '/frontend/framework/': [
-        '/frontend/framework/overview',
+        '/frontend/framework/',
         '/frontend/framework/state',
         '/frontend/framework/vdom',
         '/frontend/framework/hooks',
