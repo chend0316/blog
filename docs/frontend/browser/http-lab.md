@@ -1,13 +1,4 @@
-# HTTP协议
-
-HTTP标准由IETF组织制定，跟它相关的标准主要有两份：
-
-1. HTTP1.1 https://tools.ietf.org/html/rfc2616
-2. HTTP1.1 https://tools.ietf.org/html/rfc7234
-
-HTTP协议是基于TCP协议出现的，对TCP协议来说，TCP协议是一条双向的通讯通道，HTTP在TCP的基础上，规定了Request-Response的模式。这个模式决定了通讯必定是由浏览器端首先发起的。
-
-浏览器的实现只需要用一个TCP库就可以搞定和服务器通讯。HTTP是一个应用层的协议，规定了如何使用TCP来传输纯文本。
+# HTTP 协议实验
 
 ## 实验：使用TCP客户端实现HTTP
 
@@ -84,8 +75,6 @@ HTTP头可以看作一个键值对，我们可以自由定义HTTP Header。不�
 
 ![img](https://static001.geekbang.org/resource/image/ef/c9/efdeadf27313e08bf0789a3b5480f7c9.png)
 
-
-
 ## HTTP Request Body
 
 HTTP请求的body主要用于提交表单场景。实际上，http请求的body是比较自由的，只要浏览器端发送的body服务端认可就可以了。一些常见的body格式是：
@@ -96,10 +85,4 @@ HTTP请求的body主要用于提交表单场景。实际上，http请求的body�
 - text/xml
 
 我们使用html的form标签提交产生的html请求，默认会产生 application/x-www-form-urlencoded 的数据格式，当有文件上传时，则会使用multipart/form-data。
-
-## 其它协议
-
-- HTTPS：https://tools.ietf.org/html/rfc2818
-- HTTP2：https://tools.ietf.org/html/rfc7540
-
 
