@@ -121,8 +121,8 @@ module.exports = {
       ],
       '/frontend/framework/': [
         '/frontend/framework/overview',
-        '/frontend/framework/vdom',
         '/frontend/framework/state',
+        '/frontend/framework/vdom',
         '/frontend/framework/hooks',
         '/frontend/framework/backend-interaction',
       ],
