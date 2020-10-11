@@ -10,7 +10,7 @@
 计算机网络体系结构
 - OSI 七层模型，没人用
 - 五层模型，只是教学上用
-- TCP/IP，现实世界
+- TCP/IP 四层模型，现实世界
 
 ![copy from 谢希仁](./img/network-architecture.png)
 

@@ -115,6 +115,7 @@ module.exports = {
         '/frontend/browser/',
         '/frontend/browser/js-engine',
         '/frontend/browser/http',
+        '/frontend/browser/event-loop',
       ],
       '/frontend/react/': [
         '/frontend/react/',
