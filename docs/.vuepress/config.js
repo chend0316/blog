@@ -55,7 +55,7 @@ module.exports = {
           {
             text: '其它',
             items: [
-              { text: 'RxJS', link: '/frontend/rxjs' },
+              { text: '性能', link: '/frontend/performance/' },
               { text: '可视化', link: '/frontend/visualization/' },
               { text: '发展史', link: '/frontend/history' },
               { text: 'Electron', link: '/frontend/electron/' },
@@ -133,6 +133,7 @@ module.exports = {
         '/frontend/framework/backend-interaction',
       ],
       '/frontend/': [
+        'performance/',
         'rxjs',
         'visualization/',
         'history',
