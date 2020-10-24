@@ -57,6 +57,33 @@ function throttle(fn, wait) {
 代码 TODO
 :::
 
+## 编程范式
+::: details Memorization
+```javascript
+// 实现了对外无感知的缓存功能，但是缓存的逻辑和业务逻辑混合起来了不太好
+function isPrime(value) {
+  if (!isPrime.cache) {
+    isPrime.cache = {};
+  }
+
+  if (isPrime.cache[value] !== undefined) {
+    return isPrime.cache[value];
+  }
+
+  var prime = value !== 1;
+
+  for (var i = 2; i < value; i++) {
+    if (value % i === 0) {
+      prime = false;
+      break;
+    }
+  }
+
+  return isPrime.cache[value] = prime;
+}
+```
+:::
+
 ## 鬼才操作
 
 ::: details 实现 (3).add(2).add(1) === 6

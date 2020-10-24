@@ -566,6 +566,7 @@ private void recurse(String start, String end, String[] bank, int soFar, Set<Str
 :::
 
 ## 更多习题
+- [437. 路径总和 III](https://leetcode-cn.com/problems/path-sum-iii/)；使用 DFS 配合哈希表是最佳解法，是很好的练习题；使用暴力 DFS 的话复杂度太高。
 
 - [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)，除了用BFS竟然还能用DFS做
 - [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
