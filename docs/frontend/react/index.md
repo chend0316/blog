@@ -19,7 +19,7 @@
 ### 受控组件
 React 对 HTML 表单元素做了特殊处理，引入了受控组件的概念。
 
-在 React 中，传统 HTML 的写法 `<input type="text" />` 虽然能用，但极少使用。更常用的是受控组件 `<input type="text" value={msg} onChange={...} />`，在写法上可以理解为：加了 value 属性就成了受控组件。
+在 React 中，传统 HTML 的写法 `<input type="text" />` 配合 ref 虽然能用，但很少使用。更常用的是受控组件 `<input type="text" value={msg} onChange={...} />`，在写法上可以理解为：加了 value 属性就成了受控组件。
 
 ## 代码逻辑复用
 ### 高阶组件
