@@ -136,7 +136,7 @@ class Solution:
 这种变形就很灵活了，需要具体题目具体分析，没有一个通用的模板。
 
 ## 例题
-### [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
+[34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
 这题在二分的过程中不断更新答案：
 ::: details Python代码
 ```python
