@@ -55,9 +55,19 @@ module.exports = {
           {
             text: '跨端',
             items: [
+              // { text: 'Hybrid', link: '/frontend/hybrid/' },
+              // { text: 'React Native', link: '/frontend/react-native/' },
               { text: 'Electron', link: '/frontend/electron/' },
             ]
           },
+          // {
+          //   text: '新技术',
+          //   items: [
+          //     { text: 'PWA', link: '/frontend/pwa/' },
+          //     { text: 'RxJS', link: '/frontend/rxjs' },
+          //     // { text: 'WebAssembly', link: '/' },
+          //   ]
+          // },
           {
             text: '其它',
             items: [
@@ -110,6 +120,7 @@ module.exports = {
       ],
       '/frontend/javascript/': [
         '/frontend/javascript/',
+        // '/frontend/javascript/event',
         '/frontend/javascript/es5',
         '/frontend/javascript/es6',
         '/frontend/javascript/code',
@@ -167,7 +178,8 @@ module.exports = {
       ],
       '/': [
         '',
-        'book'
+        // 'fe-roadmap',
+        'book',
       ]
     }
   }
