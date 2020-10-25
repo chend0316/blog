@@ -47,7 +47,7 @@ module.exports = {
           {
             text: '框架',
             items: [
-              // { text: 'React', link: '/frontend/react/' },
+              { text: 'React', link: '/frontend/react/' },
               { text: 'Vue', link: '/frontend/vue/' },
               { text: '原理和思想', link: '/frontend/framework/' },
             ]
