@@ -53,6 +53,12 @@ module.exports = {
             ]
           },
           {
+            text: '跨端',
+            items: [
+              { text: 'Electron', link: '/frontend/electron/' },
+            ]
+          },
+          {
             text: '其它',
             items: [
               { text: '性能', link: '/frontend/performance/' },
