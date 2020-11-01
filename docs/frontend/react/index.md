@@ -111,6 +111,44 @@ ReactDOM.render(<App />, document.getElementById('root'));
 ```
 :::
 
+## 全局数据共享
+### Context API
+传统 React 应用中，数据通过 props 属性进行传递。但遇到一些需要大范围共用的属性时，需要通过 props 层层传递，这是极其繁琐的。Context 就是为了解决这个问题。
+
+在使用上，首先需要定义 Context。接着祖先组件提供数据 (Provider)，子孙组件获取数据 (Consumer)。其中 Provider 是通过 HOC 的风格使用的，而 Comsumer 既可以使用 HOC 风格，又可以使用 Class.contextType 风格。
+```javascript
+const ThemeContext = React.createContext('light');
+
+class App extends React.Component {
+  render() {
+    return (
+      <ThemeContext.Provider value="dark">
+        <ThemedButton />
+        <ThemedButton2 />
+      </ThemeContext.Provider>
+    );
+  }
+}
+
+// Class.contextType 风格
+class ThemedButton extends React.Component {
+  static contextType = ThemeContext;
+  render() {
+    return <Button theme={this.context} />;
+  }
+}
+
+// HOC 风格
+function ThemedButton2() {
+  return (
+    <ThemeContext.Consumer>
+      {(value) => <ThemedButton theme={value} />}
+    </ThemeContext.Consumer>
+  );
+}
+```
+
+
 ## 生态圈
 
 React 生态圈相关技术背景。
