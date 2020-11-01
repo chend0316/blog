@@ -113,9 +113,15 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 ## 全局数据共享
 ### Context API
-传统 React 应用中，数据通过 props 属性进行传递。但遇到一些需要大范围共用的属性时，需要通过 props 层层传递，这是极其繁琐的。Context 就是为了解决这个问题。
+传统 React 应用中，数据通过 props 属性进行传递。但遇到一些需要大范围共用的属性时，需要通过 props 层层传递，这是极其繁琐的。
 
-在使用上，首先需要定义 Context。接着祖先组件提供数据 (Provider)，子孙组件获取数据 (Consumer)。其中 Provider 是通过 HOC 的风格使用的，而 Comsumer 既可以使用 HOC 风格，又可以使用 Class.contextType 风格。
+Context 的出现就是为了解决这个问题，API 使用关键点是：
+- 首先需要定义 Context
+- 接着祖先组件提供数据 (Provider)，子孙组件获取数据 (Consumer)
+- Provider 采用 HOC 风格
+- Comsumer 既可以使用 HOC 风格，又可以使用 Class.contextType 风格
+
+::: details Context API 实例代码
 ```javascript
 const ThemeContext = React.createContext('light');
 
@@ -147,7 +153,7 @@ function ThemedButton2() {
   );
 }
 ```
-
+:::
 
 ## 生态圈
 
