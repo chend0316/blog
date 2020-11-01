@@ -73,7 +73,6 @@ module.exports = {
             items: [
               { text: '性能', link: '/frontend/performance/' },
               { text: '可视化', link: '/frontend/visualization/' },
-              { text: '发展史', link: '/frontend/history' },
             ]
           },
         ]
@@ -153,7 +152,6 @@ module.exports = {
         'performance/',
         'rxjs',
         'visualization/',
-        'history',
         'electron/',
       ],
       '/backend/': [
@@ -179,6 +177,7 @@ module.exports = {
       '/': [
         '',
         // 'fe-roadmap',
+        'frontend',
         'book',
       ]
     }
