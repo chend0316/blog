@@ -120,7 +120,7 @@ module.exports = {
       ],
       '/frontend/javascript/': [
         '/frontend/javascript/',
-        // '/frontend/javascript/event',
+        '/frontend/javascript/event',
         '/frontend/javascript/es5',
         '/frontend/javascript/es6',
         '/frontend/javascript/code',
