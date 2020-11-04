@@ -97,9 +97,11 @@ function todos(state = [], action) {
 }
 ```
 
+## 处理异步状态
+
 ## 其它深入思考
 
-Redux 规定 Reducer 不能就地修改 state，这点非常反人类，稍微有点编程经验的人都会知道这样会使用更多的内存，加重垃圾回收器的负担。针对这点 [Dan 做出了回应](https://github.com/reduxjs/redux/issues/328)，他认为并不会影响性能。
+Redux 规定 Reducer 不能就地修改 state，这有点反人类，会加重垃圾回收器的负担。针对这点 [Dan 在 issue 上做出了回应](https://github.com/reduxjs/redux/issues/328)，他认为不会影响性能。
 
 ## 参考资料
 
