@@ -112,6 +112,12 @@ ReactDOM.render(<App />, document.getElementById('root'));
 :::
 
 ## 全局数据共享
+### 使用全局变量
+这显然不是一个好的方法，使用全局变量有以下缺点：
+- 数据变化缺少响应式更新机制
+- 难以跟踪、调试、维护
+- 可测试性差
+
 ### Context API
 传统 React 应用中，数据通过 props 属性进行传递。但遇到一些需要大范围共用的属性时，需要通过 props 层层传递，这是极其繁琐的。
 
@@ -154,6 +160,13 @@ function ThemedButton2() {
 }
 ```
 :::
+
+### Redux
+可以通过 `react-redux` 将 Redux 和 React 结合使用，在使用上可以使用传统的 `connect()` API，也可以使用 Hooks 风格 API。
+
+`connect()` 本质是一个 HOC 工厂函数，它的输入是 `mapXxxToProps`，输出是一个 HOC。这个 HOC 的输入是组件，输出是另一个组件。
+
+HOC 风格建议改用 Hooks，所以后来同样出了 Hooks 风格的 API。
 
 ## 生态圈
 
