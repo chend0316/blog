@@ -3,7 +3,7 @@ module.exports = {
   description: '',
   base: '/',
   markdown: {
-    lineNumbers: true
+    lineNumbers: false, 
   },
   themeConfig: {
     repo: 'chend0316/blog',
@@ -53,10 +53,11 @@ module.exports = {
             ]
           },
           {
-            text: '跨端',
+            text: '跨平台',
             items: [
               // { text: 'Hybrid', link: '/frontend/hybrid/' },
               // { text: 'React Native', link: '/frontend/react-native/' },
+              { text: '微信小程序', link: '/frontend/mini-program/' },
               { text: 'Electron', link: '/frontend/electron/' },
             ]
           },
@@ -147,6 +148,9 @@ module.exports = {
         '/frontend/framework/vdom',
         '/frontend/framework/hooks',
         '/frontend/framework/backend-interaction',
+      ],
+      '/frontend/mini-program/': [
+        '/frontend/mini-program/',
       ],
       '/frontend/': [
         'performance/',
