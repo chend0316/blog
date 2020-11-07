@@ -183,7 +183,6 @@ module.exports = {
         // 'fe-roadmap',
         'frontend',
         'backend',
-        'db',
         'book',
       ]
     }
