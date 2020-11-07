@@ -44,4 +44,11 @@
 - 大出来的区域放置左滑后出现的按钮
 - 将 `direction` 属性设置为 `horizontal`
 
-但是上面这种实现体验不太好，缺少一种惯性和回弹的触感。
+但是上面这种实现体验不太好，缺少一种惯性和回弹的触感。对此我们可以使用一些第三方库。
+
+首先推荐使用的是官方 WeUI 组件库的 [Slideview](https://developers.weixin.qq.com/miniprogram/dev/extended/weui/slideview.html)。其它如 miniprogram-slide-view 不推荐但为了讲述完整性也列在这里。
+
+## 使用第三方库
+小程序是可以[使用 NPM](https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html)来使用第三方库。
+
+官方也提供了一些[扩展能力](https://developers.weixin.qq.com/miniprogram/dev/extended/)。WeUI 可以通过 `useExtendedLib` 的方式引入，不会占用小程序 12MB 大小限制。扩展组件通过 npm 使用，会占用 12MB 大小限制。
