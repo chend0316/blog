@@ -14,16 +14,13 @@
 
 ![copy from 谢希仁](./img/network-architecture.png)
 
-Node.js 中通过 `require('net')` 访问 TCP。
+不同语言都有对应的库：
+- Node.js 中通过 `require('net')` 访问 TCP
+- C++ 中通过 `libnet/libpcap` 访问 IP
+- Node.js 中通过 `require('http')` 访问 HTTP
 
-C++ 中通过 `libnet/libpcap` 访问 IP。
-
-HTTP = TCP + Request/Response模式
-
-Node.js 中通过 `require('http')` 访问 HTTP。
-
-## 基于类库实现 HTTP Server/Client
-
+## 实验：自制系列
+### 基于类库实现 HTTP Server/Client
 ::: details Node.js 基于 http 库实现 HTTP Server
 <<< @/../src/http/http-server-via-http.js
 :::
@@ -48,14 +45,15 @@ Node.js 中通过 `require('http')` 访问 HTTP。
 <<< @/../src/http/HttpClientViaTcp.java
 :::
 
-## 自己动手实现 HTTP Client
+### 自己动手实现 HTTP Client
 这里我们基于 TCP，实现一个简单的 HTTP 客户端。
 
 ::: details my http client
 <<< @/../src/http/my-http-client.js
 :::
 
-## DNS 解析
+## 实验：调包侠系列
+### DNS 解析
 - 命令行
 - Node.js
 - 通过 Java 的 `InetAddress.getAllByName()`
