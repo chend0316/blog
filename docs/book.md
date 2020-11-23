@@ -2,6 +2,7 @@
 算法：
 - 《算法导论》 （CLRS）
 - 《计算机程序设计艺术》（TAOCP）
+- 《算法（第四版）》，适合入门，作者将代码放到[Github上](https://github.com/kevin-wayne/algs4)了
 
 编译原理：
 - 《编译原理》（龙书）
