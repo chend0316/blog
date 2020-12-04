@@ -19,6 +19,7 @@ module.exports = {
         items: [
           { text: '代码模板 (背)', link: '/leetcode/code-template' },
           { text: '语言差异 (坑)', link: '/leetcode/lang-diff' },
+          { text: '我的刷题日记', link: '/leetcode/diary' },
           {
             text: '专题讲解',
             items: [
