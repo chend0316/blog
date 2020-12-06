@@ -32,9 +32,9 @@ Facebook 在 F8 大会上提出了[Hacker Way: Rethinking Web App Development at
 - Flux 也可以看做是一种 MVC 变体
 
 ### Flux 提出的几个概念
-【可预测性 (Predictability) 】预测指的是通过阅读代码库来判断程序的运行。
+【可预测性 (Predictability) 】预测指的是通过阅读代码库来判断程序的运行结果。
 
-Flux 出现以前，Facebook 的代码库是不可预测的。当来了一个新的工程师，他需要阅读代码库中大量的代码后才能上手开发。当我们写了一个新的功能，我们并没有把握说代码能不能按照预期工作。
+Flux 出现以前，Facebook 的代码库是不可预测的。这是因为模块之间相互依赖，需要仔细推敲其它相关模块的逻辑后，才能预测出当前的代码改动会导致什么结果。
 
 【单向数据流】这是提高可预测性的一种约束，也是 Flux 最核心的约束。
 
@@ -46,12 +46,13 @@ Redux 遵循了 Flux 的思想，2015年由 [Dan Abramov](https://github.com/gae
 
 Redux 的三大原则：
 - 单一数据源（Single source of truth），所有状态都要集中放在 State 对象里面
-- State 是只读的（State is read-only），组件不能直接修改 State，而是通过 dispatch action 的方式表明自己想修改 State 的意图，由 Redux 集中处理这些修改意图
+- State 是只读的（State is read-only），组件不能直接修改 State，而是通过 dispatch action 的方式表明自己想修改 State 的意图，由 Reducer 处理这些修改意图
 - Reducer 必须是纯函数（Changes are made with pure functions），dispatch 发送出去的 action 会被送给 Reducer 处理，Reducer 是唯一能“修改” State 的地方，而 Reducer 必须为纯函数
 
 备注：
 - 纯函数就是其返回值只依赖入参，不依赖全局变量/资源的函数
 - 连 Reducer 都不能直接修改 State，而是返回一份新的 State，实现上需要深拷贝一份然后进行修改
+- 纯函数可以大大提高可预测性、可测试性
 
 ### Action
 Action 是个普通的对象，如下 `dispatch` 中的参数就是 Action：
