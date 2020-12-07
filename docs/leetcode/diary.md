@@ -55,6 +55,22 @@ class Solution:
         return cur
 ```
 
+## [303. 区域和检索 - 数组不可变](https://leetcode-cn.com/problems/range-sum-query-immutable/)
+```python
+class NumArray:
+    def __init__(self, nums: List[int]):
+        self.nums = nums
+        self.sums = []  # nums[0,i) 的和
+        s = 0
+        for num in nums:
+            self.sums.append(s)
+            s += num
+        self.sums.append(s)
+
+    def sumRange(self, i: int, j: int) -> int:
+        return self.sums[j+1] - self.sums[i]
+```
+
 ## [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/)
 
 ```python
