@@ -55,6 +55,21 @@ class Solution:
         return cur
 ```
 
+## [169. 多数元素](https://leetcode-cn.com/problems/majority-element/)
+```python
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        res = cnt = 0
+        for num in nums:
+            if cnt == 0:
+                res, cnt = num, 1
+            elif res == num:
+                cnt += 1
+            else:
+                cnt -= 1
+        return res
+```
+
 ## [303. 区域和检索 - 数组不可变](https://leetcode-cn.com/problems/range-sum-query-immutable/)
 ```python
 class NumArray:
