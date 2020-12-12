@@ -173,11 +173,16 @@ module.exports = {
         // 'typescript/',
         // 'javascript/',
       ],
-      '/cs/': [
-        // 'dsa/',
-        // 'os/',
-        'network/',
-        // 'compile/',
+      '/cs/network/': [
+        '',
+        {
+          title: '基础',
+          collapsable: false,
+          children: [
+            'ipv4'
+          ]
+        },
+        'src-lab'
       ],
       '/': [
         '',

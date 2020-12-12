@@ -1,4 +1,4 @@
-# 计算机网络
+# 入门
 ## 基本常识
 ### 易混淆的名词
 - 互联网（internet），指的是网络的网络，英文小写字母开头，中文采用意译；它可以将多个隔离的网络连接起来，例如公司办公网就是一种互联网，它连接了多个办公楼的网络；
@@ -18,42 +18,3 @@
 - Node.js 中通过 `require('net')` 访问 TCP
 - C++ 中通过 `libnet/libpcap` 访问 IP
 - Node.js 中通过 `require('http')` 访问 HTTP
-
-## 实验：自制系列
-### 基于类库实现 HTTP Server/Client
-::: details Node.js 基于 http 库实现 HTTP Server
-<<< @/../src/http/http-server-via-http.js
-:::
-
-::: details Node.js 基于 tcp 库实现 HTTP Server
-<<< @/../src/http/http-server-via-tcp.js
-:::
-
-::: details 在浏览器端通过 XHR 实现 HTTP Client
-<<< @/../src/http/http-client-xhr.js
-:::
-
-::: details Node.js 基于 http 库实现 HTTP Client
-<<< @/../src/http/http-client-via-http.js
-:::
-
-::: details Node.js 基于 tcp 库实现 HTTP Client
-<<< @/../src/http/http-client-via-tcp.js
-:::
-
-::: details Java 基于 tcp 库实现 HTTP Client
-<<< @/../src/http/HttpClientViaTcp.java
-:::
-
-### 自己动手实现 HTTP Client
-这里我们基于 TCP，实现一个简单的 HTTP 客户端。
-
-::: details my http client
-<<< @/../src/http/my-http-client.js
-:::
-
-## 实验：调包侠系列
-### DNS 解析
-- 命令行
-- Node.js
-- 通过 Java 的 `InetAddress.getAllByName()`
