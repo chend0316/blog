@@ -4,7 +4,7 @@
 
 - 最正统的方法是用堆
 - 也可以用sort偷懒解决
-- 甚至可以用快排的思想，适合练手帮助理解快排，实际意义不大，见[剑指 Offer 40. 最小的k个数](https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/)的题解
+- 甚至可以用快排的思想，这叫做快速选择算法，见[剑指 Offer 40. 最小的k个数](https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/)的题解
 
 K是什么？
 

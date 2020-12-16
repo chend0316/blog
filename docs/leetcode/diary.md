@@ -46,6 +46,41 @@ class Solution:
         return res
 ```
 
+## [42. 接雨水](https://leetcode-cn.com/problems/trapping-rain-water/)
+解法一比较容易想到，解法二更省空间，但没有数量级的提升。
+
+解法一：
+```python
+# 三次扫描；1 找到左边的最高柱子；2 找到右边的最高柱子；3 累加答案；
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        n = len(height)
+        leftMax = [0]*n
+        rightMax = [0]*n
+
+        h = 0
+        for i in range(n):
+            leftMax[i] = h
+            h = max(h, height[i])
+        h = 0
+        for i in range(n - 1, -1, -1):
+            rightMax[i] = h
+            h = max(h, height[i])
+        
+        res = 0
+        for i in range(n):
+            leftRightMin = min(leftMax[i], rightMax[i])
+            if height[i] < leftRightMin:
+                res += leftRightMin - height[i]
+
+        return res
+```
+
+解法二：
+```python
+# 用单调栈
+```
+
 ## [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/)
 ```python
 class Solution:
