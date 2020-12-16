@@ -1,4 +1,19 @@
 # 刷题日记
+## [11. 盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)
+虽然解法都会背了，但为啥这个算法是正确的呢？
+```python
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        res = 0
+        l, r = 0, len(height) - 1
+        while l < r:
+            w = r - l
+            h = min(height[l], height[r])
+            res = max(res, w * h)
+            if height[l] < height[r]: l += 1
+            else: r -= 1
+        return res
+```
 
 ## [18. 四数之和](https://leetcode-cn.com/problems/4sum/)
 ```python
@@ -68,6 +83,29 @@ class Solution:
             else:
                 cnt -= 1
         return res
+```
+
+## [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/)
+```python
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        n = len(nums)
+        l, r = 0, n - 1
+        while True:
+            while l < r and nums[r] > nums[l]:
+                r -= 1
+            if l == r: break
+            nums[l], nums[r] = nums[r], nums[l]
+            l += 1
+            while l < r and nums[l] < nums[r]:
+                l += 1
+            if l == r: break
+            nums[l], nums[r] = nums[r], nums[l]
+            r -= 1
+        # print(l, r, nums)
+        if n - l == k: return nums[l]
+        elif n - l > k: return self.findKthLargest(nums[l+1:], k)
+        else: return self.findKthLargest(nums[:l], k - (n - l))
 ```
 
 ## [303. 区域和检索 - 数组不可变](https://leetcode-cn.com/problems/range-sum-query-immutable/)
