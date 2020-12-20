@@ -51,6 +51,7 @@ module.exports = {
               { text: 'React', link: '/frontend/react/' },
               { text: 'Vue', link: '/frontend/vue/' },
               { text: '原理和思想', link: '/frontend/framework/' },
+              { text: 'Webpack', link: '/frontend/webpack/' },
             ]
           },
           {
@@ -136,19 +137,23 @@ module.exports = {
         '/frontend/browser/event-loop',
       ],
       '/frontend/react/': [
-        '/frontend/react/',
+        'react/',
       ],
       '/frontend/vue/': [
-        '/frontend/vue/',
-        '/frontend/vue/vue3-migration',
-        '/frontend/vue/vue-setup',
+        '',
+        'vue3-migration',
+        'vue-setup',
       ],
       '/frontend/framework/': [
-        '/frontend/framework/',
-        '/frontend/framework/state',
-        '/frontend/framework/vdom',
-        '/frontend/framework/hooks',
-        '/frontend/framework/backend-interaction',
+        '',
+        'state',
+        'vdom',
+        'hooks',
+        'backend-interaction',
+      ],
+      '/frontend/webpack/': [
+        ''
+      ],
       ],
       '/frontend/mini-program/': [
         '/frontend/mini-program/',
