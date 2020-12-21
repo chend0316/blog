@@ -134,6 +134,25 @@ class Solution {
 }
 ```
 
+```javascript
+var isValidBST = function(root) {
+    var flag = true;
+    var pre = -Number.MAX_SAFE_INTEGER;
+    function dfs(node) {
+        if (!node) return;
+        dfs(node.left);
+        if (pre >= node.val) {
+            flag = false;
+            return;
+        }
+        pre = node.val;
+        dfs(node.right);
+    }
+    dfs(root);
+    return flag;
+};
+```
+
 ## [169. 多数元素](https://leetcode-cn.com/problems/majority-element/)
 ```python
 class Solution:
