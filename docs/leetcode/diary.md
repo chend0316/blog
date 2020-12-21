@@ -105,6 +105,35 @@ class Solution:
         return cur
 ```
 
+## [98. 验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/)
+```python
+class Solution:
+    def isValidBST(self, root: TreeNode) -> bool:
+        return self.solve(root, -math.inf, math.inf)
+    
+    def solve(self, node, minValue, maxValue):
+        if not node: return True
+        if node.val <= minValue or node.val >= maxValue: return False
+        if not self.solve(node.left, minValue, min(maxValue, node.val)): return False
+        if not self.solve(node.right, max(minValue, node.val), maxValue): return False
+        return True
+```
+
+```java
+class Solution {
+    public boolean isValidBST(TreeNode root) {
+        return solve(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    }
+
+    boolean solve(TreeNode node, long min, long max) {
+        if (node == null) return true;
+        if (node.val <= min || node.val >= max) return false;
+        return solve(node.left, min, Math.min(max, node.val))
+                && solve(node.right, Math.max(min, node.val), max);
+    }
+}
+```
+
 ## [169. 多数元素](https://leetcode-cn.com/problems/majority-element/)
 ```python
 class Solution:
