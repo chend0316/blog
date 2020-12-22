@@ -34,3 +34,8 @@ $ sudo ifconfig eth1 up
 $ sudo ip addr add 10.0.0.1/24 dev eth1
 $ sudo ip link set up eth1
 ```
+
+## MAC 地址
+每个网卡出厂的时候都会带有 MAC 地址，MAC 地址是全球唯一的。MAC 地址是扁平的，IP 地址是有网络号+主机号分级的。MAC 地址类似身份证，IP 地址类似家庭住址。
+
+我们直接使用 MAC 地址通信不行吗？答案是不行！MAC 地址是扁平的，我们无法在一个路由器里面维护全球 MAC 地址组成的路由表。
