@@ -159,7 +159,7 @@ module.exports = {
         '/frontend/browser/event-loop',
       ],
       '/frontend/react/': [
-        'react/',
+        '',
       ],
       '/frontend/vue/': [
         '',
