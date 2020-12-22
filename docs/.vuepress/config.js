@@ -60,6 +60,7 @@ module.exports = {
               // { text: 'Hybrid', link: '/frontend/hybrid/' },
               // { text: 'React Native', link: '/frontend/react-native/' },
               { text: '微信小程序', link: '/frontend/mini-program/' },
+              { text: 'Flutter', link: '/frontend/flutter/' },
               { text: 'Electron', link: '/frontend/electron/' },
             ]
           },
@@ -159,6 +160,9 @@ module.exports = {
       ],
       '/frontend/mini-program/': [
         '/frontend/mini-program/',
+      '/frontend/flutter/': [
+        '/frontend/flutter/',
+        '/frontend/flutter/dart',
       ],
       '/frontend/': [
         'performance/',
