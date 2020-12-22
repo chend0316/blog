@@ -33,6 +33,12 @@ module.exports = {
           },
         ]
       },
+      // {
+      //   text: '软件工程师',
+      //   items: [
+      //     { text: '编程语言', link: '/language/' },
+      //   ]
+      // },
       {
         text: '前端',
         items: [
@@ -46,11 +52,16 @@ module.exports = {
             ]
           },
           {
-            text: '框架 & 工具',
+            text: '框架',
             items: [
               { text: 'React', link: '/frontend/react/' },
               { text: 'Vue', link: '/frontend/vue/' },
               { text: '原理和思想', link: '/frontend/framework/' },
+            ]
+          },
+          {
+            text: '工程化',
+            items: [
               { text: 'Webpack', link: '/frontend/webpack/' },
             ]
           },
@@ -67,9 +78,10 @@ module.exports = {
           // {
           //   text: '新技术',
           //   items: [
+          //     { text: 'GraphQL', link: '/frontend/graphql' },
           //     { text: 'PWA', link: '/frontend/pwa/' },
           //     { text: 'RxJS', link: '/frontend/rxjs' },
-          //     // { text: 'WebAssembly', link: '/' },
+          //     { text: 'WebAssembly', link: '/frontend/wasm/' },
           //   ]
           // },
           {
@@ -84,10 +96,17 @@ module.exports = {
       {
         text: '后端',
         items: [
+          // { text: 'Spring', link: '/backend/spring/' },
           // { text: 'SQL', link: '/backend/sql/' },
           { text: 'Cython', link: '/backend/cython/' },
           { text: 'Protobuf', link: '/backend/protobuf/' },
           { text: 'Docker', link: '/backend/docker' },
+          // {
+          //   text: '数据库',
+          //   items: [
+          //     { text: 'Redis', link: '/backend/redis/' }
+          //   ]
+          // }
         ]
       },
       // {
@@ -157,9 +176,19 @@ module.exports = {
       '/frontend/webpack/': [
         ''
       ],
-      ],
+      // '/frontend/wasm/': [
+      //   '/frontend/wasm/',
+      // ],
       '/frontend/mini-program/': [
         '/frontend/mini-program/',
+        {
+          title: '常用组件',
+          collapsable: false,
+          children: [
+            'progress'
+          ]
+        }
+      ],
       '/frontend/flutter/': [
         '/frontend/flutter/',
         '/frontend/flutter/dart',
@@ -169,6 +198,9 @@ module.exports = {
         'rxjs',
         'visualization/',
         'electron/',
+      ],
+      '/backend/spring/': [
+        ''
       ],
       '/backend/': [
         // 'sql/',
