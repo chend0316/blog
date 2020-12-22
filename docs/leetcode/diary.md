@@ -207,6 +207,79 @@ class NumArray:
         return self.sums[j+1] - self.sums[i]
 ```
 
+## [700. 二叉搜索树中的搜索](https://leetcode-cn.com/problems/search-in-a-binary-search-tree/)
+```java
+class Solution {
+    public TreeNode searchBST(TreeNode root, int val) {
+        if (root == null || root.val == val) {
+            return root;
+        }
+        if (val < root.val) {
+            return searchBST(root.left, val);
+        } else {
+            return searchBST(root.right, val);
+        }
+    }
+}
+```
+
+## [701. 二叉搜索树中的插入操作](https://leetcode-cn.com/problems/insert-into-a-binary-search-tree/)
+```python
+class Solution:
+    def insertIntoBST(self, root: TreeNode, val: int) -> TreeNode:
+        if not root: return TreeNode(val)
+        if val < root.val:
+            if not root.left:
+                root.left = TreeNode(val)
+            else:
+                self.insertIntoBST(root.left, val)
+        if val > root.val:
+            if not root.right:
+                root.right = TreeNode(val)
+            else: 
+                self.insertIntoBST(root.right, val)
+        return root
+```
+
+## [704. 二分查找](https://leetcode-cn.com/problems/binary-search/)
+```java
+class Solution {
+    public int search(int[] nums, int target) {
+        int l = 0;
+        int r = nums.length - 1;
+        while (l <= r) {
+            int m = l + (r - l) / 2;
+            if (target < nums[m]) {
+                r = m - 1;
+            } else if (nums[m] < target) {
+                l = m + 1;
+            } else {
+                return m;
+            }
+        }
+        return -1;
+    }
+}
+```
+
+```javascript
+var search = function(nums, target) {
+    var l = 0;
+    var r = nums.length - 1;
+    while (l <= r) {
+        var m = Math.floor((l + r) / 2);
+        if (nums[m] > target) {
+            r = m - 1;
+        } else if (nums[m] < target) {
+            l = m + 1;
+        } else {
+            return m;
+        }
+    }
+    return -1;
+};
+```
+
 ## [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/)
 
 ```python

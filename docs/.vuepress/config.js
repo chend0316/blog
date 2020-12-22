@@ -118,7 +118,8 @@ module.exports = {
             'topic/topk',
             'topic/others',
           ]
-        }
+        },
+        'diary'
       ],
       '/frontend/javascript/': [
         '/frontend/javascript/',
