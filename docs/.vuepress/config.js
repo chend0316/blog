@@ -46,7 +46,7 @@ module.exports = {
             ]
           },
           {
-            text: '框架',
+            text: '框架 & 工具',
             items: [
               { text: 'React', link: '/frontend/react/' },
               { text: 'Vue', link: '/frontend/vue/' },
@@ -86,6 +86,7 @@ module.exports = {
           // { text: 'SQL', link: '/backend/sql/' },
           { text: 'Cython', link: '/backend/cython/' },
           { text: 'Protobuf', link: '/backend/protobuf/' },
+          { text: 'Docker', link: '/backend/docker' },
         ]
       },
       // {
@@ -169,6 +170,7 @@ module.exports = {
         // 'sql/',
         'cython/',
         'protobuf/',
+        'docker',
         // 'micro-service',
       ],
       '/language/': [
