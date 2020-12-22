@@ -23,7 +23,9 @@ Node.js 问世后，大量前端命令行工具都使用了 JS 进行开发。
 
 由于工具越来越多，已经不能简单用一个 shell 脚本将工具串联起来了。所以诞生了一些 Task Runner 工具，例如：Gulp、Grunt。
 
-由于工具越来越多，人们发现了 CLI 工具的一些共性功能，所以出现了一些库帮助 CLI 程序开发。例如 Gulp 就使用了 [js-liftoff](https://github.com/js-cli/js-liftoff)。
+由于工具越来越多，人们发现了 CLI 工具的一些共性功能，所以出现了一些库帮助 CLI 程序开发。例如 Gulp 就使用了 [js-liftoff](https://github.com/js-cli/js-liftoff)。再比如 TJ 大神开发的 commander。
+
+还有一些实用的小工具。chalk 用于在控制台输出带颜色的文字。
 
 ## 浏览器的发展
 
