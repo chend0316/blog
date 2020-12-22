@@ -81,3 +81,11 @@ SQL 基于关系代数，所以只能用于 RDBMS。SQL 是一个标准，目前
 我们平时说 Redis 单线程，指的是其网络 I/O 和数据读写操作是放在同一个线程里面的。通过多路复用，保证单线程下也能实现高吞吐量。
 
 其内部是基于非阻塞式 Socket + select/epoll 实现的。
+
+### 聚合查询
+在 SQL 中，通过 group by + 聚合函数来实现。
+
+在 MongoDB 中，通过 Aggregation Pipeline 来实现，一个 Pipeline 包含多个 stage。
+
+### 高可用
+MongoDB 通过[副本集](https://docs.mongodb.com/manual/replication/)的方式，当主节点挂了，从节点会进行选举选出一个新的主节点。增加副本集的节点数量可以提高读性能，不能提高写性能。
