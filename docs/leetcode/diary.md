@@ -292,3 +292,23 @@ class Solution:
             preCost, curCost = curCost, min(preCost, curCost) + cost[i]
         return min(preCost, curCost)
 ```
+
+## [面试题 17.12. BiNode](https://leetcode-cn.com/problems/binode-lcci/)
+```python
+class Solution:
+    def convertBiNode(self, root: TreeNode) -> TreeNode:
+        if not root: return None
+        return self.solve(root, None)
+    
+    def solve(self, root, nextNode):
+        if root.left:
+            ret = self.solve(root.left, root)
+        else:
+            ret = root
+        if root.right:
+            root.right = self.solve(root.right, nextNode)
+        else:
+            root.right = nextNode
+        root.left = None
+        return ret
+```

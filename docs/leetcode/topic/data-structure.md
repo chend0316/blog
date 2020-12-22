@@ -4,7 +4,7 @@
 
 栈、队列、堆都是非常常用的数据结构，要熟练使用各语言内置的库。堆还分为大顶堆、小顶堆、自定义元素类型堆。
 
-Trie 和并查集都是新型数据结构，各语言没有内置，需要自己实现。并查集有 rank、路径压缩两种优化办法，一般路径压缩比较常用。
+Trie 和并查集都是新型数据结构，各语言没有内置，需要自己实现。并查集有 rank、路径压缩两种优化办法，路径压缩不需要引入额外的数组，比较常用。
 
 ## 习题
 ### 链表
@@ -29,8 +29,6 @@ Trie 和并查集都是新型数据结构，各语言没有内置，需要自己
 
 ### 树
 
-- [98. 验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/)
-- [235. 二叉搜索树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
 - [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/)
 
 #### 二叉树遍历
@@ -40,6 +38,13 @@ Trie 和并查集都是新型数据结构，各语言没有内置，需要自己
 [后序遍历](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/)改迭代更难，我没研究。
 
 二叉树遍历改迭代感觉没啥意义，有精力还不如先练其它题目。
+
+#### 二叉搜索树
+二叉搜索树有非常强的递归性质，做这类题更多的是练习递归思维，也是很有意义的。 
+
+- [98. 验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/)
+- [235. 二叉搜索树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
+- [面试题 17.12. BiNode](https://leetcode-cn.com/problems/binode-lcci/)，这题是要在搜索树和链表之间做原地转换，题目有点难，把递归发挥到了极致。
 
 ### Trie
 
