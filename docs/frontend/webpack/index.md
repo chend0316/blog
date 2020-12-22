@@ -158,3 +158,10 @@ module.exports = {
   __webpack_require__("./src/index.js");
 })();
 ```
+
+### 热更新
+在命令行参数加上 `--watch` 或在配置文件加上 `watch: true` 可以实现文件变动的时候自动重新构建，但是网页还是需要手动刷新。
+
+可以将 webpack-dev-server 和 HotModuleReplacementPlugin 结合使用，实现热更新的功能。
+
+HotModuleReplacementPlugin 会将 HMR Runtime 注入到浏览器端，收到 webpack-dev-server 通过 WebSocket 发来的文件变动消息后，做对应的页面更新操作。webpack-dev-server 会监听本地文件的变动，检测到变动会向 HMR Runtime 发送消息。
