@@ -25,16 +25,23 @@ HTMLCanvasElement:
 - WebGL 是 OpenGL ES 2.0 的 Web 端实现
 - WebGL2 是 OpenGL ES 3.0 的 Web 端实现
 
-### Canvas 宽高
-在 HTML 中，Canvas 标签的 `width` 和 `height` 属性决定了 Canvas 的坐标轴，我们称为「画布宽高」，而通过 CSS 样式设置的宽高称为「样式宽高」。在高清屏上，我们会将画布宽高设置为样式宽高的 n 倍，以免模糊。
-
 下面这个例子中演示了如何获取绘图上下文。
 
 ::: details 通过getContext获取绘图上下文
 <<< @/../src/visualization/canvas-get-context.html
 :::
 
-## 绘图风格：指令式、声明式
+### 宽高、尺寸
+`<canvas>` 的 `width` 和 `height` 属性决定了 Canvas 的坐标轴，我们称为「画布宽高」，而通过 CSS 样式设置的宽高称为「样式宽高」。在高清屏上，我们会将画布宽高设置为样式宽高的 n 倍，以免模糊。
+
+SVG 也有与之对应的概念，`<svg width="50px" height="75px" viewBox="0 0 100 150">` 中，`viewBox` 指定「画布宽高」，`width` 和 `height` 指定「样式宽高」。
+
+在 SVG 中如果「画布宽高比例」和「样式宽高比」不一致的话，可以用 `preserveAspectRatio` 指定 3 种不同的策略：
+1. 等比缩小，这样就不会充满容器，左右或上下会有留白
+2. 等比放大，这样可以充满容器，但会导致图片被裁减
+3. 伸缩图像，这样会导致图像变形失真
+
+## 编码风格：指令式、声明式
 ### Canvas 指令式风格
 ::: details 在画布中央绘制红色正方形
 <<< @/../src/visualization/canvas-rect-center.html
