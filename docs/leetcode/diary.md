@@ -207,6 +207,19 @@ class NumArray:
         return self.sums[j+1] - self.sums[i]
 ```
 
+## [461. 汉明距离](https://leetcode-cn.com/problems/hamming-distance/)
+```c
+int hammingDistance(int x, int y) {
+    int a = x ^ y;
+    int res = 0;
+    while (a) {
+        a = a & (a - 1);
+        res++;
+    }
+    return res;
+}
+```
+
 ## [700. 二叉搜索树中的搜索](https://leetcode-cn.com/problems/search-in-a-binary-search-tree/)
 ```java
 class Solution {
@@ -291,6 +304,22 @@ class Solution:
         for i in range(n):
             preCost, curCost = curCost, min(preCost, curCost) + cost[i]
         return min(preCost, curCost)
+```
+
+## [1295. 统计位数为偶数的数字](https://leetcode-cn.com/problems/find-numbers-with-even-number-of-digits/)
+```javascript
+var findNumbers = function(nums) {
+    return nums
+        .filter((num) => {
+            let cnt = 0;
+            while (num) {
+                num = Math.floor(num / 10);
+                cnt++;
+            }
+            return cnt % 2 === 0;
+        })
+        .length;
+};
 ```
 
 ## [面试题 17.12. BiNode](https://leetcode-cn.com/problems/binode-lcci/)
