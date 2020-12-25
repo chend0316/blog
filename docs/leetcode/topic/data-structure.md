@@ -44,7 +44,9 @@ Trie 和并查集都是新型数据结构，各语言没有内置，需要自己
 
 - [98. 验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/)
 - [235. 二叉搜索树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
-- [面试题 17.12. BiNode](https://leetcode-cn.com/problems/binode-lcci/)，这题是要在搜索树和链表之间做原地转换，题目有点难，把递归发挥到了极致。
+
+搜索树和链表相互转换的题目，这类题目要求对递归、链表有扎实基础，刚开始做会有点难，但非常有训练意义：
+- [897. 递增顺序查找树](https://leetcode-cn.com/problems/increasing-order-search-tree/)、[面试题 17.12. BiNode](https://leetcode-cn.com/problems/binode-lcci/)，这两题完全一样
 
 ### Trie
 
