@@ -306,6 +306,9 @@ class Solution:
         return min(preCost, curCost)
 ```
 
+## [896. 单调数列](https://leetcode-cn.com/problems/monotonic-array/)
+<<< @/../src/leetcode/python/q896.py
+
 ## [1295. 统计位数为偶数的数字](https://leetcode-cn.com/problems/find-numbers-with-even-number-of-digits/)
 ```javascript
 var findNumbers = function(nums) {
