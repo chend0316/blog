@@ -165,3 +165,15 @@ module.exports = {
 可以将 webpack-dev-server 和 HotModuleReplacementPlugin 结合使用，实现热更新的功能。
 
 HotModuleReplacementPlugin 会将 HMR Runtime 注入到浏览器端，收到 webpack-dev-server 通过 WebSocket 发来的文件变动消息后，做对应的页面更新操作。webpack-dev-server 会监听本地文件的变动，检测到变动会向 HMR Runtime 发送消息。
+
+## 常用功能
+### 自动添加 CSS 前缀
+[Autoprefixer](https://www.npmjs.com/package/autoprefixer) 
+
+### 移动端自动 px 转 rem
+
+## 附录：常用 Plugin
+[clean-webpack-plugin](https://www.npmjs.com/package/clean-webpack-plugin) 用于构建前清理 dist 目录，否则文件会越来越多 (特别是使用文件指纹之后)。
+
+## 附录：常用 Loader
+[postcss-loader](https://webpack.js.org/loaders/postcss-loader/)
