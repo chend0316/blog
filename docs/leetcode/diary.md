@@ -309,6 +309,12 @@ class Solution:
 ## [896. 单调数列](https://leetcode-cn.com/problems/monotonic-array/)
 <<< @/../src/leetcode/python/q896.py
 
+## [897. 递增顺序查找树](https://leetcode-cn.com/problems/increasing-order-search-tree/)
+<<< @/../src/leetcode/python/q897.py
+
+## [908. 最小差值 I](https://leetcode-cn.com/problems/smallest-range-i/)
+<<< @/../src/leetcode/python/q908.py
+
 ## [1295. 统计位数为偶数的数字](https://leetcode-cn.com/problems/find-numbers-with-even-number-of-digits/)
 ```javascript
 var findNumbers = function(nums) {
