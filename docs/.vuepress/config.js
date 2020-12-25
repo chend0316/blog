@@ -193,10 +193,13 @@ module.exports = {
         '/frontend/flutter/',
         '/frontend/flutter/dart',
       ],
+      '/frontend/visualization/': [
+        '',
+        'svg',
+      ],
       '/frontend/': [
         'performance/',
         'rxjs',
-        'visualization/',
         'electron/',
       ],
       '/backend/spring/': [
