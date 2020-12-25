@@ -59,7 +59,11 @@ module.exports = {
 我们可以编写配置文件，然后执行 webpack 命令进行打包。Webpack API 是反过来的，由另一个系统调用 Webpack 进行打包，可以用于集成到现有工具链中。
 
 ## 核心概念
-### 模块化
+### entry、output
+
+### loader、plugin
+
+### 模块
 JavaScript 模块化早期经历过一段黑暗的时代，目前主要存在的两种模块化方案是 CommonJS 和 ES Module，前者通过 `require()` 函数，后者通过 `import` 关键字。
 
 ES Module 会更加强大，也更加好用。现代浏览器也能直接支持 ES Module：`<script src="..." type="module"></script>`。考虑到还有许多旧浏览器，项目中还是会用 Webpack 处理 JS 模块化。
@@ -159,14 +163,21 @@ module.exports = {
 })();
 ```
 
-### 热更新
+## 基础应用场景
+### 解析 CSS、Less、Sass
+
+### 解析图片、字体等二进制文件
+### 文件监听和热更新
 在命令行参数加上 `--watch` 或在配置文件加上 `watch: true` 可以实现文件变动的时候自动重新构建，但是网页还是需要手动刷新。
 
-可以将 webpack-dev-server 和 HotModuleReplacementPlugin 结合使用，实现热更新的功能。
+可以将 webpack-dev-server 和 HotModuleReplacementPlugin 结合使用，实现热更新的功能。在 Webpack 中，这叫做热模块替换 (HMR)。
 
 HotModuleReplacementPlugin 会将 HMR Runtime 注入到浏览器端，收到 webpack-dev-server 通过 WebSocket 发来的文件变动消息后，做对应的页面更新操作。webpack-dev-server 会监听本地文件的变动，检测到变动会向 HMR Runtime 发送消息。
 
-## 常用功能
+### 文件指纹
+文件指纹会在文件名上加一段 Hash 值，防止因为缓存机制导致浏览器使用旧的资源。
+
+## 进阶应用场景
 ### 自动添加 CSS 前缀
 [Autoprefixer](https://www.npmjs.com/package/autoprefixer) 
 
