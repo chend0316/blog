@@ -53,7 +53,7 @@ C#中有`Dictionary<TKey, TValue>`、`HashTable`、`StringDictionary`、`SortedD
 
 Python中只有hashset：`m = {1, 2, 3}`
 
-Java有`HashSet和`TreeSet`两个类。
+Java有`HashSet`和`TreeSet`两个类。
 
 C++中有`std::unordered_set`和`std::set`两个类。
 

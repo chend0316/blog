@@ -315,6 +315,9 @@ class Solution:
 ## [908. 最小差值 I](https://leetcode-cn.com/problems/smallest-range-i/)
 <<< @/../src/leetcode/python/q908.py
 
+## [914. 卡牌分组](https://leetcode-cn.com/problems/x-of-a-kind-in-a-deck-of-cards/)
+<<< @/../src/leetcode/python/q914.py
+
 ## [1295. 统计位数为偶数的数字](https://leetcode-cn.com/problems/find-numbers-with-even-number-of-digits/)
 ```javascript
 var findNumbers = function(nums) {
