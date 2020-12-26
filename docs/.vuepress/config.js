@@ -174,7 +174,10 @@ module.exports = {
         'backend-interaction',
       ],
       '/frontend/webpack/': [
-        ''
+        '',
+        'basic',
+        'advanced',
+        'appendix'
       ],
       // '/frontend/wasm/': [
       //   '/frontend/wasm/',
