@@ -16,6 +16,7 @@ JavaScript 模块化早期经历过一段黑暗的时代，目前主要存在的
 ES Module 会更加强大，也更加好用。现代浏览器也能直接支持 ES Module：`<script src="..." type="module"></script>`。考虑到还有许多旧浏览器，项目中还是会用 Webpack 处理 JS 模块化。
 
 Webpack 能够识别 CommonJS 和 ES Module 的语法，然后将依赖的所有模块打包到同一个文件。例如下面这段代码：
+::: details 一个示例代码
 ``` javascript
 // index.js
 import { add } from './math.js'
@@ -40,7 +41,9 @@ module.exports = {
   devtool: 'hidden-source-map'
 }
 ```
-经过 Webpack 打包后会变成下面这样。如果是第一次阅读 Webpack 的输出代码，会感觉很晦涩，但有必要多花点时间读懂它，最好是能背下来，这对 Webpack 的学习是非常有帮助的。
+:::
+
+上面这段代码经过 Webpack 打包后会变成下面这样。如果是第一次阅读 Webpack 的输出代码，会感觉很晦涩，但有必要多花点时间读懂它，最好是能背下来，这对 Webpack 的学习是非常有帮助的。
 ::: details Webpack 输出代码
 ```javascript
 // bundle.js
@@ -118,13 +121,6 @@ module.exports = {
 ### 解析图片、字体等二进制文件
 
 ### HtmlWebpackPlugin
-
-### 文件监听和热更新
-在命令行参数加上 `--watch` 或在配置文件加上 `watch: true` 可以实现文件变动的时候自动重新构建，但是网页还是需要手动刷新。
-
-可以将 webpack-dev-server 和 HotModuleReplacementPlugin 结合使用，实现热更新的功能。在 Webpack 中，这叫做热模块替换 (HMR)。
-
-HotModuleReplacementPlugin 会将 HMR Runtime 注入到浏览器端，收到 webpack-dev-server 通过 WebSocket 发来的文件变动消息后，做对应的页面更新操作。webpack-dev-server 会监听本地文件的变动，检测到变动会向 HMR Runtime 发送消息。
 
 ### 文件指纹
 文件指纹会在文件名上加一段 Hash 值，防止因为缓存机制导致浏览器使用旧的资源。
