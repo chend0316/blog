@@ -1,5 +1,5 @@
 module.exports = {
-  title: '陈东的技术博客',
+  title: '陈东的博客',
   description: '',
   base: '/',
   markdown: {
