@@ -33,14 +33,8 @@ module.exports = {
           },
         ]
       },
-      // {
-      //   text: '软件工程师',
-      //   items: [
-      //     { text: '编程语言', link: '/language/' },
-      //   ]
-      // },
       {
-        text: '前端',
+        text: '前端开发',
         items: [
           {
             text: '基本功',
@@ -94,7 +88,7 @@ module.exports = {
         ]
       },
       {
-        text: '后端',
+        text: '后端开发',
         items: [
           // { text: 'Spring', link: '/backend/spring/' },
           // { text: 'SQL', link: '/backend/sql/' },
@@ -109,19 +103,19 @@ module.exports = {
           // }
         ]
       },
-      // {
-      //   text: '编程语言',
-      //   link: '/language/',
-      // },
       {
-        text: '计算机基础',
+        text: '计算机专业',
         items: [
           // { text: '数据结构&算法', link: '/cs/dsa/' },
           // { text: '编译原理', link: '/cs/compile/' },
           // { text: '操作系统', link: '/cs/os/' },
           { text: '计算机网络', link: '/cs/network/' },
+          // { text: '编程语言', link: '/language/' },
         ]
-      }
+      },
+      // {
+      //   text: '哲学',
+      // },
     ],
     sidebarDepth: 4,
     sidebar: {
