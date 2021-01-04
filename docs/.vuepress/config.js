@@ -34,7 +34,7 @@ module.exports = {
         ]
       },
       {
-        text: '前端开发',
+        text: '前端',
         items: [
           {
             text: '基本功',
@@ -88,7 +88,7 @@ module.exports = {
         ]
       },
       {
-        text: '后端开发',
+        text: '后端',
         items: [
           // { text: 'Spring', link: '/backend/spring/' },
           // { text: 'SQL', link: '/backend/sql/' },
@@ -115,6 +115,7 @@ module.exports = {
       },
       // {
       //   text: '哲学',
+      //   link: '/philosophy',
       // },
     ],
     sidebarDepth: 4,
