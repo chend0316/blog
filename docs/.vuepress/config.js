@@ -147,7 +147,7 @@ module.exports = {
         '/frontend/javascript/event',
         '/frontend/javascript/es5',
         '/frontend/javascript/es6',
-        '/frontend/javascript/code',
+        '/frontend/javascript/snippet',
       ],
       '/frontend/css/': [
         '/frontend/css/'
