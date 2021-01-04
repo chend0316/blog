@@ -117,10 +117,58 @@ module.exports = {
 
 ## 基础应用场景
 ### 解析 CSS、Less、Sass
+以 Sass 为例，按顺序使用 sass-loader、css-loader、style-loader 即可。
+
+```javascript
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+      }
+    ]
+  }
+}
+```
 
 ### 解析图片、字体等二进制文件
+可以使用 file-loader 或 url-loader 加载二进制文件，file-loader 更简单一些，我们以 file-loader 为例。
+
+```javascript
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpg|jpeg)$/,
+        use: 'file-loader'
+      }
+    ]
+  }
+}
+```
+
+以 PNG 图片为例，file-loader 会将图片移动到输出目录，并修改文件名为：xxx.png。在业务中，我们可以像下面这样引入图片，代码中 logo 变量的值就是 xxx.png。
+```javascript
+import logo from './logo.png'
+
+const img = document.createElement('img')
+img.src = logo
+document.body.appendChild(img)
+```
 
 ### HtmlWebpackPlugin
+可以自动生成一个 index.html，很方便，开发必备。最高级的地方在于可以在页面中自动插入一行 `<script src="bundle.js">`。
+
+```javascript
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+module.exports = {
+  plugins: [
+    new HtmlWebpackPlugin()
+  ]
+}
+```
 
 ### 文件指纹
 文件指纹会在文件名上加一段 Hash 值，防止因为缓存机制导致浏览器使用旧的资源。
