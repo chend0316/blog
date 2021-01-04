@@ -1,5 +1,9 @@
 # DOM 事件
 
+网景和微软最早在浏览器端实现了事件，但 API 互不相同，直到 DOM2 开始标准化 DOM 事件 API。现在的浏览器都是按照 [DOM2 Event](https://www.w3.org/TR/DOM-Level-2-Events/events.html) 实现的。
+
+事件按照触发源可以划分为：浏览器事件、网络事件、用户事件、计时器事件。
+
 ## 基本用法和概念
 ### 注册事件处理函数
 [addEventListener()](https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener) 默认会在冒泡阶段注册回调函数，通过`useCapture`参数可以在捕获阶段注册。
@@ -38,3 +42,6 @@ WheelEvent 和 DragEvent 派生自 MouseEvent，分别表示滚轮事件和拖�
 
 ### KeyboardEvent
 键盘事件，常用的有：keydown、keyup。
+
+## 最佳实践
+一些用户事件会被高频率触发（如 mousemove），这样事件处理函数也会被高频调用，非常耗费性能和资源，这就引入了[节流/防抖]()的概念。

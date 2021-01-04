@@ -45,9 +45,9 @@ module.exports = {
           {
             text: '基本功',
             items: [
-              { text: 'JavaScript', link: '/frontend/javascript/' },
+              { text: 'JavaScript 语言', link: '/frontend/javascript/' },
+              { text: 'JavaScript API', link: '/frontend/api/' },
               // { text: 'CSS', link: '/frontend/css/' },
-              // { text: 'DOM', link: '/frontend/dom' },
               { text: '浏览器和网络', link: '/frontend/browser/' },
             ]
           },
@@ -144,10 +144,13 @@ module.exports = {
       ],
       '/frontend/javascript/': [
         '/frontend/javascript/',
-        '/frontend/javascript/event',
         '/frontend/javascript/es5',
         '/frontend/javascript/es6',
         '/frontend/javascript/snippet',
+      ],
+      '/frontend/api/': [
+        '',
+        'dom-event',
       ],
       '/frontend/css/': [
         '/frontend/css/'
