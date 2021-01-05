@@ -91,7 +91,7 @@ module.exports = {
         text: '后端',
         items: [
           // { text: 'Spring', link: '/backend/spring/' },
-          // { text: 'SQL', link: '/backend/sql/' },
+          { text: '数据库', link: '/backend/database/' },
           { text: 'Cython', link: '/backend/cython/' },
           { text: 'Protobuf', link: '/backend/protobuf/' },
           { text: 'Docker', link: '/backend/docker' },
@@ -206,8 +206,12 @@ module.exports = {
       '/backend/spring/': [
         ''
       ],
+      '/backend/database/': [
+        '',
+        'sql',
+        'redis'
+      ],
       '/backend/': [
-        // 'sql/',
         'cython/',
         'protobuf/',
         'docker',
