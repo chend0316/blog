@@ -8,14 +8,14 @@ C语言中是没有bool类型，大家用int类型来替代，为了兼容C语�
 
 ### 显式类型转换（强制类型转换）
 
- C++从C语言继承了2种语法：
+C++从C语言沿袭了2种语法：
 
 - `int(3.14)`
 - `(int)3.14`
 
-C++也有自己的语法类型`转换操作符<类型>(表达式)`，例如：`static_cast<int>(3.14)`，一共有4种类型转换操作符：const_static、dynamic_cast、reinterpret_cast、static_cast。
+C++也有自己的语法`转换操作符<类型>(表达式)`，例如：`static_cast<int>(3.14)`，一共有4种类型转换操作符：const_static、dynamic_cast、reinterpret_cast、static_cast。
 
-既然写的是C++程序，那么建议用C++自己的语法。
+既然写的是C++程序，那么建议用C++自己的语法，这样才专业。
 
 ## 函数修饰符：优化函数调用的开销
 
