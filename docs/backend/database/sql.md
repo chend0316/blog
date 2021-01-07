@@ -9,8 +9,8 @@
 
 ## SELECT 语句
 ### 单表查询
-对于单张表
-- 我们可以使用 `where` 筛选
+对于单张表我们可以
+- 使用 `where` 筛选
 - 使用 `order by` 进行排序
 - 使用 `limit` 限制查询结果数量
 - 使用 `distinct` 去重
@@ -60,3 +60,12 @@ BEGIN
 END //
 DELIMITER ;
 ```
+
+## 事务
+并不是所有存储引擎都支持事务，以 MySQL 为例，可以通过 `SHOW ENGINES` 命令来查看 MySQL 支持的存储引擎，以及是否支持事务。
+
+### 事务的特性：ACID
+
+### 事务的操作：COMMIT、ROLLBACK
+
+## 游标
