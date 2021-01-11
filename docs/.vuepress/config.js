@@ -173,8 +173,11 @@ module.exports = {
       ],
       '/frontend/webpack/': [
         '',
-        'basic',
-        'advanced',
+        'concept',
+        'basic-usage',
+        'advanced-usage',
+        // 'loader-and-plugin',
+        // 'source-code',
         'appendix'
       ],
       // '/frontend/wasm/': [

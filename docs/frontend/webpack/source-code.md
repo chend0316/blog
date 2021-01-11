@@ -1,16 +1,7 @@
-# Webpack 基础
+# Webpack 源码和原理分析
 
-## 核心概念
-### entry、output
-略
-
-### loader、plugin
-略
-
-### Source Map
-略
-
-### Webpack 模块
+## 概念
+### 模块 (Module)
 JavaScript 模块化早期经历过一段黑暗的时代，目前主要存在的两种模块化方案是 CommonJS 和 ES Module，前者通过 `require()` 函数，后者通过 `import` 关键字。
 
 ES Module 会更加强大，也更加好用。现代浏览器也能直接支持 ES Module：`<script src="..." type="module"></script>`。考虑到还有许多旧浏览器，项目中还是会用 Webpack 处理 JS 模块化。
@@ -115,60 +106,20 @@ module.exports = {
 ```
 :::
 
-## 基础应用场景
-### 解析 CSS、Less、Sass
-以 Sass 为例，按顺序使用 sass-loader、css-loader、style-loader 即可。
+### HMR
+Webpack 自带了一个 HotModuleReplacementPlugin 插件。这个插件的原理是将 HMR Runtime 注入到浏览器端，文件变动后，webpack-dev-server 会通过 WebSocket 告知 HMR Runetime，HMR Runetime 做页面的局部刷新。
+
+通过阅读 Webpack 官网给出的[一个 HMR 的例子](https://webpack.js.org/guides/hot-module-replacement/)，我们会发现即使是最简单的业务，也需要编写繁琐的 HMR 代码，代码类似下面这样。
 
 ```javascript
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: [ 'style-loader', 'css-loader', 'sass-loader' ]
-      }
-    ]
-  }
+if (module.hot) {
+  module.hot.accept('./print.js', function() {
+    console.log('准备更新 print.js 模块');
+    document.body.removeChild(element);
+    element = component();
+    document.body.appendChild(element);
+  })
 }
 ```
 
-### 解析图片、字体等二进制文件
-可以使用 file-loader 或 url-loader 加载二进制文件，file-loader 更简单一些，我们以 file-loader 为例。
-
-```javascript
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.(png|jpg|jpeg)$/,
-        use: 'file-loader'
-      }
-    ]
-  }
-}
-```
-
-以 PNG 图片为例，file-loader 会将图片移动到输出目录，并修改文件名为：xxx.png。在业务中，我们可以像下面这样引入图片，代码中 logo 变量的值就是 xxx.png。
-```javascript
-import logo from './logo.png'
-
-const img = document.createElement('img')
-img.src = logo
-document.body.appendChild(img)
-```
-
-### HtmlWebpackPlugin
-可以自动生成一个 index.html，很方便，开发必备。最高级的地方在于可以在页面中自动插入一行 `<script src="bundle.js">`。
-
-```javascript
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-
-module.exports = {
-  plugins: [
-    new HtmlWebpackPlugin()
-  ]
-}
-```
-
-### 文件指纹
-文件指纹会在文件名上加一段 Hash 值，防止因为缓存机制导致浏览器使用旧的资源。
+不过幸运的是，一些 loader 已经帮我们实现了 HMR。如果你正在使用 React、Vue 等框架，那么就能享受到 HMR 带来的高效的开发体验。
