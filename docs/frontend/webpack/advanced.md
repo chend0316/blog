@@ -43,6 +43,15 @@
 
 ### 移动端 px 自动转 rem
 
+### 提取公共代码、文件
+- 方法一：使用 html-webpack-externals-plugin 通过 CDN 引入 React、ReactDOM 
+- 方法二：使用 SplitChunksPlugin 分离公共代码
+
+::: details 使用 html-webpack-externals-plugin 将 React 提取到 CDN
+<<< @/../labs/webpack/html-webpack-externals-plugin/webpack.config.js
+<<< @/../labs/webpack/html-webpack-externals-plugin/src/index.js
+:::
+
 ## Webpack API
 我们通常是编写配置文件，然后执行 webpack 命令进行打包。而 Webpack API 是反过来的，由另一个系统调用 Webpack 进行打包，可以用于集成到现有工具链中。
 
