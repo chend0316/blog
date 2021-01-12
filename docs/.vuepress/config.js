@@ -16,22 +16,7 @@ module.exports = {
     nav: [
       {
         text: '力扣刷题',
-        items: [
-          { text: '代码模板 (背)', link: '/leetcode/code-template' },
-          { text: '语言差异 (坑)', link: '/leetcode/lang-diff' },
-          { text: '我的刷题日记', link: '/leetcode/diary' },
-          {
-            text: '专题讲解',
-            items: [
-              { text: '搜索', link: '/leetcode/topic/search' },
-              { text: 'DP', link: '/leetcode/topic/dp' },
-              { text: '二分查找', link: '/leetcode/topic/bin-search' },
-              { text: '数据结构', link: '/leetcode/topic/data-structure' },
-              { text: 'TopK', link: '/leetcode/topic/topk' },
-              { text: '其它', link: '/leetcode/topic/others' },
-            ]
-          },
-        ]
+        link: '/leetcode/',
       },
       {
         text: '前端',
@@ -121,8 +106,15 @@ module.exports = {
     sidebarDepth: 4,
     sidebar: {
       '/leetcode/': [
-        'code-template',
-        'lang-diff',
+        '',
+        {
+          title: '语言基础',
+          collapsable: false,
+          children: [
+            'code-template',
+            'lang-diff',
+          ]
+        },
         {
           title: '专题讲解',
           collapsable: false,
@@ -132,6 +124,7 @@ module.exports = {
             'topic/bin-search',
             'topic/data-structure',
             'topic/topk',
+            // 'topic/bitwise-operation',
             'topic/others',
           ]
         },
@@ -244,7 +237,7 @@ module.exports = {
         // 'fe-roadmap',
         'frontend',
         'backend',
-        'book',
+        'favorite',
       ]
     }
   }

@@ -29,7 +29,7 @@ Python是无限范围的大数，所以没有逻辑右移。
 ### 赋值运算
 我们希望将一个链表的元素移到另一个链表的末尾：`tail.next = p; tail = tail.next;`
 
-【错误示范】很自然地使用 Python 的连续赋值：`tail = tail.next = p`
+【错误示范】很自然地使用 Python 的连续赋值：`tail = tail.next = p`，这样相当于 `tail = p; tail.next = p`
 
 【正确示范】C/C++ 连续赋值：`tail = tail->next = p;`
 
