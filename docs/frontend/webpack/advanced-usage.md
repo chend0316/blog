@@ -16,8 +16,6 @@
 <<< @/../labs/webpack/split-chunks-plugin/webpack.config.js
 :::
 
-### Tree Shaking
-
 ### 图片压缩
 
 ### 初级分析：Webpack stats

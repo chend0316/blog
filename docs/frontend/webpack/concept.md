@@ -26,3 +26,9 @@
 ### Webpack API
 我们通常是编写配置文件，然后执行 webpack 命令进行打包。而 Webpack API 是反过来的，由另一个系统调用 Webpack 进行打包，可以用于集成到现有工具链中。
 
+### Tree Shaking
+如果启用了 Tree Shaking，Webpack 会在编译阶段通过死码消除 (Dead code elimination) 技术，将没有用到的代码删掉，以便减小体积。
+
+Tree Shaking 只支持 ES Modules，不支持 CommonJS。因为 ES Modules 支持静态导入 (static import)，这有助于提升系统的自省 (introspection) 能力，帮助工具更好的进行静态代码分析。[Stack Overflow](https://stackoverflow.com/questions/52965907/what-is-the-meaning-of-static-import-in-es6) 上有一个回答讲的很好。
+
+Webpack 在 `mode = 'production'`模式下，会默认开启 Tree Shaking。
