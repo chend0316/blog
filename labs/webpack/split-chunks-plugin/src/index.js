@@ -1,13 +1,32 @@
+const { useState } = require('react')
 const React = require('react')
 const ReactDOM = require('react-dom')
-import { add } from './math'
 
 const root = document.createElement('div')
 document.body.appendChild(root)
 
 const App = () => {
-  const msg = 'world'
-  return <h1>hello {msg}</h1>
+  const [page, setPage] = useState(null)
+
+  function loadHome() {
+    import('./Home').then((module) => {
+      setPage(module.default)
+    })
+  }
+
+  function loadAbout() {
+    import('./About').then((module) => {
+      setPage(module.default)
+    })
+  }
+
+  return <div>
+    <button onClick={() => loadHome()}>加载Home</button>
+    <button onClick={() => loadAbout()}>加载About</button>
+    {
+      page ? page : null
+    }
+  </div>
 }
 
 ReactDOM.render(<App />, root)

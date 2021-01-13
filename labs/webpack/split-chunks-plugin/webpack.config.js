@@ -1,8 +1,10 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   mode: 'development',
+  devtool: false,
   entry: {
     app: './src/index.js'
   },
@@ -26,23 +28,25 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin()
+    new HtmlWebpackPlugin(),
+    new CleanWebpackPlugin()
   ],
   optimization: {
     splitChunks: {
       chunks: 'async',
-      minSize: 200,
+      minSize: 0,
       minRemainingSize: 0,
       maxSize: 0,
-      minChunks: 1,
+      minChunks: 2,
       maxAsyncRequests: 30,
       maxInitialRequests: 30,
       enforceSizeThreshold: 50000,
       cacheGroups: {
-        vendors: {
-          test: /[\\/]node_modules[\\/]/,
-          priority: -10
-        },
+        commons: {
+          name: 'commons',
+          chunks: 'all',
+          minChunks: 2
+        }
       }
     }
   }

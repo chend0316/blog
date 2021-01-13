@@ -69,6 +69,7 @@ module.exports = {
 ```
 
 ### 自动清理 dist 目录
+使用 clean-webpack-plugin。
 
 ## 其它
 ### 打包多页应用

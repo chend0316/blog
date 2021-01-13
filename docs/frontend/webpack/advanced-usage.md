@@ -4,15 +4,13 @@
 ### 代码压缩
 
 ### 提取公共代码、文件
-- 方法一：使用 html-webpack-externals-plugin 实现通过 `<script>` 引入公共库
-- 方法二：使用 SplitChunksPlugin 分离公共代码，这个挺复杂的，我目前也没搞懂怎么用
 
 ::: details 使用 html-webpack-externals-plugin 将 React 提取到 CDN
 <<< @/../labs/webpack/html-webpack-externals-plugin/webpack.config.js
 <<< @/../labs/webpack/html-webpack-externals-plugin/src/index.js
 :::
 
-::: details SplitChunksPlugin 用法
+::: details 使用 SplitChunksPlugin 分离公共代码
 <<< @/../labs/webpack/split-chunks-plugin/webpack.config.js
 :::
 
