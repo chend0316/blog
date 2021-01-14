@@ -27,7 +27,7 @@ module.exports = {
               { text: 'JavaScript 语言', link: '/frontend/javascript/' },
               { text: 'JavaScript API', link: '/frontend/api/' },
               // { text: 'CSS', link: '/frontend/css/' },
-              { text: '浏览器和网络', link: '/frontend/browser/' },
+              { text: '浏览器', link: '/frontend/browser/' },
             ]
           },
           {
@@ -77,15 +77,14 @@ module.exports = {
         items: [
           // { text: 'Spring', link: '/backend/spring/' },
           { text: '数据库', link: '/backend/database/' },
-          { text: 'Cython', link: '/backend/cython/' },
-          { text: 'Protobuf', link: '/backend/protobuf/' },
           { text: 'Docker', link: '/backend/docker' },
-          // {
-          //   text: '数据库',
-          //   items: [
-          //     { text: 'Redis', link: '/backend/redis/' }
-          //   ]
-          // }
+          {
+            test: '其它',
+            items: [
+              { text: 'Cython', link: '/backend/cython/' },
+              { text: 'Protobuf', link: '/backend/protobuf/' },
+            ]
+          },
         ]
       },
       {
@@ -146,7 +145,6 @@ module.exports = {
       '/frontend/browser/': [
         '/frontend/browser/',
         '/frontend/browser/js-engine',
-        '/frontend/browser/http',
         '/frontend/browser/event-loop',
       ],
       '/frontend/react/': [
@@ -228,6 +226,15 @@ module.exports = {
           collapsable: false,
           children: [
             'ipv4'
+          ]
+        },
+        {
+          title: '应用层',
+          collapsable: false,
+          children: [
+            'http',
+            'streaming-media',
+            'p2p'
           ]
         },
         'src-lab'
