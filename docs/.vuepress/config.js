@@ -79,7 +79,7 @@ module.exports = {
           { text: '数据库', link: '/backend/database/' },
           { text: 'Docker', link: '/backend/docker' },
           {
-            test: '其它',
+            text: '其它',
             items: [
               { text: 'Cython', link: '/backend/cython/' },
               { text: 'Protobuf', link: '/backend/protobuf/' },
