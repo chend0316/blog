@@ -111,63 +111,6 @@ ReactDOM.render(<App />, document.getElementById('root'));
 ```
 :::
 
-## 全局数据共享
-### 使用全局变量
-这显然不是一个好的方法，使用全局变量有以下缺点：
-- 数据变化缺少响应式更新机制
-- 难以跟踪、调试、维护
-- 可测试性差
-
-### Context API
-传统 React 应用中，数据通过 props 属性进行传递。但遇到一些需要大范围共用的属性时，需要通过 props 层层传递，这是极其繁琐的。
-
-Context 的出现就是为了解决这个问题，API 使用关键点是：
-- 首先需要定义 Context
-- 接着祖先组件提供数据 (Provider)，子孙组件获取数据 (Consumer)
-- Provider 采用 HOC 风格
-- Comsumer 既可以使用 HOC 风格，又可以使用 Class.contextType 风格
-
-::: details Context API 实例代码
-```javascript
-const ThemeContext = React.createContext('light');
-
-class App extends React.Component {
-  render() {
-    return (
-      <ThemeContext.Provider value="dark">
-        <ThemedButton />
-        <ThemedButton2 />
-      </ThemeContext.Provider>
-    );
-  }
-}
-
-// Class.contextType 风格
-class ThemedButton extends React.Component {
-  static contextType = ThemeContext;
-  render() {
-    return <Button theme={this.context} />;
-  }
-}
-
-// HOC 风格
-function ThemedButton2() {
-  return (
-    <ThemeContext.Consumer>
-      {(value) => <ThemedButton theme={value} />}
-    </ThemeContext.Consumer>
-  );
-}
-```
-:::
-
-### Redux
-可以通过 `react-redux` 将 Redux 和 React 结合使用，在使用上可以使用传统的 `connect()` API，也可以使用 Hooks 风格 API。
-
-`connect()` 本质是一个 HOC 工厂函数，它的输入是 `mapXxxToProps`，输出是一个 HOC。这个 HOC 的输入是组件，输出是另一个组件。
-
-HOC 风格建议改用 Hooks，所以后来同样出了 Hooks 风格的 API。
-
 ## 生态圈
 
 React 生态圈相关技术背景。
