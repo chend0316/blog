@@ -62,6 +62,8 @@ document.body.appendChild(img)
 - 自动执行钩子，例如 `npm test`、`npm build` 这样的命令
 - 然后就会根据 package.json 中 main 字段指定的入口发包
 
+TODO: 详细代码待补充。
+
 ## 兼容性
 ### 自动添加 CSS 前缀
 [Autoprefixer](https://www.npmjs.com/package/autoprefixer) 
