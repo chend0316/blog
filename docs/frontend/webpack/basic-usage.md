@@ -48,6 +48,20 @@ document.body.appendChild(img)
 
 ### 解析 TypeScript
 
+### 打包基础库
+打包库一般会使用 Rollup，因为更加简单、纯粹，但用 Webpack 也可以。
+
+基本需求为：
+- 支持打包压缩版、非压缩版本
+- 支持 AMD/CMD/ESM 引入
+- 单元测试
+- `npm publish` 发包，通过钩子配置发包前执行的命令
+
+发包的流程是：
+- 执行 `npm publish` 命令
+- 自动执行钩子，例如 `npm test`、`npm build` 这样的命令
+- 然后就会根据 package.json 中 main 字段指定的入口发包
+
 ## 兼容性
 ### 自动添加 CSS 前缀
 [Autoprefixer](https://www.npmjs.com/package/autoprefixer) 

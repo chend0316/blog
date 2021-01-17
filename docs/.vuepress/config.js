@@ -149,6 +149,9 @@ module.exports = {
       ],
       '/frontend/react/': [
         '',
+        'react-in-action-tech',
+        'react-in-action-basic',
+        'react-in-action-advanced'
       ],
       '/frontend/vue/': [
         '',
