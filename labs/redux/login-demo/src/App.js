@@ -15,8 +15,8 @@ function App({ onLogin, onLogout, hasLoggedIn }) {
   return (
     <div>
       <input value={password} onChange={(e) => setPassword(e.target.value)} />
-      { !hasLoggedIn ? <button onClick={handleLogin}>登录</button> : null}
-      { hasLoggedIn ? <button onClick={handleLogout}>注销</button> : null}
+      { !hasLoggedIn && <button onClick={handleLogin}>登录</button> }
+      { hasLoggedIn && <button onClick={handleLogout}>注销</button> }
     </div>
   );
 }
