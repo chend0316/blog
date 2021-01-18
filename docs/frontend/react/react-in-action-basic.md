@@ -2,17 +2,21 @@
 
 ## 常见组件封装
 ### 异步按钮
-按钮会有 Loading 状态，如果让业务维护还是比较麻烦的。
+对于触发异步操作的按钮，需要有 Loading 状态。
 
 ::: details 例子：业务自行维护 Loading 状态
 todo
 :::
 
-AsyncButton 组件实现的关键思路：
+AsyncButton 组件实现思路：
 - 如果 onClick 事件是异步的 (返回 Promise)，就需要 Loading 状态
 - 除了要处理 resolve 还别忘了处理 reject
 
 ::: details 例子：封装 AsyncButton 组件
+todo
+:::
+
+::: details 例子：在列表页中使用 AsyncButton
 todo
 :::
 
