@@ -14,7 +14,6 @@
 
 `shouldComponentUpdate` 用于性能优化，很多时候可以由 PureComponent 自动实现。
 
-## 组件
 ### 受控组件 vs. 非受控组件
 对于 DOM 元素来说，加了 value 属性就是[受控组件](https://reactjs.org/docs/forms.html#controlled-components)，`<input type="text" value={msg} />`。不加 value 属性就是[非受控组件](https://reactjs.org/docs/uncontrolled-components.html)，这时可以用 [Ref](https://reactjs.org/docs/refs-and-the-dom.html) 访问非受控组件。
 
@@ -124,6 +123,10 @@ CSS in JS 又有很多实现：
 - styled-components
 - redium
 - 等等
+
+## 状态管理
+### Context
+### Redux
 
 ## Hooks
 

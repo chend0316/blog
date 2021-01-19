@@ -1,4 +1,4 @@
-# Vue 概述
+# Vue
 
 ![vue overview](./img/vue-overview.png)
 

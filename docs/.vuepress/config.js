@@ -37,9 +37,7 @@ module.exports = {
           {
             text: '框架',
             items: [
-              { text: 'React', link: '/frontend/react/' },
-              { text: 'Vue', link: '/frontend/vue/' },
-              { text: '原理和思想', link: '/frontend/framework/' },
+              { text: '三大框架', link: '/frontend/framework/' },
             ]
           },
           {
@@ -157,19 +155,11 @@ module.exports = {
         '/frontend/browser/js-engine',
         '/frontend/browser/event-loop',
       ],
-      '/frontend/react/': [
-        '',
-      ],
-      '/frontend/vue/': [
-        '',
-        'vue-setup',
-      ],
       '/frontend/framework/': [
         '',
-        'state',
-        'vdom',
-        'hooks',
-        'backend-interaction',
+        'react',
+        'redux',
+        'vue',
       ],
       '/frontend/webpack/': [
         '',
