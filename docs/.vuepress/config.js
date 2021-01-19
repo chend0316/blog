@@ -22,6 +22,10 @@ module.exports = {
         text: '前端',
         items: [
           {
+            text: '开发实战',
+            link: '/frontend/admin-in-action/'
+          },
+          {
             text: '基本功',
             items: [
               { text: 'JavaScript 语言', link: '/frontend/javascript/' },
@@ -129,6 +133,12 @@ module.exports = {
         },
         'diary'
       ],
+      '/frontend/admin-in-action/': [
+        '',
+        'react-in-action-tech',
+        'react-in-action-basic',
+        'react-in-action-advanced',
+      ],
       '/frontend/javascript/': [
         '/frontend/javascript/',
         '/frontend/javascript/es5',
@@ -149,9 +159,6 @@ module.exports = {
       ],
       '/frontend/react/': [
         '',
-        'react-in-action-tech',
-        'react-in-action-basic',
-        'react-in-action-advanced'
       ],
       '/frontend/vue/': [
         '',
