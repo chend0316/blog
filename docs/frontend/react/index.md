@@ -1,4 +1,4 @@
-# React 概述
+# React
 
 ## 基础知识
 ### 生命周期
@@ -6,20 +6,23 @@
 
 图片来自[这里](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 
-`getDerivedStateFromProps` 可以根据 props 计算得到一些 state，用于表单控件获取默认值，其它情形一般不推荐使用 (而是用计算属性替代)。
+`getDerivedStateFromProps` 一般只用于表单控件获取默认值，其它情形不推荐使用 (而是用计算属性替代)。
 
-`componentDidMount` 和 `componentDisUpdate` 阶段 DOM 已经渲染完成了，这时候可以：
-- 执行带有副作用的操作 (如过去外部资源)
-- 操作 DOM 节点
+`componentDidMount` 和 `componentDisUpdate` 阶段 DOM 已经渲染完成了，这时候可以执行带有副作用的操作。
 
 `getSnapshotBeforeUpdate` 会在 render 之前被调用，用于获取 render 之前的 DOM 状态。它的返回值会被传递给 `componentDidUpdate`，用于在更新之后修改 DOM。
 
 `shouldComponentUpdate` 用于性能优化，很多时候可以由 PureComponent 自动实现。
 
-### 受控组件
-React 对 HTML 表单元素做了特殊处理，引入了受控组件的概念。
+## 组件
+### 受控组件 vs. 非受控组件
+对于 DOM 元素来说，加了 value 属性就是[受控组件](https://reactjs.org/docs/forms.html#controlled-components)，`<input type="text" value={msg} />`。不加 value 属性就是[非受控组件](https://reactjs.org/docs/uncontrolled-components.html)，这时可以用 [Ref](https://reactjs.org/docs/refs-and-the-dom.html) 访问非受控组件。
 
-在 React 中，传统 HTML 的写法 `<input type="text" />` 配合 ref 虽然能用，但很少使用。更常用的是受控组件 `<input type="text" value={msg} onChange={...} />`，在写法上可以理解为：加了 value 属性就成了受控组件。
+UI 组件库 (而非 DOM 元素)，也有受控和非受控的概念。
+
+### 函数式组件 vs. 类组件 vs. Hooks
+
+类组件一直是最经典的写法，函数式组件不能执行副作用，Hooks 的出现让函数式组件能执行副作用。
 
 ## 代码逻辑复用
 ### 高阶组件
@@ -111,14 +114,21 @@ ReactDOM.render(<App />, document.getElementById('root'));
 ```
 :::
 
-## 生态圈
+## 在 React 中编写样式
+三种方式：
+- CSS，就是 CSS 原生方式
+- CSS Modules
+- CSS in JS
 
-React 生态圈相关技术背景。
-- `create-react-app` 业界简称 CRA，用起来很方便，不用关心工程配置了
-- Flux 是官方提供的，但不推荐使用；推荐使用 Redux
-- CSS-in-JS 方案有 styled-jsx 和 styled-components
-- Hooks 出现后，传统风格的 API 不具有任何优势了；但为了能阅读老项目，还是需要学习的
-- Hooks 出现后，Redux 的容器组件和展示组件的概念也废弃了；但还是要学习以便阅读老项目
+CSS in JS 又有很多实现：
+- styled-components
+- redium
+- 等等
+
+## Hooks
 
 ## 参考资料
-[medium 上的这篇文章](https://medium.com/@jackyef/react-hooks-why-we-should-embrace-it-86e408663ad6) 提出了 HOC 带来的 wrapper hell 问题，介绍了 Hooks 如何解决这个问题。分别用两种技术实现了一个计数器逻辑复用的例子，并进行比较。
+- reactjs.org
+- [medium 上的这篇文章](https://medium.com/@jackyef/react-hooks-why-we-should-embrace-it-86e408663ad6) 提出了 HOC 带来的 wrapper hell 问题，介绍了 Hooks 如何解决这个问题。分别用两种技术实现了一个计数器逻辑复用的例子，并进行比较。
+- 《The Road to React》：https://github.com/the-road-to-learn-react/the-road-to-react-chinese
+- https://github.com/rwieruch/blog_robinwieruch_content

@@ -162,7 +162,6 @@ module.exports = {
       ],
       '/frontend/vue/': [
         '',
-        'vue3-migration',
         'vue-setup',
       ],
       '/frontend/framework/': [
