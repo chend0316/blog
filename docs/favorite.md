@@ -1,6 +1,7 @@
 # 资料聚集地
 
 ## 计算机科学
+### 课程
 机器学习、人工智能：
 - 吴恩达
 - 台大李宏毅
@@ -31,27 +32,23 @@
 ## 软件开发
 
 ### 前端开发
-B站的[CodingStartup起码课](https://space.bilibili.com/451368848/)，CSS 讲的特别到位。
+CSS 视频教程:
+- B站的[CodingStartup起码课](https://space.bilibili.com/451368848/)，CSS 讲的很好
 
-https://developers.google.com/web/fundamentals/
+Chromium/Blink 浏览器内核：
+- Chromium docs: https://chromium.googlesource.com/chromium/src/+/master/docs/README.md
+- Chromium 源码: https://chromium.googlesource.com/chromium/src
+- [油管的 BlinkOn 频道](https://www.youtube.com/channel/UCIfQb9u7ALnOE4ZmexRecDg)
 
-https://developer.mozilla.org/zh-CN/
-
-Chromium docs: https://chromium.googlesource.com/chromium/src/+/master/docs/README.md
-
-Chromium 源码: https://chromium.googlesource.com/chromium/src
-
-https://www.youtube.com/channel/UCIfQb9u7ALnOE4ZmexRecDg
-
-https://www.youtube.com/channel/UCnUYZLuoy1rq1aVMwx4aTzw
-
-https://web.dev/
-
-redux-obversable课件：https://www.slideshare.net/jayphelps/rxjs-redux-react-amazing
-
-redux-obversable视频：https://www.youtube.com/watch?v=AslncyG8whg&list=PLfXiENmg6yyU5kEHyo1kYkq7HEzBOoiTT&index=13
+其它 (待整理)：
+- [Robin Wieruch 的博客](https://www.robinwieruch.de/)
+- https://developer.mozilla.org/zh-CN/
+- https://developers.google.com/web/fundamentals/
+- [油管的 Google Chrome Developers 频道](https://www.youtube.com/channel/UCnUYZLuoy1rq1aVMwx4aTzw)
+- https://web.dev/
+- redux-obversable课件：https://www.slideshare.net/jayphelps/rxjs-redux-react-amazing
+- redux-obversable视频：https://www.youtube.com/watch?v=AslncyG8whg&list=PLfXiENmg6yyU5kEHyo1kYkq7HEzBOoiTT&index=13
 
 ## 产品经理、UI/UX
 
-https://screenlane.com
-
+- 这里可以参考很多交互设计：https://screenlane.com
