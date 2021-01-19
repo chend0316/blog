@@ -133,22 +133,22 @@ module.exports = {
         'react-in-action-advanced',
       ],
       '/frontend/javascript/': [
-        '/frontend/javascript/',
-        '/frontend/javascript/es5',
-        '/frontend/javascript/es6',
-        '/frontend/javascript/snippet',
+        '',
+        'es5',
+        'es6',
+        'snippet',
       ],
       '/frontend/api/': [
         '',
         'dom-event',
       ],
       '/frontend/css/': [
-        '/frontend/css/'
+        'css/'
       ],
       '/frontend/browser/': [
-        '/frontend/browser/',
-        '/frontend/browser/js-engine',
-        '/frontend/browser/event-loop',
+        '',
+        'js-engine',
+        'event-loop',
       ],
       '/frontend/framework/': [
         '',
