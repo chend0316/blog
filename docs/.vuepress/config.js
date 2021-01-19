@@ -35,14 +35,9 @@ module.exports = {
             ]
           },
           {
-            text: '框架',
+            text: '框架 & 工具',
             items: [
               { text: '三大框架', link: '/frontend/framework/' },
-            ]
-          },
-          {
-            text: '工程化',
-            items: [
               { text: 'Webpack', link: '/frontend/webpack/' },
             ]
           },
