@@ -126,12 +126,7 @@ module.exports = {
         },
         'diary'
       ],
-      '/frontend/admin-in-action/': [
-        '',
-        'react-in-action-tech',
-        'react-in-action-basic',
-        'react-in-action-advanced',
-      ],
+      '/frontend/admin-in-action/': 'auto',
       '/frontend/javascript/': [
         '',
         'es5',
