@@ -27,6 +27,7 @@ UI 组件库 (而非 DOM 元素)，也有受控和非受控的概念。
 如下图所示，HOC 会带来嵌套地狱 (wrapper hell) 的问题，而 Hooks 可以解决这个问题。
 
 ![](./img/wrapper-hell.png)
+
 ### 高阶组件 (HOC)
 HOC 是一个函数，输入一个 Component，返回另一个 Component，能够实现一些代码复用需求，类似装饰器模式。HOC 本身并不是 React 的一部分，只是一种高级的编码技巧。
 
