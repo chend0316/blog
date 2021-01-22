@@ -138,7 +138,7 @@ module.exports = {
         'dom-event',
       ],
       '/frontend/css/': [
-        'css/'
+        ''
       ],
       '/frontend/browser/': [
         '',
