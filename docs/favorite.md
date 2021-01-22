@@ -35,6 +35,9 @@
 CSS 视频教程:
 - B站的[CodingStartup起码课](https://space.bilibili.com/451368848/)，CSS 讲的很好
 
+CSS 博客：
+- 掘金的[chokcoco](https://juejin.cn/user/2330620350437678)
+
 Chromium/Blink 浏览器内核：
 - Chromium docs: https://chromium.googlesource.com/chromium/src/+/master/docs/README.md
 - Chromium 源码: https://chromium.googlesource.com/chromium/src
@@ -49,6 +52,9 @@ Chromium/Blink 浏览器内核：
 - redux-obversable课件：https://www.slideshare.net/jayphelps/rxjs-redux-react-amazing
 - redux-obversable视频：https://www.youtube.com/watch?v=AslncyG8whg&list=PLfXiENmg6yyU5kEHyo1kYkq7HEzBOoiTT&index=13
 - https://antd-course.ulivz.com/
+
+有意思的网站
+- https://shoptalkshow.com/
 
 ## 产品经理、UI/UX
 
