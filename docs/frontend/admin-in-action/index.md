@@ -11,10 +11,18 @@
 ### API 接口缓存
 缓存可以放到 Axios/API/Service 层，也可以放到 Redux/Vuex 层。
 
-有的缓存是局部性的，用户的一些行为 (如：切换xxx) 需要清空缓存。如果使用 Redux/Vuex 
+有的缓存是局部性的，一些操作 (如：切换xxx) 需要清空缓存。
 
-## 常见组件封装
-### 异步按钮
+## 常见组件
+### 按钮
+#### 图标按钮 (IconButton)
+以 ElementUI、AntDesign 组件库为例，IconButton 可以支持组件库自带图标和自定义图标。
+
+但组件库自带图标和自定义图标混用容易导致样式体验不一致。
+
+[这里](./pages/vue-element-ui-button-custom-icon)介绍了如何在 Vue ElementUI 下使用自定义图标并保证 IconButton 的体验一致性。
+
+#### 异步按钮 (AsyncButton)
 对于触发异步操作的按钮，需要有 Loading 状态。
 
 [React 实现 AsyncButton](./pages/react-async-button)
