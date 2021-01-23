@@ -17,3 +17,5 @@
 在原型模式中我们介绍了深拷贝，那么应该怎么实现呢？
 
 在 JavaScript 中，我们可以使用 `JSON.parse()` 和 `JSON.stringify()`，但它是有缺点的。我们还可以使用 lodash 提供的库函数 `_.cloneDeep()`。
+
+## MVC

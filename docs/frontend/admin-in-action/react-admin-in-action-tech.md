@@ -56,6 +56,8 @@ Chrome、Firefox 插件：
 - React DevTools
 - Redux Devtools
 
+VS Code 代码补全：https://medium.com/the-web-tub/vetur-support-for-onsen-ui-element-ui-b375c7ae33ba
+
 ## 单元测试
 
 ## 代码风格

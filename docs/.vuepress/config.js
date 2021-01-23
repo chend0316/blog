@@ -15,8 +15,11 @@ module.exports = {
     prevLinks: false,
     nav: [
       {
-        text: '力扣刷题',
-        link: '/leetcode/',
+        text: '程序员基本功',
+        items: [
+          { text: '力扣刷题', link: '/programmer/leetcode/' },
+          { text: '设计模式', link: '/programmer/design-pattern/' },
+        ]
       },
       {
         text: '前端',
@@ -101,7 +104,7 @@ module.exports = {
     ],
     sidebarDepth: 4,
     sidebar: {
-      '/leetcode/': [
+      '/programmer/leetcode/': [
         '',
         {
           title: '语言基础',
@@ -126,6 +129,7 @@ module.exports = {
         },
         'diary'
       ],
+      '/programmer/': 'auto',
       '/frontend/admin-in-action/': 'auto',
       '/frontend/javascript/': [
         '',
