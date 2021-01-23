@@ -1,4 +1,4 @@
-# HTTP 协议
+# HTTP
 HTTP标准由IETF组织制定：
 
 - HTTP/1.0：https://tools.ietf.org/html/rfc1945
@@ -36,13 +36,7 @@ HTTP标准由IETF组织制定：
 | Cookie             |                       | 引入Cookie             |            |          |
 | 服务端推送         |                       |                        | 服务端推送 |          |
 
-## HTTP/1.0
-
-## HTTP/1.1
-
-## HTTP/2.0
-
-## HTTP/3.0、QUIC
-
 ## HTTPS
 HTTPS 使用非对称加密，有公钥、私钥的概念。公钥可以随意传播，为了确保公钥是真的，我们引入了证书 (Certificate)。为了确保证书是真的，我们要去CA (Certificate Authority) 机构校验。各大CA机构的公钥是默认安装在操作系统里的，所以不要安装来路不明的操作系统，否则相当于裸奔。
+
+HTTPS 握手分为五个阶段，[这个实验](/pages/tcpdump-https/)用 tcpdump 命令抓包，然后导入到 Wireshark 进行分析学习。
