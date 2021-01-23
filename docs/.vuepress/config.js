@@ -58,7 +58,6 @@ module.exports = {
           // {
           //   text: '新技术',
           //   items: [
-          //     { text: 'GraphQL', link: '/frontend/graphql' },
           //     { text: 'PWA', link: '/frontend/pwa/' },
           //     { text: 'RxJS', link: '/frontend/rxjs' },
           //     { text: 'WebAssembly', link: '/frontend/wasm/' },
