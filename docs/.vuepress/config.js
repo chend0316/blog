@@ -19,7 +19,7 @@ module.exports = {
         items: [
           { text: '力扣刷题', link: '/programmer/leetcode/' },
           { text: '设计模式', link: '/programmer/design-pattern/' },
-          { text: 'Web全栈基础', link: '/programmer/fullstack' },
+          { text: 'Web架构师', link: '/programmer/web-architecture' },
         ]
       },
       {
