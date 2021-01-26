@@ -32,3 +32,25 @@ GraphQL 定义了三种通信模型：
 跨域 (CORS) 问题导致的开发工作：
 - 因为前端不能跨域访问资源，所以后端需要做一个 API 网关
 - 前端人员本地开发要想办法绕过 (例如开网络代理)
+
+## 前端开发
+### TypeScript
+Vue 对 TS 的支持很差，就算是 Vue 3，对组件入参、返回值的类型检查/类型推断都很不好。
+```vue
+<template>
+  <user-select @click="handleSelect"></user-select>
+</template>
+<script lang="ts">
+export default {
+  setup() {
+    const handleSelect(user: any) { // user 参数丢失了类型推断
+      // ...
+    }
+
+    return {
+      handleSelect
+    }
+  }
+}
+</script>
+```

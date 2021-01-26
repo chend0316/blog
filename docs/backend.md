@@ -70,5 +70,23 @@ SQL 基于关系代数，所以只能用于 RDBMS。SQL 是一个标准，目前
 
 在 MongoDB 中，通过 Aggregation Pipeline 来实现，一个 Pipeline 包含多个 stage。
 
-### 高可用
+### 集群
+集群在数据库中有两个用途：
+- 提高可用性
+- 提升数据读写性能
+
 MongoDB 通过[副本集](https://docs.mongodb.com/manual/replication/)的方式，当主节点挂了，从节点会进行选举选出一个新的主节点。增加副本集的节点数量可以提高读性能，不能提高写性能。
+
+Redis 有哨兵 (Sentinel) 机制，主库挂了之后会选一个从库转为主库。
+
+Redis 3.0 官方实现了一个切片集群：[Redis Cluster](https://redis.io/topics/cluster-spec)。但在这之前民间也实现了一些切片集群。
+
+### 数据备份和恢复
+在 Redis 中有两种备份机制
+- RDB 是对内存做一个全量备份，恢复的时候直接恢复即可
+- AOF 是将每个命令 append 到日志文件的末尾，恢复的时候将命令一个个取出执行即可恢复
+
+下面讨论一个重要议题：备份过程中是否会阻塞数据库访问？
+
+## Java 生态
+Hibernate 是一个 ORM 框架，问世时间早于 JPA 规范。JPA 规范出现后，Hibernate 被视为 JPA 规范的一种实现。
