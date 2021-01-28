@@ -76,12 +76,14 @@ export default {
 }
 ```
 
-问题是业务不知道 `.card` 里面封装了 `h4`，所以业务可能会这样写：
+问题一：业务不知道 `.card` 里面封装了 `h4`，所以业务可能会这样写：
 ```html
 <div class="card">
   <h3>Title</h3>
 </div>
 ```
+
+问题二：以后样式封装变动了，那业务代码怎么办呢？
 
 解决的办法之一是使用 React + TypeScript 做组件的强类型封装，实现对业务代码的强约束，如下所示。
 ::: details React + TypeScript 组件强类型封装
