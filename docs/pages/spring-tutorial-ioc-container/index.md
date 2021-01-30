@@ -1,7 +1,7 @@
 # Spring IOC 容器
 
 ## 安装依赖
-通过 Maven 安装 Spring 依赖：
+通过 Maven 安装 spring-context 依赖：
 ``` xml
 <dependencies>
     <dependency>
@@ -59,6 +59,8 @@ public class SpringApplication {
 
 ## 琐碎知识点
 ClassPathXmlApplicationContext 的 configLocation 参数还是有点复杂的，见 API 文档。
+
+[这篇教程](https://www.tutorialspoint.com/spring/spring_injecting_collection.htm)介绍了如何注入集合类型的对象。
 
 ## 考点
 说实话我个人很反感背题库。
