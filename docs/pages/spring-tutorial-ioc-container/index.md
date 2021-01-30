@@ -1,5 +1,6 @@
-# Spring IOC 入门教程
+# Spring IOC 容器
 
+## 安装依赖
 通过 Maven 安装 Spring 依赖：
 ``` xml
 <dependencies>
@@ -11,6 +12,13 @@
 </dependencies>
 ```
 
+## 配置 IOC 容器
+有三种配置方法：
+- 基于 XML
+- [基于注解](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-annotation-config)
+- [基于 Java 代码](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-java)
+
+### 基于 XML
 新建 *applicationContext.xml* 文件，文件内容参考[官网](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-factory-metadata)：
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -23,15 +31,22 @@
         <property name="..." value="..."></property>
     </bean>
 
+    <!-- 使用构造函数创建 Bean -->
     <bean id="..." class="...">
-        <!-- collaborators and configuration for this bean go here -->
+        <constructor-arg name="..." value="..."></constructor-arg>
+        <constructor-arg index="..." value="..."></constructor-arg>
     </bean>
 
-    <!-- more bean definitions go here -->
+    <!-- 使用静态工厂创建 Bean -->
+    <bean id="..." class="..." factory-method="..." />
+
+    <!-- 使用工厂实例创建 Bean -->
+    <bean id="factory..." class="..." />
+    <bean id="..." factory-bean="factory..." factory-methods="..." />
 </beans>
 ```
 
-在代码中创建 `ApplicationContext`：
+在代码中创建 `ApplicationContext`，并获取 Bean 实例，下面的代码对应于[官方文档](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-factory-client)：
 ``` java
 public class SpringApplication {
     public static void main(String[] args) {

@@ -5,7 +5,7 @@
 
 依赖注入 (Dependency Injection, DI) 是 IOC 的一种实现手段，可以通过 [Java 反射 (Reflection)](/pages/java-reflection/) 实现依赖注入。
 
-[这个教程](/pages/spring-tutorial-ioc-container/)给出了使用 Spring Framework 的 IOC 容器创建/管理 Bean 的关键步骤。
+[这个教程](/pages/spring-tutorial-ioc-container/)给出了使用 IOC 容器创建/管理 Bean 的关键步骤。
 
 ### AOP：面向切面编程
 
