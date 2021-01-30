@@ -50,8 +50,16 @@
 ``` java
 public class SpringApplication {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         // 获取 Bean 实例：context.getBean("xxx", xxx.class);
     }
 }
 ```
+
+## 琐碎知识点
+ClassPathXmlApplicationContext 的 configLocation 参数还是有点复杂的。
+
+## 考点
+说实话我个人很反感背题库。
+- Bean 的 id 和 name 有什么区别？
+- 定义 Bean 的时候如果 id 和 name 都没有定义，那么会发生什么？
