@@ -27,6 +27,7 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!-- 使用 setter 创建 Bean -->
     <bean id="..." class="...">  
         <property name="..." value="..."></property>
     </bean>
@@ -57,7 +58,7 @@ public class SpringApplication {
 ```
 
 ## 琐碎知识点
-ClassPathXmlApplicationContext 的 configLocation 参数还是有点复杂的。
+ClassPathXmlApplicationContext 的 configLocation 参数还是有点复杂的，见 API 文档。
 
 ## 考点
 说实话我个人很反感背题库。
