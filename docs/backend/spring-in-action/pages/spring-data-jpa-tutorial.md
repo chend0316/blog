@@ -151,14 +151,11 @@ public class Coffee {
 
 ### 如何定义多表连接
 
-
 ### 如何处理金额
 涉及到金额的系统，一定要注意，不要用浮点数存储金额。
 
 ## Repository
-### 定义查询
-我们的 Repository 是一个继承自 `CrudRepository` 的接口，默认提供了一些方法：`findAll()`、`findById()`、`delete()`等等。如果觉得不够的话可以自己再定义一些方法，如下所示。
-
+Repository 是一个继承自 `Repository` 的接口。
 ```java
 public interface CoffeeRepository extends CrudRepository<Coffee, Long> {
     List<Coffee> findByNameIgnoreCase(String name);
@@ -166,7 +163,7 @@ public interface CoffeeRepository extends CrudRepository<Coffee, Long> {
 }
 ```
 
-Repository 是一个接口，我们只需要定义方法签名，不需要实现这些方法，这就是 Spring 带来的魔法吧？这个魔法要求方法名符合一些规律，这个规律可以看官方文档。
+### 定义查询
 
 ### 定义分页查询
 
