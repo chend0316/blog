@@ -75,6 +75,7 @@ module.exports = {
       {
         text: '后端',
         items: [
+          { text: 'Spring', link: '/backend/spring/' },
           { text: 'Spring实战', link: '/backend/spring-in-action/' },
           { text: '数据库', link: '/backend/database/' },
           { text: 'Docker', link: '/backend/docker' },
