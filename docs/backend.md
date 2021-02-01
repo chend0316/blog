@@ -89,4 +89,8 @@ Redis 3.0 官方实现了一个切片集群：[Redis Cluster](https://redis.io/t
 下面讨论一个重要议题：备份过程中是否会阻塞数据库访问？
 
 ## Java 生态
+### ORM
 Hibernate 是一个 ORM 框架，问世时间早于 JPA 规范。JPA 规范出现后，Hibernate 被视为 JPA 规范的一种实现。
+
+### Redis
+在 Java 中通过 Jedis、Lettuce 访问 Redis。
