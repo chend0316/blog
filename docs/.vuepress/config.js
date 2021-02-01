@@ -186,11 +186,6 @@ module.exports = {
         '',
         'svg',
       ],
-      '/frontend/': [
-        'performance/',
-        'rxjs',
-        'electron/',
-      ],
       '/backend/spring-in-action/': 'auto',
       '/backend/spring/': [
         ''
@@ -234,6 +229,7 @@ module.exports = {
         },
         'src-lab'
       ],
+      '/frontend/': 'auto',
       '/pages/': 'auto',
       '/': [
         '',
