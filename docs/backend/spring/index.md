@@ -10,3 +10,18 @@ Spring 通过 [IOC 容器](/pages/spring-ioc-container/)创建/管理 Bean。
 ### AOP：面向切面编程
 
 ## Spring 生态体系介绍
+
+## 项目实战
+光说不练假把式，现在终于进入激动人心的实战环节了。
+
+- [快速上手 Spring Data JPA](/pages/java-tutorial-spring-data-jpa)
+- [快速上手 Spring Data Redis](/pages/java-tutorial-spring-data-redis)
+
+### Spring 线上咖啡馆开发实战
+这个实战项目来自极客时间的《玩转Spring全家桶》，系统设计如下。
+
+![系统设计图](./img/system-design.png)
+
+ORM 框架选用 Spring Data JPA，涉及到的 Entity 有：咖啡、订单、顾客、服务员、咖啡师。
+
+![](./img/entities.jpg)

@@ -76,9 +76,8 @@ module.exports = {
       {
         text: '后端',
         items: [
-          { text: 'Servlet', link: '/pages/servlet/' },
+          // { text: 'Servlet', link: '/pages/java-tutorial-servlet/' },
           { text: 'Spring', link: '/backend/spring/' },
-          { text: 'Spring实战', link: '/backend/spring-in-action/' },
           { text: '数据库', link: '/backend/database/' },
           { text: 'Docker', link: '/backend/docker' },
           {

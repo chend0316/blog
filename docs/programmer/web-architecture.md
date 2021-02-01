@@ -2,11 +2,17 @@
 
 ## 前后端通信
 ### HTTP 协议
-302 状态码表示**重定向**，Servlet 里还有**请求转发**的概念。要注意二者不同，前者涉及 HTTP 协议需要浏览器配合，后者是服务端内部的行为。各个后端框架都有重定向方法：
+302 状态码表示**重定向**，Servlet 里还有**请求转发**的概念。要注意二者不同，前者涉及 HTTP 协议需要浏览器配合，后者是服务端内部的行为。
+
+HTTP 是无状态协议，服务器无法维持多个 HTTP 请求之间的业务关联性。为了解决这个问题，我们有一些办法：
+- 使用 Cookie (RFC 2109)，它会将所有信息存放在浏览器端，对网络传输负担比较重
+- 使用 Session，它将 Session ID 通过 Cookie 存放在浏览器端，ID 对应的信息存放在后端，对后端内存/磁盘负担重
+
+源码实现：
 - [Servlet 实现重定向](https://www.runoob.com/servlet/servlet-page-redirect.html)、[Servlet 实现请求转发](https://www.javatpoint.com/requestdispatcher-in-servlet)
 - [Express 实现重定向](https://www.expressjs.com.cn/4x/api.html#res.redirect)
-
-Cookie 的出现可以弥补 HTTP 无状态的缺陷，各个后端框架都有操作 Cookie 的方法。
+- [Servlet 中使用 Cookie](https://www.runoob.com/servlet/servlet-cookies-handling.html)。
+- [Servlet 中使用 Session](https://www.runoob.com/servlet/servlet-session-tracking.html)。
 
 ### C/S 通信模型
 C/S 是客户端/服务器的简写。
