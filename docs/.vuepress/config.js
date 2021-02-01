@@ -75,6 +75,7 @@ module.exports = {
       {
         text: '后端',
         items: [
+          { text: 'Servlet', link: '/pages/servlet/' },
           { text: 'Spring', link: '/backend/spring/' },
           { text: 'Spring实战', link: '/backend/spring-in-action/' },
           { text: '数据库', link: '/backend/database/' },
@@ -195,12 +196,6 @@ module.exports = {
         'sql',
         'redis'
       ],
-      '/backend/': [
-        'cython/',
-        'protobuf/',
-        'docker',
-        // 'micro-service',
-      ],
       '/language/': [
         'theory',
         'history',
@@ -229,6 +224,7 @@ module.exports = {
         },
         'src-lab'
       ],
+      '/backend/': 'auto',
       '/frontend/': 'auto',
       '/pages/': 'auto',
       '/': [
