@@ -1,6 +1,13 @@
 # Web 架构师
 
 ## 前后端通信
+### HTTP 协议
+302 状态码表示**重定向**，Servlet 里还有**请求转发**的概念。要注意二者不同，前者涉及 HTTP 协议需要浏览器配合，后者是服务端内部的行为。各个后端框架都有重定向方法：
+- [Servlet 实现重定向](https://www.runoob.com/servlet/servlet-page-redirect.html)、[Servlet 实现请求转发](https://www.javatpoint.com/requestdispatcher-in-servlet)
+- [Express 实现重定向](https://www.expressjs.com.cn/4x/api.html#res.redirect)
+
+Cookie 的出现可以弥补 HTTP 无状态的缺陷，各个后端框架都有操作 Cookie 的方法。
+
 ### C/S 通信模型
 C/S 是客户端/服务器的简写。
 
