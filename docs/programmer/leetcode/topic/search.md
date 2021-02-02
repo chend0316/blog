@@ -20,7 +20,7 @@ DFS 和 BFS 的区别：
 这两种方法的效果是一样的，大家可能有各自的喜好。但我建议大家重点掌握「新旧队列法」，因为它在后面的图 BFS 遍历中更加适用 (特别是 set 队列和 dict 队列的情况)。
 
 ::: details 102题「队列计数法」代码
-```python
+```python{8-10}
 class Solution:
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
         res = []
@@ -28,9 +28,9 @@ class Solution:
         if root: queue.append(root)
         while queue:
             res.append([])
-            n = len(queue)  # 技巧
-            while n:  # 技巧
-                n -= 1  # 技巧
+            n = len(queue)
+            while n:
+                n -= 1
                 node = queue.popleft()
                 res[-1].append(node.val)
                 if node.left: queue.append(node.left)
@@ -40,7 +40,7 @@ class Solution:
 :::
 
 ::: details 102题「新旧队列法」代码
-```python
+```python{8,11-13}
 class Solution:
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
         res = []
@@ -48,12 +48,12 @@ class Solution:
         if root: queue.append(root)
         while queue:
             res.append([])
-            newQueue = []  # 技巧
+            newQueue = []
             for node in queue:
                 res[-1].append(node.val)
-                if node.left: newQueue.append(node.left)  # 技巧
-                if node.right: newQueue.append(node.right)  # 技巧
-            queue = newQueue  # 技巧
+                if node.left: newQueue.append(node.left)
+                if node.right: newQueue.append(node.right)
+            queue = newQueue
         return res
 ```
 :::
@@ -83,7 +83,7 @@ public class Solution {
 [1367. 二叉树中的列表](https://leetcode-cn.com/problems/linked-list-in-binary-tree/)也能用[DP来解](https://leetcode.com/problems/linked-list-in-binary-tree/discuss/524881/Python-Recursive-Solution-O(N)-Time)，这里我们给出的是暴力 DFS 的代码：
 
 ::: details 1367题暴力DFS代码
-```python
+```python{9}
 def isSubPath(self, head, root):
     def dfs(head, root):
         if not head: return True
@@ -92,7 +92,6 @@ def isSubPath(self, head, root):
         return dfs(head.next, root.left) or dfs(head.next, root.right)
     if not head: return True
     if not root: return False
-    # 重点学习下面这行
     return dfs(head, root) or self.isSubPath(head, root.left) or self.isSubPath(head, root.right)
 ```
 :::
