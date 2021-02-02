@@ -7,7 +7,7 @@ script:
   - npm run build --prefix ./build_docs
 deploy:
   provider: pages
-  cleanup: false
+  skip_cleanup: false
   local_dir: docs/.vuepress/dist
   github_token: $GITHUB_TOKEN
   keep_history: true
