@@ -196,14 +196,6 @@ module.exports = {
         'sql',
         'redis'
       ],
-      '/language/': [
-        'theory',
-        'history',
-        // 'c/',
-        // 'cpp/',
-        // 'typescript/',
-        // 'javascript/',
-      ],
       '/cs/network/': [
         '',
         {
