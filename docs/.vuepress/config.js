@@ -20,7 +20,8 @@ module.exports = {
           { text: '力扣刷题', link: '/programmer/leetcode/' },
           // { text: '编程语言', link: '/programmer/language/' },
           { text: '设计模式', link: '/programmer/design-pattern/' },
-          { text: 'Web架构师', link: '/programmer/web-architecture' },
+          { text: 'Web架构', link: '/programmer/web-architecture' },
+          // { text: '软件设计', link: '/programmer/software-design/' },
         ]
       },
       {
@@ -79,7 +80,7 @@ module.exports = {
           // { text: 'Servlet', link: '/pages/java-tutorial-servlet/' },
           { text: 'Spring', link: '/backend/spring/' },
           { text: '数据库', link: '/backend/database/' },
-          { text: 'Docker', link: '/backend/docker' },
+          { text: 'Docker', link: '/backend/docker/' },
           {
             text: '其它',
             items: [
