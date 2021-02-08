@@ -30,7 +30,9 @@
 - 《C++ Primer》
 
 ## 软件开发
-四火：https://www.raychase.net/
+
+### 经典书籍
+- 《敏捷软件开发: 原则、模式与实践》
 
 ### 前端开发
 CSS 视频教程:
@@ -56,6 +58,9 @@ Chromium/Blink 浏览器内核：
 
 有意思的网站
 - https://shoptalkshow.com/
+
+### 待整理
+- 四火：https://www.raychase.net/
 
 ## 产品经理、UI/UX
 
