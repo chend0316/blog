@@ -23,13 +23,34 @@ UI 组件库 (而非 DOM 元素)，也有受控和非受控的概念。
 
 类组件一直是最经典的写法，函数式组件不能执行副作用，Hooks 的出现让函数式组件能执行副作用。
 
-## 代码逻辑复用
-如下图所示，HOC 会带来嵌套地狱 (wrapper hell) 的问题，而 Hooks 可以解决这个问题。
-
+## Hooks
+Hooks 于 React Conf 2018 提出，可以更细粒度地复用代码逻辑，并解决高阶组件 (Higher Order Components, HOC) 的嵌套地狱 (wrapper hell) 问题 (如下图所示)。
 ![](./img/wrapper-hell.png)
 
-### 高阶组件 (HOC)
-HOC 是一个函数，输入一个 Component，返回另一个 Component，能够实现一些代码复用需求，类似装饰器模式。HOC 本身并不是 React 的一部分，只是一种高级的编码技巧。
+Hooks 还可以解决类组件 (Class Components) 带来的巨型组件 (giant components) 问题，如下所示：
+```javascript
+class FriendStatus extends React.component {
+  render() { return ...; }
+
+  componentDidMount() {
+    this.subscribeToStore(this.props.friend.id)
+    this.fetchFriendStatus(this.props.friend.id)
+    this.startTimers()
+  }
+
+  componentWillUnmount() {
+    // 我们很难发现这里是否有正确释放资源
+    this.unsubscribeFromStore(this.props.friend.id)
+    this.cancelPendingRequests()
+    this.stopTimers()
+  }
+}
+```
+
+Hooks 的限制：不能在条件语句内使用 ` if (props.condition) { useState() }`
+
+### HOC vs. Hooks
+高阶组件 (HOC) 是一个函数，输入一个 Component，返回另一个 Component，能够实现一些代码复用需求，类似装饰器模式。HOC 本身并不是 React 的一部分，只是一种高级的编码技巧。
 
 下面是使用 HOC 的一个例子，思想就是使用函数 wrap 了一层，代码上还是很绕的，初学者需要适应一段时间。
 
@@ -78,7 +99,6 @@ ReactDOM.render(<AppWithCounter />, document.getElementById('root'));
 ```
 :::
 
-### Hooks
 下面是使用 Hooks 的一个例子，比起前面的 HOC 来说，要更加的简洁易懂。
 
 ::: details 使用 Hooks 复用计数器代码
@@ -127,8 +147,6 @@ CSS in JS 又有很多实现：
 ## 状态管理
 ### Context
 ### Redux
-
-## Hooks
 
 ## 参考资料
 - reactjs.org
