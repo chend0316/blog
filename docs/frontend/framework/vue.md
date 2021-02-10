@@ -13,7 +13,107 @@ Vue 的单文件组件 (SFC) 把 HTML、JS、CSS 都放在同一个文件里面�
 - 对周边生态工具的实现者来说很坑，比如：语法高亮、Webpack 打包等等都成了问题。
 - 对环境搭建人员来说有一些小坑，还好大多场景都可以交给 Vue CLI 处理，不需要自己配置。
 
-## Vue 3
+## Vue 3 中的 TypeScript
+本节会说 Vue 3 对 TypeScript 的支持还是不如 React 好，具体会通过以下几点展开讲解：
+- Vetur 插件对单 Vue 文件内的 TS 支持很好，但跨 Vue 文件会丢失 TS 类型 (这是 TypeScript 的不足)
+- 上一点我们说 TypeScript 的不足是指 TS 不认识 .vue 后缀的文件，TS 也提供了一些技术手段 (即编写 shims-vue.d.ts 文件)，然而在实践中还是存在许多缺陷
+- 如果我们使用 JSX 编写业务代码，那么就不存在 .vue 后缀的文件了，问题自然就解决了
+
+### Vetur 对 TS 的支持
+VSCode 的 Vetur 插件有一个实验特性：`templateInterpolationService`，打开之后可以开启类型检查，但还是比较鸡肋 (不能实现跨 Vue 文件的检查)。
+
+::: details 单 Vue 文件内工作良好
+```vue {3-4}
+<template>
+  <div>
+    <!-- TS 报错 -->
+    {{ obj + 1 }}
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'App',
+  setup() {
+    const obj = {
+      name: 'zhang',
+    };
+    return {
+      obj,
+    };
+  },
+});
+</script>
+```
+:::
+
+::: details 跨 Vue 文件无法工作
+```vue {12-20}
+<template>
+  <div>
+    <span :style="{ color: color }">{{ msg.text }}</span>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent, PropType } from 'vue';
+
+export default defineComponent({
+  name: 'LogItem',
+  props: {
+    msg: {
+      type: Object as PropType<{
+        type: 'info' | 'warn' | 'error';
+        text: string;
+      }>,
+      required: true,
+    },
+  },
+  setup(props) {
+    const colorMapByType = { info: 'gray', warn: 'orange', error: 'red' };
+    const color = colorMapByType[props.msg.type];
+    return { color };
+  },
+});
+</script>
+```
+
+```vue {3-4}
+<template>
+  <log-item :msg="{ type: 'info', text: 'hello' }"></log-item>
+  <!-- msg 入参类型错误，无法检查出来 -->
+  <log-item :msg="'a'"></log-item>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import LogItem from './components/LogItem.vue';
+
+export default defineComponent({
+  name: 'App',
+  components: { LogItem },
+});
+</script>
+```
+:::
+
+### shims-vue.d.ts
+跨 Vue 文件之所以会丢失 TS 类型，是因为我们 `import 'xxx.vue'` 的时候，后缀名是 .vue。TypeScript 不知道怎么处理 .vue 后缀的文件，所以 TypeScript 提供了一个解决方法是编写 shims-vue.d.ts 文件 (如下所示)。
+
+```typescript
+/* eslint-disable */
+declare module '*.vue' {
+  import type { DefineComponent } from 'vue'
+  const component: DefineComponent<{}, {}, any>
+  export default component
+}
+```
+
+上面这种写法显然是不够的，`*.vue` 是对所有 vue 文件生效的。
+
+## RFC 解读
 Vue 的 [RFC 仓库](https://github.com/vuejs/rfcs) 反映了 Vue 未来的发展，RFC 现在有 30 多个文档，文件名类似下面这样：
 - 0001-new-slot-syntax.md
 - 0002-slot-syntax-shorthand.md
