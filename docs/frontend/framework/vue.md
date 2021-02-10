@@ -113,6 +113,20 @@ declare module '*.vue' {
 
 上面这种写法显然是不够的，`*.vue` 是对所有 vue 文件生效的。
 
+### 在 Vue 中使用 JSX
+Vue 有 template、JSX、render 函数这 3 种方式编写视图，前两种最终都会编译成 render 函数。
+
+和 React 一样，JSX 的编译需要依赖 Babel 插件，Vue 3 可以使用 [jsx-next](https://github.com/vuejs/jsx-next) 实现，Vue 2 可以使用 [jsx](https://github.com/vuejs/jsx) 实现。
+
+而 JSX 的类型检查需要依赖 TypeScript 官方支持，和 Babel 不同 TypeScript 不支持插件扩展。React JSX 得到了 TypeScript 官方支持，然而 Vue 2 JSX 没有，二者有着一些语法区别。Vue 3 调整了 JSX 的语法并和 React 保持统一，这样 Vue 中的 JSX 也能得到 TypeScript 支持了。
+
+### 对 props 入参的 TS 检查
+业务代码调用组件库，为了考察 props 对 TS 的支持，我们做 4 个实验：
+- 都采用 SFC + TS 编写，无法对 props 做类型检查
+- 业务代码采用 SFC + TS，组件库采用 TSX，无法对 props 做类型检查
+- 业务代码采用 TSX，组件库采用 SFC + TS，VSCode 不会报错，但编译时控制台会报类型错误
+- 都采用 TSX，VSCode 在代码编写阶段就能够报类型错误，编译时控制台也会有错误信息
+
 ## RFC 解读
 Vue 的 [RFC 仓库](https://github.com/vuejs/rfcs) 反映了 Vue 未来的发展，RFC 现在有 30 多个文档，文件名类似下面这样：
 - 0001-new-slot-syntax.md
