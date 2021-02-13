@@ -1,15 +1,10 @@
-# 数据库
+# 数据库：后端开发方向
+
 ## ORM 框架
-- 让开发人员从大量的 SQL 编写工作中解放出来
-- 屏蔽底层数据库细节
+面向对象和关系数据库的思维差异很大，ORM 框架可以帮我们屏蔽二者之间的转换逻辑。如果不用 ORM 框架，我们也可以用 [Java JDBC](/pages/java-jdbc/) 访问数据库。
 
-Hibernate
-- Java 的一个 ORM 框架
-- 2001，Gavin King 发布第一个版本
-- 2003，Hibernate 开发团队加入 JBoss
-- 2006，Hibernate 3.2 成为 JPA 的一个实现
+Java 常用的 ORM 框架有：[Hibernate](/pages/java-hibernate/)、[MyBatis](/pages/java-mybatis/)。Hibernate 可以自动生成 SQL 语句，MyBatis 需要手写 SQL 语句。如果公司 DBA 要求进行 SQL 语句审查的话，建议使用后者。
 
-JPA (Java Persistence API)
-- 提供了一种基于 POJO 的持久化模型
-- 为 Java 社区屏蔽不同持久化 API 的差异
-- 是 JSR 220 的一部分
+## 三大范式
+
+## 连接池
