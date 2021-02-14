@@ -6,7 +6,7 @@ VirtualDOM 是由 React 发扬光大的，后来 Vue 2.x 也引入了并获得�
 ### VDOM Diff 算法
 因为 DOM 操作是比较耗时的，所以VDOM 发生变化后，需要根据两棵 VDOM 树之间的差异来计算：如何用**最少的步骤**更新 DOM 节点。
 
-React 将这个算法叫做 Diffing，Vue 将这个算法叫做 path。但这两个算法其实是一样的。
+React 将这个算法叫做 Diffing，Vue 将这个算法叫做 patch。但这两个算法其实是一样的。
 
 ### React：O(N^3)到O(N)的优化
 树的最小编辑距离（Tree Edit Distance）算法需要 O(N^3) 的时间复杂度，而[React官方文档](https://zh-hans.reactjs.org/docs/reconciliation.html)介绍了 React 如何根据 DOM 场景特点将该算法优化成 O(N) 的复杂度。具体来说 React 对DOM场景做了两个假设：
