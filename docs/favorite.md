@@ -32,7 +32,10 @@
 ## 软件开发
 
 ### 经典书籍
-- 《敏捷软件开发: 原则、模式与实践》
+- [《敏捷软件开发: 原则、模式与实践》](https://book.douban.com/subject/1140457/)，这本书主要讲的是设计原则与设计模式，如果连一行行代码都没搞清楚，那么再好的管理方法都无济于事
+- [《UML 精粹》](https://book.douban.com/subject/10798193/)，这本书偏重 UML 的实践应用，而不是 UML 语法本身
+- [《架构整洁之道》](https://book.douban.com/subject/30333919/)
+- [《企业应用架构模式》](https://book.douban.com/subject/4826290/)
 
 ### 前端开发
 CSS 视频教程:
