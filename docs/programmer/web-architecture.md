@@ -71,6 +71,7 @@ export default {
 :::
 
 ### CSS 的罪过
+#### 弱类型封装
 现在有一个卡片，卡片边框有阴影、圆角，卡片内有标题、分割线等等。封装的 CSS 如下，看起来很不错：
 ```scss
 .card {
@@ -145,3 +146,8 @@ Card.SplitHorizontal = SplitHorizontal
 export default Card
 ```
 :::
+
+#### 组件样式“穿透”
+当我们使用 Ant Design 这样的组件库时，常常编写 CSS 覆盖组件内部样式。这样一来组件不再是一个黑盒，上层业务代码需要依赖底层组件库的具体实现，显然这是违背工程化思想的。
+
+使用 Shadow DOM 可以解决这一问题。
