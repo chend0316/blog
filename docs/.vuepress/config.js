@@ -22,6 +22,7 @@ module.exports = {
           { text: '设计模式', link: '/programmer/design-pattern/' },
           { text: 'Web架构', link: '/programmer/web-architecture' },
           // { text: '软件设计', link: '/programmer/software-design/' },
+          // { text: '程序员修炼指南', link: '/programmer/roadmap' },
         ]
       },
       {
@@ -195,6 +196,7 @@ module.exports = {
       '/backend/database/': [
         '',
         'sql',
+        // 'mysql',
         'redis'
       ],
       '/cs/network/': [

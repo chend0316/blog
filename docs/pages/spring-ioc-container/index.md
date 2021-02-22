@@ -57,6 +57,9 @@ public class SpringApplication {
 }
 ```
 
+### 基于注解
+在 xml 中开启 component-scan 后，可以使用 `@Component` 声明 Bean，使用 `@Autowired` 注入 Bean。
+
 ## 琐碎知识点
 ClassPathXmlApplicationContext 的 configLocation 参数还是有点复杂的，见 API 文档。
 

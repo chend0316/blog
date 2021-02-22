@@ -27,7 +27,7 @@
 - 对进程间icp通信有个基本认识
 
 ## Electron进程间通信
-在Chromium架构中，我们使用`RenderProcess`和`RenderProcessHost`进行通信。而在Electron中，我们也有对应的`ipcRenderer`和`ipcMain`。它们本质都是`EventEmitter`实例。
+在Chromium架构中，我们使用`RenderProcess`和`RenderProcessHost`进行通信。而在 Electron 中，我们也有对应的 `ipcRenderer` 和 `ipcMain`。它们都是 JS 接口，本质都是 `EventEmitter` 实例。
 
 实验代码见`labs/ipc`，实验内容包括：
 - 创建2个BrowserWindow，这会对应2个渲染进程，可以打开任务管理器检查
@@ -36,8 +36,8 @@
 - 渲染进程之间通过`ipcRenderer.sendTo()`接口进行通信
 
 ### 渲染进程向主进程通信
-- `ipcRenderer.send()`和`ipcMain.on()`配合使用
-- `ipcRenderer.invoke()`和`ipcMain.handle()`配合使用
+- `ipcRenderer.send()`和`ipcMain.on()`配合使用，无法拿到返回值
+- `ipcRenderer.invoke()`和`ipcMain.handle()`配合使用，可以拿到返回值
 
 ### 主进程向渲染进程通信
 - 在`ipcMain.on(event, ...)`中，可以通过`event.reply()`
