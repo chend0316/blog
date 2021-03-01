@@ -7,3 +7,4 @@ a.out
 *.class
 yarn-error.log
 .eslintcache
+/draft/
