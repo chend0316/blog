@@ -45,9 +45,16 @@
 ### 利用缓存提升第二次构建速度
 
 ## 服务端渲染 (SSR)
+在 CSR 中，React 通过 `ReactDOM.render()` 将组件渲染到 DOM 上。而在 SSR 中，React 通过 `renderToString()` 将组件渲染成字符串。
 
 ## 持续集成、自动化
 ### 冒烟测试
 ### 单元测试
 ### 持续集成
+CI 系统需要知道 Webpack 命令是否执行成功，一般来说命令行程序退出码非零表示程序出错。在 Linux Shell 下可以用 `echo $?` 命令打印上一个进程的退出码。在 Node.js 中可以通过 `process.exit()` 指定错误码并退出进程。
+
+在 Webpack 4 之前的版本，不管成功失败错误码都是 0，因此我们要编写插件来实现。在 Webpack 4 之后虽然支持错误码了，但如果我们想根据不同的错误执行自定义功能的话也可以编写插件。例如可以编写插件让 CI 系统实现错误日志的上报。
+
+编写插件的思路是在 [done 钩子](https://webpack.js.org/api/compiler-hooks/#done) 下添加回调函数，回调函数的入参是 [stats](https://webpack.js.org/api/stats/)。
+
 ### 自动发包

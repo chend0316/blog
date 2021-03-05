@@ -87,6 +87,11 @@ module.exports = {
 ### 自动清理 dist 目录
 使用 clean-webpack-plugin。
 
+### 优化 Webpack 命令行输出
+使用 stats 选项可以配置输出哪些信息，隐藏哪些信息。
+
+也可以用 [friendly-errors-webpack-plugin](https://www.npmjs.com/package/friendly-errors-webpack-plugin) 插件。
+
 ## 其它
 ### 打包多页应用
 单页应用叫做 SPA，多页应用叫做 MPA，MPA 会有多个入口文件。
