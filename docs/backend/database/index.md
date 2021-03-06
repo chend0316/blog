@@ -5,6 +5,8 @@
 
 Java 常用的 ORM 框架有：[Hibernate](/pages/java-hibernate/)、[MyBatis](/pages/java-mybatis/)。Hibernate 可以自动生成 SQL 语句，MyBatis 需要手写 SQL 语句。如果公司 DBA 要求进行 SQL 语句审查的话，建议使用后者。
 
+Python 常用的 ORM 框架：SQLAlchemy、Django
+
 ## 三大范式
 
 ## 连接池
