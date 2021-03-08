@@ -137,9 +137,8 @@ module.exports = {
       '/frontend/admin-in-action/': 'auto',
       '/frontend/javascript/': [
         '',
-        'es5',
-        'es6',
-        'snippet',
+        // 'es6',
+        // 'snippet',
       ],
       '/frontend/api/': [
         '',
