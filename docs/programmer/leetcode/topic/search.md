@@ -59,7 +59,44 @@ class Solution:
 :::
 
 ### Force DFS
-[543. 二叉树的直径](https://leetcode-cn.com/problems/diameter-of-binary-tree/)除了暴力 DFS 还有更好的解法。
+暴力 DFS 本质是一种二重循环/二重遍历，[543. 二叉树的直径](https://leetcode-cn.com/problems/diameter-of-binary-tree/) 题可以使用暴力 DFS，也可以优化成一重遍历，这样复杂度就从 O(N^2) 降到了 O(N)。
+
+还记得二重循环的优化方法吗？我们可以反转外层循环的遍历顺序，然后省略内层循环。运用到树中也是一样的，我们可以把先序遍历改成后序遍历，然后省略内层遍历。
+
+::: details 543题 暴力DFS (二重遍历)
+```python
+class Solution:
+    def diameterOfBinaryTree(self, root: TreeNode) -> int:
+        if not root: return 0
+        # 第二重遍历
+        res = self.dfs(root.left) + self.dfs(root.right)
+        # 第一重遍历
+        return max(res, self.diameterOfBinaryTree(root.left), self.diameterOfBinaryTree(root.right))
+
+    def dfs(self, node):
+        if not node: return 0
+        return max(self.dfs(node.left), self.dfs(node.right)) + 1
+```
+:::
+
+::: details 543题 使用后续遍历，优化成一重遍历
+```python
+class Solution:
+    def diameterOfBinaryTree(self, root: TreeNode) -> int:
+        if not root: return 0
+        self.ans = 0
+        self.postTrav(root)
+        return self.ans
+    
+    def postTrav(self, node):
+        if not node: return 0
+        left = self.postTrav(node.left)
+        right = self.postTrav(node.right)
+        self.ans = max(self.ans, left + right)
+        return max(left, right) + 1
+```
+:::
+
 
 [437. 路径总和 III](https://leetcode-cn.com/problems/path-sum-iii/)有更好的解法，这里我们给出的是暴力 DFS 的代码：
 ::: details 437题暴力DFS代码
