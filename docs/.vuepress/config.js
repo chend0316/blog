@@ -34,6 +34,7 @@ module.exports = {
           {
             text: '基本功',
             items: [
+              { text: 'JavaScript', link: '/programmer/language/javascript' },
               { text: 'API', link: '/frontend/api/' },
               // { text: 'CSS', link: '/frontend/css/' },
               { text: '浏览器', link: '/frontend/browser/' },

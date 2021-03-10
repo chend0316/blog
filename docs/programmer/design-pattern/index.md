@@ -19,3 +19,8 @@
 在 JavaScript 中，我们可以使用 `JSON.parse()` 和 `JSON.stringify()`，但它是有缺点的。我们还可以使用 lodash 提供的库函数 `_.cloneDeep()`。
 
 ## MVC
+
+## 组合优于继承
+使用继承的话，子类会调用父类的方法，就形成了子类对父类的依赖。父类内部的实现变动，可能会影响到子类。
+
+参考《Effective Java》第四章第16条

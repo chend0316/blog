@@ -51,7 +51,7 @@ JS 有 7 种类型：Undefined、Null、Boolean、String、Number、Symbol、Obj
 - 通过 `bind()` 创建函数是一种柯里化技术，它会提前传入 `this` 参数
 - 特殊：ES6 的箭头函数中 `this` 指的是一个变量，而不是一个入参，所以会按照词法作用域的规则来确定其指向
 
-bind 的实现原理：
+::: details bind 的实现原理
 ```javascript
 Function.prototype.mybind = function () {
   var args = Array.prototype.slice.call(arguments);
@@ -67,6 +67,7 @@ var foo2 = foo.mybind({a: 1}, 1, 2);
 foo2()
 foo2.call({a: 2})  // 无效
 ```
+:::
 
 ## 原型 & 面向对象
 JS 是基于原型的语言，也可以实现封装、继承、多态，因此也算作一种面向对象语言。
