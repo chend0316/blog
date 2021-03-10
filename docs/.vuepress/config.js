@@ -17,11 +17,10 @@ module.exports = {
       {
         text: '程序员基本功',
         items: [
-          { text: '力扣刷题', link: '/programmer/leetcode/' },
-          // { text: '编程语言', link: '/programmer/language/' },
+          { text: '力扣算法', link: '/programmer/leetcode/' },
+          { text: '编程语言', link: '/programmer/language/' },
           { text: '设计模式', link: '/programmer/design-pattern/' },
           { text: 'Web架构', link: '/programmer/web-architecture' },
-          // { text: '软件设计', link: '/programmer/software-design/' },
           // { text: '程序员修炼指南', link: '/programmer/roadmap' },
         ]
       },
@@ -35,10 +34,10 @@ module.exports = {
           {
             text: '基本功',
             items: [
-              { text: 'JavaScript 语言', link: '/frontend/javascript/' },
-              { text: 'JavaScript API', link: '/frontend/api/' },
+              { text: 'API', link: '/frontend/api/' },
               // { text: 'CSS', link: '/frontend/css/' },
               { text: '浏览器', link: '/frontend/browser/' },
+              // { text: 'HTTP协议', link: '' },
             ]
           },
           {
@@ -98,7 +97,6 @@ module.exports = {
           // { text: '编译原理', link: '/cs/compile/' },
           // { text: '操作系统', link: '/cs/os/' },
           { text: '计算机网络', link: '/cs/network/' },
-          // { text: '编程语言', link: '/language/' },
         ]
       },
       // {
@@ -133,13 +131,12 @@ module.exports = {
         },
         'diary'
       ],
+      '/programmer/language/': [
+        '',
+        'javascript',
+      ],
       '/programmer/': 'auto',
       '/frontend/admin-in-action/': 'auto',
-      '/frontend/javascript/': [
-        '',
-        // 'es6',
-        // 'snippet',
-      ],
       '/frontend/api/': [
         '',
         'dom-event',
@@ -223,7 +220,6 @@ module.exports = {
       '/pages/': 'auto',
       '/': [
         '',
-        // 'fe-roadmap',
         'frontend',
         'backend',
         'favorite',

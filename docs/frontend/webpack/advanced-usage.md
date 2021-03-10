@@ -48,8 +48,6 @@
 在 CSR 中，React 通过 `ReactDOM.render()` 将组件渲染到 DOM 上。而在 SSR 中，React 通过 `renderToString()` 将组件渲染成字符串。
 
 ## 持续集成、自动化
-### 冒烟测试
-### 单元测试
 ### 持续集成
 CI 系统需要知道 Webpack 命令是否执行成功，一般来说命令行程序退出码非零表示程序出错。在 Linux Shell 下可以用 `echo $?` 命令打印上一个进程的退出码。在 Node.js 中可以通过 `process.exit()` 指定错误码并退出进程。
 
