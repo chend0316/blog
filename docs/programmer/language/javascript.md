@@ -18,11 +18,20 @@ JavaScript 可以运行在各种环境中，但最常见的还是运行在浏览
 `var` 的声明提升和函数作用域这两个特性和其它语言差异大，迷惑了许多开发者。ES6 的 `let` 和 `const` 解决了这个问题，采用了块级作用域、没有声明提升的特性。
 
 ### 类型
-JS 有 7 种类型：Undefined、Null、Boolean、String、Number、Symbol、Object。Symbol 是 ES6 新增的。
+JS 有 7 种类型：Undefined、Null、Boolean、String、Number、Symbol、Object。Symbol 是 ES6 新增的。整数和浮点数都是 Number。
 
-和多数动态类型语言一样，JS 需要一个运算符来判断变量的类型，这个运算符是：`typeof`。JS 的 `typeof` 是有很多缺陷的，其中最臭名昭著的就是 `typeof null === 'object'`，所以写代码的时候有必要自己封装一个函数来判断类型。
+【判断类型】
+和多数动态类型语言一样，JS 需要一个运算符来判断变量的类型，这个运算符是：`typeof`。JS 的 `typeof` 有一些 BUG 和怪癖：
+- `typeof null === 'object'`
+- 对数组用 `typeof` 返回的是对象
 
-通过 `==` 运算判断变量是否相等时会涉及到隐式类型转换，然而 JS 有一套相当复杂的转换规则，所以最佳实践是使用 `===` 运算。
+所以业务代码有必要自己封装一个函数来判断类型。
+
+【隐式类型转换】
+通过 `==` 运算判断变量是否相等时会涉及到隐式类型转换，然而 JS 有一套相当复杂的转换规则，所以最佳实践是使用 `===` 运算。此外 `if`、逻辑运算、`+` 也会涉及到隐式类型转换。
+
+【显式/强制类型转化】
+`parseInt`、`parseFloat`、`toString` 是显式类型转化。
 
 ## 函数
 精通 JavaScript 的一个秘诀是要明白 JS 函数和其它语言存在巨大差异：
