@@ -35,6 +35,7 @@ module.exports = {
             text: '基本功',
             items: [
               { text: '远程数据获取', link: '/frontend/data-fetch/' },
+              { text: '数据存储', link: '/frontend/data-store/' },
               { text: 'API', link: '/frontend/api/' },
               // { text: 'CSS', link: '/frontend/css/' },
               { text: '浏览器运行原理', link: '/frontend/browser/' },
@@ -130,7 +131,6 @@ module.exports = {
             'topic/others',
           ]
         },
-        'diary'
       ],
       '/programmer/language/': [
         '',
