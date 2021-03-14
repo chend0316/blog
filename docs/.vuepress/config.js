@@ -34,8 +34,8 @@ module.exports = {
           {
             text: '基本功',
             items: [
-              { text: '远程数据获取', link: '/frontend/data-fetch/' },
-              { text: '数据存储', link: '/frontend/data-store/' },
+              { text: '数据获取和存储', link: '/frontend/data-fetch-and-store/' },
+              { text: '程序控制流', link: '/frontend/control-flow/' },
               { text: 'API', link: '/frontend/api/' },
               // { text: 'CSS', link: '/frontend/css/' },
               { text: '浏览器运行原理', link: '/frontend/browser/' },

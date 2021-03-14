@@ -1,5 +1,4 @@
-# RxJS
-## 程序控制流
+# 程序控制流 (Promise、Observable)
 经典的程序控制流程更贴近汇编语言：
 - 顺序、分支、循环
 - 函数调用
@@ -24,7 +23,7 @@
 | Promise         | 1          | 异步       | PUSH       | 立即求值 |
 | Observable      | 多个       | 同步或异步 | PUSH       | 惰性求值 |
 
-## 复习Promise
+## 复习 Promise
 
 下面这段代码体现了 Promise 的几个特性：异步、立即求值。
 
@@ -33,7 +32,7 @@ const promise1 = new Promise((resolve, reject) => {
   console.log('111');  // 111 比 222 先输出，所以是立即求值
   resolve('444');  // 最后输出，所以是异步
 });
-console.log('222')
+console.log('222');
 promise1.then((value) => {
   console.log(value);
 });
