@@ -1,6 +1,6 @@
 # 前端开发工程师
 
-## 技术发展
+## 发展历史
 ### Web 前端开发
 - 手工耕作：HTML、CSS、JavaScript
 - 大量前端库出现：jQuery、jQuery-ui、ExtJS、Bootstrap

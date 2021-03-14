@@ -34,10 +34,10 @@ module.exports = {
           {
             text: '基本功',
             items: [
-              { text: 'JavaScript', link: '/programmer/language/javascript' },
+              { text: '远程数据获取', link: '/frontend/data-fetch/' },
               { text: 'API', link: '/frontend/api/' },
               // { text: 'CSS', link: '/frontend/css/' },
-              { text: '浏览器', link: '/frontend/browser/' },
+              { text: '浏览器运行原理', link: '/frontend/browser/' },
               // { text: 'HTTP协议', link: '' },
             ]
           },
