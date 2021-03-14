@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>刷新页面 sessionStorage 不会丢失</h1>
+    <a target="_blank" href="/other.html">点击链接打开新页面，sessionStorage 会丢失</a>
+    <br/>
+    <a href="/other.html">点击链接，sessionStorage 不会丢失</a>
+    <script>
+        if (sessionStorage.getItem('hello') != null) {
+            alert('sessionStorage 有数据')
+        } else {
+            alert('sessionStorage 没数据')
+        }
+    </script>
+</body>
+</html>
