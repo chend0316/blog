@@ -39,7 +39,7 @@ module.exports = {
               { text: 'API', link: '/frontend/api/' },
               // { text: 'CSS', link: '/frontend/css/' },
               { text: '浏览器运行原理', link: '/frontend/browser/' },
-              // { text: 'HTTP协议', link: '' },
+              { text: 'Web 安全', link: '/frontend/security/' },
             ]
           },
           {
@@ -63,7 +63,6 @@ module.exports = {
           //   text: '新技术',
           //   items: [
           //     { text: 'PWA', link: '/frontend/pwa/' },
-          //     { text: 'RxJS', link: '/frontend/rxjs' },
           //     { text: 'WebAssembly', link: '/frontend/wasm/' },
           //   ]
           // },
