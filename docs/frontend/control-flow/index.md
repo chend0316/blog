@@ -1,4 +1,4 @@
-# 程序控制流 (Promise、Observable)
+# 程序控制流
 经典的程序控制流程更贴近汇编语言：
 - 顺序、分支、循环
 - 函数调用
@@ -23,7 +23,7 @@
 | Promise         | 1          | 异步       | PUSH       | 立即求值 |
 | Observable      | 多个       | 同步或异步 | PUSH       | 惰性求值 |
 
-## 复习 Promise
+## Promise vs. Observable
 
 下面这段代码体现了 Promise 的几个特性：异步、立即求值。
 

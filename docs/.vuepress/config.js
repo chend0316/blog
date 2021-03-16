@@ -28,10 +28,6 @@ module.exports = {
         text: '前端',
         items: [
           {
-            text: '开发实战',
-            link: '/frontend/admin-in-action/'
-          },
-          {
             text: '基本功',
             items: [
               { text: '数据获取和存储', link: '/frontend/data-fetch-and-store/' },
@@ -69,6 +65,7 @@ module.exports = {
           {
             text: '其它',
             items: [
+              { text: '开发实战', link: '/frontend/admin-in-action/' },
               { text: '性能', link: '/frontend/performance/' },
               { text: '可视化', link: '/frontend/visualization/' },
             ]

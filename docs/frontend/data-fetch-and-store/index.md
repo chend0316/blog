@@ -3,7 +3,6 @@
 浏览器环境提供了 `XMLHttpRequest` 和 `fetch` 两个接口用于实现 Ajax。有一些库在此基础上做了二次封装，如：jQuery、Axios。
 
 ## 跨域问题
-
 ### 同源策略 (SOP)
 同源的定义：协议、域名、端口，三者一致。同源策略是浏览器的一个安全机制，目的是为了保护用户的安全。
 
@@ -24,8 +23,17 @@ CORS 可以实现跨域 Ajax，但需要服务端支持。
 
 ### 其它技术实现跨域通信 (JSONP)
 在 CORS 出现之前实现跨域 Ajax 比较麻烦，主要有两种技术：
-- 使用 `<img>` 发起 GET 请求
-- 使用 JSONP
+- 使用 `<img src="...">` 或 `<link rel="stylesheet" href="...">` 发起 GET 请求
+- 使用 JSONP，原理是浏览器的同源策略不会管 `<script src="...">`
+
+使用 `<img>` 或 `<link>` 的缺点是：
+- 只能前端给后端发 GET 请求
+- 无法收到后端的 Response
+- 无法确定请求是否报错
+
+使用 JSONP 的缺点是：
+- 只能发送 GET 请求
+- 无法确定请求是否报错
 
 ::: details JSONP 代码示例
 客户端代码：
@@ -43,4 +51,9 @@ CORS 可以实现跨域 Ajax，但需要服务端支持。
 - H5 新增的 Web Storage：localStorage、sessionStorage
 - IndexedDB
 
+### Cookie
 Cookie 本是用来和服务端通信的，在 H5 出现以前勉强能用作数据存储。后来 H5 新增了 Web Storage 专门做存储。Cookie 会随着每个网络请求发送出去，所以不能存太大的内容，否则浪费流量。
+
+Cookie 的安全、隐私问题我们会在安全篇细讲，这里只讲存储。
+
+### Web Storage
