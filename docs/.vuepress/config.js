@@ -27,17 +27,7 @@ module.exports = {
       {
         text: '前端',
         items: [
-          {
-            text: '基本功',
-            items: [
-              { text: '数据获取和存储', link: '/frontend/data-fetch-and-store/' },
-              { text: '程序控制流', link: '/frontend/control-flow/' },
-              { text: 'Web API', link: '/frontend/api/' },
-              // { text: 'CSS', link: '/frontend/css/' },
-              { text: '浏览器运行原理', link: '/frontend/browser/' },
-              { text: 'Web 安全', link: '/frontend/security/' },
-            ]
-          },
+          { text: '基本功', link: '/frontend/base/' },
           {
             text: '框架 & 工具',
             items: [
@@ -133,19 +123,38 @@ module.exports = {
         'javascript',
       ],
       '/programmer/': 'auto',
+      '/frontend/base/': [
+        {
+          title: '使用 JavaScript 编程',
+          collapsable: false,
+          children: [
+            'data-fetch',
+            'data-store',
+            'control-flow',
+            'dom-event',
+            // 'dom-api',
+          ]
+        },
+        // 'css',
+        'security',
+        {
+          title: '浏览器原理',
+          collapsable: false,
+          children: [
+            'event-loop',
+            'v8-engine',
+            // 'html-parser'
+          ]
+        },
+        // {
+        //   title: '网络协议',
+        //   collapsable: false,
+        //   children: [
+        //     'http-lab'
+        //   ]
+        // }
+      ],
       '/frontend/admin-in-action/': 'auto',
-      '/frontend/api/': [
-        '',
-        'dom-event',
-      ],
-      '/frontend/css/': [
-        ''
-      ],
-      '/frontend/browser/': [
-        '',
-        'js-engine',
-        'event-loop',
-      ],
       '/frontend/framework/': [
         '',
         'react',
