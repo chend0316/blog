@@ -32,7 +32,7 @@ module.exports = {
             items: [
               { text: '数据获取和存储', link: '/frontend/data-fetch-and-store/' },
               { text: '程序控制流', link: '/frontend/control-flow/' },
-              { text: 'API', link: '/frontend/api/' },
+              { text: 'Web API', link: '/frontend/api/' },
               // { text: 'CSS', link: '/frontend/css/' },
               { text: '浏览器运行原理', link: '/frontend/browser/' },
               { text: 'Web 安全', link: '/frontend/security/' },
