@@ -13,6 +13,10 @@ Vue 的单文件组件 (SFC) 把 HTML、JS、CSS 都放在同一个文件里面�
 - 对周边生态工具的实现者来说很坑，比如：语法高亮、Webpack 打包等等都成了问题。
 - 对环境搭建人员来说有一些小坑，还好大多场景都可以交给 Vue CLI 处理，不需要自己配置。
 
+Vue 的优点：
+- 动画/过渡支持的很优雅
+- VueRouter、Vuex 集成的很好，开箱即用
+
 ## Vue 3 中的 TypeScript
 本节会说 Vue 3 对 TypeScript 的支持还是不如 React 好，具体会通过以下几点展开讲解：
 - Vetur 插件对单 Vue 文件内的 TS 支持很好，但跨 Vue 文件会丢失 TS 类型 (这是 TypeScript 的不足)
@@ -127,6 +131,21 @@ Vue 有 template、JSX、render 函数这 3 种方式编写视图，前两种最
 - 业务代码采用 TSX，组件库采用 SFC + TS，VSCode 不会报错，但编译时控制台会报类型错误
 - 都采用 TSX，VSCode 在代码编写阶段就能够报类型错误，编译时控制台也会有错误信息
 
+## 对 Vue 进行测试
+### SFC
+```javascript
+import { mount } from '@vue/test-utils'
+import Modal from '../Modal.vue'
+
+test('Modal', () => {
+  const wrapper = mount(Modal)
+  expect(wrapper.find('div.a-class').exists()).toBe(true)
+})
+```
+
+### Snapshot Test
+可以确保 DOM 结构不会被增量代码破坏。
+
 ## RFC 解读
 Vue 的 [RFC 仓库](https://github.com/vuejs/rfcs) 反映了 Vue 未来的发展，RFC 现在有 30 多个文档，文件名类似下面这样：
 - 0001-new-slot-syntax.md
@@ -188,3 +207,10 @@ const plugin = {
 ### [0025-teleport](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0025-teleport.md)
 
 ### [0013-composition-api](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0013-composition-api.md)
+
+## Vue 杂谈
+### Vue 不适合大型项目吗？
+我个人认为相比 React 来说，Vue 不适合大型项目，除非使用 Vue 3 + TSX。原因有几个：
+- 可重构性差，组件修改 props、$emit 名字的时候，其它调用方不会在编译时报任何错误，甚至有些在运行时也不会报错；
+- TS 类型推断功能弱，一旦类型走到 Template 里面，TS 类型推断就会失效；
+- 缺乏组件声明功能，当你想调用他人封装的组件的时候，你甚至不知道组件的入参 (props) 和返回值 ($emit) 是什么，你必须点开其源码仔细阅读才明白；props 会声明在 options 里面，这很好；但 $emit 会散落在组件源码的各个角落；虽然 Vue 3 也可以将 $emit 声明在 options 里面，但在 VSCode 中，调用方代码还是没有代码补全；

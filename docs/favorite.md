@@ -44,10 +44,16 @@ CSS 视频教程:
 CSS 博客：
 - 掘金的[chokcoco](https://juejin.cn/user/2330620350437678)
 
-Chromium/Blink 浏览器内核：
+浏览器内核：
 - Chromium docs: https://chromium.googlesource.com/chromium/src/+/master/docs/README.md
 - Chromium 源码: https://chromium.googlesource.com/chromium/src
 - [油管的 BlinkOn 频道](https://www.youtube.com/channel/UCIfQb9u7ALnOE4ZmexRecDg)
+- 《Webkit技术内幕》
+
+Vue 官方资料：
+- 尤雨溪博客：https://medium.com/@youyuxi
+- VueConf EU 2017
+- VueConf 中国 2017：https://github.com/facebook/react-native.git
 
 其它 (待整理)：
 - [Robin Wieruch 的博客](https://www.robinwieruch.de/)
