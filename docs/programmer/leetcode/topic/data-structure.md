@@ -14,6 +14,11 @@ Trie 和并查集都是新型数据结构，各语言没有内置，需要自己
 - [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
 - [142. 环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
 - [25. K 个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/)，难题
+- [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
+- [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
+- 检测环
+- 找倒数第 N 个节点
+- 求链表中间节点
 
 ### 堆（优先级队列）
 
@@ -26,6 +31,7 @@ Trie 和并查集都是新型数据结构，各语言没有内置，需要自己
 - [225. 用队列实现栈](https://leetcode-cn.com/problems/implement-stack-using-queues/)
 - [232. 用栈实现队列](https://leetcode-cn.com/problems/implement-queue-using-stacks/)
 - [20. 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/)
+- 表达式求值
 
 ### 树
 
