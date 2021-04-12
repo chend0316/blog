@@ -25,7 +25,7 @@ module.exports = {
         ]
       },
       {
-        text: '前端',
+        text: 'Web前端',
         items: [
           { text: '基本功', link: '/frontend/base/' },
           {
@@ -63,11 +63,12 @@ module.exports = {
         ]
       },
       {
-        text: '后端',
+        text: '通用软件',
         items: [
           // { text: 'Servlet', link: '/pages/java-tutorial-servlet/' },
           { text: 'Spring', link: '/backend/spring/' },
           { text: '数据库', link: '/backend/database/' },
+          { text: '构建工具', link: '/backend/build-tools/' },
           { text: 'Docker', link: '/backend/docker/' },
           {
             text: '其它',
@@ -150,7 +151,10 @@ module.exports = {
         //   title: '网络协议',
         //   collapsable: false,
         //   children: [
-        //     'http-lab'
+        //     'http-lab',
+        //     'http',
+        //     'https',
+        //     'websocket',
         //   ]
         // }
       ],

