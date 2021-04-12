@@ -1,10 +1,15 @@
 # DP 专题
+分段决策的最优解问题很容易想到递归解法，如果画出决策树后发现大量重复节点，那么就可以考虑使用 DP。
 
-## 解题核心三要素
-明确一道题要用 DP 解决之后，代码实现还需要三个关键点：
-1. 定义「状态空间」，需要花费大量的脑力
-2. 定义「状态转移方程」，需要花费少量脑力，第1步完成后这一步通常可以顺利写出
-3. 初始化「base case」，需要花费少量脑力，第2步完成之后这一步通常可以顺利写出
+## 解题方法
+解法一：
+1. 定义「状态空间」
+2. 定义「状态转移方程」
+3. 初始化「base case」
+
+解法一很难用，因为第一步的状态空间就很难定义。解法二：
+1. 在脑海中采用暴力递归解法，画出决策树
+2. 简化决策树中的节点数量
 
 ### 状态空间
 标准的状态空间一般是一维数组、二维数组、三维数组，但也可能是其它结构。
@@ -155,11 +160,59 @@ class Solution:
 ```
 :::
 
+## 题型
+### 最长递增子序列
+[300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)是原题。
+
+[368. 最大整除子集](https://leetcode-cn.com/problems/largest-divisible-subset/)采用了类似的思想。
+
+::: details 300 题
+```python
+class Solution:
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        if not nums: return 0
+        n = len(nums)
+        dp = [1]*n
+        for i in range(n):
+            for j in range(i):
+                if nums[i] > nums[j]:
+                    dp[i] = max(dp[i], dp[j] + 1)
+        return max(dp)
+```
+:::
+
+::: details 368 题
+```python
+class Solution(object):
+    def largestDivisibleSubset(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+
+        if not nums: return nums
+        if len(nums) == 1: return nums
+        l = len(nums)
+        nums.sort()
+
+        dp = [[i] for i in nums]
+        
+        for i in range(1, l):
+            for j in range(i-1, -1, -1):
+                if nums[i]%nums[j] == 0:
+                    dp[i] = max(dp[j] + [nums[i]], dp[i],key=len)
+
+        return max(dp,key=len)
+```
+:::
+
 ## 更多习题
 
 - [120. 三角形最小路径和](https://leetcode-cn.com/problems/triangle/)
 - [152. 乘积最大子数组](https://leetcode-cn.com/problems/maximum-product-subarray/)
-- [300. 最长上升子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)
+- [300. 最长上升子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)，这题弄清楚 O(NlogN) 解法的心路历程有助于理解 DP 的本质
+- [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/description/)，还有一个数学解法
+- 63
 
 爬楼梯、硬币兑换系列：
 - [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)，最简单的 DP 问题
@@ -185,7 +238,7 @@ class Solution:
 
 正则系列：
 - [44. 通配符匹配](https://leetcode-cn.com/problems/wildcard-matching/)
-- [10. 正则表达式匹配](https://leetcode-cn.com/problems/regular-expression-matching/)
+- [10. 正则表达式匹配](https://leetcode-cn.com/problems/regular-expression-matching/)，比 44 题难一点
 
 回文串系列：
 - [647. 回文子串](https://leetcode-cn.com/problems/palindromic-substrings/)
