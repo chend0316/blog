@@ -188,8 +188,12 @@ module.exports = {
         }
       ],
       '/frontend/flutter/': [
-        '/frontend/flutter/',
-        '/frontend/flutter/dart',
+        'flutter/',
+        'flutter/dart',
+      ],
+      '/frontend/electron/': [
+        '',
+        'dev-env'
       ],
       '/frontend/visualization/': [
         '',
