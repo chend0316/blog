@@ -2,27 +2,31 @@
 
 ## 计算机科学
 算法：
-- 《算法导论》（CLRS），学院派可以读，工程派读这本效率低 (数学部分可以跳过)
-- 《计算机程序设计艺术》（TAOCP）
-- 《算法（第四版）》，适合工程派，作者将代码放到[Github上](https://github.com/kevin-wayne/algs4)了
+- 《算法导论》(CLRS)，学院派可以读，工程派读这本效率低 (数学部分可以跳过)
+- 《计算机程序设计艺术》(TAOCP)
+- 《算法(第四版)》，适合工程派，作者将代码放到[Github上](https://github.com/kevin-wayne/algs4)了
 
 编译原理：
-- 《编译原理》（龙书）
-- 《现代编译原理：Ｃ语言描述》（虎书）
-- 《高级编译器设计与实现》（鲸书）
+- 《编译原理》(龙书)
+- 《现代编译原理：Ｃ语言描述》(虎书)
+- 《高级编译器设计与实现》(鲸书)
 
 计算机组成原理：
 - 《计算机组成与设计》
-- 《深入理解计算机系统》（CSAPP）
+- 《深入理解计算机系统》(CSAPP)
 
 软件、工程：
-- 《计算机程序的构造和解释》 （魔法书）
-- 《设计模式》（GOF、四人帮）
+- 《设计模式》(GOF、四人帮)
 
 编程语言：
-- 《C程序设计语言》（K&R）
-- 《Java编程思想》（TIJ）
+- 《C程序设计语言》(K&R)
+- 《Java编程思想》(TIJ)
 - 《C++ Primer》
+
+编程范式：
+- 《计算机程序的构造和解释》(SICP，魔法书)
+- 《冒号课堂》
+- 《Concepts, Techniques, and Models of Computer Programming》
 
 ## 软件开发
 
@@ -52,6 +56,7 @@ Vue 官方资料：
 
 其它 (待整理)：
 - [Robin Wieruch 的博客](https://www.robinwieruch.de/)
+- [司徒正美的博客](https://www.cnblogs.com/rubylouvre/)
 - https://developer.mozilla.org/zh-CN/
 - https://developers.google.com/web/fundamentals/
 - [油管的 Google Chrome Developers 频道](https://www.youtube.com/channel/UCnUYZLuoy1rq1aVMwx4aTzw)
