@@ -129,6 +129,7 @@ module.exports = {
           title: '使用 JavaScript 编程',
           collapsable: false,
           children: [
+            'jsx',
             'data-fetch',
             'data-store',
             'control-flow',
