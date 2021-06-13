@@ -189,8 +189,8 @@ module.exports = {
         }
       ],
       '/frontend/flutter/': [
-        'flutter/',
-        'flutter/dart',
+        '',
+        'dart',
       ],
       '/frontend/electron/': [
         '',
