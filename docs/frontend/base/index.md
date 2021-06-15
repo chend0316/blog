@@ -1,9 +1,7 @@
 # 前端基础功
 
 ## 使用 JavaScript 编程
-JavaScript 语言我认为是基础中的基础，所以移动到[程序员基本功-编程语言](/programmer/language/javascript)里面了。
-
-有许多 JavaScript 语言扩展，最成功的自然是 [JSX](./jsx)、TypeScript，还有一些如 CoffeeScript 早已被淘汰。
+JavaScript 语言我认为是基础中的基础，所以移动到[程序员基本功-编程语言](/programmer/language/javascript)里面了。有许多 JavaScript 语言扩展，最成功的自然是 [JSX](./jsx)、TypeScript，还有一些如 CoffeeScript 早已被淘汰。
 
 [数据获取](./data-fetch)会介绍：Ajax/Fetch、跨域。
 
