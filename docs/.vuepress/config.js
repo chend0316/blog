@@ -17,6 +17,7 @@ module.exports = {
       {
         text: '程序员基本功',
         items: [
+          { text: '数据结构', link: '/programmer/data-structures' },
           { text: '力扣算法', link: '/programmer/leetcode/' },
           { text: '编程语言', link: '/programmer/language/' },
           { text: '设计模式', link: '/programmer/design-pattern/' },
