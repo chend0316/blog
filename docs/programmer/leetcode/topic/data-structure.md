@@ -13,7 +13,7 @@ Trie 和并查集都是新型数据结构，各语言没有内置，需要自己
 - [24. 两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
 - [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
 - [142. 环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
-- [25. K 个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/)，难题
+- [25. K 个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/)，难题。有递归、非递归解法。如果最后一组数量小于 K 个，则不能翻转，对此可以先计算链表总长度然后决定是否翻转最后一组，也可以翻转最后一组后再翻转回去。由于链表题本来就是为了锻炼编码能力，这几种方法都需要练习。也不要灰心，因为本题是链表操作题中最难的题。
 - [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
 - [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
 - 检测环
@@ -65,5 +65,7 @@ Trie 和并查集都是新型数据结构，各语言没有内置，需要自己
 - [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/)
 - [547. 朋友圈](https://leetcode-cn.com/problems/friend-circles/)
 
-### 有序哈希表
-[剑指 Offer 50. 第一个只出现一次的字符](https://leetcode-cn.com/problems/di-yi-ge-zhi-chu-xian-yi-ci-de-zi-fu-lcof/)
+### 哈希表
+
+- [30. 串联所有单词的子串](https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/)，这题是难题，中译版少了输入规模的限制，建议阅读英文版题目描述，可以发现规模是 10^4，所以 O(N^2) 算法也是可行的
+- [剑指 Offer 50. 第一个只出现一次的字符](https://leetcode-cn.com/problems/di-yi-ge-zhi-chu-xian-yi-ci-de-zi-fu-lcof/)，有序哈希表

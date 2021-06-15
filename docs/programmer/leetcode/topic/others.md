@@ -14,3 +14,9 @@
 
 - [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)，力扣上股票问题是一系列问题，这题的特殊性刚好能用贪心，否则通解是用DP
 - [860. 柠檬水找零](https://leetcode-cn.com/problems/lemonade-change/)
+
+## 位运算
+
+## 子集、排列组合
+
+[1863. 找出所有子集的异或总和再求和](https://leetcode-cn.com/problems/sum-of-all-subset-xor-totals/)
