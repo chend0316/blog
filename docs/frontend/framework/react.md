@@ -144,6 +144,9 @@ CSS in JS 又有很多实现：
 - redium
 - 等等
 
+## TypeScript
+[这篇文章](https://www.carlrippon.com/react-children-with-typescript/)介绍了如何标注 `props.children` 的类型。
+
 ## 状态管理
 ### Context
 ### Redux
