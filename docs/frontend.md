@@ -1,12 +1,18 @@
 # 前端开发工程师
 
-## 发展历史
-### Web 前端开发
+## 技术发展
+### 模块化发展
+[Common Module Definition 草案](https://github.com/cmdjs/specification/blob/master/draft/module.md)
+
+### 开源库、框架
 - 手工耕作：HTML、CSS、JavaScript
-- 大量前端库出现：jQuery、jQuery-ui、ExtJS、Bootstrap
-- 工具时代：CSS 预处理器、JavaScript 变种语言
-- 工程化：Rollup、Webpack
-- MV*框架：Backbone、React、Vue、Angular
+- jQuery、jQuery-ui、ExtJS、Bootstrap
+- 工具：PostCSS、Babel
+- 工程化：Gulp、Rollup、Webpack
+- 解释型 MV* 框架：Backbone、React、Vue、Angular
+- 编译型 MV* 框架：Svelte
+- 新的语言：SASS、TypeScript、Dart
+- 领域特定语言：JSX、Vue Template
 
 ### 跨平台技术发展
 根据技术方案的不同，业内常见的观点是将主流的跨平台方案划分为三个时代。
@@ -15,17 +21,16 @@
 - 自绘引擎时代：自带渲染引擎，客户端仅提供一块画布即可获得从业务逻辑到功能呈现的多端高度一致的渲染体验。如 Flutter。
 
 ### 工程化发展
-出现了大量工具解决前端开发难题，比如 Sass。
+出现了大量工具解决前端开发难题。早期这些工具使用 Ruby、Python 之类的语言实现，Node.js 问世后，大家都用 JS 实现。
 
-我们需要实现一个命令行工具将 Sass 编译 CSS。Sass 诞生于 2006 年，这时候 Node.js 还没问世，Sass 是用 Ruby 实现的，今天我们称之为 Ruby Sass。
+由于工具越来越多，已经不能简单用一个 shell 脚本将工具串联起来，用 GNU Make 的门槛也比较高。所以诞生了一些自动化系统，大体上有两种思路。一种是 Task Runner，例如：Gulp、Grunt。另一种是 Module Bundler，如：Webpack、Rollup。
 
-Node.js 问世后，大量前端命令行工具都使用了 JS 进行开发。
+这些工具的配置、组合也十分繁重，往往需要资深工程师才能用好。为了降低门槛，诞生了一些开箱即用的脚手架工具，如: vue-cli、create-react-app。
 
-由于工具越来越多，已经不能简单用一个 shell 脚本将工具串联起来了。所以诞生了一些 Task Runner 工具，例如：Gulp、Grunt。
-
-由于工具越来越多，人们发现了 CLI 工具的一些共性功能，所以出现了一些库帮助 CLI 程序开发。例如 Gulp 就使用了 [js-liftoff](https://github.com/js-cli/js-liftoff)。再比如 TJ 大神开发的 commander。
-
-还有一些实用的小工具。chalk 用于在控制台输出带颜色的文字。
+为了简化命令行工具的开发，也诞生了一些开源库：
+- Gulp 使用的 [js-liftoff](https://github.com/js-cli/js-liftoff)
+- TJ 大神开发的 commander
+- 其它小工具: chalk 用于在控制台输出带颜色的文字
 
 ## 浏览器
 ### 浏览器的工作原理
