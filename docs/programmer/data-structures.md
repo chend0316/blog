@@ -22,28 +22,14 @@
 当需要删除元素的时候，开放寻址法不能直接删除元素，而是要做特殊处理 (例如放置一个删除的标记)。
 
 ### 语言内置的哈希表
-哈希表常用操作：
-- `set(k, v)`
-- `get(k)`
-- `delete(k)`
-- `size()`
-- 检查 key 是否存在
-- `keys()` 获取所有 key
-- `values()` 获取所有 value
-- `entries()` 获取所有键值对
-
 [java.util.Map](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html) 是 Java 内置的一个接口，最常见的实现是：`HashMap`、`TreeMap`。在 Java 中，每个对象都有 hashCode() 方法，自定义的数据类型可以根据业务特点重写 `Object.hashCode()` 方法。
 
 JavaScript 的对象本身就可以当做哈希表使用：`var hash = {};`，ES6 新增了一个专门做哈希表的类：`var hash = new Map();`
 
-Python 自带的 `dict` 就是哈希表。
+Python 的 `dict` 就是哈希表。
 - 初始化: `hash = dict()`
 - 使用字面量初始化: `hash = {}`
 - 添加元素: `hash['a'] = 123`
 - 删除元素: `del hash['a']`
 - 判断 key 是否存在: `'a' in hash`
 - 获取哈希表的大小: `len(hash)`
-
-### 练习题
-利用内置的哈希表实现缓存：
-- [力扣 1. 两数之和](https://leetcode-cn.com/problems/two-sum/)
