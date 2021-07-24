@@ -1,10 +1,9 @@
-// 基于 TCP 协议实现一个 HTTP 协议
 const net = require('net');
 
 class Request {
     constructor(options) {
-        this.method = options.method;
-        this.path = options.path;
+        this.method = options.method || 'GET';
+        this.path = options.path || '/';
         this.host = options.host;
         this.port = options.port || 80;
         this.body = options.body || {};
@@ -23,7 +22,6 @@ class Request {
     }
 
     toString() {
-        // 符合 RFC2616 的字符串
         return `${this.method} ${this.path} HTTP/1.1\r
 ${Object.keys(this.headers).map(key => key+': '+this.headers[key]).join('\r\n')}\r
 \r
@@ -39,7 +37,7 @@ ${this.bodyText}`
                     host: this.host,
                     port: this.port
                 }, () => {
-                    connection.write(this.toString());  // 发送给服务端
+                    connection.write(this.toString());
                 });
                 connection.setEncoding('utf-8');
             }
@@ -65,7 +63,6 @@ class Response {
     }
 }
 
-// 工厂类
 class ResponseParser {
     constructor() {
         this.WAITING_STATUS_LINE = 0;

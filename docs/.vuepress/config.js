@@ -56,7 +56,7 @@ module.exports = {
           {
             text: '其它',
             items: [
-              { text: '开发实战', link: '/frontend/admin-in-action/' },
+              { text: '中后台常见需求', link: '/frontend/admin-in-action/' },
               { text: '性能', link: '/frontend/performance/' },
               { text: '可视化', link: '/frontend/visualization/' },
             ]
@@ -66,6 +66,7 @@ module.exports = {
       {
         text: '通用软件',
         items: [
+          { text: '命令行程序', link: '/backend/cli-app' },
           // { text: 'Servlet', link: '/pages/java-tutorial-servlet/' },
           { text: 'Spring', link: '/backend/spring/' },
           { text: '数据库', link: '/backend/database/' },

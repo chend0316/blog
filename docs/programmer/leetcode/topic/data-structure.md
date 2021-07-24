@@ -69,3 +69,7 @@ Trie 和并查集都是新型数据结构，各语言没有内置，需要自己
 
 - [30. 串联所有单词的子串](https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/)，这题是难题，中译版少了输入规模的限制，建议阅读英文版题目描述，可以发现规模是 10^4，所以 O(N^2) 算法也是可行的
 - [剑指 Offer 50. 第一个只出现一次的字符](https://leetcode-cn.com/problems/di-yi-ge-zhi-chu-xian-yi-ci-de-zi-fu-lcof/)，有序哈希表
+
+### 树状数组
+
+- [1409. 查询带键的排列](https://leetcode-cn.com/problems/queries-on-a-permutation-with-key/)

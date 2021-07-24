@@ -42,3 +42,13 @@ sorted_arr = [word for _, word in tmp]  # ['bb', 'cc']
 Java代码示例：略。
 
 对比来说，Python这种风格看起来很优雅，但适用面不广，比如[658. 找到 K 个最接近的元素](https://leetcode-cn.com/problems/find-k-closest-elements/)这题Python用堆来做就很难提取出key。
+
+## 题型
+前 K 个元素：
+- 347. 前 K 个高频元素
+- 692. 前K个高频单词
+- 973. 最接近原点的 K 个点
+
+第 K 个元素：
+- [面试题 17.14. 最小K个数](https://leetcode-cn.com/problems/smallest-k-lcci/)
+- [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/)
