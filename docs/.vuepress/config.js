@@ -5,6 +5,13 @@ module.exports = {
   markdown: {
     lineNumbers: false, 
   },
+  plugins: [
+    'vuepress-plugin-mathjax',
+    {
+      target: 'svg',
+      cache: false
+    },
+  ],
   themeConfig: {
     repo: 'chend0316/blog',
     editLinks: true,
