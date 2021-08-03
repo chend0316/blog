@@ -22,6 +22,12 @@ module.exports = {
     prevLinks: false,
     nav: [
       {
+        text: '程序yuan成人班',
+        items: [
+          { text: '前端开发', link: '/tutorial/frontend/' }
+        ]
+      },
+      {
         text: '程序员基本功',
         items: [
           { text: '数据结构', link: '/programmer/data-structures' },
@@ -97,6 +103,12 @@ module.exports = {
           { text: '计算机网络', link: '/cs/network/' },
         ]
       },
+      {
+        text: '数学',
+        items: [
+          { text: '微积分', link: '/math/calculus/' }
+        ]
+      },
       // {
       //   text: '哲学',
       //   link: '/philosophy',
@@ -104,6 +116,12 @@ module.exports = {
     ],
     sidebarDepth: 4,
     sidebar: {
+      '/tutorial/frontend/': [
+        '',
+        'linux',
+        'programming',
+        'frontend-basic',
+      ],
       '/programmer/leetcode/': [
         '',
         {
@@ -238,6 +256,10 @@ module.exports = {
           ]
         },
         'src-lab'
+      ],
+      '/math/calculus/': [
+        '',
+        'function',
       ],
       '/backend/': 'auto',
       '/frontend/': 'auto',
