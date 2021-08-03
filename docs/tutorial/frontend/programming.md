@@ -16,8 +16,16 @@
 编译型语言一般用 main 函数的参数代表命令行参数，用 main 函数的返回值表示进程退出码。
 ::: details 例如 C 语言
 ```c
+#include <stdio.h>
+
 int main(int argc, char **argv) {
   // argc 表示命令行参数的个数，argv 表示命令行参数
+
+  for (int i = 0; i < argc; i++) {
+    printf("%s\n", argv[i]);
+  }
+
+  return 1; // 退出码是 1
 }
 ```
 :::
@@ -25,7 +33,9 @@ int main(int argc, char **argv) {
 解释型语言也有各自的方法来表示命令行参数。
 ::: details 例如 Node.js
 ```javascript
-process.argv
+for (const arg of process.argv) {
+    console.log(arg);
+}
 ```
 :::
 
