@@ -3,18 +3,28 @@
 ## 编程基础
 
 ### Hello World
-编译型：C、Java
+编译型语言 (compiler language): C/C++
 
-解释型：Python、JavaScript
+解释型语言 (interpreter language): Python
+
+但现代编程语言很多都分不清是编译型还是解释型: Java、JavaScript
+
+二者区别: [英文阅读材料](https://www.geeksforgeeks.org/difference-between-compiled-and-interpreted-language/)
 
 ### 命令行程序
-- 命令行参数
-- 退出码
-- pid
+- 命令行参数 (command-line arguments)
+- 进程退出码 (process exit code)
+- 进程 ID (process id)
 - main 函数
+
+::: tip
+在 macOS/Linux 下可以通过 `echo $?` 命令查看上一个进程的退出码，约定退出码为 0 表示程序正常退出。
+:::
 
 编译型语言一般用 main 函数的参数代表命令行参数，用 main 函数的返回值表示进程退出码。
 ::: details 例如 C 语言
+[英文阅读材料](https://www.geeksforgeeks.org/command-line-arguments-in-c-cpp/)
+
 ```c
 #include <stdio.h>
 
@@ -40,18 +50,60 @@ process.exit(1); // 退出码是 1
 ```
 :::
 
-::: tip
-在 macOS/Linux 下可以通过 `echo $?` 命令查看上一个进程的退出码，约定退出码为 0 表示程序正常退出。
+::: details 例如 Shell 脚本
+```bash
+#!/bin/bash
+exit 1 # 退出码是 1
+```
 :::
+
+::: details standard error codes
+- 1 - Catchall for general errors
+- 2 - Misuse of shell builtins (according to Bash documentation)
+- 126 - Command invoked cannot execute
+- 127 - “command not found”
+- 128 - Invalid argument to exit
+- 128+n - Fatal error signal “n”
+- 130 - Script terminated by Control-C
+- 255\* - Exit status out of range
+:::
+
+- [英文阅读材料](https://shapeshed.com/unix-exit-codes/)
 
 ### 进程退出
 - 借助 Ctrl-C 讲解信号
 - 异常退出，coredump 文件
 
-### GUI 程序（略）
-2021 年了，基础阶段不用学了。本科主要借助 GUI 来讲：面向对象、事件驱动。这两个知识点我们通过别的场景来教学。
-
 ### 变量、类型
+变量 (Variable)、数据类型 (Data Types) 大家自学。
+
+基本类型 (Primary Data Types)，有的语言叫做值类型 (Value Types)。引用类型 (Reference Types)，有的语言叫做对象类型 (Object Types)。
+
+阅读材料：
+- [Java 基本数据类型](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html)
+- [JavaScript 基本数据类型](http://262.ecma-international.org/5.1/#sec-8)
+- Python 实现了“一切皆对象”所以并没有 Primary Types 的概念
+
+### 字面量 (Literals)
+问大家一个问题：读大学需要多久？
+- 四年？
+- 三秒？
+
+自然语言有二义性，这在编程语言中是不可忍的。
+
+```c
+// 字符串字面量一定要双引号包裹
+int zhangsan = 1;
+char *name = "zhangsan";
+
+// 变量名不能用数字开头，否则编译器分不清: 是变量？还是字面量？
+char *1name = "zhang";
+char *1e10 = "zhang";
+char *1f = "zhang";
+int a = 1e10;
+float b = 1f;
+```
+
 ### 运算
 - 加减乘除、取余
 - 整除: Python2、C/C++、Java
@@ -66,7 +118,7 @@ process.exit(1); // 退出码是 1
 ::: details lc-1-暴力 两数之和: for-loop, nested-loop
 [练习地址](https://leetcode-cn.com/problems/two-sum/)
 
-输入是一维数组，使用暴力法找两个下标，难点：
+输入是一维数组，使用暴力法找两个不同下标，难点：
 - 二重循环
 - 需要暴力枚举出所有下标组合情况，而非排列情况
 - 因为是组合而非排列，所以要想清楚内层循环的控制变量从多少开始
@@ -74,15 +126,30 @@ process.exit(1); // 退出码是 1
 <<< @/../leetcode/lc-1-force.py
 :::
 
-::: details 三数之和
+::: details 两数之差
+[力扣原题](https://leetcode-cn.com/problems/two-sum/)的改造，将原题两数之和改为两数之差即可。
 
-使用暴力法找三个下标，难点：
-- 二重循环
-- 需要暴力枚举出所有下标组合情况，而非排列情况
-- 因为是组合而非排列，所以要想清楚内层循环的控制变量从多少开始
+使用暴力法找两个不同下标，改造点在于：
+- 原题使用暴力找两个下标的组合
+- 改后使用暴力找两个下标的排列
+
+```python
+def solution(nums, target):
+    for i in range(0, len(nums)):
+        for j in range(0, len(nums)):
+            if i == j: continue
+            if nums[i] + nums[j] == target:
+                return [i, j]
+```
 :::
 
-::: details todo 找一个暴力枚举排列的题目
+::: details lc-15-暴力 三数之和: for-loop, nested-loop
+[练习地址](https://leetcode-cn.com/problems/3sum)
+
+使用暴力法找三个不同下标，难点：
+- 三重循环
+- 需要暴力枚举出所有下标组合情况，而非排列情况
+- 因为是组合而非排列，所以要想清楚内层循环的控制变量从多少开始
 :::
 
 ::: details lc-14 最长公共前缀: two-dimensional-arrays
@@ -160,6 +227,16 @@ function solution(arr) {
 ### 异步回调
 
 ## 基本数据结构
+
+## 编译基础
+### 常量
+### 装箱、拆箱
+### 函数重载
+使用英文教材的同学可以区分一下这几个区别: overload、overwrite、override。
+
+由于很难翻译成中文，在中文语境一般不区分三者。
+
+### 运算符重载
 
 ### 栈
 ::: details lc-20 有效的括号
