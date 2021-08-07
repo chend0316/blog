@@ -89,7 +89,7 @@ exit 1 # 退出码是 1
 - 四年？
 - 三秒？
 
-自然语言有二义性，这在编程语言中是不可忍的。
+自然语言有二义性，编程语言需要消除歧义。
 
 ```c
 // 字符串字面量一定要双引号包裹
@@ -115,6 +115,7 @@ float b = 1f;
 
 ### 程序控制流：顺序、分支、循环、递归
 
+#### 循环
 ::: details lc-1-暴力 两数之和: for-loop, nested-loop
 [练习地址](https://leetcode-cn.com/problems/two-sum/)
 
@@ -143,13 +144,12 @@ def solution(nums, target):
 ```
 :::
 
-::: details lc-15-暴力 三数之和: for-loop, nested-loop
-[练习地址](https://leetcode-cn.com/problems/3sum)
+::: details lc-5 最长回文子串
+[力扣原题](https://leetcode-cn.com/problems/longest-palindromic-substring/)
 
-使用暴力法找三个不同下标，难点：
-- 三重循环
-- 需要暴力枚举出所有下标组合情况，而非排列情况
-- 因为是组合而非排列，所以要想清楚内层循环的控制变量从多少开始
+输入是字符串，即一维数组。这题需要从中间向两边遍历。
+
+<<< @/../leetcode/lc-5.py
 :::
 
 ::: details lc-14 最长公共前缀: two-dimensional-arrays
@@ -164,6 +164,17 @@ def solution(nums, target):
 <<< @/../leetcode/lc-14.py
 :::
 
+::: details lc-15 三数之和: for-loop, nested-loop
+[练习地址](https://leetcode-cn.com/problems/3sum)，这题很难。
+
+先给数组排序，然后使用找三个不同下标，难点：
+- 二重循环
+- 内层循环顺序: 从两边向中间遍历
+- 结果去重的方法有点超纲，比较难
+
+:::
+
+#### 递归
 
 ::: details lc-70-暴力: fibonacci, recursion
 <<< @/../leetcode/lc-70-force.py
@@ -173,26 +184,24 @@ def solution(nums, target):
 <<< @/../leetcode/lc-70-memorize.py
 :::
 
-### 数组、字符串、哈希表
-- 数组
-- 字符串、正则
-- 哈希表
-  - 一般语言喜欢叫做 map，中文翻译为「映射」
-  - Python 语言叫做 dict，中文翻译为「字典」
-  - 不管叫做什么，说的都是同一种东西
-- 集合
-  - 所有语言都把它叫做 set
+### 数组、字符串
+- 数组 (Array)
+- 字符串 (String)、正则
 
 ::: details lc-27 移除元素: array
 [练习地址](https://leetcode-cn.com/problems/remove-element/)
 
-数组的题，这题用 C/Java 来刷。
+数组的题，这题用 C/Java 来刷。需要删除匹配的元素，逆向思维就是要保留不匹配的元素。
+
+<<< @/../leetcode/lc-27.c
 :::
 
 ::: details lc-26 删除有序数组中的重复项: array
 [练习地址](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
 
-数组的题，这题用 C/Java 来刷。
+数组的题，这题用 C/Java 来刷。逆向思维就是要保留不重复的元素。
+
+<<< @/../leetcode/lc-26.c
 :::
 
 ::: details 删除无序数组中的重复项: set
@@ -205,11 +214,31 @@ function solution(arr) {
 ```
 :::
 
+### 基本数据结构: 数组、队列、栈、哈希表
+- 队列 (Queue)
+- 栈 (Stack)
+- 哈希表 (Hash Table)
+  - 英文语境也会叫做: map、dict、kv-pair
+  - 中文语境也会叫做: 映射、字典、键值对
+- 集合 (Set)
+  - 所有语言都把它叫做 set
+
 ::: details lc-1-最优解 两数之和: hash-table
 [练习地址](https://leetcode-cn.com/problems/two-sum/)
 
+之前我们使用了暴力法来做这题，现在使用哈希表，效率更高。
+
 <<< @/../leetcode/lc-1-best.py
 :::
+
+::: details lc-20 有效的括号: stack
+[练习地址](https://leetcode-cn.com/problems/valid-parentheses/)
+
+<<< @/../leetcode/lc-20.py
+
+<<< @/../leetcode/lc-20.js
+:::
+
 
 ### 数据编码：整数、浮点数、字符串
 
@@ -226,25 +255,20 @@ function solution(arr) {
 
 ### 异步回调
 
-## 基本数据结构
-
 ## 编译基础
-### 常量
+### 常量、左值、右值
 ### 装箱、拆箱
-### 函数重载
+### 函数签名、函数重载
 使用英文教材的同学可以区分一下这几个区别: overload、overwrite、override。
 
 由于很难翻译成中文，在中文语境一般不区分三者。
 
 ### 运算符重载
 
-### 栈
-::: details lc-20 有效的括号
-[练习地址](https://leetcode-cn.com/problems/valid-parentheses/)
+### getter/setter
 
-```python
-```
-:::
+### 
+
 
 ## 外部系统
 ### 命令行输入、输出、错误流
