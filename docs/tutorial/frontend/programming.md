@@ -214,6 +214,9 @@ function solution(arr) {
 ```
 :::
 
+### 时间复杂度
+[big O cheat sheet](https://www.bigocheatsheet.com/)
+
 ### 基本数据结构: 数组、队列、栈、哈希表
 - 队列 (Queue)
 - 栈 (Stack)
