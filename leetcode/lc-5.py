@@ -21,6 +21,3 @@ class Solution:
                 l, r = l - 1, r + 1
 
         return s[maxL: maxR + 1]
-
-s = Solution()
-s.longestPalindrome("babad")
