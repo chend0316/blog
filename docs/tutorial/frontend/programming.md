@@ -267,7 +267,7 @@ function solution(arr) {
 
 ### getter/setter
 
-### 
+### sizeof 是函数吗？
 
 
 ## 外部系统
