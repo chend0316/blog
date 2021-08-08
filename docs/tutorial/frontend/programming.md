@@ -1,15 +1,164 @@
 # 编程
 
+## 编程语言
+### 变量、类型
+变量 (Variable)、数据类型 (Data Types)
+- 隐式类型转换、强制类型转换
+
+基本类型 (Primary Data Types)，有的语言叫做值类型 (Value Types)。引用类型 (Reference Types)，有的语言叫做对象类型 (Object Types)。
+
+阅读材料：
+- [Java 的 8 种基本数据类型](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html)
+- [JavaScript 基本数据类型](http://262.ecma-international.org/5.1/#sec-8)
+- Python 实现了“一切皆对象”所以并没有 Primary Types 的概念
+
+### 字面量 (Literals)
+问大家一个问题：读大学需要多久？
+- 四年？
+- 三秒？
+
+自然语言有二义性，编程语言需要消除歧义。
+
+```c
+// 字符串字面量一定要双引号包裹
+int zhangsan = 1;
+char *name = "zhangsan";
+
+// 变量名不能用数字开头，否则编译器分不清: 是变量名？还是整数字面量？
+char *1name = "zhang";
+char *1e10 = "zhang";
+char *1f = "zhang";
+int a = 1e10;
+float b = 1f;
+```
+
+### 运算 (Operation)
+#### 算术运算
+- 加减乘除、取余
+- 整除: Python2、C/C++、Java
+- 自然除: Python3、JavaScript
+
+::: details lc-9: while-loop, floor-division
+[练习地址](https://leetcode-cn.com/problems/palindrome-number)，这题考察: 整除、取余。
+:::
+
+#### 逻辑运算
+- 布尔短路
+
+#### 位运算
+- 算术右移、逻辑右移
+
+C++ 对于无符号数采用逻辑右移、有符号数采用算术右移。Java 语言没有无符号数，因此一律为算术右移，为了表示逻辑右移，Java 引入了一个 `>>>` 的运算符。
+
+### 语句 (Statement)
+剧透一下：语句 (Statement) 和表达式 (Expression) 的区别是很重要的知识点，以后会讲
+
+#### 条件语句
+- if 语句
+- if-else 语句
+- if-elseif-else 语句
+
+#### 循环语句
+- while 语句
+- for 语句
+
+### 函数 (Function)
+- 函数定义
+- 函数调用
+
+## 编译基础 (Compile)
+### 词法分析器 (Tokenizer、Lexial Parser)
+对于有歧义的情况，现在的编译器都采用“贪心”的策略。
+
+```c
+int a = 1;
+int b = a+++a;  // 请问 b 的值是多少？
+int b = a ++ + a;  // 会解析成这种
+int b = a + ++ a;  // 不会解析成这种
+```
+
+::: tip
+工作中别写 `a+++a` 这样的代码，会被同事打噢！
+:::
+
+### 常量 (const)、左值 (left value)、右值 (right value)
+左值相当于写操作，会改变变量的值，右值不会改变变量的值。不确切的讲：变量如果放在赋值运算符左边就是 left value，放在右边就是 right value。
+
+编译器如果发现程序员把 const 放在 left value 的位置，就会直接编译报错，这样可以减少程序员犯错的概率。
+
+::: tip
+一些运算 (如自增运算) 让左右值的判断变得比较复杂。Python 语言没有自增运算，其实给程序员减负了。
+``` c
+int a = 1;
+int b = a++;  // a++ 即可读又可写，所以说不清到底算左值还是右值
+```
+:::
+
+### getter/setter
+如果有定义 getter/setter 函数的话，编译器会把 left value 替换为 setter()，把 right value 替换为 getter 函数。所以：
+- 理解 left/right value 是理解 getter/setter 的基础
+- 前面说了由于 `++` 运算符的存在，left/right value 的概念不好理解
+- 所以 getter/setter 也不太好掌握
+
+getter/setter 挺好用的，C++、JavaScript 都有这个特性。Java 为了降低使用门槛，把这个特性删了实在可惜。
+
+Python 也号称使用门槛低，为啥它就支持 getter/setter 呢？因为 Python 直接把 `++` 运算符给删了啊。妙啊，Java 应该学着点。
+
+::: details 给大家演示一些代码
+todo: 演示 C++、JavaScript、Python
+:::
+
+### 声明 (declare)、定义 (define)、声明提升 (declare hoisting)
+C/C++ 的声明和定义可以分开。后来 Java、Python、JavaScript 的语法把声明和定义合二为一了，这样可以降低编程门槛。
+
+JavaScript 的 `var` 有 declare hoisting 的特性，许多初学者都被它坑惨了，业界毒瘤。
+
+### 作用域 (Scope)、生命周期 (lifetime)
+[英文阅读材料](https://en.wikipedia.org/wiki/Scope_(computer_science)#Levels_of_scope)
+
+JavaScript 的 `var` 采用的是函数作用域，许多初学者都被它坑惨了，业界毒瘤。
+
+### 装箱 (autoboxing)、拆箱 (unboxing)
+- 自动装箱 (autoboxing): 编译器在某些情况下会偷偷把 primary type 转为 object
+- 自动拆箱 (unboxing): 与之相反
+- 这是 Compiler 做的工作，所以 Interpreted Language 没有这个特性
+
+::: details JavaScript 中的自动装箱
+[英文阅读材料](https://stackoverflow.com/questions/17216847/does-javascript-autobox)
+
+```javascript
+// 123 是 Primary Type，肯定没有成员函数的，但为啥我们能调用它的 toString 方法呢？
+(123).toString();
+```
+:::
+
+### 函数签名、函数重载
+使用英文教材的同学可以区分一下这几个区别: overload、overwrite、override。
+
+由于很难翻译成中文，在中文语境一般不区分三者。
+
+### 运算符重载
+C++ 支持，用多了会让代码难以理解，使用门槛比较高。Java 为了降低门槛，不支持运算符重载。但是 Python 支持运算符重载。
+
+### sizeof 是函数吗？
+
+### typedef
+
 ## 编程基础
 
 ### Hello World
-编译型语言 (compiler language): C/C++
+编译型语言 (Compiled language): C/C++
 
-解释型语言 (interpreter language): Python
+解释型语言 (Interpreted Language): Python
 
-但现代编程语言很多都分不清是编译型还是解释型: Java、JavaScript
+但现代编程语言很多都分不清是编译型还是解释型: Java、JavaScript。Java 会先编译成字节码，然后用 Java 虚拟机解释执行。
 
 二者区别: [英文阅读材料](https://www.geeksforgeeks.org/difference-between-compiled-and-interpreted-language/)
+
+有同学可能会用是否存在 [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) 来区分二者，认为有 REPL 的语言是 Interpreted Language，这其实是一个误区。
+- [Python 有 REPL](https://docs.python.org/3/tutorial/interpreter.html)，所以 Python 是 Interpreted Language
+- C/C++ 没有 REPL，所以是 Compiled Language
+- 这其实是误区，编译型语言也可以有 REPL
 
 ### 命令行程序
 - 命令行参数 (command-line arguments)
@@ -74,50 +223,13 @@ exit 1 # 退出码是 1
 - 借助 Ctrl-C 讲解信号
 - 异常退出，coredump 文件
 
-### 变量、类型
-变量 (Variable)、数据类型 (Data Types) 大家自学。
 
-基本类型 (Primary Data Types)，有的语言叫做值类型 (Value Types)。引用类型 (Reference Types)，有的语言叫做对象类型 (Object Types)。
-
-阅读材料：
-- [Java 基本数据类型](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html)
-- [JavaScript 基本数据类型](http://262.ecma-international.org/5.1/#sec-8)
-- Python 实现了“一切皆对象”所以并没有 Primary Types 的概念
-
-### 字面量 (Literals)
-问大家一个问题：读大学需要多久？
-- 四年？
-- 三秒？
-
-自然语言有二义性，编程语言需要消除歧义。
-
-```c
-// 字符串字面量一定要双引号包裹
-int zhangsan = 1;
-char *name = "zhangsan";
-
-// 变量名不能用数字开头，否则编译器分不清: 是变量？还是字面量？
-char *1name = "zhang";
-char *1e10 = "zhang";
-char *1f = "zhang";
-int a = 1e10;
-float b = 1f;
-```
-
-### 运算
-- 加减乘除、取余
-- 整除: Python2、C/C++、Java
-- 自然除: Python3、JavaScript
-
-::: details lc-9: while-loop, floor-division
-[练习地址](https://leetcode-cn.com/problems/palindrome-number)，这题考察: 整除、取余。
-:::
-
+## 算法基础 (Algorithm)
 ### 程序控制流：顺序、分支、循环、递归
 
 #### 循环
 ::: details lc-1-暴力 两数之和: for-loop, nested-loop
-[练习地址](https://leetcode-cn.com/problems/two-sum/)
+[练习地址](https://leetcode-cn.com/problems/two-sum/)，[在线视频](https://www.bilibili.com/video/BV1Ty4y1L7qP)
 
 输入是一维数组，使用暴力法找两个不同下标，难点：
 - 二重循环
@@ -187,9 +299,10 @@ def solution(nums, target):
 ### 数组、字符串
 - 数组 (Array)
 - 字符串 (String)、正则
+- Unicode
 
 ::: details lc-27 移除元素: array
-[练习地址](https://leetcode-cn.com/problems/remove-element/)
+[练习地址](https://leetcode-cn.com/problems/remove-element/)，[在线视频](https://www.bilibili.com/video/BV1Ty4y1L7qP)
 
 数组的题，这题用 C/Java 来刷。需要删除匹配的元素，逆向思维就是要保留不匹配的元素。
 
@@ -197,7 +310,7 @@ def solution(nums, target):
 :::
 
 ::: details lc-26 删除有序数组中的重复项: array
-[练习地址](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
+[练习地址](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)，[在线视频](https://www.bilibili.com/video/BV1Ty4y1L7qP)
 
 数组的题，这题用 C/Java 来刷。逆向思维就是要保留不重复的元素。
 
@@ -227,7 +340,7 @@ function solution(arr) {
   - 所有语言都把它叫做 set
 
 ::: details lc-1-最优解 两数之和: hash-table
-[练习地址](https://leetcode-cn.com/problems/two-sum/)
+[练习地址](https://leetcode-cn.com/problems/two-sum/)，[在线视频](https://www.bilibili.com/video/BV1Ty4y1L7qP)
 
 之前我们使用了暴力法来做这题，现在使用哈希表，效率更高。
 
@@ -235,7 +348,7 @@ function solution(arr) {
 :::
 
 ::: details lc-20 有效的括号: stack
-[练习地址](https://leetcode-cn.com/problems/valid-parentheses/)
+[练习地址](https://leetcode-cn.com/problems/valid-parentheses/)，[在线视频](https://www.bilibili.com/video/BV1Ty4y1L7qP)
 
 <<< @/../leetcode/lc-20.py
 
@@ -257,21 +370,6 @@ function solution(arr) {
 ### 事件循环、事件驱动
 
 ### 异步回调
-
-## 编译基础
-### 常量、左值、右值
-### 装箱、拆箱
-### 函数签名、函数重载
-使用英文教材的同学可以区分一下这几个区别: overload、overwrite、override。
-
-由于很难翻译成中文，在中文语境一般不区分三者。
-
-### 运算符重载
-
-### getter/setter
-
-### sizeof 是函数吗？
-
 
 ## 外部系统
 ### 命令行输入、输出、错误流
