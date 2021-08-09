@@ -66,9 +66,34 @@ C++ 对于无符号数采用逻辑右移、有符号数采用算术右移。Java
 - 函数定义
 - 函数调用
 
+### 数组 (Array)
+知识点:
+- 数组字面量 (Array Literal)
+- 数组初始化 (Array Initialize)
+
+Python:
+- 数组字面量: `[1, 2, 3]`、`[i * 2 for i in range(3)]`
+- 批量初始化: `[0]*3`
+- 多维数组字面量: 
+- [英文阅读材料](https://www.askpython.com/python/array/initialize-a-python-array)
+
+Java:
+- 数组字面量: `{"a", "b", "c"}`、`new String[]{"a", "b", "c"}`
+- 多维数组字面量: 
+- [英文阅读材料](https://stackoverflow.com/questions/1200621/how-do-i-declare-and-initialize-an-array-in-java)
+
+JavaScript:
+- 数组字面量: `['a', 'b', 'c']`
+
+### 程序控制流：异常处理
+
+### 字符串
+- 字符串 (String)、正则
+- Unicode
+
 ## 编译基础 (Compile)
 ### 词法分析器 (Tokenizer、Lexial Parser)
-对于有歧义的情况，现在的编译器都采用“贪心”的策略。
+对于分词有歧义的情况，现在的编译器都采用“贪心”的策略。
 
 ```c
 int a = 1;
@@ -81,6 +106,8 @@ int b = a + ++ a;  // 不会解析成这种
 工作中别写 `a+++a` 这样的代码，会被同事打噢！
 :::
 
+### 语法分析器 (Syntax Parser)
+
 ### 常量 (const)、左值 (left value)、右值 (right value)
 左值相当于写操作，会改变变量的值，右值不会改变变量的值。不确切的讲：变量如果放在赋值运算符左边就是 left value，放在右边就是 right value。
 
@@ -90,7 +117,7 @@ int b = a + ++ a;  // 不会解析成这种
 一些运算 (如自增运算) 让左右值的判断变得比较复杂。Python 语言没有自增运算，其实给程序员减负了。
 ``` c
 int a = 1;
-int b = a++;  // a++ 即可读又可写，所以说不清到底算左值还是右值
+int b = a++;  // a++ 即是读又是写，所以说不清到底算左值还是右值
 ```
 :::
 
@@ -225,18 +252,46 @@ exit 1 # 退出码是 1
 
 
 ## 算法基础 (Algorithm)
-### 程序控制流：顺序、分支、循环、递归
+### 时间复杂度
+[big O cheat sheet](https://www.bigocheatsheet.com/)
 
-#### 循环
-::: details lc-1-暴力 两数之和: for-loop, nested-loop
+### 基本数据结构: 队列、栈、哈希表
+- 队列 (Queue)
+- 栈 (Stack)
+- 哈希表 (Hash Table)
+  - 英文语境也会叫做: map、dict、kv-pair
+  - 中文语境也会叫做: 映射、字典、键值对
+- 集合 (Set)
+  - 所有语言都把它叫做 set
+
+::: details lc-20 有效的括号: stack
+[练习地址](https://leetcode-cn.com/problems/valid-parentheses/)，[在线视频](https://www.bilibili.com/video/BV1Ty4y1L7qP)
+
+<<< @/../leetcode/lc-20.py
+
+<<< @/../leetcode/lc-20.js
+:::
+
+### 循环
+知识点:
+- 从头到尾循环
+- 从尾到头循环
+- 从中间向两边循环
+- 从两边向中间循环
+- 多重循环优化，通常是考虑省去内层循环，在外层循环的时候“记忆”必要信息
+
+::: details lc-1 两数之和: for-loop, nested-loop
 [练习地址](https://leetcode-cn.com/problems/two-sum/)，[在线视频](https://www.bilibili.com/video/BV1Ty4y1L7qP)
 
 输入是一维数组，使用暴力法找两个不同下标，难点：
 - 二重循环
 - 需要暴力枚举出所有下标组合情况，而非排列情况
 - 因为是组合而非排列，所以要想清楚内层循环的控制变量从多少开始
+- 为了优化多重循环，我们想办法删掉内层循环
 
 <<< @/../leetcode/lc-1-force.py
+
+<<< @/../leetcode/lc-1-best.py
 :::
 
 ::: details 两数之差
@@ -264,6 +319,14 @@ def solution(nums, target):
 <<< @/../leetcode/lc-5.py
 :::
 
+::: details lc-42-暴力 接雨水
+[练习地址](https://leetcode-cn.com/problems/trapping-rain-water/)
+
+暴力做法，考虑每一根柱子能接的雨水量，外层循环遍历所有柱子，内层需要两个循环（一个向左、一个向右）。
+- 二重循环，内层有 2 个循环
+- 多重循环优化: 将内层循环移出去，形成 3 个并列的循环
+:::
+
 ::: details lc-14 最长公共前缀: two-dimensional-arrays
 [练习地址](https://leetcode-cn.com/problems/longest-common-prefix/)，这题比较难。
 
@@ -286,7 +349,7 @@ def solution(nums, target):
 
 :::
 
-#### 递归
+### 递归
 
 ::: details lc-70-暴力: fibonacci, recursion
 <<< @/../leetcode/lc-70-force.py
@@ -296,10 +359,8 @@ def solution(nums, target):
 <<< @/../leetcode/lc-70-memorize.py
 :::
 
-### 数组、字符串
+### 数组操作
 - 数组 (Array)
-- 字符串 (String)、正则
-- Unicode
 
 ::: details lc-27 移除元素: array
 [练习地址](https://leetcode-cn.com/problems/remove-element/)，[在线视频](https://www.bilibili.com/video/BV1Ty4y1L7qP)
@@ -327,49 +388,18 @@ function solution(arr) {
 ```
 :::
 
-### 时间复杂度
-[big O cheat sheet](https://www.bigocheatsheet.com/)
-
-### 基本数据结构: 数组、队列、栈、哈希表
-- 队列 (Queue)
-- 栈 (Stack)
-- 哈希表 (Hash Table)
-  - 英文语境也会叫做: map、dict、kv-pair
-  - 中文语境也会叫做: 映射、字典、键值对
-- 集合 (Set)
-  - 所有语言都把它叫做 set
-
-::: details lc-1-最优解 两数之和: hash-table
-[练习地址](https://leetcode-cn.com/problems/two-sum/)，[在线视频](https://www.bilibili.com/video/BV1Ty4y1L7qP)
-
-之前我们使用了暴力法来做这题，现在使用哈希表，效率更高。
-
-<<< @/../leetcode/lc-1-best.py
-:::
-
-::: details lc-20 有效的括号: stack
-[练习地址](https://leetcode-cn.com/problems/valid-parentheses/)，[在线视频](https://www.bilibili.com/video/BV1Ty4y1L7qP)
-
-<<< @/../leetcode/lc-20.py
-
-<<< @/../leetcode/lc-20.js
-:::
-
-
-### 数据编码：整数、浮点数、字符串
-
 ### 指针、链表
 ::: details lc-21 合并两个有序链表
 [练习地址](https://leetcode-cn.com/problems/merge-two-sorted-lists)
 :::
-
-### 程序控制流：异常处理
 
 ## 编程模式
 
 ### 事件循环、事件驱动
 
 ### 异步回调
+
+### Promise: 用同步的思维写异步代码
 
 ## 外部系统
 ### 命令行输入、输出、错误流
