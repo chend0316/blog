@@ -88,7 +88,9 @@ JavaScript:
 ### 程序控制流：异常处理
 
 ### 字符串
-- 字符串 (String)、正则
+- 字符串 (String) 的表示
+- 常用方法: 字符串拼接 (strcat)、提取子串 (substr)、去除首尾空格 (trim)
+- 正则
 - Unicode
 
 ## 编译基础 (Compile)
@@ -255,7 +257,7 @@ exit 1 # 退出码是 1
 ### 时间复杂度
 [big O cheat sheet](https://www.bigocheatsheet.com/)
 
-### 基本数据结构: 队列、栈、哈希表
+### 数据结构: 队列、栈、哈希表
 - 队列 (Queue)
 - 栈 (Stack)
 - 哈希表 (Hash Table)
@@ -291,7 +293,7 @@ exit 1 # 退出码是 1
 
 <<< @/../leetcode/lc-1-force.py
 
-<<< @/../leetcode/lc-1-best.py
+<<< @/../leetcode/lc-1.py
 :::
 
 ::: details 两数之差
@@ -312,23 +314,39 @@ def solution(nums, target):
 :::
 
 ::: details lc-5 最长回文子串
-[力扣原题](https://leetcode-cn.com/problems/longest-palindromic-substring/)
+[练习地址](https://leetcode-cn.com/problems/longest-palindromic-substring/)
 
 输入是字符串，即一维数组。这题需要从中间向两边遍历。
 
 <<< @/../leetcode/lc-5.py
 :::
 
-::: details lc-42-暴力 接雨水
+::: details lc-11 盛最多水的容器
+[练习地址](https://leetcode-cn.com/problems/container-with-most-water/)
+
+输入是一维数组。这题需要从中间向两边遍历。难点：
+- 循环迭代的动作二选一: i++、j--
+- 需要在循环体内决定选哪个动作
+
+<<< @/../leetcode/lc-11.java
+
+<<< @/../leetcode/lc-11.js
+
+<<< @/../leetcode/lc-11.py
+:::
+
+::: details lc-42 接雨水
 [练习地址](https://leetcode-cn.com/problems/trapping-rain-water/)
 
 暴力做法，考虑每一根柱子能接的雨水量，外层循环遍历所有柱子，内层需要两个循环（一个向左、一个向右）。
 - 二重循环，内层有 2 个循环
 - 多重循环优化: 将内层循环移出去，形成 3 个并列的循环
+
+<<< @/../leetcode/lc-42.java
 :::
 
 ::: details lc-14 最长公共前缀: two-dimensional-arrays
-[练习地址](https://leetcode-cn.com/problems/longest-common-prefix/)，这题比较难。
+[练习地址](https://leetcode-cn.com/problems/longest-common-prefix/)，这题比较烦。
 
 题目给的是字符串数组，因为字符串本身也是数组，所以这题是一个二维数组，需要用二重循环来处理。难点在于：
 - 外层循环遍历数组的第二个维度、内层循环遍历数组的第一个维度，和以往相反
@@ -351,6 +369,14 @@ def solution(nums, target):
 
 ### 递归
 
+::: details lc-100 相同的树
+<<< @/../leetcode/lc-100.java
+:::
+
+::: details lc-98 验证二叉搜索树
+<<< @/../leetcode/lc-98.java
+:::
+
 ::: details lc-70-暴力: fibonacci, recursion
 <<< @/../leetcode/lc-70-force.py
 :::
@@ -358,6 +384,8 @@ def solution(nums, target):
 ::: details lc-70-记忆化: dynamic-array, loop
 <<< @/../leetcode/lc-70-memorize.py
 :::
+
+### 数据结构: 树
 
 ### 数组操作
 - 数组 (Array)
