@@ -152,6 +152,16 @@ JavaScript 的 `var` 采用的是函数作用域，许多初学者都被它坑�
 - 自动拆箱 (unboxing): 与之相反
 - 这是 Compiler 做的工作，所以 Interpreted Language 没有这个特性
 
+#### 比较大小
+C/C++ 语言指针可以进行大小比较，这是没有意义的。后来一众编程语言语法上直接禁止 Pointer/Reference 进行大小比较。
+
+那么请问两个 Integer Object 如何进行大小比较呢？
+- C++、Python 可以使用运算符重载
+- Java、JavaScript 可以使用 unboxing
+
+那么 C++、Python 语言是否存在装箱机制呢？
+
+#### 访问 method
 ::: details JavaScript 中的自动装箱
 [英文阅读材料](https://stackoverflow.com/questions/17216847/does-javascript-autobox)
 
