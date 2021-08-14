@@ -2,11 +2,16 @@
 
 ## Linux 基本操作
 
-软件管理工具:
-- Mac 同学: [brew](https://brew.sh/)
-- Ubuntu 同学: apt
+- `man man`
+- gcc
 
-gcc
+### 软件安装
+- 手动安装软件
+- PATH 环境变量
+- 编译软件源码
+- 使用软件管理工具:
+  - Mac 同学: [brew](https://brew.sh/)
+  - Ubuntu 同学: apt
 
 ## 信号 (Signal)
 Linux 下通过 `kill` 命令给进程发送信号或关闭进程。
