@@ -39,6 +39,12 @@ int a = 1e10;
 float b = 1f;
 ```
 
+```javascript
+// JavaScript 中，对象字面量
+const key = 'age', value = 18;
+const obj = { key: value, [key]: value }
+```
+
 #### 基本类型字面量
 - Integral Literals
 - Floating-Point Literals
@@ -200,7 +206,7 @@ JavaScript 的 `var` 有 declare hoisting 的特性，许多初学者都被它�
 ### 作用域 (Scope)、生命周期 (lifetime)
 [英文阅读材料](https://en.wikipedia.org/wiki/Scope_(computer_science)#Levels_of_scope)
 
-JavaScript 的 `var` 采用的是函数作用域，许多初学者都被它坑惨了，业界毒瘤。
+JavaScript 的 `var` 采用的是 Function Scope，许多初学者都被它坑惨了，业界毒瘤。后来引入了 `let`、`const` 是 Block Scope。
 
 ### 装箱 (autoboxing)、拆箱 (unboxing)
 - 自动装箱 (autoboxing): 编译器在某些情况下会偷偷把 primary type 转为 object
@@ -237,6 +243,20 @@ C++ 支持，用多了会让代码难以理解，使用门槛比较高。Java �
 ### sizeof 是函数吗？
 
 ### typedef
+
+### 语法糖 (Syntax Sugar)
+
+::: details JavaScript Object Shorthand
+```js
+let a = 1, b = 2;
+const obj = { a, b };
+const Myth = {
+  random() { return 42; }
+};
+```
+:::
+
+async/await 是语法糖吗？
 
 ## 编程基础
 
@@ -451,6 +471,11 @@ def solution(nums, target):
 :::
 
 ### 数据结构: 树
+树的算法题都是递归来做。
+
+::: details lc-226 翻转二叉树
+[练习地址](https://leetcode-cn.com/problems/invert-binary-tree/)
+:::
 
 ### 数组操作
 - 数组 (Array)
@@ -484,6 +509,10 @@ function solution(arr) {
 ### 指针、链表
 ::: details lc-21 合并两个有序链表
 [练习地址](https://leetcode-cn.com/problems/merge-two-sorted-lists)
+:::
+
+::: details lc-206 反转链表
+[练习地址](https://leetcode-cn.com/problems/reverse-linked-list/)
 :::
 
 ## 编程模式
