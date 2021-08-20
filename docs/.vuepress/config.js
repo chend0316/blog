@@ -22,7 +22,7 @@ module.exports = {
     prevLinks: false,
     nav: [
       {
-        text: '程序yuan成人班',
+        text: '程序yuan入坑教程',
         items: [
           { text: '前端开发', link: '/tutorial/frontend/' }
         ]

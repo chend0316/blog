@@ -19,7 +19,7 @@
 - 《设计模式》(GOF、四人帮)
 
 编程语言：
-- 《C程序设计语言》(K&R)
+- 《C程序设计语言》(K&R C)，Kernighan 和 Ritchie 两位作者写的，早年 C 标准还没诞生，业界把这本书当做事实上的标准
 - 《Java编程思想》(TIJ)
 - 《C++ Primer》
 
@@ -37,6 +37,9 @@
 - [《企业应用架构模式》](https://book.douban.com/subject/4826290/)
 
 ### 前端开发
+性能/体验优化:
+- [使用工具测量 LCP、FID 等性能指标](https://www.youtube.com/watch?v=yDHfrhCGFQw&list=PLNYkxOF6rcIDC0-BiwSL52yQ0n9rNozaF&index=2)
+
 CSS 视频教程:
 - B站的[CodingStartup起码课](https://space.bilibili.com/451368848/)，CSS 讲的很好
 

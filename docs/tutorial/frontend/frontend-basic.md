@@ -27,9 +27,13 @@ this 指向:
 - Loading: [LCP (Largest Contentful Paint)](https://web.dev/lcp/) 用于衡量网站加载速度
 - Interactivity: [FID (First Input Delay)](https://web.dev/fid/) 用于衡量网站交互速度
 - Visual stability: [CLS (Cumulative Layout Shift)](https://web.dev/cls/) 用于衡量网站的视觉稳定性
+- FMP 利用工具难以自动识别，所以被 Web Vitals 弃用，取而代之的是 LCP
+- FID 测试需要一个真人参与，所以在 Chrome DevTools 里面是看不到 FID 指标的，取而代之的是 TBT (Total Blocking Time)。TBT 可以评估主线程被 block 的时间，block 期间浏览器无法响应任何用户输入，所以 TBT 能够间接量化 FID。TBT 的具体衡量算法是累加所有 JS Task 运行时长超出 50ms 的部分，如果运行了 53 ms，那么 TBT 为 3ms，如果运行了 49ms，那么 TBT 为 0ms。
 
 测量 Web Vitals 的工具:
 - Lighthouse
+- https://web.dev/vitals-tools/
+- [Chrome 84 增加了 TBT、CLS 的测量工具](https://developer.chrome.com/blog/new-in-devtools-84/)
 
 一些性能分析/监控平台也引入了 Web Vitals:
 - [SpeedCurve](https://www.speedcurve.com/blog/web-vitals-user-experience/)
@@ -38,6 +42,10 @@ this 指向:
 谷歌将 Web Vitals 作为搜索排序依据，所以一些内容平台为了 SEO 也引入了 Web Vitals:
 - [WiX](https://support.wix.com/en/article/site-performance-about-core-web-vitals) 是一个 CMS 平台
 - WordPress
+
+参考资料:
+- https://www.youtube.com/watch?v=AQqFZ5t8uNc&list=PLNYkxOF6rcIDC0-BiwSL52yQ0n9rNozaF&index=3
+- https://www.youtube.com/watch?v=t8YBZLjL-KU&list=PLNYkxOF6rcIDC0-BiwSL52yQ0n9rNozaF&index=6
 
 ### 打包工具
 [构建工具对比](https://bundlers.tooling.report/)
