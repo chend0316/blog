@@ -1,25 +1,5 @@
 # 后端开发工程师
 
-## Java 生态
-### Web 后端开发
-#### Web 容器
-JBoss 和 WebLogic 不仅包含 Servlet 容器的功能，还包含 EJB 容器的功能，是完整的 Java EE 应用服务器。Tomcat 和 Jetty 只包含 Servlet 容器的功能，不包含 EJB 容器的功能，所以可以称之为轻量级容器。
-
-在早期 Java 程序员按照 Servlet + JSP 的规范编写代码，将编译后的 .class 文件打包成压缩文件 (.war 后缀) 发给运维人员；运维人员将 .war 文件放到 Tomcat 规定的某个目录下，然后启动 Tomcat，这样程序就上线了。
-
-而在今天人们喜欢用程序内嵌的方式启动 Servlet 容器，这样 Tomcat 这种轻量级的容器就很吃香 (占用空间小)。
-
-#### Servlet
-Servlet 规范约定一套使用 HTTP 协议的流程，定义了一些接口，业务代码基于这些接口编程，Tomcat 实现这些接口。这样业务代码就无需关心复杂的 HTTP 协议了，但这套流程会让我们的业务代码就不够灵活，难以实现个性化需求，为此 Servlet 提供了两种扩展机制：Filter 过滤器、Listener 监听器。
-
-为了加深对 Servlet 的理解，我们做一个实验[不使用 IDE 编写一个 Servlet 应用](https://time.geekbang.org/column/article/95808)。
-
-### ORM
-Hibernate 是一个 ORM 框架，问世时间早于 JPA 规范。JPA 规范出现后，Hibernate 被视为 JPA 规范的一种实现。
-
-### Redis
-在 Java 中通过 Jedis、Lettuce 访问 Redis。
-
 ## 架构设计
 ### 缓存
 通读 (read-through) 缓存对应用透明，常见的有：CDN、反向代理缓存。旁路 (cache-aside) 缓存对应用不透明，应用首先从缓存中读数据，若没有命中则去数据源取数据，取完将结果存入缓存。
@@ -117,3 +97,23 @@ Redis 3.0 官方实现了一个切片集群：[Redis Cluster](https://redis.io/t
 - AOF 是将每个命令 append 到日志文件的末尾，恢复的时候将命令一个个取出执行即可恢复
 
 下面讨论一个重要议题：备份过程中是否会阻塞数据库访问？
+
+## Java 生态
+### Web 后端开发
+#### Web 容器
+JBoss 和 WebLogic 不仅包含 Servlet 容器的功能，还包含 EJB 容器的功能，是完整的 Java EE 应用服务器。Tomcat 和 Jetty 只包含 Servlet 容器的功能，不包含 EJB 容器的功能，所以可以称之为轻量级容器。
+
+在早期 Java 程序员按照 Servlet + JSP 的规范编写代码，将编译后的 .class 文件打包成压缩文件 (.war 后缀) 发给运维人员；运维人员将 .war 文件放到 Tomcat 规定的某个目录下，然后启动 Tomcat，这样程序就上线了。
+
+而在今天人们喜欢用程序内嵌的方式启动 Servlet 容器，这样 Tomcat 这种轻量级的容器就很吃香 (占用空间小)。
+
+#### Servlet
+Servlet 规范约定一套使用 HTTP 协议的流程，定义了一些接口，业务代码基于这些接口编程，Tomcat 实现这些接口。这样业务代码就无需关心复杂的 HTTP 协议了，但这套流程会让我们的业务代码就不够灵活，难以实现个性化需求，为此 Servlet 提供了两种扩展机制：Filter 过滤器、Listener 监听器。
+
+为了加深对 Servlet 的理解，我们做一个实验[不使用 IDE 编写一个 Servlet 应用](https://time.geekbang.org/column/article/95808)。
+
+### ORM
+Hibernate 是一个 ORM 框架，问世时间早于 JPA 规范。JPA 规范出现后，Hibernate 被视为 JPA 规范的一种实现。
+
+### Redis
+在 Java 中通过 Jedis、Lettuce 访问 Redis。
