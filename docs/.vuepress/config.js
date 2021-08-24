@@ -24,7 +24,19 @@ module.exports = {
       {
         text: '程序yuan入坑教程',
         items: [
-          { text: '前端开发', link: '/tutorial/frontend/' }
+          {
+            text: '必修基础',
+            items: [
+              { text: '编程', link: '/tutorial/programming/' },
+              { text: 'Linux', link: '/tutorial/linux/' },
+            ]
+          },
+          {
+            text: '选修方向',
+            items: [
+              { text: 'Web前端开发', link: '/tutorial/frontend/' }
+            ]
+          }
         ]
       },
       {
@@ -116,11 +128,23 @@ module.exports = {
     ],
     sidebarDepth: 4,
     sidebar: {
+      '/tutorial/programming/': [
+        '',
+        'programming-language',
+        'compile-basic',
+        'data-structure-basic',
+        'programming-in-unix-basic',
+        'algorithm-basic',
+        'pattern'
+      ],
+      '/tutorial/linux/': [
+        '',
+      ],
       '/tutorial/frontend/': [
         '',
-        'linux',
-        'programming',
         'frontend-basic',
+        // 'frontend-master',
+        // 'interview',
       ],
       '/programmer/leetcode/': [
         '',

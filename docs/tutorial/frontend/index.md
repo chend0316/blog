@@ -1,4 +1,4 @@
-# 前端开发成人班
+# 前端开发入坑教程
 
 电脑首选 macOS，其次 Linux。Windows 同学请用虚拟机安装 Ubuntu，不要直接在 Windows 下编程。
 

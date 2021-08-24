@@ -8,6 +8,14 @@
 
 ## JavaScript
 
+### Babel
+Babel is a JavaScript compiler.
+
+Babel 7 开始使用了 Monorepo，所以 NPM 包会有 `@babel` 前缀。常用的包如下:
+- `npm i @babel/core` 必装
+- `npm i @babel/cli` 如果想在命令行敲 `babel` 命令，需要装
+- 如果想配合 Webpack 使用，需要装 `npm i babel-loader`
+
 ### 语言
 this 指向:
 - function
