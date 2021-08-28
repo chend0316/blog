@@ -1,6 +1,6 @@
 # Web 前端开发入门
 ## web.dev
-[web.dev](https://web.dev/) 网站上有许多有绝佳的学习资料，虽然是全英文的，但依然是首选学习资料。入门阶段先看 [CSS](https://web.dev/learn/css/)，其它的以后再看。
+[web.dev](https://web.dev/) 网站上虽然是全英文的，但依然是首选学习资料。入门阶段先看 [CSS](https://web.dev/learn/css/)，其它的以后再看。
 
 ## JavaScript
 

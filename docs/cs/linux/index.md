@@ -1,4 +1,5 @@
 # Linux 使用
+comming soon...  本文正在筹备中
 
 ## Linux 基本操作
 

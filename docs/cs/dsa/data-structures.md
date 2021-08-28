@@ -1,6 +1,15 @@
 # 数据结构
 
-## 哈希
+## 线性结构: 队列、栈、链表
+- 队列 (Queue)
+- 栈 (Stack)
+- 链表 (List)
+
+## 哈希表
+哈希表 (Hash Table)
+  - 英文语境也会叫做: map、dict、kv-pair
+  - 中文语境也会叫做: 映射、字典、键值对
+
 应用场景：
 - 加密
 - 索引
@@ -22,9 +31,8 @@
 ### 扩容
 当装载因子接近 1 的时候，开放寻址法速度降低。当装载因子远大于 1 时，拉链法会退化成为链表。扩容可以降低装载因子，但扩容后大量数据需要移动，这会导致分布式缓存场景下大量节点出现缓存击穿，[一致性哈希](https://en.wikipedia.org/wiki/Consistent_hashing)算法可以缓解这个问题。
 
-
-### 语言内置的哈希表
-[java.util.Map](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html) 是 Java 内置的一个接口，最常见的实现是：`HashMap`、`TreeMap`。在 Java 中，每个对象都有 hashCode() 方法，自定义的数据类型可以根据业务特点重写 `Object.hashCode()` 方法。
+### 编程语言内置的哈希表
+[java.util.Map](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html) 是 Java 内置的一个接口，最常见的实现是：`HashMap`、`TreeMap`。在 Java 中，每个对象都有 hashCode() 方法。
 
 JavaScript 的对象本身就可以当做哈希表使用：`var hash = {};`，ES6 新增了一个专门做哈希表的类：`var hash = new Map();`
 
@@ -36,7 +44,7 @@ Python 的 `dict` 就是哈希表。
 - 判断 key 是否存在: `'a' in hash`
 - 获取哈希表的大小: `len(hash)`
 
-## 二叉树
+## 半线性结构: 二叉树
 二叉树一般用链式存储法来存储，每个节点有 left、right 两个指针。完全二叉树可以用顺序存储法来存储，常用于二叉堆的场景。
 
 ### 二叉搜索树
@@ -45,3 +53,5 @@ Python 的 `dict` 就是哈希表。
 如果要支持重复数据的二叉搜索树。一种偷懒的方法是将每个节点换成链表。另一种更正经的方法不好描述，我这边先不写了。
 
 ### 平衡二叉搜索树
+
+## 非线性结构: 图

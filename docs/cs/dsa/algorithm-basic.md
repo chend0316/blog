@@ -2,23 +2,6 @@
 ## 时间复杂度
 [big O cheat sheet](https://www.bigocheatsheet.com/)
 
-## 数据结构: 队列、栈、哈希表
-- 队列 (Queue)
-- 栈 (Stack)
-- 哈希表 (Hash Table)
-  - 英文语境也会叫做: map、dict、kv-pair
-  - 中文语境也会叫做: 映射、字典、键值对
-- 集合 (Set)
-  - 所有语言都把它叫做 set
-
-::: details lc-20 有效的括号: stack
-[练习地址](https://leetcode-cn.com/problems/valid-parentheses/)，[在线视频](https://www.bilibili.com/video/BV1Ty4y1L7qP)
-
-<<< @/../leetcode/lc-20.py
-
-<<< @/../leetcode/lc-20.js
-:::
-
 ## 循环
 知识点:
 - 从头到尾循环
