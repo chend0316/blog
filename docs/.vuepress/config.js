@@ -142,7 +142,6 @@ module.exports = {
       ],
       '/tutorial/frontend/': [
         '',
-        'frontend-basic',
         // 'frontend-master',
         // 'interview',
       ],
