@@ -1,4 +1,4 @@
-# 编程范式
+# 编程范式 (Programming Paradigms)
 comming soon...  本文正在筹备中
 
 ## 函数式编程

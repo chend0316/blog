@@ -133,6 +133,7 @@ module.exports = {
     sidebar: {
       "/cs/programming-language/": [
         "",
+        "environment-setup",
         "compile-basic",
         "programming-in-unix-basic",
       ],
