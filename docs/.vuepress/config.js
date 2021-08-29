@@ -106,7 +106,6 @@ module.exports = {
       {
         text: "通用软件",
         items: [
-          { text: "命令行程序", link: "/backend/cli-app" },
           // { text: 'Servlet', link: '/pages/java-tutorial-servlet/' },
           { text: "Spring", link: "/backend/spring/" },
           { text: "数据库", link: "/backend/database/" },
