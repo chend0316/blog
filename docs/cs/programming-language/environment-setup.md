@@ -74,3 +74,14 @@ $ rm -rf data-science-venv
 环境搭建步骤可以参考[官网](https://jupyter.org/install.html)，官网中还提到了 mamba 和 conda，它们两都是 pip 的替代品，如果不会用话，用 pip 即可。关键步骤如下:
 - `pip install jupyterlab`
 - `jupyter-lab`
+
+## C 语言
+### GNU Make
+### CMake
+
+## Java
+
+## JavaScript
+### NPM
+
+### Babel

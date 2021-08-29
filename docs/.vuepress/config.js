@@ -39,6 +39,7 @@ module.exports = {
               { text: "编程范式", link: "/cs/programming-paradigms/" },
               { text: "设计模式", link: "/cs/design-pattern/" },
               { text: "计算机网络", link: "/cs/network/" },
+              { text: "数据库系统", link: "/cs/dbs/" },
             ],
           },
           {
@@ -154,10 +155,10 @@ module.exports = {
         },
         "src-lab",
       ],
+      "/cs/dbs/": [""],
       "/cs/design-pattern/": [""],
       "/cs/python-data-science/": [""],
       "/cs/machine-learning/": [""],
-      // "/cs/machine-learning/": [""],
       "/cs/leetcode/": [
         "",
         {
