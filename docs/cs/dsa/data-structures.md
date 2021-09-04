@@ -5,6 +5,44 @@
 - 栈 (Stack)
 - 链表 (List)
 
+### 数组操作
+- 数组 (Array)
+
+::: details lc-27 移除元素: array
+[练习地址](https://leetcode-cn.com/problems/remove-element/)，[在线视频](https://www.bilibili.com/video/BV1Ty4y1L7qP)
+
+数组的题，这题用 C/Java 来刷。需要删除匹配的元素，逆向思维就是要保留不匹配的元素。
+
+<<< @/../leetcode/lc-27.c
+:::
+
+::: details lc-26 删除有序数组中的重复项: array
+[练习地址](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)，[在线视频](https://www.bilibili.com/video/BV1Ty4y1L7qP)
+
+数组的题，这题用 C/Java 来刷。逆向思维就是要保留不重复的元素。
+
+<<< @/../leetcode/lc-26.c
+:::
+
+::: details 删除无序数组中的重复项: set
+请完成下面的函数，实现去重的功能。思路是把 arr 转成 set，然后再转回 arr。
+
+```javascript
+function solution(arr) {
+    return Array.from(new Set(arr));
+}
+```
+:::
+
+### 指针、链表
+::: details lc-21 合并两个有序链表
+[练习地址](https://leetcode-cn.com/problems/merge-two-sorted-lists)
+:::
+
+::: details lc-206 反转链表
+[练习地址](https://leetcode-cn.com/problems/reverse-linked-list/)
+:::
+
 ## 哈希表
 哈希表 (Hash Table)
   - 英文语境也会叫做: map、dict、kv-pair

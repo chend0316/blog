@@ -138,7 +138,7 @@ module.exports = {
         "compile-basic",
         "programming-in-unix-basic",
       ],
-      "/cs/dsa/": ["", "data-structures", "algorithm-basic"],
+      "/cs/dsa/": ["", "data-structures", "algorithm-basic", "algorithm-design/"],
       "/cs/linux/": [""],
       "/cs/programming-paradigms/": [""],
       "/cs/network/": [
