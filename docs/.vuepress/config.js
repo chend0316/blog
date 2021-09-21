@@ -30,7 +30,7 @@ module.exports = {
               { text: "编程语言", link: "/cs/programming-language/" },
               { text: "数据结构&算法", link: "/cs/dsa/" },
               { text: "使用Linux", link: "/cs/linux/" },
-              // { text: '编译原理', link: '/cs/compile/' },
+              { text: '编译原理', link: '/cs/compile/' },
             ],
           },
           {
@@ -40,6 +40,7 @@ module.exports = {
               { text: "设计模式", link: "/cs/design-pattern/" },
               { text: "计算机网络", link: "/cs/network/" },
               { text: "数据库系统", link: "/cs/dbs/" },
+              { text: "操作系统", link: "/cs/os/" },
             ],
           },
           {
@@ -47,6 +48,7 @@ module.exports = {
             items: [
               { text: "Python数据科学实战", link: "/cs/python-data-science/" },
               { text: '机器学习', link: '/cs/machine-learning/' },
+              { text: 'NLP', link: '/cs/nlp/' },
             ],
           },
           {
@@ -156,6 +158,9 @@ module.exports = {
         "src-lab",
       ],
       "/cs/dbs/": [""],
+      "/cs/os/": [""],
+      "/cs/nlp/": [""],
+      "/cs/compile/": [""],
       "/cs/design-pattern/": [""],
       "/cs/python-data-science/": [""],
       "/cs/machine-learning/": [""],
