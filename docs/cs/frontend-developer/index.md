@@ -35,5 +35,7 @@ Webpack 和 Rollup。在校脱产学习的话，肯定学不好。你也不可�
 ### V8
 官网: [https://v8.dev/](https://v8.dev/)
 
+API 文档: [https://v8.github.io/api/head/](https://v8.github.io/api/head/)
+
 ## Electron
 官网: [https://www.electronjs.org/](https://www.electronjs.org/)
