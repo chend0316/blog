@@ -22,7 +22,7 @@ module.exports = {
     prevLinks: false,
     nav: [
       {
-        text: "计算机类本科教程",
+        text: "CS本科",
         items: [
           {
             text: "必修基础",
@@ -30,7 +30,7 @@ module.exports = {
               { text: "编程语言", link: "/cs/programming-language/" },
               { text: "数据结构&算法", link: "/cs/dsa/" },
               { text: "使用Linux", link: "/cs/linux/" },
-              { text: '编译原理', link: '/cs/compile/' },
+              { text: "编译原理", link: "/cs/compile/" },
             ],
           },
           {
@@ -47,8 +47,8 @@ module.exports = {
             text: "数据科学方向",
             items: [
               { text: "Python数据科学实战", link: "/cs/python-data-science/" },
-              { text: '机器学习', link: '/cs/machine-learning/' },
-              { text: 'NLP', link: '/cs/nlp/' },
+              { text: "机器学习", link: "/cs/machine-learning/" },
+              { text: "NLP", link: "/cs/nlp/" },
             ],
           },
           {
@@ -60,14 +60,17 @@ module.exports = {
           },
         ],
       },
-      // {
-      //   text: "程序员基本功",
-      //   items: [
-      //     { text: "编程语言", link: "/programmer/language/" },
-      //     { text: "Web架构", link: "/programmer/web-architecture" },
-      //     // { text: '程序员修炼指南', link: '/programmer/roadmap' },
-      //   ],
-      // },
+      {
+        text: "程序员",
+        items: [
+          {
+            text: "编程语言",
+            items: [{ text: "Rust", link: "/programmer/rust/" }],
+          },
+          // { text: "Web架构", link: "/programmer/web-architecture" },
+          // { text: '程序员修炼指南', link: '/programmer/roadmap' },
+        ],
+      },
       {
         text: "Web前端",
         items: [
@@ -140,7 +143,12 @@ module.exports = {
         "compile-basic",
         "programming-in-unix-basic",
       ],
-      "/cs/dsa/": ["", "data-structures", "algorithm-basic", "algorithm-design/"],
+      "/cs/dsa/": [
+        "",
+        "data-structures",
+        "algorithm-basic",
+        "algorithm-design/",
+      ],
       "/cs/linux/": [""],
       "/cs/programming-paradigms/": [""],
       "/cs/network/": [
@@ -192,6 +200,10 @@ module.exports = {
         // 'interview',
       ],
       // "/programmer/language/": [""],
+      "/programmer/rust/": [
+        "",
+        "the-rust-programming-language"
+      ],
       "/programmer/": "auto",
       "/frontend/base/": [
         {
