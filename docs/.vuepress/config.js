@@ -31,6 +31,7 @@ module.exports = {
               { text: "数据结构&算法", link: "/cs/dsa/" },
               { text: "使用Linux", link: "/cs/linux/" },
               { text: "编译原理", link: "/cs/compile/" },
+              { text: '计算机系统结构', link: "/cs/computer-system/" },
             ],
           },
           {
@@ -58,17 +59,6 @@ module.exports = {
               { text: "Web前端开发", link: "/cs/frontend-developer/" },
             ],
           },
-        ],
-      },
-      {
-        text: "程序员",
-        items: [
-          {
-            text: "编程语言",
-            items: [{ text: "Rust", link: "/programmer/rust/" }],
-          },
-          // { text: "Web架构", link: "/programmer/web-architecture" },
-          // { text: '程序员修炼指南', link: '/programmer/roadmap' },
         ],
       },
       {
@@ -110,13 +100,17 @@ module.exports = {
         ],
       },
       {
-        text: "通用软件",
+        text: "程序员",
         items: [
           // { text: 'Servlet', link: '/pages/java-tutorial-servlet/' },
           { text: "Spring", link: "/backend/spring/" },
           { text: "数据库", link: "/backend/database/" },
           { text: "构建工具", link: "/backend/build-tools/" },
           { text: "Docker", link: "/backend/docker/" },
+          {
+            text: "编程语言",
+            items: [{ text: "Rust", link: "/programmer/rust/" }],
+          },
           {
             text: "其它",
             items: [
@@ -167,6 +161,7 @@ module.exports = {
       ],
       "/cs/dbs/": [""],
       "/cs/os/": [""],
+      "/cs/computer-system/": ["", "csapp"],
       "/cs/nlp/": [""],
       "/cs/compile/": [""],
       "/cs/design-pattern/": [""],
