@@ -29,6 +29,16 @@ Webpack 和 Rollup。在校脱产学习的话，肯定学不好。你也不可�
 ### Node addons
 使用 C++ 编写 Node 扩展。[https://github.com/nodejs/node-addon-examples](https://github.com/nodejs/node-addon-examples) 里面有很多 Demo，可以学一下这些代码。如果想学会，你还需要学习: C++、libuv、V8。
 
+区别
+- NAN 是比较老的技术
+- node addon api 是给 C 语言用的
+- N-API 是给 C++ 用的
+
+开发环境挺难配的，可以参考:
+- [如何方便快捷的进行 node-addons 开发](https://www.orrafy.com/posts/my/node-addons)
+- [Node C++ 插件 Windows Electron 环境配置](https://juejin.cn/post/6844903981718700045)
+- [https://nodejs.medium.com/building-modern-native-add-ons-for-node-js-in-2020-cd3992c68e0](https://nodejs.medium.com/building-modern-native-add-ons-for-node-js-in-2020-cd3992c68e0)
+
 ### libuv
 可以在[http://nikhilm.github.io/uvbook/](http://nikhilm.github.io/uvbook/)学一下 libuv 编程，你需要使用 C 语言编写代码。遇到不懂的可以去 [libuv 官网](https://libuv.org/) 查资料。
 
