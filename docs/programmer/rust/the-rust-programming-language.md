@@ -139,3 +139,88 @@ fn dangle() -> &String {
 ```
 
 ### 4.3 The Slice Type
+直接看原文吧。
+
+## 5. Structs
+### 5.1 Defining and Instantiating Structs
+这部分比较简单，自己看原文学吧。
+
+#### 两种语法糖
+- Field Init Shorthand
+- Struct Update Syntax
+
+#### 两种特别的结构体
+- Tuple Structs 可以创建没有字段名的结构体
+- Unit-Like Structs 可以创建没有字段的结构体
+
+#### Ownership & Lifetime
+下面这段代码会报错，因为 `email: &str` 是 borrow (借用)。改成 `email: String` 就可以了，因为这是 move (挪用)。如果不想改 `&str` 那么就要用 lifetime 了，这个知识后面的章节会讲。
+
+```rust
+struct User {
+    username: &str,
+    email: &str,
+    sign_in_count: u64,
+    active: bool,
+}
+
+fn main() {
+    let user1 = User {
+        email: "someone@example.com",
+        username: "someusername123",
+        active: true,
+        sign_in_count: 1,
+    };
+}
+```
+
+### 5.2 An Example Program Using Structs
+
+### 5.3 Method
+#### Defining Methods
+Rust 定义 method 的语法跟 Python 有点类似，第一个参数一定是 self。
+
+```rust
+#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+impl Rectangle {
+    // 最常见的写法，take ownership
+    fn area1(&self) -> u32 {
+        self.width * self.height
+    }
+
+    // 等价于 area1
+    fn area2(self: &Rectangle) -> u32 {
+        self.width * self.height
+    }
+
+    // take ownership
+    fn area3(self) -> u32 {
+        self.width * self.height
+    }
+
+    // 等价于 area3
+    fn area4(self: Rectangle) -> u32 {
+        self.width * self.height
+    }
+}
+
+fn main() {
+    let rect = Rectangle {
+        width: 30,
+        height: 50,
+    };
+
+    println!("{}", rect.area1());
+    println!("{}", rect.area2());
+    println!("{}", rect.area3());
+    println!("{}", rect.area4()); // error[E0382]: use of moved value: `rect`
+}
+```
+
+#### Associated Functions
+定义的时候没有 `self` 参数，调用的时候用双冒号 `Rectangle::square(3);`，跟其它语言的静态方法很像。
