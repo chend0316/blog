@@ -1,12 +1,6 @@
 # CSAPP
 
-CSAPP 是 CMU 的一门课，课程编号是 CMU-213。本文是我看 CMU-213 做的笔记总结。
-- B站可以看视频[【精校中英字幕】2015 CMU 15-213 CSAPP 深入理解计算机系统 课程视频](https://www.bilibili.com/video/BV1iW411d7hd)
-- 课程主页: [https://www.cs.cmu.edu/~213/](https://www.cs.cmu.edu/~213/)
-
-textbook:
-- 《深入理解计算机系统》第三版
-- Computer Systems: A Programmer's Perspective, 3/E
+本文是我看 CMU-213 做的笔记总结。
 
 ## Lecture 02
 视频中一共讲了下面这些知识点，比较基础，书上都有。有基础的可以跳着看视频，然后过一遍书。
