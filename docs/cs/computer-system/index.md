@@ -9,6 +9,8 @@ CSAPP 是 CMU 的一门课，课程编号是 CMU-213。一共 26 个课时，但
 - 教材
   - Computer Systems: A Programmer's Perspective, 3/E
   - 《深入理解计算机系统》第三版
+- [CSAPP(3rd): Solutions](https://github.com/DreamAndDead/CSAPP-3e-Solutions)
+- [CSAPP(3rd): Labs](http://csapp.cs.cmu.edu/3e/labs.html)
 
 ![](./imgs/csapp.jpg)
 
