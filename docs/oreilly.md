@@ -25,6 +25,10 @@ https://github.com/packtpublishing/css---the-complete-guide-incl.-flexbox-grid-a
 # BE
 ## Ultimate Go Programming, Second Edition
 https://learning.oreilly.com/course/ultimate-go-programming/9780135261651/
+## Mastering Go Programming
+https://learning.oreilly.com/course/mastering-go-programming/9781786468239/
+## Learn GO by Building Three Simple Golang Projects
+https://learning.oreilly.com/course/learn-go-by/9781804613214/
 # ML&AI
 ## PyTorch Ultimate 2023 - From Basics to Cutting-Edge
 https://learning.oreilly.com/course/pytorch-ultimate-2023/9781801070089/
@@ -41,6 +45,54 @@ https://github.com/PacktPublishing/Arduino-for-Beginners---2023-Complete-Course
 ## Raspberry Pi for Beginners - 2022 Complete Course
 https://learning.oreilly.com/course/raspberry-pi-for/9781804612040/
 https://github.com/PacktPublishing/Raspberry-Pi-For-Beginners---2022-Complete-Course
+# AWS by Chad Smith
+## Amazon Web Services (AWS), 3rd Edition
+https://learning.oreilly.com/course/amazon-web-services/9780137928521/
+## AWS Certified Solutions Architect Associate (SAA-C03)
+https://learning.oreilly.com/course/aws-certified-solutions/9780138057374/
+## AWS Certified Cloud Practitioner (CLF-C02)
+https://learning.oreilly.com/course/aws-certified-cloud/9780138314934/
+## AWS Certified Solutions Architect - Professional (SAP-C02)
+https://learning.oreilly.com/videos/-/9780138319205/
+## AWS Certified Advanced Networking - Specialty (ANS-C01)
+https://learning.oreilly.com/videos/-/9780138319311/
+## AWS Certified Security - Specialty (SCS-C02)
+https://learning.oreilly.com/videos/-/9780135319673/
+## AWS Certified SysOps Administrator - Associate (SOA-C02)
+https://learning.oreilly.com/videos/-/9780137556472/
+## CompTIA Cloud+ (CV0-003) Complete Video Course
+https://learning.oreilly.com/videos/-/9780138194932/
+## AWS Global Networking in Terraform
+https://learning.oreilly.com/videos/-/9780138359348/
+## AWS Security Essentials
+https://learning.oreilly.com/videos/-/9780135325353/
+## Cloud Essentials
+https://learning.oreilly.com/videos/-/9780138297640/
+# AWS
+## Amazon Web Services (AWS) Technical Essentials - Ultimate Training Program
+https://learning.oreilly.com/course/amazon-web-services/9781801079716/
+https://github.com/PacktPublishing/Amazon-Web-Services-AWS-Technical-Essentials---Ultimate-Training-Program
+## Hands-on Development in AWS
+https://learning.oreilly.com/course/hands-on-development-in/9780138107710/
+# Virtualization
+## Kubernetes for the Absolute Beginners - Hands-On
+By Mumshad Mannambeth
+https://learning.oreilly.com/videos/-/9781838555962/
+https://github.com/packtpublishing/-kubernetes-for-absolute-beginners---hands-on
+## Docker for the Absolute Beginner - Hands-On
+By Mumshad Mannambeth
+https://learning.oreilly.com/videos/-/9781788991315/
+https://github.com/packtpublishing/docker-for-the-absolute-beginner---hands-on
+## Certified Kubernetes Application Developer (CKAD), 3rd Edition
+By Sander van Vugt
+https://learning.oreilly.com/course/certified-kubernetes-application/9780138086558/
+https://github.com/sandervanvugt/ckad
+## Getting Started with Kubernetes, 3rd Edition
+By Sander van Vugt
+https://learning.oreilly.com/videos/-/9780138057626/
+## The Complete Practical Docker Guide
+By Bogdan Stashchuk
+https://learning.oreilly.com/videos/-/9781803247892/
 # Others
 ## The Art of Doing: Video Game Creation with Python and Pygame
 https://learning.oreilly.com/course/the-art-of/9781803231587/
